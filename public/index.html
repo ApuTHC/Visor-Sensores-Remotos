@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>Sensores Remotos</title>
+
+  <meta name="description" content="Materia Sensores Remotos. Universidad Nacional de Colombia. Semilleri Geohazards">
+  <meta name="keywords" content="Sensores Remotos, Universidad Nacional de Colombia, Semillero, Investigación, Inventario, Desastres, Grupo, Deslizamientos, Antioquia, Facultad, Minas">
+  <meta name="author" content="Daniel Felipe Correa Zapata - Geohazards">
+  <!-- Icono -->
+  <link rel="icon" href="img/Logo.png" sizes="16x16 32x32" type="image/png">
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Boostrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <!-- Sidebar -->
+  <link rel="stylesheet" href="css/leaflet-sidebar.css">
+  <!-- Herramienta Dibujo -->
+  <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css"/>
+  <!-- Buscador -->
+  <link rel="stylesheet" href="css/leaflet.fusesearch.css">
+  <!-- Notificaciones -->
+  <link rel="stylesheet" href="css/leaflet-notifications.css">
+  <!-- Colorpicker -->
+  <link rel="stylesheet" href="css/bootstrap-colorpicker.css">
+
+  <!-- Main Style -->
+  <link rel="stylesheet" href="css/geovisor.css">
+
+</head>
+<body class="slides horizontal simplifiedMobile animated">
+
+
+  <!-- Header -->
+  <nav class="panel">
+    <div class="sections">
+      <div class="left"><a href="index.html" title="Geohazards"><img src="img/Logo.png" class="logo"></a></div>
+      <div class="right"><a class="btn-visor" href="tablas.html" ><i class="fa-solid fa-table"></i></a></div>
+    </div>
+  </nav>
+    
+  <!-- Barra Lateral -->
+  <div id="sidebar" class="leaflet-sidebar collapsed">
+    <!-- Pestañas de navegación -->
+    <div class="leaflet-sidebar-tabs">
+        <!-- Pestañas dispuestas en la parte superior -->
+        <ul role="tablist">
+            <!-- Información -->
+            <li><a href="#home" role="tab" title="Información del Visor"><i class="fa-solid fa-circle-info"></i></a></li>
+            <!-- Mapas Base -->
+            <li><a href="#basemap" role="tab" title="Selección Mapa Base"><i class="fa-solid fa-map"></i></a></li>
+            <!-- Capas por País -->
+            <li><a href="#capas" role="tab"><i class="fa-solid fa-layer-group" title="Selección de Capas por Países"></i></a></li>
+            <!-- Leyenda -->
+            <li><a href="#cargarLeyendas" role="tab"><i class="fa-solid fa-list" title="Leyenda"></i></a></li>
+            <!-- Datos -->
+            <li><a href="#datos" role="tab"><i class="fa-solid fa-pen-to-square" title="Editar Datos"></i></a></li>
+            <!-- Buscador -->
+            <li><a href="#buscador" role="tab"><i class="fa-solid fa-magnifying-glass-location" title="Buscador"></i></a></li>
+            <!-- Cargar Capas -->
+            <li><a href="#cargarCapa" role="tab"><i class="fa-solid fa-upload" title="Cargar Capas"></i></a></li>
+            <!-- Descargar Capas -->
+            <li><a href="#descargaCapa" role="tab"><i class="fa-solid fa-download" title="Descargar Capas"></i></a></li>
+
+          </ul>
+        <!-- Pestañas dispuestas en la parte inferior -->
+        <ul role="tablist">
+            <!-- Perfil de Usuario -->
+            <li><a href="#profile"><i class="fa-solid fa-user" title="Perfil de Usuario"></i></a></li>
+        </ul>
+    </div>
+    <!-- Contenido de cada pestaña -->
+    <div class="leaflet-sidebar-content">
+        <!-- Contenido Información -->
+        <div class="leaflet-sidebar-pane" id="home">
+            <h1 class="leaflet-sidebar-header">
+                Inventario de Desastres
+                <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
+            </h1>
+            <br>
+            <h4 class="text-justify"><b>Sensores Remotos</b></h4>
+            <p class="h5">Desarrollado por el Semillero Geohazards</p>
+        </div>
+        <!-- Contenido Mapa Base (Gran parte del contenido se carga dinámicamente por medio de Javascript) -->
+        <div class="leaflet-sidebar-pane" id="basemap">
+            <h1 class="leaflet-sidebar-header">
+                Mapa Base
+                <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
+            </h1>
+            <br>
+            <h4>Seleccione el mapa base:</h4>
+            <br>
+            <div id="basemapContent"></div>
+        </div>
+        <!-- Contenido Capas por País -->
+        <div class="leaflet-sidebar-pane" id="capas">
+          <h1 class="leaflet-sidebar-header">
+              Capas
+              <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
+          </h1>
+          <br>
+          <div class="h-100 w-100">
+            <nav><div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist"></div></nav>
+            <div class="tab-content" id="nav-tabContent"></div>
+          </div>
+        </div>
+        <!-- Panel de leyendas -->
+        <div class="leaflet-sidebar-pane" id="cargarLeyendas">
+          <h1 class="leaflet-sidebar-header">
+              Leyenda
+              <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
+          </h1>
+          <br>
+          <div id="legendpane"></div>
+        </div>
+        <!-- Panel Datos -->
+        <div class="leaflet-sidebar-pane" id="datos">
+          <h1 class="leaflet-sidebar-header">
+              Editar Datos
+              <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
+          </h1>
+          <br>
+          <div id="datospane" class="b-border"></div>
+          <div id="datosEditpane"></div>
+        </div>
+        <!-- Buscador -->
+        <div class="leaflet-sidebar-pane" id="buscador">
+          <h1 class="leaflet-sidebar-header">
+              Buscador
+              <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
+          </h1>
+          <br>
+          <div id="buscadorContent"></div>
+
+      </div>
+        <!-- Contenido Cargar Capas -->
+        <div class="leaflet-sidebar-pane" id="cargarCapa">
+            <h1 class="leaflet-sidebar-header">
+                Cargar Capas
+                <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
+            </h1>
+            <br>
+            <h4 class="">En esta sección puede cargar las capas que desee, los formatos compatibles son:</h4>
+            <h5 class="">KML (.kml) y KMZ (.kmz)</h6>
+            <h5 class="">Shapefile Comprimido (.zip)</h6>
+            <h5 class="">GeoJSON (.json)</h6>
+            <h5 class="">Raster (.tif)</h6>
+            <h5 class="">Puede cargar varios archivos a la vez, incluso de diferentes tipos.</h5>
+            <br>
+            <input class="file-cargarCapa" type="file" id="files" name="files[]" multiple>
+            <div class="b-border w-100"></div>
+            <div id="content-input-cargarCapa" class="container-fluid"></div>
+        </div>
+
+        <!-- Contenido Descargar Capas -->
+        <div class="leaflet-sidebar-pane" id="descargaCapa">
+          <h1 class="leaflet-sidebar-header">
+              Descargar Eventos
+              <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
+          </h1>
+          <div id="descargapane"></div>
+        </div>
+
+        
+
+        <!-- Contenido Perfil -->
+        <div class="leaflet-sidebar-pane" id="profile">
+          <h1 class="leaflet-sidebar-header">
+            Perfil<span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
+          </h1>              
+        <div>
+            <div id="firebaseui-auth-container"></div>
+            <div class="d-none" id="modal-perfil-container">
+                <img src="#" alt="Foto Perfil" id="foto-perfil">
+                <h3 id="nombre-perfil">Nombre</h3>
+                <h4 id="correo-perfil">Correo</h4>
+                <h4 id="semestre-perfil">Proyecto</h4>
+                <button type="button" class="btn btn-danger" id="logout" data-dismiss="modal">Cerrar Sesión</button>
+            </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- Fin Barra Lateral -->
+
+  
+  <!-- Main -->
+  <main class="w-100 h-100">
+    <!-- Contenedor del Mapa -->
+    <div class="contenido-mapa w-100 h-100">
+      <div id="map"></div>
+    </div>
+  </main>
+  <!-- Fin Main -->
+
+  <!-- jQuery, Popper, Bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="js/lib/bootstrap-colorpicker.js"></script>
+  <!-- Date Format -->
+  <script src="js/lib/dateFormat.min.js"></script>
+  <!-- Leaflet -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <!-- Sidebar -->
+  <script src="js/lib/leaflet-sidebar.min.js"></script>
+  <!-- Herramienta Dibujo -->
+  <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
+  <!-- Plugins para manejo de un Spin de carga -->
+  <script src="js/lib/spin.min.js"></script>
+  <script src="js/lib/leaflet.spin.min.js"></script>
+  <!-- ESRI -->
+  <script src="js/lib/esri-leaflet.js"></script>
+  <script src="js/lib/esri-leaflet-vector.js"></script>
+  <script src="js/lib/esri-leaflet-renderers.js"></script>
+  <!-- <script src="js/lib/esri-leaflet-webmap.js"></script> -->
+  <script src="js/lib/esri-leaflet-legend-src.js"></script>
+  <!-- Buscador -->
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.js"></script>
+  <script src="js/lib/leaflet.fusesearch.js"></script>
+  <!-- Notificaciones -->
+  <script src="js/lib/leaflet-notifications.js"></script>
+  <!-- Visualización de información tipo Raster -->
+  <script src="js/lib/georaster.js"></script>
+  <script src="js/lib/proj4-src.js"></script>
+  <script src="js/lib/proj4leaflet.js"></script>
+  <script src="js/lib/georaster-layer-for-leaflet.js"></script>
+  <!-- Plugins pára visualización de información tipo WMS -->
+  <script src="js/lib/leaflet.wms.js"></script>
+  <!-- Plugins pára visualización de varios tipos de información -->
+  <script src="js/lib/leaflet-omnivore.min.js"></script>
+  <!-- Plugins pára visualización de información tipo KML -->
+  <script src="js/lib/leaflet-kml.js"></script>
+  <!-- Plugins pára visualización de información tipo KMZ -->
+  <script src="js/lib/leaflet-kmz.js"></script>
+  <script src="js/lib/jszip.min.js"></script>
+  <script src="js/lib/togeojson.js"></script>
+  <!-- Plugins pára visualización de información tipo SHP -->
+  <script src="js/lib/shp.js"></script>
+  <script src="js/lib/leaflet.shpfile.js"></script>
+  <!-- FileSaver -->
+  <script src="js/lib/circuler.js"></script>
+  <script src="js/lib/FileSaver.min.js"></script>
+  <!-- Download Shapefile from GeoJSON -->
+  <script src="js/lib/shpwrite.js"></script>
+  <!-- Datos -->
+  <script src="data/datos.js"></script>
+  <script src="data/ValleAburra.js"></script>
+  <!-- Main Script -->
+  <script src="js/geovisor.js"></script>
+
+</body>
+</html>
+		
+
+
