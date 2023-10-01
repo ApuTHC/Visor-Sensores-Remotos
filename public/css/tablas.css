@@ -1,0 +1,132 @@
+body{
+  overflow: hidden;
+  margin: 0;
+  font-family: 'Gabarito', cursive;
+  /* background: #00000060;
+  background-image: url(../img/tablas.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; */
+  /* background-position: center center; */
+}
+.panel .sections {
+  position: absolute;
+  top: 0;
+  z-index: 99999;
+}
+.panel .sections .left {
+  position: absolute;
+  top: 20px;
+  left: 40px;
+}
+.panel .sections .left img{
+  width: 100px;
+}
+.panel .sections .right {
+  position: fixed;
+  top: 50px;
+  right: 40px;
+}
+.panel .sections .right .btn-visor{
+  color: #247461;
+  text-decoration: none !important;
+  background: #ffffff;
+  border: 1px solid black;
+  border-radius: 15%;
+  box-shadow: #000000b8 3px -3px 15px 0px;
+  font-size: 25px !important;
+  padding: 7px 11px !important;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+.panel .sections .right .btn-visor:hover {
+  color: white;
+  background: #247461;
+  border-color: #247461;
+}
+.panel .sections .center {
+  position: fixed;
+  top: 50px;
+  left: 50vw;
+  transform: translate(-50%, -0%);
+  text-align: center;
+  color: #ffffff;
+}
+
+.main{
+  width: 100vw;
+  height: 100vh;
+}
+.main .img-bg{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.main .cover{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000a0;
+}
+.main .cover #info-tablas{
+  margin: 20vh 5px 0vh 5px;
+  padding: 0;
+  width: auto;
+}
+.main .cover #info-tablas .row{
+  margin: 0;
+  height: 80vh;
+  color: #333;
+  display: block;
+}
+.main .cover #info-tablas .row #tematicas{
+  width: 100%;
+  justify-content: center;
+  border-bottom: none;
+}
+.main .cover #info-tablas .row #tematicas .nav-item{
+  margin: 0 10px;
+  border-bottom: 1px solid black;
+}
+.main .cover #info-tablas .row #tematicas .nav-item .nav-link{
+  background: #ffffffbb;
+  color: #333;
+  border: none;
+}
+.main .cover #info-tablas .row #tematicas .nav-item .nav-link.active{
+  background: #247461;
+  color: #fff;
+  border: none;
+}
+.main .cover #info-tablas .row #tabla{
+  padding: 5px;
+  height: 93%;
+  background: #ffffffcc;
+  border: 4px solid #247461;
+  border-radius: 10px;
+}
+.main .cover #info-tablas .row #tabla .inicio{
+  margin-top: 40px;
+}
+.main .cover #info-tablas .row #tabla .inicio .sep-inicio{
+  border-top: 2px solid #247461;
+}
+.main .cover #info-tablas .row #tabla .inicio .contenedor-logos{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.main .cover #info-tablas .row #tabla .inicio .contenedor-logos #logo-unal{
+  height: 180px;
+}
+.main .cover #info-tablas .row #tabla .inicio .contenedor-logos #logo-geohazards{
+  height: 130px;
+}
+.main .cover #info-tablas .row #tabla .tablaconfig{
+  height: 100%;
+  overflow: auto;
+
+}

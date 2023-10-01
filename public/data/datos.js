@@ -133,4 +133,70 @@ var datos = {
         ]
     },
   },
+  "datos_feat":{
+    "procesos":[
+      {
+        "text":"Registrar Proceso",
+        "type":"titulo",
+      },
+      {
+        "text":"Input1",
+        "campo_id":"ejem1",
+        "type":"input",
+        "msg":"mensajito1",
+        "is_textarea":false,
+        "is_date":false,
+      },
+      {
+        "text":"Input2",
+        "type":"input",
+        "campo_id":"ejem2",
+        "msg":"mensajito2",
+        "is_textarea":true,
+        "is_date":false,
+      },
+      {
+        "text":"Input3",
+        "type":"input",
+        "campo_id":"ejem3",
+        "msg":"mensajito3",
+        "is_textarea":false,
+        "is_date":true,
+      },
+      {
+        "text":"Registrar Proceso",
+        "type":"select",
+        "campo_id":"ejem4",
+        "msg":"mensajito4",
+        "options":["opt1","opt2","opt3"],
+      },
+      {
+        "text":"Guardar Proceso",
+        "type":"btn",
+      },
+    ],
+    "rasgos":[
+      {
+        "text":"Registrar Rasgo",
+        "type":"titulo",
+      },
+      {
+        "text":"Guardar Rasgo",
+        "type":"btn",
+      },
+    ],
+    "estaciones":[
+      {
+        "text":"Registrar Estación",
+        "type":"titulo",
+      },
+      {
+        "text":"Registrar Nueva Estación",
+        "type":"btn",
+      },
+    ]
+  },
+  "datos_estaciones":{
+    
+  }
 }

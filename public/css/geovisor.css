@@ -6,7 +6,7 @@ body{
 .panel .sections {
   position: absolute;
   top: 0;
-  z-index: 99999;
+  z-index: 999;
 }
 .panel .sections .left {
   position: absolute;
@@ -18,11 +18,11 @@ body{
 }
 .panel .sections .right {
   position: fixed;
-  top: 70px;
+  top: 50px;
   right: 40px;
 }
 .panel .sections .right .btn-visor{
-  color: #333333;
+  color: #247461;
   text-decoration: none !important;
   background: #ffffff;
   border: 1px solid black;
@@ -43,6 +43,26 @@ body{
   width: 100vw;
   height: 100vh;
 }
+
+.marker-icon, .marker-icon:focus {
+    margin: -6px 0 0 -6px !important;
+    width: 10px !important;
+    height: 10px !important;
+}
+
+.leaflet-ruler{
+  font-size: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.control-icon.cut{
+  font-size: 15px;
+  color: #333;
+  line-height: normal;
+  margin-top: 3px;
+}
+
 .leaflet-top {
   top: 140px;
 }
@@ -437,4 +457,42 @@ body{
 
 .search-input{
   width: 70%;
+}
+
+#sidebar .btn-comun {
+  color: #247461;
+  background: #ffffff;
+  border-color: #247461;
+}
+#sidebar .btn-comun:hover {
+  color: #ffffff;
+  background: #247461;
+  border-color: #247461;
+}
+
+.modal-dialog{
+  width: 90vw;
+  max-width: none;
+}
+.modal-dialog .estilo-modales{
+  background: #247461;
+  color: #ffffff;
+}
+.modal-dialog .estilo-modales .close{
+  color: #ffffff;
+}
+
+.modal-dialog .estilo-modales.btn {
+  color: #247461;
+  background: #ffffff;
+  border-color: #247461;
+}
+.modal-dialog .estilo-modales.btn:hover {
+  color: #ffffff;
+  background: #247461;
+  border-color: #247461;
+}
+
+.firebaseui-list-item{
+  list-style: none;
 }

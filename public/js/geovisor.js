@@ -21,6 +21,57 @@ var spinOpts = {
   className: "spinner", // The CSS class to assign to the spinner
   //position: 'absolute', // Element positioning
 };
+// Auxiliares carga marcadores
+var auxCargaInfoAflor = 0;
+var allData = L.layerGroup();
+// var markersRasgos = L.layerGroup();
+// var markerCentrid = L.layerGroup();
+var layerEdit=null;
+var layergeojson = null;
+var layergeojsonAnterior = null;
+var notNewAnterior = false;
+var idLayer ='nuevo';
+var claseLayer = 'nuevo';
+var forma = null;
+var editMode = false;
+var sidebarLeft = false;
+var cutMode = false;
+var markerUGSR = L.AwesomeMarkers.icon({
+  icon: 'hammer',
+  prefix:'fa',
+  markerColor: 'darkred'
+});
+
+var markerUGSS = L.AwesomeMarkers.icon({
+  icon: 'hammer',
+  prefix:'fa',
+  markerColor: 'red'
+});
+
+var markerControlUGS = L.AwesomeMarkers.icon({
+  icon: 'hammer',
+  prefix:'fa',
+  markerColor: 'orange'
+});
+
+var markerSGMF = L.AwesomeMarkers.icon({
+  icon: 'mountain-sun',
+  prefix:'fa',
+  markerColor: 'darkgreen'
+});
+
+var markerControlSGMF = L.AwesomeMarkers.icon({
+  icon: 'mountain-sun',
+  prefix:'fa',
+  markerColor: 'green'
+});
+
+var markerInv = L.AwesomeMarkers.icon({
+  icon: 'hill-avalanche',
+  prefix:'fa',
+  markerColor: 'blue'
+});
+
 (function () {
   // Esperamos a que el documento esté listo
   $(document).ready(function () {
@@ -52,14 +103,28 @@ var spinOpts = {
       .addTo(map);
 
     AgregarContenidoMapasBase();
-
+    
     AgregarCapas();
+    
+    CargarNotificaciones();
 
+    CargarEscala();
+    
+    CargarLocation();
+    
     CargarDraw();
-
+    
     CargarSearch();
+    
+    CargarBtnSplit();
+    
+    CargarRegla();
   });
 })();
+
+// Marcadores estaciones
+
+
 
 //Mapas Base ----->
 // Variables para gestión de mapa base
@@ -1171,8 +1236,19 @@ function GraficarFileRaster(f) {
 
 //<----- Fin Cargar Capas
 
-// Draw
 
+// Notificaciones
+function CargarNotificaciones() {
+  notification = L.control.notifications({
+      timeout: 4000,
+      position: 'topright',
+      closable: true,
+      dismissable: true,
+      className: 'pastel'
+  }).addTo(map);
+}
+
+// Draw
 function CargarDraw() {
   var drawnPolygons = L.featureGroup().addTo(map);
   var drawnLines = L.featureGroup().addTo(map);
@@ -1184,10 +1260,7 @@ function CargarDraw() {
     if (!cutMode) {
       var layer = e.layer;
       var geojson = layer.toGeoJSON();
-
-      console.log(turf.getCoord(turf.centroid(geojson)));
-      
-      
+    
       var geom = turf.getGeom(geojson);
       if (geom.type == 'Polygon') {
         polygons.push(geom);
@@ -1278,9 +1351,8 @@ function CargarDraw() {
   });
 }
 
-
 // Search
-
+var searchCtrl;
 function CargarSearch() {
   searchCtrl = L.control.fuseSearch().addTo(map);
   $("#buscadorContent").append($(".leaflet-fusesearch-panel .content"));
@@ -1288,3 +1360,808 @@ function CargarSearch() {
   $(".content .header").prepend('<i class="fa-solid fa-magnifying-glass-location lupa-search"></i>');
   $(".content .header .close").remove();
 }
+
+// Escala
+function CargarEscala() {
+  L.control.scale({
+    metric: true,
+    imperial: false,
+    position: 'bottomleft'
+  }).addTo(map);
+}
+
+// Rule
+function CargarRegla() {
+  var options = {
+    position: 'topright',         // Leaflet control position option
+    circleMarker: {               // Leaflet circle marker options for points used in this plugin
+      color: '#247461',
+      radius: 2
+    },
+    lineStyle: {                  // Leaflet polyline options for lines used in this plugin
+      color: '#247461',
+      dashArray: '1,6'
+    },
+    lengthUnit: {                 // You can use custom length units. Default unit is kilometers.
+      display: 'meters',              // This is the display value will be shown on the screen. Example: 'meters'
+      decimal: 2,                 // Distance result will be fixed to this value. 
+      factor: 1000,               // This value will be used to convert from kilometers. Example: 1000 (from kilometers to meters)  
+      label: 'Distancia:'           
+    },
+    angleUnit: {
+      display: '&deg;',           // This is the display value will be shown on the screen. Example: 'Gradian'
+      decimal: 2,                 // Bearing result will be fixed to this value.
+      factor: null,                // This option is required to customize angle unit. Specify solid angle value for angle unit. Example: 400 (for gradian).
+      label: 'Azimut:'
+    }
+  };
+  L.control.ruler(options).addTo(map);
+  $(".leaflet-ruler").append('<i class="fa-solid fa-ruler-combined"></i>');
+}
+
+//Location
+var latLoctaion = 0;
+var lngLoctaion = 0;
+function CargarLocation(){
+  map.addControl(L.control.locate({
+    locateOptions: {
+            enableHighAccuracy: true,
+            maxZoom: 18,
+            position: 'topleft',
+            flyTo: true,
+            showCompass: true,
+            strings: {
+              title: "Localización",
+              metersUnit: "metros",
+              feetUnit: "feet",
+              popup: "Tu estás aproximadamente a {distance} {unit} al rededor de este punto : [lat: "+latLoctaion+', lng: '+lngLoctaion+']',
+              outsideMapBoundsMsg: "You seem located outside the boundaries of the map"
+            }
+  }})).on('locationfound', function(e){
+        latLoctaion = e.latitude;
+        lngLoctaion = e.longitude; 
+        console.log(latLoctaion, lngLoctaion);
+        $(".leaflet-popup-content").append('<p class="text-center">[' + latLoctaion + ', ' + lngLoctaion + '] </p>');
+        
+      })
+      .on('locationerror', function(e){
+        console.log(e);
+        alert("Location access denied.");
+      });
+
+      $(".leaflet-control-locate-location-arrow").append('<i class="fas fa-location-arrow"></i>');
+}
+
+// Boton Split
+function CargarBtnSplit() {
+
+  map.pm.Toolbar.copyDrawControl('Line', {
+    name: 'LineCopy',
+    block: 'edit',
+    title: 'Cortar Polígonos',
+    className: 'cut',
+    onClick: () => {
+      console.log('click primero');
+      cutMode = true;
+    },
+  });
+
+  $(".cut").append('<span class="fa fa-cut cuts"></span>');
+
+}
+function cutPolygon(polygon, line, direction, id) {
+  var j;
+  var polyCoords = [];
+  var cutPolyGeoms = [];
+  var retVal = null;
+
+  if ((polygon.type != 'Polygon') || (line.type != 'LineString')) return retVal;
+
+  var intersectPoints = turf.lineIntersect(polygon, line);
+  var nPoints = intersectPoints.features.length;
+  if ((nPoints == 0) || ((nPoints % 2) != 0)) return retVal;
+
+  var offsetLine = turf.lineOffset(line, (0.01 * direction), {
+    units: 'kilometers'
+  });
+
+  for (j = 0; j < line.coordinates.length; j++) {
+    polyCoords.push(line.coordinates[j]);
+  }
+  for (j = (offsetLine.geometry.coordinates.length - 1); j >= 0; j--) {
+    polyCoords.push(offsetLine.geometry.coordinates[j]);
+  }
+  polyCoords.push(line.coordinates[0]);
+  var thickLineString = turf.lineString(polyCoords);
+  var thickLinePolygon = turf.lineToPolygon(thickLineString);
+
+  var clipped = turf.difference(polygon, thickLinePolygon);
+  for (j = 0; j < clipped.geometry.coordinates.length; j++) {
+    var polyg = turf.polygon(clipped.geometry.coordinates[j]);
+    var overlap = turf.lineOverlap(polyg, line, {
+      tolerance: 0.005
+    });
+    if (overlap.features.length > 0) {
+      cutPolyGeoms.push(polyg.geometry.coordinates);
+    }
+  }
+
+  if (cutPolyGeoms.length == 1)
+    retVal = turf.polygon(cutPolyGeoms[0], {
+      id: id
+    });
+  else if (cutPolyGeoms.length > 1) {
+    retVal = turf.multiPolygon(cutPolyGeoms, {
+      id: id
+    });
+  }
+
+  return retVal;
+}
+
+// Función para resaltar la figura seleccionada
+function ResaltarFeat(newFeat, notNew) {
+  // map.removeLayer(markersRasgos);
+  console.log(newFeat.toGeoJSON());
+
+  var colorNew = '#3388ff';
+  var colorSelect = '#fff';
+  if (!editMode) {
+    if(layergeojsonAnterior==newFeat){
+  
+    }else if(layergeojsonAnterior == null){
+      layergeojsonAnterior = newFeat
+      notNewAnterior = notNew;
+    }else if (notNewAnterior){
+      layergeojsonAnterior.pm.disable();
+      if (layergeojsonAnterior.feature.properties.clase == 'procesos') {
+        var auxLayergeojsonAnterior = layergeojsonAnterior.toGeoJSON();
+        var geom = turf.getGeom(auxLayergeojsonAnterior);
+        if (geom.type == 'Polygon') {
+          layergeojsonAnterior.setStyle({weight:3, color : capasDatos[0].color, fillColor: capasDatos[0].color, fillOpacity:0.2})
+        }
+      }else if (layergeojsonAnterior.feature.properties.clase == 'rasgos') {
+        layergeojsonAnterior.setStyle({weight:3, color : capasDatos[1].color, fillColor: capasDatos[2].color, fillOpacity:0.2})
+      }else{
+        layergeojsonAnterior.setStyle({weight:3, color : colorNew, fillColor: colorNew, fillOpacity:0.2})
+      }
+    }else{
+      layergeojsonAnterior.pm.disable();
+      layergeojsonAnterior.setStyle({weight:3, color : colorNew, fillColor: colorNew, fillOpacity:0.2})
+    }
+    layergeojsonAnterior = newFeat;
+    notNewAnterior = notNew;
+    var auxLayerCentroid = newFeat.toGeoJSON();
+    var geom = turf.getGeom(auxLayerCentroid);
+    if (geom.type == 'Polygon') {
+      newFeat.setStyle({weight:6, color : colorSelect, fillColor: colorSelect, fillOpacity:0.2})
+    }
+
+    newFeat.pm.enable({
+      allowSelfIntersection: true,
+    });
+    newFeat.on('pm:edit', (e) => {
+      layergeojson = e.layer.toGeoJSON();
+    });
+  }
+}
+
+function GenerarFormulario(tipo, coor, is_new, feat) {
+  var contentDatos = "";
+  var data_form = [];
+  if (tipo === "proceso") {
+    data_form = datos["datos_feat"]["procesos"];
+  }
+  else if (tipo === "rasgo") {
+    data_form = datos["datos_feat"]["rasgos"];
+  }
+  else if (tipo === "estacion") {
+    data_form = datos["datos_feat"]["estaciones"];
+  }
+
+  for (let ind = 0; ind < data_form.length; ind++) {
+    const element = data_form[ind];
+    if (element["type"] === "titulo") {
+      contentDatos += '<h2>'+element["text"]+'</h2>'
+    }
+    if (element["type"] === "input") {
+      contentDatos += '<div class="form-group">';
+      contentDatos += '<label for="'+ tipo +'_'+ element["campo_id"] +'">'+ element["text"] +'</label>'
+      if (element["is_textarea"]) {
+        contentDatos += '<textarea type="text" rows="2" class="form-control" id="'+ element["campo_id"] +'" aria-describedby="msg_'+ element["campo_id"] +'"></textarea/>'
+      }
+      else if (element["is_date"]) {
+        contentDatos += '<input type="date" class="form-control" id="'+ element["campo_id"] +'" aria-describedby="msg_'+ element["campo_id"] +'">'
+      }
+      else{
+        contentDatos += '<input type="text" class="form-control" id="'+ element["campo_id"] +'" aria-describedby="msg_'+ element["campo_id"] +'">'
+      }
+      contentDatos += '<small id="msg_'+ element["campo_id"] +'" class="form-text text-muted">'+ element["msg"] +'</small>'
+      contentDatos += '</div>';
+    }
+    if (element["type"] === "select") {
+      contentDatos += '<div class="form-group">';
+      contentDatos += '<label for="'+ tipo +'_'+ element["campo_id"] +'">'+ element["text"] +'</label>'
+      contentDatos += '<select class="form-control" id="'+ element["campo_id"] +'" aria-describedby="msg_'+ element["campo_id"] +'">'
+      for (let j = 0; j < element["options"].length; j++) {
+        const option = element["options"][j];
+        contentDatos += '<option>'+option+'</option>';
+      }
+      contentDatos += '</select>';
+      contentDatos += '<small id="msg_'+ element["campo_id"] +'" class="form-text text-muted">'+ element["msg"] +'</small>'
+      contentDatos += '</div>';
+    }
+    if (element["type"] === "btn") {
+      if (tipo === "estacion") {
+        // console.log(coor);
+        contentDatos += '<button class="btn btn-comun" data-toggle="modal" data-target="#addEstacionModal" data-whatever="0_'+coor[1]+'_'+coor[0]+'">'+element["text"]+'</button>'
+      }
+      else{
+        contentDatos += '<div class="form-group">';
+        contentDatos += '<button class="btn btn-comun" type="button" id="btn_'+ tipo +'" onclick="GuardarFeat(id)">'+element["text"]+'</button>';
+        contentDatos += '</div>';
+        console.log(contentDatos);
+      }
+    }
+  }
+  $("#datosEditpane").empty();
+  $("#datosEditpane").append(contentDatos);
+
+  if (!is_new) {
+    for (let ind = 0; ind < data_form.length; ind++) {
+      $("#"+data_form[ind]["campo_id"]).val(feat.properties[data_form[ind]["campo_id"]]);    
+    }
+  }
+
+}
+
+// Función que se llama al seleccionar una figura nueva
+function EditNew() {
+  console.log("nuevo");
+  idLayer = "nuevo";
+  claseLayer = "nuevo";
+  layerEdit = this;
+  layergeojson = this.toGeoJSON();
+
+  var geom = turf.getGeom(layergeojson);
+  
+  if (geom.type == 'Polygon') {
+    GenerarFormulario("proceso", [], true, null);
+  }
+  if (geom.type == 'LineString') {
+    GenerarFormulario("rasgo", [], true, null);
+  }
+  if (geom.type == 'Point') {
+    GenerarFormulario("estacion", geom.coordinates, true, null);
+  }
+  // console.log(layergeojson);
+  // console.log(layergeojson.type);
+  ResaltarFeat(this, false);
+  if(layergeojson.type == 'FeatureCollection'){
+    layergeojson = layergeojson.features[0];
+    delete layergeojson.properties.id;
+  }
+  // console.log(layergeojson);
+
+  // $("#IPM_FECREP").val(dateFormat(new Date(),'Y-m-d'));
+
+  sidebar.open('datos');
+
+}
+
+// Función que se llama al seleccionar una figura ya existente
+function EditExist(e) {
+  console.log(e);
+  console.log(e.layer);
+  layerEdit = e.layer; 
+  layergeojson = e.layer.toGeoJSON();
+
+  var geom = turf.getGeom(layergeojson);
+  idLayer = layergeojson.properties.id;
+  
+  if (geom.type == 'Polygon') {
+    GenerarFormulario("proceso", [], false, layergeojson);
+  }
+  if (geom.type == 'LineString') {
+    GenerarFormulario("rasgo", [], false, layergeojson);
+  }
+
+  ResaltarFeat(e.layer, true);
+  console.log(e.layer.toGeoJSON());
+}
+
+
+
+function popupEstaciones(layer) {
+  console.log(layer.feature.layer._latlng);
+  if (!editMode) {
+
+    var feature =  capasDatos[2].database["estacion_"+layer.feature.properties.id];
+
+    if(feature["Formularios"].count_UGS_Rocas>0){
+      for (let j = 0; j < feature["Formularios"].count_UGS_Rocas; j++) {
+        if (feature["Formularios"]["Form_UGS_Rocas"]["Form_UGS_Rocas_"+j].activo) {
+          var formato = feature["Formularios"]["Form_UGS_Rocas"]["Form_UGS_Rocas_"+j]; 
+          if (formato["gsi"] !== undefined) {
+            var calificacion = "";
+            switch (formato["gsi"]) {
+              case "0-20":
+                calificacion = "Muy Mala";
+                break;
+              case "20-40":
+                calificacion = "Mala";
+                break;
+              case "40-60":
+                calificacion = "Regular";
+                break;
+              case "60-80":
+                calificacion = "Buena";
+                break;
+              case "80-100":
+                calificacion = "Muy Buena";
+                break;
+              default:
+                calificacion = "No Aplica";
+                break;
+            }
+
+            return L.Util.template( '<p><strong>Estacion</strong>: '+layer.feature.properties.Estacion+'.<br>'+ 
+                            '<strong>TipoEstacion</strong>: '+layer.feature.properties.TipoEstacion+'.<br>'+
+                            '<strong>Formatos</strong>: '+layer.feature.properties.Formatos+'.<br>'+
+                            '<strong>Propietario</strong>: '+layer.feature.properties.Propietario+'.<br>'+
+                            '<strong>Observaciones</strong>: '+layer.feature.properties.Observaciones+'.<br>'+
+                            '<strong>Fecha</strong>: '+layer.feature.properties.Fecha+'.<br>'+
+                            '<strong>['+layer.feature.properties.Norte+', '+layer.feature.properties.Este+']</strong><br>'+
+                            '<strong>Altitud</strong>: '+layer.feature.properties.Altitud+'.<br>'+
+                            '<strong>ID en la base de datos</strong>: '+layer.feature.properties.id+'.<br>'+
+                            '<strong>Calidad de la Roca</strong>: '+calificacion+', (GSI:'+ formato["gsi"] +').<br>'+
+                            '<strong><button class="estilo-modales-1" data-toggle="modal" data-target="#modal-estaciones" data-whatever="'+layer.feature.properties.id+'_'+ layer.feature.layer._latlng.lat +'_'+ layer.feature.layer._latlng.lng +'">Ver Detalles de la Estación</button></strong><br>', layer.feature.properties);
+          }
+        }
+        else{
+          return L.Util.template( '<p><strong>Estacion</strong>: '+layer.feature.properties.Estacion+'.<br>'+
+                                  '<strong>TipoEstacion</strong>: '+layer.feature.properties.TipoEstacion+'.<br>'+
+                                  '<strong>Formatos</strong>: '+layer.feature.properties.Formatos+'.<br>'+
+                                  '<strong>Propietario</strong>: '+layer.feature.properties.Propietario+'.<br>'+
+                                  '<strong>Observaciones</strong>: '+layer.feature.properties.Observaciones+'.<br>'+
+                                  '<strong>Fecha</strong>: '+layer.feature.properties.Fecha+'.<br>'+
+                                  '<strong>['+layer.feature.properties.Norte+', '+layer.feature.properties.Este+']</strong><br>'+
+                                  '<strong>Altitud</strong>: '+layer.feature.properties.Altitud+'.<br>'+
+                                  '<strong>ID en la base de datos</strong>: '+layer.feature.properties.id+'.<br>'+
+                                  '<strong><button class="estilo-modales-1" data-toggle="modal" data-target="#modal-estaciones" data-whatever="'+layer.feature.properties.id+'_'+ layer.feature.layer._latlng.lat +'_'+ layer.feature.layer._latlng.lng +'">Ver Detalles de la Estación</button></strong><br>', layer.feature.properties
+                                );
+        }
+      }
+    }
+    else if(feature["Formularios"].count_INVENTARIO>0){
+      var tipos = "";
+      for (let j = 0; j < feature["Formularios"].count_INVENTARIO; j++) {
+        if (feature["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+j].activo) {
+          var formato = feature["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+j]; 
+          if (tipos!=="") {
+            tipos += '.<br>';
+          }
+          tipos += "Inventario: "+formato.ID_PARTE+" Tipo MM 1: "+formato.TIPO_MOV1;
+        }
+      }
+      if (tipos !== "") {
+        return L.Util.template( '<p><strong>Estacion</strong>: '+layer.feature.properties.Estacion+'.<br>'+ 
+                            '<strong>TipoEstacion</strong>: '+layer.feature.properties.TipoEstacion+'.<br>'+
+                            '<strong>Formatos</strong>: '+layer.feature.properties.Formatos+'.<br>'+
+                            '<strong>Propietario</strong>: '+layer.feature.properties.Propietario+'.<br>'+
+                            '<strong>Observaciones</strong>: '+layer.feature.properties.Observaciones+'.<br>'+
+                            '<strong>Fecha</strong>: '+layer.feature.properties.Fecha+'.<br>'+
+                            '<strong>['+layer.feature.properties.Norte+', '+layer.feature.properties.Este+']</strong><br>'+
+                            '<strong>Altitud</strong>: '+layer.feature.properties.Altitud+'.<br>'+
+                            '<strong>ID en la base de datos</strong>: '+layer.feature.properties.id+'.<br>'+
+                            '<strong>Tipo de MM 1</strong>: '+tipos+'.<br>'+
+                            '<strong><button class="estilo-modales-1" data-toggle="modal" data-target="#modal-estaciones" data-whatever="'+layer.feature.properties.id+'_'+ layer.feature.layer._latlng.lat +'_'+ layer.feature.layer._latlng.lng +'">Ver Detalles de la Estación</button></strong><br>', layer.feature.properties);
+      }
+      else{
+        return L.Util.template( '<p><strong>Estacion</strong>: '+layer.feature.properties.Estacion+'.<br>'+
+                                '<strong>TipoEstacion</strong>: '+layer.feature.properties.TipoEstacion+'.<br>'+
+                                '<strong>Formatos</strong>: '+layer.feature.properties.Formatos+'.<br>'+
+                                '<strong>Propietario</strong>: '+layer.feature.properties.Propietario+'.<br>'+
+                                '<strong>Observaciones</strong>: '+layer.feature.properties.Observaciones+'.<br>'+
+                                '<strong>Fecha</strong>: '+layer.feature.properties.Fecha+'.<br>'+
+                                '<strong>['+layer.feature.properties.Norte+', '+layer.feature.properties.Este+']</strong><br>'+
+                                '<strong>Altitud</strong>: '+layer.feature.properties.Altitud+'.<br>'+
+                                '<strong>ID en la base de datos</strong>: '+layer.feature.properties.id+'.<br>'+
+                                '<strong><button class="estilo-modales-1" data-toggle="modal" data-target="#modal-estaciones" data-whatever="'+layer.feature.properties.id+'_'+ layer.feature.layer._latlng.lat +'_'+ layer.feature.layer._latlng.lng +'">Ver Detalles de la Estación</button></strong><br>', layer.feature.properties
+                              );
+      }
+    }
+    else{
+      return L.Util.template( '<p><strong>Estacion</strong>: '+layer.feature.properties.Estacion+'.<br>'+
+                              '<strong>TipoEstacion</strong>: '+layer.feature.properties.TipoEstacion+'.<br>'+
+                              '<strong>Formatos</strong>: '+layer.feature.properties.Formatos+'.<br>'+
+                              '<strong>Propietario</strong>: '+layer.feature.properties.Propietario+'.<br>'+
+                              '<strong>Observaciones</strong>: '+layer.feature.properties.Observaciones+'.<br>'+
+                              '<strong>Fecha</strong>: '+layer.feature.properties.Fecha+'.<br>'+
+                              '<strong>['+layer.feature.properties.Norte+', '+layer.feature.properties.Este+']</strong><br>'+
+                              '<strong>Altitud</strong>: '+layer.feature.properties.Altitud+'.<br>'+
+                              '<strong>ID en la base de datos</strong>: '+layer.feature.properties.id+'.<br>'+
+                              '<strong><button class="estilo-modales-1" data-toggle="modal" data-target="#modal-estaciones" data-whatever="'+layer.feature.properties.id+'_'+ layer.feature.layer._latlng.lat +'_'+ layer.feature.layer._latlng.lng +'">Ver Detalles de la Estación</button></strong><br>', layer.feature.properties
+                            );
+    }
+  }
+}
+
+$('#modal-estaciones').on('shown.bs.modal', function (e) {
+  var button = $(e.relatedTarget) // Button that triggered the modal
+  const data = button.data('whatever').split("_");
+  const id = data[0];
+  const lat = data[1];
+  const lng = data[2];
+  FotosAnexasFiles = {};
+  idsFormatos = {};
+  primerForm = true;
+  primerForm1 = true;
+  $("#myTabs").empty();
+  $("#myTabsContent").empty();
+  $("#contenedorFotos").empty();
+  $("#contenedorFotosLib").empty();
+
+  const feature = estaciones["estacion_" + id];
+  var formatos='';
+
+  if(feature["Formularios"].count_UGS_Rocas>0){
+    for (let j = 0; j < feature["Formularios"].count_UGS_Rocas; j++) {
+      if (feature["Formularios"]["Form_UGS_Rocas"]["Form_UGS_Rocas_"+j].activo) {
+        formatos += "UGSR" + feature["Formularios"]["Form_UGS_Rocas"]["Form_UGS_Rocas_"+j].noformato+', '; 
+      }
+    }
+  }
+  if(feature["Formularios"].count_UGS_Suelos>0){
+    for (let j = 0; j < feature["Formularios"].count_UGS_Suelos; j++) {
+      if (feature["Formularios"]["Form_UGS_Suelos"]["Form_UGS_Suelos_"+j].activo) {
+        formatos += "UGSS" + feature["Formularios"]["Form_UGS_Suelos"]["Form_UGS_Suelos_"+j].noformato + ', '; 
+      }
+    }
+  }
+  if(feature["Formularios"].count_SGMF>0){
+    for (let j = 0; j < feature["Formularios"].count_SGMF; j++) {
+      if (feature["Formularios"]["Form_SGMF"]["Form_SGMF_"+j].activo) {
+        formatos += "SGMF" + feature["Formularios"]["Form_SGMF"]["Form_SGMF_"+j].noformato + ', '; 
+      }
+    }
+  }
+  if(feature["Formularios"].count_CATALOGO>0){
+    for (let j = 0; j < feature["Formularios"].count_CATALOGO; j++) {
+      if (feature["Formularios"]["Form_CATALOGO"]["Form_CATALOGO_"+j].activo) {
+        formatos += "CATALOGO_" + feature["Formularios"]["Form_CATALOGO"]["Form_CATALOGO_"+j].ID_PARTE + ', '; 
+      }
+    }
+  }
+  if(feature["Formularios"].count_INVENTARIO>0){
+    for (let j = 0; j < feature["Formularios"].count_INVENTARIO; j++) {
+      if (feature["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+j].activo) {
+        formatos += "INVENTARIO_" + feature["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+j].ID_PARTE + ', '; 
+      }
+    }
+  }
+
+  if ((formatos == '')) {
+    formatos = "Ninguno";
+  }else{
+    formatos = formatos.substring(0, formatos.length - 2);
+  }
+
+  $("#id-edit-estaciones").html("Registro con ID "+ id)
+  // pasa las celdas capturadas al form modal de rasgos para su edicion
+  $("#estaciones-id").val(id);
+  $('#est-fecha-1').val(feature.Fecha);        
+  $('#est-estacion-1').val(feature.Estacion);
+  $('#est-tipoEstacion-1').val(feature.TipoEstacion);                
+  $('#est-formatos-1').val(formatos);
+  $('#est-norte-1').val(lat);
+  $('#est-este-1').val(lng);
+  $('#est-altura-1').val(feature.Altitud);
+  $('#est-fotos-1').val(feature.Fotos);
+  $('#est-fotosLib-1').val(feature.FotosLib);
+  $('#est-observaciones-1').val(feature.Observaciones);
+  if (feature.TextoLibreta !== undefined) {
+    $('#est-textollib-1').val(feature.TextoLibreta);
+  }
+  else{
+    $('#est-textollib-1').val("");
+  }
+  $('#est-propietario-3').val(feature.Propietario);
+
+  $("#btnModalEditar").val(id);
+
+  GraficarEstacion(true, id, false);
+});
+
+$("#btnModalEditar").click(function (e) { 
+  e.preventDefault();
+
+  const id = $("#btnModalEditar").val();
+
+  let idEstaciones = $.trim($('#estaciones-id').val()); 
+  let fechaEst = $.trim($('#est-fecha-1').val());
+  let EstacionEst = $.trim($('#est-estacion-1').val()); 
+  let tipoEstacionEst  = $.trim($('#est-tipoEstacion-1').val());
+  // let formatoEst = $.trim($('#est-formatos-1').val());
+  let norteEst = $.trim($('#est-norte-1').val());
+  let esteEst = $.trim($('#est-este-1').val());
+  let alturaEst = $.trim($('#est-altura-1').val());
+  let fotosEst = $.trim($('#est-fotos-1').val());
+  let fotosLibEst = $.trim($('#est-fotosLib-1').val());
+  let observaEst = $.trim($('#est-observaciones-1').val());
+  let textoLibreta = $.trim($('#est-textollib-1').val());
+  let propietarioEst = $.trim($('#est-propietario-3').val());
+
+  var datosEnvio = {
+    activo : true,
+    Fecha: fechaEst,
+    Estacion : EstacionEst,
+    TipoEstacion : tipoEstacionEst,
+    Norte : norteEst,
+    Este : esteEst,
+    Altitud : alturaEst,
+    Fotos  : fotosEst,
+    FotosLib  : fotosLibEst,
+    Observaciones : observaEst,
+    TextoLibreta : textoLibreta,
+    Propietario : propietarioEst
+  }
+
+  if (estaciones['estacion_'+id]['FotosGenerales'] !== undefined) {
+    datosEnvio['FotosGenerales'] = estaciones['estacion_'+id]['FotosGenerales'];
+  }
+  if (estaciones['estacion_'+id]['FotosLibreta'] !== undefined) {
+    datosEnvio['FotosLibreta'] = estaciones['estacion_'+id]['FotosLibreta'];
+  }
+  datosEnvio['Formularios'] = GuardarEstacion(true, id);
+  console.log(datosEnvio);
+  delete datosEnvio.Tipo;
+            
+  database.ref().child('EstacionesCampo/estacion_'+id).update(datosEnvio); 
+  estaciones['estacion_'+id] = datosEnvio;
+
+  SubirFotosAnexas(id, true);
+
+  $('#modal-estaciones').modal('hide');
+
+  alert("Estación Guardada con Exito")
+  
+});
+
+$('#addEstacionModal').on('shown.bs.modal', function (e) {
+  var button = $(e.relatedTarget) // Button that triggered the modal
+  const data = button.data('whatever').split("_");
+  const id = data[0];
+  const lat = data[1];
+  const lng = data[2];
+  FotosAnexasFiles = {};
+  idsFormatos = {};
+  primerForm = true;
+  primerForm1 = true;
+  $("#myTabsAdd").empty();
+  $("#myTabsContentAdd").empty();
+  $("#add-contenedorFotos").empty();
+  $("#add-contenedorFotosLib").empty();
+  $("#id-edit-estaciones").html("Registro con ID Nuevo")
+  $('#add-est-norte-1').val(lat);
+  $('#add-est-este-1').val(lng);
+  $('#add-est-propietario-3').val(uname);
+  $("#btnModalAdd").val(id);
+});
+
+$("#btnModalAdd").click(function (e) { 
+  e.preventDefault();
+
+  database.ref().child("EstacionesCampo/cont/cont").get().then((snapshot) => {
+    if (snapshot.exists()) {
+      console.log(snapshot.val())
+      let idEstaciones = snapshot.val();
+      let fechaEst = $.trim($('#add-est-fecha-1').val());
+      let EstacionEst = $.trim($('#add-est-estacion-1').val()); 
+      let tipoEstacionEst  = $.trim($('#add-est-tipoEstacion-1').val());
+      // let formatoEst = $.trim($('#add-est-formatos-1').val());
+      let norteEst = $.trim($('#add-est-norte-1').val());
+      let esteEst = $.trim($('#add-est-este-1').val());
+      let alturaEst = $.trim($('#add-est-altura-1').val());
+      let fotosEst = $.trim($('#add-est-fotos-1').val());
+      let fotosLibEst = $.trim($('#add-est-fotosLib-1').val());
+      let observaEst = $.trim($('#add-est-observaciones-1').val());
+      let textoLibreta = $.trim($('#add-est-textollib-1').val());
+      let propietarioEst = $.trim($('#add-est-propietario-3').val());
+
+      var datosEnvio = {
+        activo : true,
+        Fecha: fechaEst,
+        Estacion : EstacionEst,
+        TipoEstacion : tipoEstacionEst,
+        Norte : norteEst,
+        Este : esteEst,
+        Altitud : alturaEst,
+        Fotos  : fotosEst,
+        FotosLib  : fotosLibEst,
+        Observaciones : observaEst,
+        TextoLibreta : textoLibreta,
+        Propietario : propietarioEst
+      }
+                
+      datosEnvio['Formularios'] = GuardarEstacion(false, 0);
+      
+      console.log(datosEnvio);
+      delete datosEnvio.Tipo;
+
+      database.ref().child(`EstacionesCampo/estacion_${idEstaciones}`).set(datosEnvio); 
+
+      
+      estaciones["estacion_"+idEstaciones] = datosEnvio;
+
+      SubirFotosAnexas(idEstaciones, false);
+      console.log(estaciones);
+      
+      notice(`Se ha guardado exitosamente el registro ${idEstaciones} en la base de datos`, {
+        type: 'success', 
+        position: 'topcenter', 
+        appendType: 'append',
+        closeBtn: false,
+        autoClose: 4000,
+        className: '',
+      });
+
+      idEstaciones++;
+      database.ref().child(`EstacionesCampo/cont/cont`).set(idEstaciones); 
+      
+      $('#addEstacionModal').modal('hide');
+
+    } else {
+      console.log("No data available");
+    }
+  }).catch((error) => {
+    $("#cargando-tabla-procesos .spinner-msj").html("Hubo un problema en el servidor al tratar de guardar los datos de la estación. Recargue la página e inténtelo de nuevo. ")
+    console.error(error);
+  });
+
+  
+  
+});
+
+$('#add-est-btn').click(function (e) { 
+  e.preventDefault();
+  GraficarEstacion(false, 0, false);    
+});
+$('#add-est-btn-edit').click(function (e) { 
+  const id = $("#btnModalEditar").val();
+  console.log(id);
+  e.preventDefault();
+  GraficarEstacion(false, id, true);  
+});
+
+var auxCapaQuery = false;
+
+$("#ejecutar-query").click(function(e){
+  e.preventDefault();
+  if (auxCapaQuery) {
+    map.removeLayer(capasEst[6].capa);
+    capasEst[6].capa = L.layerGroup();
+  }
+  var estQuery = QueryEjecutarVisor(capasDatos[2].database);
+  for (let i = 0; i < estQuery.length; i++) {
+    var estaci = capasDatos[2].database["estacion_"+estQuery[i]];
+    var point = L.marker([estaci['Norte'], estaci['Este']]).toGeoJSON();
+    var auxmarker;
+    var auxFormatosPopUp = "";
+    var auxcapa = ""
+    var auxtipo = estaci['TipoEstacion'];
+    var auxtipoup = auxtipo.toUpperCase();
+    if (auxtipoup.includes('UGS')){
+      auxcapa = "ugs"
+    }
+    else if (auxtipoup.includes('VIVIENDA')){
+      auxcapa = "vivienda"
+    }
+    else if (auxtipoup.includes('SGMF')){
+      auxcapa = "sgmf"
+    }
+    else if (auxtipoup.includes('CMM') || auxtipoup.includes('CATÁLOGO') || auxtipoup.includes('CATALOGO')){
+      auxcapa = "cat"
+    }
+    else if (auxtipoup.includes('IMM') || auxtipoup.includes('INVENTARIO')){
+      auxcapa = "inv"
+    }
+    else{
+      auxcapa = "otro"
+    }
+
+    if ( (auxtipo.includes('Punto') || auxtipo.includes('punto') ) && (auxtipo.includes('UGS') || auxtipo.includes('ugs'))) {
+      auxmarker = markerControlUGS;
+    }
+    else if ( (auxtipo.includes('Punto') || auxtipo.includes('punto') ) && (auxtipo.includes('SGMF') || auxtipo.includes('sgmf'))) {
+      auxmarker = markerControlSGMF;
+    }
+    else if (auxtipo.includes('SGMF') || auxtipo.includes('sgmf') || estaci['Propietario'] ==="Maria Areiza Rodríguez") {
+      auxmarker = markerControlSGMF;
+    }
+    else if (auxtipo.includes('UGS') || auxtipo.includes('ugs') ) {
+      auxmarker = markerControlUGS;
+    }
+    else if (auxtipoup.includes('IMM')) {
+      auxmarker = markerInv;
+    }
+    else if (auxtipoup.includes('VIVIENDA')) {
+      auxmarker = markerViv;
+    }
+
+    if (estaci['Formularios']['count_UGS_Rocas']>0) {
+      for (let k = 0; k < estaci['Formularios']['count_UGS_Rocas']; k++) {
+        auxFormatosPopUp += 'UGSR' + estaci['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+k]['noformato'] + ', ';   
+      }
+      auxmarker = markerUGSR;
+      auxcapa = "ugs"
+    }
+    if (estaci['Formularios']['count_UGS_Suelos']>0) {
+      for (let k = 0; k < estaci['Formularios']['count_UGS_Suelos']; k++) {
+        auxFormatosPopUp += 'UGSS' + estaci['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+k]['noformato'] + ', ';   
+      }
+      auxmarker = markerUGSS;
+      auxcapa = "ugs"
+    }
+    if (estaci['Formularios']['count_SGMF']>0) {
+      for (let k = 0; k < estaci['Formularios']['count_SGMF']; k++) {
+        auxFormatosPopUp += 'SGMF' + estaci['Formularios']['Form_SGMF']['Form_SGMF_'+k]['noformato'] + ', ';   
+      }
+      auxmarker = markerSGMF;
+      auxcapa = "sgmf"
+    }
+    if (estaci['Formularios']['count_CATALOGO']>0) {
+      for (let k = 0; k < estaci['Formularios']['count_CATALOGO']; k++) {
+        auxFormatosPopUp += 'CATALOGO_' + estaci['Formularios']['Form_CATALOGO']['Form_CATALOGO_'+k]['ID_PARTE'] + ', ';   
+      }
+      auxmarker = markerCat;
+      auxcapa = "cat"
+    }
+    if (estaci['Formularios']['count_INVENTARIO']>0) {
+      for (let k = 0; k < estaci['Formularios']['count_INVENTARIO']; k++) {
+        auxFormatosPopUp += 'INVENTARIO_' + estaci['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+k]['ID_PARTE'] + ', ';   
+      }
+      auxmarker = markerInv;
+      auxcapa = "inv"
+    }
+    if (estaci['Formularios']['count_VIVIENDA']>0) {
+      for (let k = 0; k < estaci['Formularios']['count_VIVIENDA']; k++) {
+        auxFormatosPopUp += 'VIVIENDA_' + estaci['Formularios']['Form_VIVIENDA']['Form_VIVIENDA_'+k]['idformatoValpa'] + ', ';   
+      }
+      auxmarker = markerViv;
+      auxcapa = "vivienda"
+    }
+
+    L.extend(point.properties, {
+      id: estQuery[i],
+      Estacion: estaci['Estacion'],
+      Fecha: estaci['Fecha'],
+      TipoEstacion: estaci['TipoEstacion'],
+      Propietario: estaci['Propietario'],
+      Observaciones: estaci['Observaciones'],
+      Este: estaci['Este'],
+      Norte: estaci['Norte'],
+      Altitud: estaci['Altitud'],
+      Formatos: auxFormatosPopUp
+    });
+    capasEst[6].figuras.push(point);
+    // console.log(i);
+    var puntico = L.geoJson(point,{
+        onEachFeature: function (feature, layer) {
+          feature.layer = layer;
+          layer.bindPopup(popupEstaciones);
+          layer.setIcon(auxmarker);
+        }
+      })
+      .bindPopup(popupEstaciones)
+      .addTo(capasEst[6].capa)
+      .addTo(allData); 
+
+  }
+  capasEst[6].capa.addTo(map);
+  capasEst[6].active = 2;
+  auxCapaQuery = true;
+  $('#id-Query-Estaciones').modal('hide');
+  $("#est_6").prop("checked", true);
+})
+

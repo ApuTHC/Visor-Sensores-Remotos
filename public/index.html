@@ -31,7 +31,14 @@
   <link rel="stylesheet" href="css/leaflet-notifications.css">
   <!-- Colorpicker -->
   <link rel="stylesheet" href="css/bootstrap-colorpicker.css">
-
+  <!-- Ruler -->
+  <link type="text/css" rel="stylesheet" href="css/leaflet-ruler.css" />
+  <!-- GeoLocate -->
+  <link type="text/css" rel="stylesheet" href="css/L.Control.Locate.min.css" />
+  <!-- Markers -->
+  <link type="text/css" rel="stylesheet" href="css/leaflet.awesome-markers.css" />
+  <!-- firebase-ui -->
+  <link rel="stylesheet" href="css/firebase-ui-auth.css">
   <!-- Main Style -->
   <link rel="stylesheet" href="css/geovisor.css">
 
@@ -43,7 +50,7 @@
   <nav class="panel">
     <div class="sections">
       <div class="left"><a href="index.html" title="Geohazards"><img src="img/Logo.png" class="logo"></a></div>
-      <div class="right"><a class="btn-visor" href="tablas.html" ><i class="fa-solid fa-table"></i></a></div>
+      <div class="right"><a class="btn-visor" href="tablas.html" ><i class="fa-solid fa-table fa-beat"></i></a></div>
     </div>
   </nav>
     
@@ -129,7 +136,10 @@
           </h1>
           <br>
           <div id="datospane" class="b-border"></div>
-          <div id="datosEditpane"></div>
+          <div id="datosEditpane">
+            <h2>Ingreso de Datos</h2>
+            <p>Dibuje una figura y de clic sobre ella</p>
+          </div>
         </div>
         <!-- Buscador -->
         <div class="leaflet-sidebar-pane" id="buscador">
@@ -140,7 +150,7 @@
           <br>
           <div id="buscadorContent"></div>
 
-      </div>
+        </div>
         <!-- Contenido Cargar Capas -->
         <div class="leaflet-sidebar-pane" id="cargarCapa">
             <h1 class="leaflet-sidebar-header">
@@ -159,7 +169,6 @@
             <div class="b-border w-100"></div>
             <div id="content-input-cargarCapa" class="container-fluid"></div>
         </div>
-
         <!-- Contenido Descargar Capas -->
         <div class="leaflet-sidebar-pane" id="descargaCapa">
           <h1 class="leaflet-sidebar-header">
@@ -168,9 +177,6 @@
           </h1>
           <div id="descargapane"></div>
         </div>
-
-        
-
         <!-- Contenido Perfil -->
         <div class="leaflet-sidebar-pane" id="profile">
           <h1 class="leaflet-sidebar-header">
@@ -201,6 +207,239 @@
     </div>
   </main>
   <!-- Fin Main -->
+
+
+  <!-- Modales -->
+  <!-- Modal Estaciones -->
+  <div class="modal fade" id="modal-estaciones" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header estilo-modales">
+                  <h5 class="modal-title" id="exampleModalLabel">Edición Estaciones</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <form>
+                  <div class="modal-body">
+                      <h5 class="w-100 font-weight-bold mx-auto text-center" id="id-edit-estaciones"></h5>
+                      <input id="estaciones-id" type="hidden">
+                      <div class="container-fluid">
+                          <div class="row">
+                              <div class="form-group col-sm-6 col-md-3">
+                                  <label for="est-fecha-1" class="bold">Fecha</label>
+                                  <input type="date" class="form-control" id="est-fecha-1">
+                              </div>
+                              <div class="form-group col-sm-6 col-md-3">
+                                  <label for="est-estacion-1" class="bold">Estación</label>
+                                  <input type="text" class="form-control" id="est-estacion-1">
+                              </div>
+                              <div class="form-group col-sm-6 col-md-3">
+                                  <label for="est-tipoEstacion-1" class="bold">Tipo de Estación</label>
+                                  <input type="text" class="form-control" id="est-tipoEstacion-1">
+                              </div>
+                              <div class="form-group col-sm-6 col-md-3">
+                                  <label for="est-propietario-3" class="bold">Propietario</label>
+                                  <input type="text" class="form-control" id="est-propietario-3">
+                              </div>
+                              <div class="form-group col-sm-6 col-md-3">
+                                  <label for="est-formatos-1" class="bold">Formatos</label>
+                                  <input type="text" class="form-control" id="est-formatos-1">
+                              </div>
+                              <div class="form-group col-sm-6 col-md-3">
+                                  <label for="est-norte-1" class="bold">Norte</label>
+                                  <input type="number" step=0.000000000000001 class="form-control" id="est-norte-1">
+                              </div>
+                              <div class="form-group col-sm-6 col-md-3">
+                                  <label for="est-este-1" class="bold">Este</label>
+                                  <input type="number" step=0.000000000000001 class="form-control" id="est-este-1">
+                              </div>
+                              <div class="form-group col-sm-6 col-md-3">
+                                  <label for="est-altura-1" class="bold">Altura</label>
+                                  <input type="number" step=0.000000000000001 class="form-control" id="est-altura-1">
+                              </div>
+                              <div class="form-group col-12">
+                                  <label for="est-fotos-1" class="bold">Fotografías Estación</label>
+                                  <textarea class="form-control" rows="2" id="est-fotos-1"></textarea/>
+                              </div>
+                              <div class="form-group col-12 row" id="contenedorFotos"></div>
+                              <div class="form-group col-sm-4">
+                                  <input type="file" class="form-control inputsFotos" multiple id="foto_Generales_0_0" onchange="handleFilesAflor(this.files, id)">
+                              </div>
+                              <div class="form-group col-12">
+                                  <label for="est-fotosLib-1" class="bold">Fotografías Libreta</label>
+                                  <textarea class="form-control" rows="2" id="est-fotosLib-1"></textarea/>
+                              </div>
+                              <div class="form-group col-12 row" id="contenedorFotosLib"></div>
+                              <div class="form-group col-sm-4">
+                                  <input type="file" class="form-control inputsFotos" multiple id="foto_Libreta_0_0" onchange="handleFilesAflor(this.files, id)">
+                              </div>
+                              <div class="form-group col-12">
+                                  <label for="est-observaciones-1" class="bold">Observaciones</label>
+                                  <textarea class="form-control" rows="2" id="est-observaciones-1"></textarea/>
+                              </div>
+                              <div class="form-group col-12">
+                                  <div class="row">
+                                      <div class="col-10">
+                                          <label for="est-observaciones-1" class="bold">Texto para la Libreta</label>
+                                          <textarea class="form-control" rows="6" id="est-textollib-1"></textarea/>
+                                      </div>
+                                      <div class="col-2">
+                                          <button id="generarTextoLibreta" class="btn estilo-modales bold">Generar Texto</button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-12 mb-4">
+                                  <div class="row">
+                                      <div class="col-6">
+                                          <label for="add-est-formatos-select-edit" class="bold">Escoja el formato a añadir:</label>
+                                          <select class="form-control" id="add-est-formatos-select-edit" maxlength="10">
+                                              <option value="Ninguno">Ninguno</option>
+                                              <option value="UGSR">UGS Rocas</option>
+                                              <option value="UGSS">UGS Suelos</option>
+                                              <option value="SGMF">SGMF</option>
+                                              <option value="INVENTARIO">Inventario MM</option>
+                                          </select>
+                                      </div>
+                                      <div class="col-6 pt-4">
+                                          <label for="add-est-btn-edit" class="mt-4"></label>
+                                          <button id="add-est-btn-edit" class="btn estilo-modales bold">Agregar Formato</button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-12">
+                                  <h3 class="w-100 font-weight-bold mx-auto text-center bold titulo-formatos">Formatos</h3>
+                                  <div class="row">
+                                      <div class=" col-12">
+                                          <ul class="nav nav-tabs" id="myTabs" role="tablist">
+                                          
+                                          </ul>
+                                          <div class="tab-content" id="myTabsContent">
+                                              
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal" tabindex="2">Cancelar</button>
+                          <button type="button" id="btnModalEditar" value="btnGuardar" class="btn estilo-modales" translate="1">Guardar</button>
+                      </div>
+                  </div>
+              </form>
+      </div>
+  </div>
+  </div>
+
+  <!-- Modal Añadir Estaciones -->
+  <div class="modal fade" id="addEstacionModal" tabindex="-1" role="dialog" aria-labelledby="tituloModalCrear" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header estilo-modales">
+                  <h5 class="modal-title" id="tituloModalCrear">Agregar Estaciones</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <form>
+                  <div class="modal-body">
+                      <h5 class="w-100 font-weight-bold mx-auto text-center" id="id-add-estaciones"></h5>
+                      <input id="add-estaciones-id" type="hidden">
+                      <div class="container-fluid">
+                          <div class="row">
+                              <div class="form-group col-sm-6 col-md-3">
+                                  <label for="add-est-fecha-1" class="bold">Fecha</label>
+                                  <input type="date" class="form-control" id="add-est-fecha-1">
+                              </div>
+                              <div class="form-group col-sm-6 col-md-3">
+                                  <label for="add-est-estacion-1" class="bold">Estación</label>
+                                  <input type="text" class="form-control" id="add-est-estacion-1">
+                              </div>
+                              <div class="form-group col-sm-6 col-md-3">
+                                  <label for="add-est-tipoEstacion-1" class="bold">Tipo de Estación</label>
+                                  <input type="text" class="form-control" id="add-est-tipoEstacion-1">
+                              </div>
+                              <div class="form-group col-sm-6 col-md-3">
+                                  <label for="add-est-propietario-3" class="bold">Propietario</label>
+                                  <input type="text" class="form-control" id="add-est-propietario-3">
+                              </div>
+                              <div class="form-group col-sm-6 col-md-3">
+                                  <label for="add-est-formatos-1" class="bold">Formatos</label>
+                                  <input type="text" class="form-control" id="add-est-formatos-1">
+                              </div>
+                              <div class="form-group col-sm-6 col-md-3">
+                                  <label for="add-est-norte-1" class="bold">Norte</label>
+                                  <input type="number" step=0.000000000000001 class="form-control" id="add-est-norte-1">
+                              </div>
+                              <div class="form-group col-sm-6 col-md-3">
+                                  <label for="add-est-este-1" class="bold">Este</label>
+                                  <input type="number" step=0.000000000000001 class="form-control" id="add-est-este-1">
+                              </div>
+                              <div class="form-group col-sm-6 col-md-3">
+                                  <label for="add-est-altura-1" class="bold">Altura</label>
+                                  <input type="number" step=0.000000000000001 class="form-control" id="add-est-altura-1">
+                              </div>
+                              <div class="form-group col-12">
+                                  <label for="add-est-fotos-1" class="bold">Fotografías</label>
+                                  <textarea class="form-control" rows="2" id="add-est-fotos-1"></textarea/>
+                              </div>
+                              <div class="form-group col-12 row" id="add-contenedorFotos"></div>
+                              <input type="file" class="form-control col-sm-6 col-md-4 col-lg-3" multiple id="foto_GeneralesAdd_0_0" onchange="handleFilesAflor(this.files, id)">
+                              <div class="form-group col-12">
+                                  <label for="est-fotos-1" class="bold">Fotografías Libreta</label>
+                                  <textarea class="form-control" rows="2" id="add-est-fotosLib-1"></textarea/>
+                              </div>
+                              <div class="form-group col-12 row" id="add-contenedorFotosLib"></div>
+                              <input type="file" class="form-control col-sm-6 col-md-4 col-lg-3" multiple id="foto_LibretaAdd_0_0" onchange="handleFilesAflor(this.files, id)">
+                              <div class="form-group col-12">
+                                  <label for="add-est-observaciones-1" class="bold">Observaciones</label>
+                                  <textarea class="form-control" rows="2" id="add-est-observaciones-1"></textarea/>
+                              </div>
+                              <div class="col-12 mb-4">
+                                  <div class="row">
+                                      <div class="col-6">
+                                          <label for="add-est-formatos-select" class="bold">Escoja el formato a añadir:</label>
+                                          <select class="form-control" id="add-est-formatos-select" maxlength="10">
+                                              <option value="Ninguno">Ninguno</option>
+                                              <option value="UGSR">UGS Rocas</option>
+                                              <option value="UGSS">UGS Suelos</option>
+                                              <option value="SGMF">SGMF</option>
+                                              <option value="INVENTARIO">Inventario MM</option>
+                                          </select>
+                                      </div>
+                                      <div class="col-6 pt-4">
+                                          <label for="add-est-btn" class="mt-4"></label>
+                                          <button id="add-est-btn" class="btn estilo-modales bold">Agregar Formato</button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-12">
+                                  <h3 class="w-100 font-weight-bold mx-auto text-center">Formatos</h3>
+                                  <div class="row">
+                                      <div class=" col-12">
+                                          <ul class="nav nav-tabs" id="myTabsAdd" role="tablist">
+                                          
+                                          </ul>
+                                          <div class="tab-content" id="myTabsContentAdd">
+                                              
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal" tabindex="2">Cancelar</button>
+                          <button type="submit" id="btnModalAdd" value="btnGuardar" class="btn estilo-modales" translate="1">Guardar</button>
+                      </div>
+                  </div>
+              </form>
+      </div>
+  </div>
+  </div>
+
+
+
 
   <!-- jQuery, Popper, Bootstrap -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -252,9 +491,29 @@
   <script src="js/lib/FileSaver.min.js"></script>
   <!-- Download Shapefile from GeoJSON -->
   <script src="js/lib/shpwrite.js"></script>
+  <!-- Ruler -->
+  <script src="js/lib/leaflet-ruler.js"></script>
+  <!-- Split Btn -->
+  <script src="js/lib/turf.min.js"></script>
+  <!-- Location -->
+  <script src="js/lib/L.Control.Locate.min.js"></script>
+  <!-- Awasome Markers -->
+  <script src="js/lib/leaflet.awesome-markers.js"></script>
+  <!-- Excel -->
+  <script lang="javascript" src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+  <!-- Gestion de Estaciones -->
+  <script src="js/gestion-estaciones.js"></script>
   <!-- Datos -->
   <script src="data/datos.js"></script>
   <script src="data/ValleAburra.js"></script>
+  <!-- firebase -->
+  <script src="js/lib/firebase-app-compat.js"></script>
+  <script src="js/lib/firebase-database-compat.js"></script>
+  <script src="js/lib/firebase-storage-compat.js"></script>
+  <script src="js/lib/firebase-auth-compat.js"></script>
+  <script src="js/lib/firebase-ui-auth.js"></script>
+  <!-- Server -->
+  <script src="js/server.js"></script>
   <!-- Main Script -->
   <script src="js/geovisor.js"></script>
 
