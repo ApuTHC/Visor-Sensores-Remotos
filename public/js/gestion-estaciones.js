@@ -9,7 +9,7 @@ var ElementoSueloResidualUGSS = new ElementoFormato( "Horizonte",  "secuenciaest
 
 var listaElementosUGSR = [
   new ElementoFormato( "Número Formato",  "edittext",  "noformato", 0),
-  new ElementoFormato( "Municipio",  "spinner",  "municipios", ['AGUADAS','ARANZAZU','FILADELFIA','MARQUETALIA','RIOSUCIO','SUPIA']),
+  new ElementoFormato( "Municipio",  "spinner",  "municipios", ['GIRARDOTA']),
   new ElementoFormato( "Vereda",  "edittext",  "vereda", 0),
   new ElementoFormato( "Número de la Estación",  "edittext",  "noestacion", 0),
   new ElementoFormato( "Clase Afloramiento",  "spinner",  "claseaflor", ['Natural','Corte superficial','Excavación subterránea','Trinchera, Apique']),
@@ -52,14 +52,14 @@ var listaElementosUGSRDiscont = [
   new ElementoFormato( "Observaciones",  "edittext",  "ObservacionesDiscont", 0)
 ];
 
-var listaElementosUGSFotosAnexas = [
-  new ElementoFormato( "Nombre de la Foto",  "edittext",  "NombreFotosAnexas", 0),
-  new ElementoFormato( "Descripción de la Foto",  "edittext",  "DescriFotosAnexas", 0)
-]
+// var listaElementosUGSFotosAnexas = [
+//   new ElementoFormato( "Nombre de la Foto",  "edittext",  "NombreFotosAnexas", 0),
+//   new ElementoFormato( "Descripción de la Foto",  "edittext",  "DescriFotosAnexas", 0)
+// ]
 
 var listaElementosUGSS = [
   new ElementoFormato( "Número Formato",  "edittext",  "noformato", 0),
-  new ElementoFormato( "Municipio",  "spinner",  "municipios", ['AGUADAS','ARANZAZU','FILADELFIA','MARQUETALIA','RIOSUCIO','SUPIA']),
+  new ElementoFormato( "Municipio",  "spinner",  "municipios", ['GIRARDOTA']),
   new ElementoFormato( "Vereda",  "edittext",  "vereda", 0),
   new ElementoFormato( "Número de la Estación",  "edittext",  "noestacion", 0),
   new ElementoFormato( "Clase Afloramiento",  "spinner",  "claseaflor", ['Natural','Corte superficial','Excavación subterránea','Trinchera, Apique']),
@@ -105,7 +105,7 @@ var listaElementosUGSS = [
 
 var listaElementosSGMF =[
   new ElementoFormato( "Número Formato",  "edittext",  "noformato", 0),
-  new ElementoFormato( "Municipio",  "spinner",  "municipios", ['AGUADAS','ARANZAZU','FILADELFIA','MARQUETALIA','RIOSUCIO','SUPIA']),
+  new ElementoFormato( "Municipio",  "spinner",  "municipios", ['GIRARDOTA']),
   new ElementoFormato( "Vereda",  "edittext",  "vereda", 0),
   new ElementoFormato( "Número de la Estación",  "edittext",  "noestacion", 0),
   new ElementoFormato( "Tipo de Ambiente (Marque varios si es necesario)","radiocheck","ambiente",["Morfoestructural","Volcánico","Denudacional","Fluvial-Lagunar","Marino-Costero","Glacial-Periglacial","Eólico","Kárstico","Antropogénico"]),
@@ -151,174 +151,112 @@ var listaElementosNewSGMF = [
   new ElementoFormato( "ACTIVIDAD, ACT","spinner","actividad",[ "1. Inactiva: No presenta movimientos en masa","2. Poco activa: Presenta pocos MM","3. Activa: Presenta varios MM",'No Aplica'])
 ]
 
-var listaElementosCAT = [
-  new ElementoFormato("ID PARTE del MM","edittextMM","ID_PARTE", 0),
-  new ElementoFormato("IMPORTANCIA","spinnerMM","IMPORTANC",["Alta","Media","Baja"]),
+// var listaElementosCAT = [
+//   new ElementoFormato("ID PARTE del MM","edittextMM","ID_PARTE", 0),
+//   new ElementoFormato("IMPORTANCIA","spinnerMM","IMPORTANC",["Alta","Media","Baja"]),
+//   new ElementoFormato("ENCUESTADOR","edittextMM","ENCUESTAD",0),
+//   new ElementoFormato("FECHA EVENTO","edittextMM","FECHA_MOV",0),
+//   new ElementoFormato("FUENTE FECHA EVENTO","spinner","FECHA_FUENTE",["Incierta al Momento","Sensores remotos","Reportada por terceros","Consultada en pagina web"]),
+//   new ElementoFormato("CONFIABILIDAD FECHA EVENTO","spinnerMM","ConfiFechaMM",["Exacta","Certeza mes y año","Certeza Año","Confiabilidad baja","Incierta"]),
+//   new ElementoFormato("FECHA REPORTE","edittextMM","FECHA_REP",0),
+//   new ElementoFormato("SIMMA","edittextMM","COD_SIMMA",0),
+//   new ElementoFormato("Municipio",  "spinnerMM",  "NOM_MUN", ['AGUADAS','ARANZAZU','FILADELFIA','MARQUETALIA','RIOSUCIO','SUPIA']),
+//   new ElementoFormato("Vereda",  "edittextMM",  "VEREDA", 0),
+//   new ElementoFormato("SITIO","edittext","SITIO",0),
+//   new ElementoFormato("Latitud","edittext","latitudMM",0),
+//   new ElementoFormato("Longitud","edittext","longitudMM",0),
+//   new ElementoFormato("Altura","edittext","alturaMM",0),
+//   new ElementoFormato("REFERENCIA GEOGRÁFICA","edittextMM","REF_GEOGRF",0),
+//   new ElementoFormato("CLASIFICACIÓN DEL MOVIMIENTO",  "titulo",  "", 0),
+//   new ElementoFormato("TIPO MOVIMIENTO",  "radiobtnMM",  "TIPO_MOV", ["No Aplica","Deslizamiento","Reptación","Caída","Flujo","Volcamiento","Propagación Lateral","Deform. Gravit. Profundas"]),
+//   new ElementoFormato("SUBTIPO PRIMER MOVIMIENTO",  "spinnerMM",  "SUBTIPO_1", ["Caída de Roca","Caída de Suelo","Caída de detritos","Volcamiento flexural de roca","Volcamiento de roca","Volcamiento macizo rocoso","Deslizamiento rotacional","Deslizamiento traslacional","Deslizamiento en cuña","Deslizamiento traslacional en cuña","Deslizamiento traslacional planar","Deslizamiento licuación de arena","Deslizamiento licuación de limo","Deslizamiento licuación detritos","Deslizamiento licuación roca fracturada","Deslizamiento por flujo","Flujo de Detritos","Flujo de Lodo","Flujo de Tierra","Flujo de turba","Avalancha de rocas","Avalancha de detritos","Crecida de detritos","Propagación lateral lenta","Propagación lateral licuación","Reptación de Suelos","Solifluxión","Gelifluxión (en permafrost)"]),
+//   new ElementoFormato("SUBTIPO SEGUNDO MOVIMIENTO",  "spinnerMM",  "SUBTIPO_2", ["No Aplica","Caída de Roca","Caída de Suelo","Caída de detritos","Volcamiento flexural de roca","Volcamiento de roca","Volcamiento macizo rocoso","Deslizamiento rotacional","Deslizamiento traslacional","Deslizamiento en cuña","Deslizamiento traslacional en cuña","Deslizamiento traslacional planar","Deslizamiento licuación de arena","Deslizamiento licuación de limo","Deslizamiento licuación detritos","Deslizamiento licuación roca fracturada","Deslizamiento por flujo","Flujo de Detritos","Flujo de Lodo","Flujo de Tierra","Flujo de turba","Avalancha de rocas","Avalancha de detritos","Crecida de detritos","Propagación lateral lenta","Propagación lateral licuación","Reptación de Suelos","Solifluxión","Gelifluxión (en permafrost)"]),
+//   new ElementoFormato("POBLACION AFECTADA",  "titulo",  "", 0),
+//   new ElementoFormato("Heridos","edittext","HERIDOS",0),
+//   new ElementoFormato("Vidas","edittext","VIDAS",0),
+//   new ElementoFormato("Desaparecidos","edittext","DESAPARECIDOS",0),
+//   new ElementoFormato("Personas","edittext","PERSONAS",0),
+//   new ElementoFormato("Familias","edittext","FAMILIAS",0),
+//   new ElementoFormato("IMÁGENES SATELITALES","edittext","sensoresremotos",0),
+//   new ElementoFormato("FOTOGRAFÍAS AÉREAS","edittextMM","FTE_INFSEC",0),
+//   new ElementoFormato("NOTAS (Ej: Causas y observaciones generales):","edittext","notas",0),
+//   new ElementoFormato("DAÑOS A INFRASTRUCTURA, ACTIVIDADES ECONÓMICAS, DAÑOS AMBIENTALES:","titulo","",0),
+//   new ElementoFormato("TIPO DE DAÑO:","textview","","Infraestructura: edificios, carreteras, inst. educativa, puentes, servicios publicos, vía ferrea, torre conducción eléctrica, obras lineales, planta eléctrica, torre de energía, capa asfaltica, galpones, tanque almacenamiento, espolones, distrito riego, puentes peatonales, puentes veredales, acueducto. Económicos: agricultura, ganadería, cultivos, semovientes, transporte pasajeros y carga. Ambientales: parques, bosques, planta tratamiento de agua.")
+
+// ];
+
+// var listaElementosDANOS = [
+//   new ElementoFormato("CLASE DE DAÑO", "spinner", "clasedano", ["I: Infraestructura","E: Económicos","A: Ambientales"]),
+//   new ElementoFormato("TIPO", "edittext", "tipodano", 0),
+//   new ElementoFormato("CANTIDAD", "edittext", "cantidaddano", 0),
+//   new ElementoFormato("UNIDAD", "edittext", "unidaddano", 0),
+//   new ElementoFormato("TIPO DAÑO", "spinner", "tiposdano", ["DL: Daño leve","DM: Daño moderado","DS: Daño severo","DT: Daño total","NC: No cuantificable"]),
+//   new ElementoFormato("VALOR (US$)", "edittext", "valordano", 0)
+// ]
+
+var listaElementosINV = [
+
+  new ElementoFormato("ID DEL MM","edittextMM","ID_MM", 0),
   new ElementoFormato("ENCUESTADOR","edittextMM","ENCUESTAD",0),
-  new ElementoFormato("FECHA EVENTO","edittextMM","FECHA_MOV",0),
-  new ElementoFormato("FUENTE FECHA EVENTO","spinner","FECHA_FUENTE",["Incierta al Momento","Sensores remotos","Reportada por terceros","Consultada en pagina web"]),
-  new ElementoFormato("CONFIABILIDAD FECHA EVENTO","spinnerMM","ConfiFechaMM",["Exacta","Certeza mes y año","Certeza Año","Confiabilidad baja","Incierta"]),
-  new ElementoFormato("FECHA REPORTE","edittextMM","FECHA_REP",0),
-  new ElementoFormato("SIMMA","edittextMM","COD_SIMMA",0),
-  new ElementoFormato("Municipio",  "spinnerMM",  "NOM_MUN", ['AGUADAS','ARANZAZU','FILADELFIA','MARQUETALIA','RIOSUCIO','SUPIA']),
-  new ElementoFormato("Vereda",  "edittextMM",  "VEREDA", 0),
-  new ElementoFormato("SITIO","edittext","SITIO",0),
-  new ElementoFormato("Latitud","edittext","latitudMM",0),
-  new ElementoFormato("Longitud","edittext","longitudMM",0),
-  new ElementoFormato("Altura","edittext","alturaMM",0),
-  new ElementoFormato("REFERENCIA GEOGRÁFICA","edittextMM","REF_GEOGRF",0),
-  new ElementoFormato("CLASIFICACIÓN DEL MOVIMIENTO",  "titulo",  "", 0),
+  new ElementoFormato("FECHA REPORTE (aaaa-mm-dd)","edittextMM","FECHA_REP",0),
+  new ElementoFormato("FECHA MM (aaaa-mm-dd)","edittextMM","FECHA_MOV",0),
+  new ElementoFormato("CONFIABILIDAD FECHA MM","spinnerMM","ConfiFecha",["Exacta","Certeza mes y año","Certeza Año","Confiabilidad baja","Incierta"]),
+  new ElementoFormato("FUENTE INFO. SECUNDARIA","edittextMM","FTE_INFSEC",0),
+  new ElementoFormato("DEPARTAMENTO",  "spinnerMM",  "NOM_DEP", ["ANTIOQUIA"]),
+  new ElementoFormato("VEREDA",  "spinnerMM",  "VEREDA", []),
   new ElementoFormato("TIPO MOVIMIENTO",  "radiobtnMM",  "TIPO_MOV", ["No Aplica","Deslizamiento","Reptación","Caída","Flujo","Volcamiento","Propagación Lateral","Deform. Gravit. Profundas"]),
   new ElementoFormato("SUBTIPO PRIMER MOVIMIENTO",  "spinnerMM",  "SUBTIPO_1", ["Caída de Roca","Caída de Suelo","Caída de detritos","Volcamiento flexural de roca","Volcamiento de roca","Volcamiento macizo rocoso","Deslizamiento rotacional","Deslizamiento traslacional","Deslizamiento en cuña","Deslizamiento traslacional en cuña","Deslizamiento traslacional planar","Deslizamiento licuación de arena","Deslizamiento licuación de limo","Deslizamiento licuación detritos","Deslizamiento licuación roca fracturada","Deslizamiento por flujo","Flujo de Detritos","Flujo de Lodo","Flujo de Tierra","Flujo de turba","Avalancha de rocas","Avalancha de detritos","Crecida de detritos","Propagación lateral lenta","Propagación lateral licuación","Reptación de Suelos","Solifluxión","Gelifluxión (en permafrost)"]),
   new ElementoFormato("SUBTIPO SEGUNDO MOVIMIENTO",  "spinnerMM",  "SUBTIPO_2", ["No Aplica","Caída de Roca","Caída de Suelo","Caída de detritos","Volcamiento flexural de roca","Volcamiento de roca","Volcamiento macizo rocoso","Deslizamiento rotacional","Deslizamiento traslacional","Deslizamiento en cuña","Deslizamiento traslacional en cuña","Deslizamiento traslacional planar","Deslizamiento licuación de arena","Deslizamiento licuación de limo","Deslizamiento licuación detritos","Deslizamiento licuación roca fracturada","Deslizamiento por flujo","Flujo de Detritos","Flujo de Lodo","Flujo de Tierra","Flujo de turba","Avalancha de rocas","Avalancha de detritos","Crecida de detritos","Propagación lateral lenta","Propagación lateral licuación","Reptación de Suelos","Solifluxión","Gelifluxión (en permafrost)"]),
-  new ElementoFormato("POBLACION AFECTADA",  "titulo",  "", 0),
-  new ElementoFormato("Heridos","edittext","HERIDOS",0),
-  new ElementoFormato("Vidas","edittext","VIDAS",0),
-  new ElementoFormato("Desaparecidos","edittext","DESAPARECIDOS",0),
-  new ElementoFormato("Personas","edittext","PERSONAS",0),
-  new ElementoFormato("Familias","edittext","FAMILIAS",0),
-  new ElementoFormato("IMÁGENES SATELITALES","edittext","sensoresremotos",0),
-  new ElementoFormato("FOTOGRAFÍAS AÉREAS","edittextMM","FTE_INFSEC",0),
-  new ElementoFormato("NOTAS (Ej: Causas y observaciones generales):","edittext","notas",0),
-  new ElementoFormato("DAÑOS A INFRASTRUCTURA, ACTIVIDADES ECONÓMICAS, DAÑOS AMBIENTALES:","titulo","",0),
-  new ElementoFormato("TIPO DE DAÑO:","textview","","Infraestructura: edificios, carreteras, inst. educativa, puentes, servicios publicos, vía ferrea, torre conducción eléctrica, obras lineales, planta eléctrica, torre de energía, capa asfaltica, galpones, tanque almacenamiento, espolones, distrito riego, puentes peatonales, puentes veredales, acueducto. Económicos: agricultura, ganadería, cultivos, semovientes, transporte pasajeros y carga. Ambientales: parques, bosques, planta tratamiento de agua.")
-
-];
-
-var listaElementosDANOS = [
-  new ElementoFormato("CLASE DE DAÑO", "spinner", "clasedano", ["I: Infraestructura","E: Económicos","A: Ambientales"]),
-  new ElementoFormato("TIPO", "edittext", "tipodano", 0),
-  new ElementoFormato("CANTIDAD", "edittext", "cantidaddano", 0),
-  new ElementoFormato("UNIDAD", "edittext", "unidaddano", 0),
-  new ElementoFormato("TIPO DAÑO", "spinner", "tiposdano", ["DL: Daño leve","DM: Daño moderado","DS: Daño severo","DT: Daño total","NC: No cuantificable"]),
-  new ElementoFormato("VALOR (US$)", "edittext", "valordano", 0)
-]
-
-
-var listaElementosINV = [
-  new ElementoFormato("ID PARTE del MM","edittextMM","ID_PARTE", 0),
-  new ElementoFormato("IMPORTANCIA","spinnerMM","IMPORTANC",["Alta","Media","Baja"]),
-  new ElementoFormato("ENCUESTADOR","edittextMM","ENCUESTAD",0),
-  new ElementoFormato("FECHA EVENTO","edittextMM","FECHA_MOV",0),
-  new ElementoFormato("FUENTE FECHA EVENTO","spinnerMM","FECHA_FUENTE",["Incierta al Momento","Sensores remotos","Reportada por terceros","Consultada en pagina web"]),
-  new ElementoFormato("CONFIABILIDAD FECHA EVENTO","spinnerMM","ConfiFechaMM",["Exacta","Certeza mes y año","Certeza Año","Confiabilidad baja","Incierta"]),
-  new ElementoFormato("FECHA REPORTE","edittextMM","FECHA_REP",0),
-  new ElementoFormato("SIMMA","edittextMM","COD_SIMMA",0),
-  new ElementoFormato("Municipio",  "spinnerMM",  "NOM_MUN", ['AGUADAS','ARANZAZU','FILADELFIA','MARQUETALIA','RIOSUCIO','SUPIA']),
-  new ElementoFormato("Vereda",  "edittextMM",  "VEREDA", 0),
-  new ElementoFormato("Sitio","edittext","SITIO",0),
-  new ElementoFormato("REFERENCIA GEOGRÁFICA","edittextMM","REF_GEOGRF",0),
-  new ElementoFormato("DOCUMENTACIÓN",  "titulo",  "", 0),
-  new ElementoFormato("PLANCHAS","edittext","planchas",0),
-  new ElementoFormato("SENSORES REMOTOS","edittext","sensoresremotos",0),
-  new ElementoFormato("FOTOGRAFÍAS AÉREAS","edittextMM","FTE_INFSEC",0),
-  new ElementoFormato("ACTIVIDAD DEL MOVIMIENTO",  "titulo",  "", 0),
-  new ElementoFormato("EDAD","spinner","edadmm",["Menor a 1 año","1-5 años","6-10 años","11-15 años","16-20 años","21-30 años","31-40 años","41-60 años","61-80 años","> 80 años"]),
   new ElementoFormato("ESTADO","spinnerMM","ESTADO_ACT",["Activo","Reactivado","Suspendido","Latente","Abandonado","Estabilizado","Relicto"]),
   new ElementoFormato("ESTILO","spinnerMM","ESTILO",["Complejo","Compuesto","Múltiple","Sucesivo","Único"]),
   new ElementoFormato("DISTRIBUCIÓN","spinnerMM","DISTRIBUC",["Retrogresivo","Avanzado","Ensanchado","Confinado","Creciente","Decreciente","Movil"]),
-  new ElementoFormato("LITOLOGIA Y ESTRUCTURA",  "titulo",  "", 0),
-  new ElementoFormato("DESCRIPCIÓN (Incuir minimo origen de la roca,(I,M ó S) Edad, Fm, Litologia y estratigrafia, suelos)","edittextMM","LITOLOGIA",0),
-  new ElementoFormato("ESTRUCTURAS",  "titulo",  "", 0),
-  new ElementoFormato("ESTRUCTURA","estructuras","estructura",["Estratificación","Foliación","Diaclasas","Falla","Discordancia","Esquistosidad"]),
-  new ElementoFormato("CLASIFICACIÓN DEL MOVIMIENTO",  "titulo",  "", 0),
-  new ElementoFormato("TIPO MOVIMIENTO",  "radiobtnMM",  "TIPO_MOV", ["No Aplica","Deslizamiento","Reptación","Caída","Flujo","Volcamiento","Propagación Lateral","Deform. Gravit. Profundas"]),
-  new ElementoFormato("SUBTIPO PRIMER MOVIMIENTO",  "spinnerMM",  "SUBTIPO_1", ["Caída de Roca","Caída de Suelo","Caída de detritos","Volcamiento flexural de roca","Volcamiento de roca","Volcamiento macizo rocoso","Deslizamiento rotacional","Deslizamiento traslacional","Deslizamiento en cuña","Deslizamiento traslacional en cuña","Deslizamiento traslacional planar","Deslizamiento licuación de arena","Deslizamiento licuación de limo","Deslizamiento licuación detritos","Deslizamiento licuación roca fracturada","Deslizamiento por flujo","Flujo de Detritos","Flujo de Lodo","Flujo de Tierra","Flujo de turba","Avalancha de rocas","Avalancha de detritos","Crecida de detritos","Propagación lateral lenta","Propagación lateral licuación","Reptación de Suelos","Solifluxión","Gelifluxión (en permafrost)"]),
-  new ElementoFormato("SUBTIPO SEGUNDO MOVIMIENTO",  "spinnerMM",  "SUBTIPO_2", ["No Aplica","Caída de Roca","Caída de Suelo","Caída de detritos","Volcamiento flexural de roca","Volcamiento de roca","Volcamiento macizo rocoso","Deslizamiento rotacional","Deslizamiento traslacional","Deslizamiento en cuña","Deslizamiento traslacional en cuña","Deslizamiento traslacional planar","Deslizamiento licuación de arena","Deslizamiento licuación de limo","Deslizamiento licuación detritos","Deslizamiento licuación roca fracturada","Deslizamiento por flujo","Flujo de Detritos","Flujo de Lodo","Flujo de Tierra","Flujo de turba","Avalancha de rocas","Avalancha de detritos","Crecida de detritos","Propagación lateral lenta","Propagación lateral licuación","Reptación de Suelos","Solifluxión","Gelifluxión (en permafrost)"]),
-  new ElementoFormato("TIPO MATERIAL",  "radiocheckMM",  "tipomaterial", [ "Roca","Detritos","Tierra","Lodos","Turba"]),
-  new ElementoFormato("HUMEDAD",  "radiobtnMM",  "humedad", [ "Mojado","Muy Húmedo","Húmedo","Ligeramente húmedo","Seco",'No Aplica']),
-  new ElementoFormato("PLASTICIDAD",  "radiobtnMM",  "plasticidad", ["Alta","Media","Baja","No plástico",'No Aplica']),
-  new ElementoFormato("ORIGEN SUELO",  "radiocheck",  "origensuelo", [ "Residual","Coluvial","Volcánico","Sedimetario"]),
-  new ElementoFormato("TIPO DEPÓSITO (Origen Sedimentario)",  "radiocheck",  "tipodeposito", ["Aluvial","Eolico","Glacial","Lacustre","Marino"]),
-  new ElementoFormato("VELOCIDAD",  "spinner",  "velocidad", [ "Extr. rápido (>5 m/s)","Muy rápido (>3 m/min)","Rápido (>1.8 m/hr)","Moderado (>13 m/mes)","Lento (>1.6 m/año)","Muy lento (>16 mm/año)","Extr. Lento (Menor a 16 mm/año)",'No Aplica']),
-  new ElementoFormato("VELOCIDAD MÁXIMA","edittext","velocidadmax",0),
-  new ElementoFormato("VELOCIDAD MÍNIMA","edittext","velocidadmin",0),
-  new ElementoFormato("SISTEMA DE CLASIFICACIÓN",  "spinner",  "sisclasificacion", [ "Hutchinson, 1988","Varnes, 1978","Cruden y Varnes, 1996","Hungr et al., 2001"]),
-  new ElementoFormato("MORFOMETRÍA",  "titulo",  "", 0),
-  new ElementoFormato("GENERAL",  "multitext",  "morfogeneral", [ "Diferencia altura corona a punta(m)","Longitud horizontal corona a punta(m)","Fahrböschung (grados)","Pendiente ladera en Post-falla(grados)","Pendiente ladera en Pre-falla(grados)","Dirección del movimiento(grados)","Azimut del talud(grados)"]),
-  new ElementoFormato("DIMENSIONES DEL TERRENO",  "multitext",  "morfodimensiones", [ "Ancho masa desplazada Wd(m)","Ancho superficie de ruptura Wr(m)","Longitud masa desplazada Ld(m)","Longitud superficie de ruptura Lr(m)","Espesor masa desplazada Dd (m)","Profundidad superficie de ruptura Dr(m)","Longitud total L (m)","Volumen inicial (m3)","Volumen desplazado (m3)","Área inicial (Km2)","Área total afectada (Km2)","Run up (m)","Distancia de viaje (Km)"]),
-  new ElementoFormato("DEFORMACIÓN TERRENO",  "titulo",  "", 0),
-  new ElementoFormato("MODO",  "spinner",  "morfomodo", [ "Ondulación","Escalonamiento",'No Aplica']),
-  new ElementoFormato("SEVERIDAD",  "spinner",  "morfoseveridad", [ "Leve","Media","Severa",'No Aplica']),
-  new ElementoFormato("GEOFORMA",  "edittextMM",  "AN_GMF", 0),
-  new ElementoFormato("CAUSAS DEL MOVIMIENTO",  "titulo",  "", 0),
-  new ElementoFormato("INHERENTES",  "radiocheck",  "causasinherentes", [ "Material plástico débil","Material sensible","Material colapsible","Material meteor. fisicamente","Material meteor. quimicamente","Material fallado por corte","Material fisurado y agrietado","Orientación desfav. de discontinuidades","Contraste de permeabilidad de materiales","Contraste de rígidez de materiales","Meteoriz. por descongelamiento/deshielo","Meteoriz. por expansión/contracción"]),
-  new ElementoFormato("CONTRIBUYENTES - DETONANTES",  "radiocheckMM",  "causascontrideto", ["Movimiento tectónico","Sismo","Erupción volcánica","Lluvias (mm)","Viento","Deshielo","Avance/Retroceso de glaciales","Rompimiento de lagos en crateres","Rompimiento de presas","Desembalse rápido de presas","Erosión pata del talud por glaciares","Socavación pata del talud por corriente agua","Socavación pata del talud por oleaje","Socavación de margenes de ríos","Erosión Pluvial","Carga en la corona del talud","Erosión subterranea (disolución, tubificación)","Irrigación","Mantenimiento deficiente sistema de drenaje","Escapes de agua de tuberias","Deforestación o ausencia de vegetación","Mineria","Disposición deficiente de estériles/escombros","Vibración artificial (trafico, explosiones, hincado pilotes)","Erosión Fluvial"]),
-  new ElementoFormato("SISMO",  "multitext",  "sismoMM", [ "Magnitud","Escala (ML, Ms, mb, Mw)","Distancia al epicentro (Km)","Profundiad (Km)"]),
-  new ElementoFormato("LLUVIAS",  "multitext",  "lluviasMM", [ "24h","48h","72h","Mes"]),
-  new ElementoFormato("TIPO DE EROSIÓN",  "titulo",  "", 0),
-  new ElementoFormato("SUPERFICIAL",  "radiocheck",  "erosionsuperficial", [ "Tierras malas","Carcavas","Surcos","Hondonadas","Laminar"]),
-  new ElementoFormato("SUBSUPERFICIAL",  "radiocheck",  "erosionsubsuperficial", [ "Cavernas","Tubificación"]),
-  new ElementoFormato("EDAD",  "spinner",  "erosionedad", [ "Antigua","Reciente",'No Aplica']),
-  new ElementoFormato("ESTADO",  "spinner",  "erosionestado", [ "Baja","Moderada","Severa",'No Aplica']),
-  new ElementoFormato("FLUVIAL",  "spinner",  "erosionfluvial", [ "Socav. fondo","Socav. lateral",'No Aplica']),
-  new ElementoFormato("EOLICA",  "spinner",  "erosioneolica", [ "Si","No"]),
-  new ElementoFormato("COBERTURA Y USO DEL SUELO",  "titulo",  "", 0),
-  new ElementoFormato("COBERTURA DEL SUELO",  "multitext",  "cobertura", [ "Veg. Herbácea (%)","Bosque/Selva (%)","Matorrales (%)","Cuerpo de agua (%)","Cultivos (%)","Construcciones (%)","Pastos (%)","Sin cobertura (%)"]),
-  new ElementoFormato("USO DEL SUELO",  "multitext",  "usosuelo", [ "Ganaderia (%)","Agrícola (%)","Recreación (%)","Vivienda (%)","Mineria (%)","Área protegida (%)","Vias (%)","Zona arqueológica (%)","Zona Industrial (%)","Sin uso (%)"]),
-  new ElementoFormato("REFERENCIAS",  "titulo",  "", 0),
-  new ElementoFormato("AUTOR","edittext","referenciasautor",0),
-  new ElementoFormato("AÑO","edittext","referenciasaño",0),
-  new ElementoFormato("TITULO","edittext","referenciastitulo",0),
-  new ElementoFormato("EDITOR","edittext","referenciaseditor",0),
-  new ElementoFormato("CIUDAD","edittext","referenciasciudad",0),
-  new ElementoFormato("PAGINAS","edittext","referenciaspaginas",0),
-  new ElementoFormato("EFECTOS SECUNDARIOS: REPRESAMIENTO",  "titulo",  "", 0),
-  new ElementoFormato("MORFOMETRÍA DEL EMBALSE",  "multitext",  "represamientomorfoembalse", [ "Longitud (m)","Área (m²)","Volúmen (m³)","Nivel agua bajo corona (m)","Area cuenca (m²)","Caudal entrada","Caudal salida","Tasa de llenado"]),
-  new ElementoFormato("MORFOMETRÍA DE LA PRESA",  "multitext",  "represamientomorfometria", ["Longitud (m)","Altura (m)","Ancho (m)","Volúmen (m³)","Talud arriba (°)","Talud abajo (°)"]),
-  new ElementoFormato("TIPO (Costa & Schuster, 1988)",  "spinner",  "represamientotipo", [ "I","II","III","IV","V","VI",'No Aplica']),
-  new ElementoFormato("CONDICIONES DE LA PRESA",  "radiocheck",  "represamientocondiciones", [ "Obstrucción parcial","Erosión de la pata","Estabilización artificial","Ligeramente socavada","Moderadamente socavda","Fuertemente socavda","Parcialmente fallada","Fallada"]),
-  new ElementoFormato("EFECTOS",  "radiocheck",  "represamientoefectos", ["Tsunami (alt. ola)","Empalizada","Sedimentación","Sismo","Inundacion"]),
-  new ElementoFormato("POBLACION AFECTADA",  "titulo",  "", 0),
-  new ElementoFormato("HERIDOS","edittext","HERIDOS",0),
-  new ElementoFormato("VIDAS","edittext","VIDAS",0),
-  new ElementoFormato("DESAPARECIDOS","edittext","DESAPARECIDOS",0),
-  new ElementoFormato("PERSONAS","edittext","PERSONAS",0),
-  new ElementoFormato("FAMILIAS","edittext","FAMILIAS",0),
-  new ElementoFormato("NOTAS","edittext","notas",0),
-  new ElementoFormato("APRECIACIÓN DEL RIESGO","edittext","apreciacionriesgo",0),
-  new ElementoFormato("DAÑOS A INFRASTRUCTURA, ACTIVIDADES ECONÓMICAS, DAÑOS AMBIENTALES:","titulo","",0),
-  new ElementoFormato("TIPO DE DAÑO:","textview","","Infraestructura: edificios, carreteras, inst. educativa, puentes, servicios publicos, vía ferrea, torre conducción eléctrica, obras lineales, planta eléctrica, torre de energía, capa asfaltica, galpones, tanque almacenamiento, espolones, distrito riego, puentes peatonales, puentes veredales, acueducto. Económicos: agricultura, ganadería, cultivos, semovientes, transporte pasajeros y carga. Ambientales: parques, bosques, planta tratamiento de agua.")
+  new ElementoFormato("PARTE del MM","edittextMM","PARTE", 0),
+  new ElementoFormato("ID PARTE del MM","edittextMM","ID_PARTE", 0),
+  new ElementoFormato("ÁREA (m)","edittextMM","AREA", 0),
+  new ElementoFormato("VERIFICADO EN CAMPO","spinnerMM","VERIFICADO",["NO","SI"]),
+  new ElementoFormato("OBSERVACIONES","edittext","OBSERVACION",0),
+  new ElementoFormato("ID DEL FORMATO","edittextMM","ID_FORM", 0),
+
 ]
 
-var listaElementosInvFotosAnexas = [
-  new ElementoFormato( "Fecha",  "edittext",  "fechaFotosAnexas", 0),
-  new ElementoFormato( "Nombre de la Foto",  "edittext",  "nombreFotosAnexasINV", 0),
-  new ElementoFormato( "Autor/Derechos",  "edittext",  "autorFotosAnexas", 0),
-  new ElementoFormato( "Observaciones",  "edittext",  "obsFotosAnexas", 0)
-]
+// var listaElementosInvFotosAnexas = [
+//   new ElementoFormato( "Fecha",  "edittext",  "fechaFotosAnexas", 0),
+//   new ElementoFormato( "Nombre de la Foto",  "edittext",  "nombreFotosAnexasINV", 0),
+//   new ElementoFormato( "Autor/Derechos",  "edittext",  "autorFotosAnexas", 0),
+//   new ElementoFormato( "Observaciones",  "edittext",  "obsFotosAnexas", 0)
+// ]
 
-var listaElementosUSOS = [
-  new ElementoFormato("PLANILLA DE VERIFICACIÓN DE COBERTURAS Y USO DEL SUELO EN CAMPO","titulo","", 0),
-  new ElementoFormato("Número de Planilla","edittext","NOPLANILLA", 0),
-  new ElementoFormato("Nombre del Intérprete","edittext","PROPIETARIO", 0),
-  new ElementoFormato("Periodo de Interpretación (Mes/Año)","edittext","PERIODO", 0),
-  new ElementoFormato("Municipio",  "spinner",  "MUNICIPIO", ['AGUADAS','ARANZAZU','FILADELFIA','MARQUETALIA','RIOSUCIO','SUPIA']),
-  new ElementoFormato("Fecha","edittext","FECHA", 0),
-  new ElementoFormato("Sensor Utilizado","edittext","SENSOR", 0),
-];
+// var listaElementosUSOS = [
+//   new ElementoFormato("PLANILLA DE VERIFICACIÓN DE COBERTURAS Y USO DEL SUELO EN CAMPO","titulo","", 0),
+//   new ElementoFormato("Número de Planilla","edittext","NOPLANILLA", 0),
+//   new ElementoFormato("Nombre del Intérprete","edittext","PROPIETARIO", 0),
+//   new ElementoFormato("Periodo de Interpretación (Mes/Año)","edittext","PERIODO", 0),
+//   new ElementoFormato("Municipio",  "spinner",  "MUNICIPIO", ['AGUADAS','ARANZAZU','FILADELFIA','MARQUETALIA','RIOSUCIO','SUPIA']),
+//   new ElementoFormato("Fecha","edittext","FECHA", 0),
+//   new ElementoFormato("Sensor Utilizado","edittext","SENSOR", 0),
+// ];
 
-var listaElementosPuntosUSOS = [
-  new ElementoFormato("PUNTO","edittext","PUNTO", 0),
-  new ElementoFormato("ESTE","edittext","ESTE", 0),
-  new ElementoFormato("NORTE","edittext","NORTE", 0),
-  new ElementoFormato("FOTOS","edittext","FotosPunto", 0),
-  new ElementoFormato("COBERTURA","edittext","COBERTURA", 0),
-  new ElementoFormato("Observaciones del comportamiento de la cobertura con el inventario de procesos","edittext","OBSUSOS", 0),
-  new ElementoFormato("USO SUELO-T1",  "spinner",  "USOSUELO", ['1. USO AGRICOLA','2. USO PECUARIO','3. USO ACUICOLA','4. USO PESCA','5. USO FORESTAL','6. USO AGROFORESTAL','7. OTROS USOS AGROPECUARIOS','8. USO NO AGROPECUARIO','9. SIN INFORMACION']),
-  new ElementoFormato("DENSIDAD DE SIEMBRA",  "spinner",  "DENSIDADSIEMBRA", ['DENSO','ABIERTO','NO APLICA']),
-  new ElementoFormato("INTENSIDAD DE USO",  "spinner",  "INTENSIDADUSO", ['INTENSIVO','SEMI INTENSIVO','EXTENSIVO','NO APLICA']),
-  new ElementoFormato("TECNICAS DE PRODUCCIÓN",  "spinner",  "TECNICASPROD", ['MANUAL','MECANICO','NO APLICA']),
-  new ElementoFormato("ARREGLO ESPACIAL",  "spinner",  "ARREGLOESP", ['MONO CULTIVO','COMBINADO','AGROFORESTAL','NO APLICA']),
-  new ElementoFormato("RIEGO",  "spinner",  "RIEGO", ['CON RIEGO','SIN RIEGO','NO APLICA']),
-  new ElementoFormato("TIPO DE ESTABLECIMIENTO",  "spinner",  "TIPOESTAB", ['CIELO ABIERTO','POLISOMBRA','INVERNADERO','NO APLICA']),
-  new ElementoFormato("DIRECCIÓN DE SIEMBRA",  "spinner",  "DIRSIEMBRA", ['CURVAS DE NIVEL','CONTRA LAS CURVAS DE NIVEL','NO APLICA']),
-  new ElementoFormato("PRÁCTICA DE QUEMA",  "spinner",  "QUEMA", ['NATURAL','ANTRÓPICO AGRICOLA','ANTRÓPICO FORESTAL','NO APLICA']),
-  new ElementoFormato("ACTIVIDAD PECUARIA",  "spinner",  "ACTPECUARIA", ['VACUNO','BUFALINO','PORSICOLA','OVINO','SIN ACTIVIDAD PECUARIA','NO APLICA']),
-  new ElementoFormato("RESTRICCIÓN DE USO",  "spinner",  "RESTUSO", ['ÁREA PROTEGIDA','NO APLICA']),
-  new ElementoFormato("AFECTACIÓN POR USO DEL SUELO AL TERRENO",  "spinner",  "AFECTACION", ['CON AFECTACIÓN','SIN AFECTACIÓN']),
-  new ElementoFormato("COBERTURA INTERPRETADA","edittext","COBERTURAINT", 0)
-];
+// var listaElementosPuntosUSOS = [
+//   new ElementoFormato("PUNTO","edittext","PUNTO", 0),
+//   new ElementoFormato("ESTE","edittext","ESTE", 0),
+//   new ElementoFormato("NORTE","edittext","NORTE", 0),
+//   new ElementoFormato("FOTOS","edittext","FotosPunto", 0),
+//   new ElementoFormato("COBERTURA","edittext","COBERTURA", 0),
+//   new ElementoFormato("Observaciones del comportamiento de la cobertura con el inventario de procesos","edittext","OBSUSOS", 0),
+//   new ElementoFormato("USO SUELO-T1",  "spinner",  "USOSUELO", ['1. USO AGRICOLA','2. USO PECUARIO','3. USO ACUICOLA','4. USO PESCA','5. USO FORESTAL','6. USO AGROFORESTAL','7. OTROS USOS AGROPECUARIOS','8. USO NO AGROPECUARIO','9. SIN INFORMACION']),
+//   new ElementoFormato("DENSIDAD DE SIEMBRA",  "spinner",  "DENSIDADSIEMBRA", ['DENSO','ABIERTO','NO APLICA']),
+//   new ElementoFormato("INTENSIDAD DE USO",  "spinner",  "INTENSIDADUSO", ['INTENSIVO','SEMI INTENSIVO','EXTENSIVO','NO APLICA']),
+//   new ElementoFormato("TECNICAS DE PRODUCCIÓN",  "spinner",  "TECNICASPROD", ['MANUAL','MECANICO','NO APLICA']),
+//   new ElementoFormato("ARREGLO ESPACIAL",  "spinner",  "ARREGLOESP", ['MONO CULTIVO','COMBINADO','AGROFORESTAL','NO APLICA']),
+//   new ElementoFormato("RIEGO",  "spinner",  "RIEGO", ['CON RIEGO','SIN RIEGO','NO APLICA']),
+//   new ElementoFormato("TIPO DE ESTABLECIMIENTO",  "spinner",  "TIPOESTAB", ['CIELO ABIERTO','POLISOMBRA','INVERNADERO','NO APLICA']),
+//   new ElementoFormato("DIRECCIÓN DE SIEMBRA",  "spinner",  "DIRSIEMBRA", ['CURVAS DE NIVEL','CONTRA LAS CURVAS DE NIVEL','NO APLICA']),
+//   new ElementoFormato("PRÁCTICA DE QUEMA",  "spinner",  "QUEMA", ['NATURAL','ANTRÓPICO AGRICOLA','ANTRÓPICO FORESTAL','NO APLICA']),
+//   new ElementoFormato("ACTIVIDAD PECUARIA",  "spinner",  "ACTPECUARIA", ['VACUNO','BUFALINO','PORSICOLA','OVINO','SIN ACTIVIDAD PECUARIA','NO APLICA']),
+//   new ElementoFormato("RESTRICCIÓN DE USO",  "spinner",  "RESTUSO", ['ÁREA PROTEGIDA','NO APLICA']),
+//   new ElementoFormato("AFECTACIÓN POR USO DEL SUELO AL TERRENO",  "spinner",  "AFECTACION", ['CON AFECTACIÓN','SIN AFECTACIÓN']),
+//   new ElementoFormato("COBERTURA INTERPRETADA","edittext","COBERTURAINT", 0)
+// ];
 
 
 var estaciones;
@@ -904,14 +842,14 @@ function GraficarEstacion(isEdit, id, addInEdit){
         '</div>'+
         '<div class="col-12 mt-4 mb-4">'+
           '<button id="add-disc-UGSR-'+id +'-'+j+'-'+(isEdit?"1":"0")+'-'+(addInEdit?"1":"0")+'" class="btn estilo-modales mr-4">Agregar Discontinuidad</button>'+
-          '<button id="add-foto-UGSR-'+id +'-'+j+'-'+(isEdit?"1":"0")+'-'+(addInEdit?"1":"0")+'" class="btn estilo-modales">Agregar Foto Anexa</button>'+
+          // '<button id="add-foto-UGSR-'+id +'-'+j+'-'+(isEdit?"1":"0")+'-'+(addInEdit?"1":"0")+'" class="btn estilo-modales">Agregar Foto Anexa</button>'+
         '</div>'+
         '<div class="col-12">'+
           '<div id="accordianId_'+j+'_Disconts" class="accordion"></div>'+
-        '</div>'+      
-        '<div class="col-12">'+
-          '<div id="accordianId_'+j+'_FotosUGSR" class="accordion"></div>'+
-        '</div>';      
+        '</div>';    
+        // '<div class="col-12">'+
+        //   '<div id="accordianId_'+j+'_FotosUGSR" class="accordion"></div>'+
+        // '</div>';      
         
         formularioForm += '</div>';
 
@@ -936,15 +874,15 @@ function GraficarEstacion(isEdit, id, addInEdit){
               } 
             }
 
-            if (formato["FotosAnexas"]["count"]>0) {
-              for (let d = 0; d < formato["FotosAnexas"]["count"]; d++) {
-                var auxDiscont = d + 1;
-                var Discont = estaciones["estacion_"+id]["Formularios"]["Form_UGS_Rocas"]["Form_UGS_Rocas_"+j]["FotosAnexas"]["FotoAnexa_"+auxDiscont];
-                if (Discont.activo) {
-                  GraficarFotoUGSR(auxDiscont, id, j, true, false);
-                }
-              } 
-            }
+            // if (formato["FotosAnexas"]["count"]>0) {
+            //   for (let d = 0; d < formato["FotosAnexas"]["count"]; d++) {
+            //     var auxDiscont = d + 1;
+            //     var Discont = estaciones["estacion_"+id]["Formularios"]["Form_UGS_Rocas"]["Form_UGS_Rocas_"+j]["FotosAnexas"]["FotoAnexa_"+auxDiscont];
+            //     if (Discont.activo) {
+            //       GraficarFotoUGSR(auxDiscont, id, j, true, false);
+            //     }
+            //   } 
+            // }
           }
           
         }
@@ -999,29 +937,29 @@ function GraficarEstacion(isEdit, id, addInEdit){
           GraficarDisc(auxDiscont, id, jDisc, false, addInEdit);
         });
 
-        $("#add-foto-UGSR-"+id+'-'+j+'-'+(isEdit?"1":"0")+'-'+(addInEdit?"1":"0")).click(function (e) { 
-          e.preventDefault();
-          var id = parseInt($(this).attr('id').split('-')[3]);
-          var jDisc = parseInt($(this).attr('id').split('-')[4]);
-          var isEdit = parseInt($(this).attr('id').split('-')[5]);
-          var auxaddInEdit = parseInt($(this).attr('id').split('-')[6]);
-          var auxDiscont;
-          var addInEdit = false;
-          if (isEdit == "1" || auxaddInEdit == "1") {
-            addInEdit = true;
-            auxDiscont = parseInt(estaciones["estacion_"+id]["Formularios"]["Form_UGS_Rocas"]["Form_UGS_Rocas_"+jDisc]["FotosAnexas"]["count"]) + 1;
-            estaciones["estacion_"+id]["Formularios"]["Form_UGS_Rocas"]["Form_UGS_Rocas_"+jDisc]["FotosAnexas"]["count"] = auxDiscont;
-            if (estaciones["estacion_"+id]["Formularios"]["Form_UGS_Rocas"]["Form_UGS_Rocas_"+jDisc]["FotosAnexas"]["FotosURL"] === undefined) {
-              estaciones["estacion_"+id]["Formularios"]["Form_UGS_Rocas"]["Form_UGS_Rocas_"+jDisc]["FotosAnexas"]["FotosURL"] = {"count":auxDiscont}
-            }
-          }
-          else{
-            contAddFoto[jDisc]++;
-            auxDiscont = contAddFoto[jDisc];
-            statAddFoto[jDisc].push(true);
-          }
-          GraficarFotoUGSR(auxDiscont, id, jDisc, false, addInEdit);
-        });
+        // $("#add-foto-UGSR-"+id+'-'+j+'-'+(isEdit?"1":"0")+'-'+(addInEdit?"1":"0")).click(function (e) { 
+        //   e.preventDefault();
+        //   var id = parseInt($(this).attr('id').split('-')[3]);
+        //   var jDisc = parseInt($(this).attr('id').split('-')[4]);
+        //   var isEdit = parseInt($(this).attr('id').split('-')[5]);
+        //   var auxaddInEdit = parseInt($(this).attr('id').split('-')[6]);
+        //   var auxDiscont;
+        //   var addInEdit = false;
+        //   if (isEdit == "1" || auxaddInEdit == "1") {
+        //     addInEdit = true;
+        //     auxDiscont = parseInt(estaciones["estacion_"+id]["Formularios"]["Form_UGS_Rocas"]["Form_UGS_Rocas_"+jDisc]["FotosAnexas"]["count"]) + 1;
+        //     estaciones["estacion_"+id]["Formularios"]["Form_UGS_Rocas"]["Form_UGS_Rocas_"+jDisc]["FotosAnexas"]["count"] = auxDiscont;
+        //     if (estaciones["estacion_"+id]["Formularios"]["Form_UGS_Rocas"]["Form_UGS_Rocas_"+jDisc]["FotosAnexas"]["FotosURL"] === undefined) {
+        //       estaciones["estacion_"+id]["Formularios"]["Form_UGS_Rocas"]["Form_UGS_Rocas_"+jDisc]["FotosAnexas"]["FotosURL"] = {"count":auxDiscont}
+        //     }
+        //   }
+        //   else{
+        //     contAddFoto[jDisc]++;
+        //     auxDiscont = contAddFoto[jDisc];
+        //     statAddFoto[jDisc].push(true);
+        //   }
+        //   GraficarFotoUGSR(auxDiscont, id, jDisc, false, addInEdit);
+        // });
 
 
         function GraficarDisc(auxDiscont, id, jDisc, isEdit, addInEdit) {
@@ -1485,13 +1423,13 @@ function GraficarEstacion(isEdit, id, addInEdit){
     formularioForm +=
     '<div class="col-3">'+
       '<button id="UGSS-btn-borrar-'+ id +'-'+j+'" class="btn estilo-modales">Borrar Formato</button>'+
-    '</div>'+ 
-    '<div class="col-12 mt-4 mb-4">'+
-      '<button id="add-foto-UGSS-'+id +'-'+j+'-'+(isEdit?"1":"0")+'-'+(addInEdit?"1":"0")+'" class="btn estilo-modales">Agregar Foto Anexa</button>'+
-    '</div>'+
-    '<div class="col-12">'+
-      '<div id="accordianId_'+j+'_FotosUGSS" class="accordion"></div>';
     '</div>';
+    // '<div class="col-12 mt-4 mb-4">'+
+    //   '<button id="add-foto-UGSS-'+id +'-'+j+'-'+(isEdit?"1":"0")+'-'+(addInEdit?"1":"0")+'" class="btn estilo-modales">Agregar Foto Anexa</button>'+
+    // '</div>'+
+    // '<div class="col-12">'+
+    //   '<div id="accordianId_'+j+'_FotosUGSS" class="accordion"></div>';
+    // '</div>';
 
     formularioForm += '</div>'
 
@@ -1505,17 +1443,17 @@ function GraficarEstacion(isEdit, id, addInEdit){
         auxAppend = '<div class="tab-pane fade" id="'+auxTipoFormat+'tabcontent-'+j+'" role="tabpanel" aria-labelledby="'+noformato+'_'+estacion+'-tab">'+formularioForm+'</div>'
         $("#myTabsContent").append(auxAppend);
       }
-      if (isEdit) {
-        if (formato["FotosAnexas"]["count"]>0) {
-          for (let d = 0; d < formato["FotosAnexas"]["count"]; d++) {
-            var auxDiscont = d + 1;
-            var Discont = estaciones["estacion_"+id]["Formularios"]["Form_UGS_Suelos"]["Form_UGS_Suelos_"+j]["FotosAnexas"]["FotoAnexa_"+auxDiscont];
-            if (Discont.activo) {
-              GraficarFotoUGSS(auxDiscont, id, j, true, false);
-            }
-          } 
-        }
-      }
+      // if (isEdit) {
+      //   if (formato["FotosAnexas"]["count"]>0) {
+      //     for (let d = 0; d < formato["FotosAnexas"]["count"]; d++) {
+      //       var auxDiscont = d + 1;
+      //       var Discont = estaciones["estacion_"+id]["Formularios"]["Form_UGS_Suelos"]["Form_UGS_Suelos_"+j]["FotosAnexas"]["FotoAnexa_"+auxDiscont];
+      //       if (Discont.activo) {
+      //         GraficarFotoUGSS(auxDiscont, id, j, true, false);
+      //       }
+      //     } 
+      //   }
+      // }
       
     }
     else{
@@ -1548,128 +1486,128 @@ function GraficarEstacion(isEdit, id, addInEdit){
     
     });
 
-    $("#add-foto-UGSS-"+id+'-'+j+'-'+(isEdit?"1":"0")+'-'+(addInEdit?"1":"0")).click(function (e) { 
-      e.preventDefault();
-      var id = parseInt($(this).attr('id').split('-')[3]);
-      var jDisc = parseInt($(this).attr('id').split('-')[4]);
-      var isEdit = parseInt($(this).attr('id').split('-')[5]);
-      var auxaddInEdit = parseInt($(this).attr('id').split('-')[6]);
-      var auxDiscont;
-      var addInEdit = false;
-      if (isEdit == "1" || auxaddInEdit == "1") {
-        addInEdit = true;
-        auxDiscont = parseInt(estaciones["estacion_"+id]["Formularios"]["Form_UGS_Suelos"]["Form_UGS_Suelos_"+jDisc]["FotosAnexas"]["count"]) + 1;
-        estaciones["estacion_"+id]["Formularios"]["Form_UGS_Suelos"]["Form_UGS_Suelos_"+jDisc]["FotosAnexas"]["count"] = auxDiscont;
-        if (estaciones["estacion_"+id]["Formularios"]["Form_UGS_Suelos"]["Form_UGS_Suelos_"+jDisc]["FotosAnexas"]["FotosURL"] === undefined) {
-          estaciones["estacion_"+id]["Formularios"]["Form_UGS_Suelos"]["Form_UGS_Suelos_"+jDisc]["FotosAnexas"]["FotosURL"] = {"count":auxDiscont}
-        }
-      }
-      else{
-        contAddFotoSuelos[jDisc]++;
-        auxDiscont = contAddFotoSuelos[jDisc];
-        statAddFotoSuelos[jDisc].push(true);
-      }
-      GraficarFotoUGSS(auxDiscont, id, jDisc, false, addInEdit);
-    });
+    // $("#add-foto-UGSS-"+id+'-'+j+'-'+(isEdit?"1":"0")+'-'+(addInEdit?"1":"0")).click(function (e) { 
+    //   e.preventDefault();
+    //   var id = parseInt($(this).attr('id').split('-')[3]);
+    //   var jDisc = parseInt($(this).attr('id').split('-')[4]);
+    //   var isEdit = parseInt($(this).attr('id').split('-')[5]);
+    //   var auxaddInEdit = parseInt($(this).attr('id').split('-')[6]);
+    //   var auxDiscont;
+    //   var addInEdit = false;
+    //   if (isEdit == "1" || auxaddInEdit == "1") {
+    //     addInEdit = true;
+    //     auxDiscont = parseInt(estaciones["estacion_"+id]["Formularios"]["Form_UGS_Suelos"]["Form_UGS_Suelos_"+jDisc]["FotosAnexas"]["count"]) + 1;
+    //     estaciones["estacion_"+id]["Formularios"]["Form_UGS_Suelos"]["Form_UGS_Suelos_"+jDisc]["FotosAnexas"]["count"] = auxDiscont;
+    //     if (estaciones["estacion_"+id]["Formularios"]["Form_UGS_Suelos"]["Form_UGS_Suelos_"+jDisc]["FotosAnexas"]["FotosURL"] === undefined) {
+    //       estaciones["estacion_"+id]["Formularios"]["Form_UGS_Suelos"]["Form_UGS_Suelos_"+jDisc]["FotosAnexas"]["FotosURL"] = {"count":auxDiscont}
+    //     }
+    //   }
+    //   else{
+    //     contAddFotoSuelos[jDisc]++;
+    //     auxDiscont = contAddFotoSuelos[jDisc];
+    //     statAddFotoSuelos[jDisc].push(true);
+    //   }
+    //   GraficarFotoUGSS(auxDiscont, id, jDisc, false, addInEdit);
+    // });
 
-    function GraficarFotoUGSS(auxDiscont, id, jDisc, isEdit, addInEdit) {
-      var Discont;
-      if (addInEdit) {
-        estaciones["estacion_"+id]["Formularios"]["Form_UGS_Suelos"]["Form_UGS_Suelos_"+jDisc]["FotosAnexas"]["FotoAnexa_"+auxDiscont]= {activo:true};
-      }
-      if (isEdit||addInEdit) {
-        Discont = estaciones["estacion_"+id]["Formularios"]["Form_UGS_Suelos"]["Form_UGS_Suelos_"+jDisc]["FotosAnexas"]["FotoAnexa_"+auxDiscont];
-      }
+    // function GraficarFotoUGSS(auxDiscont, id, jDisc, isEdit, addInEdit) {
+    //   var Discont;
+    //   if (addInEdit) {
+    //     estaciones["estacion_"+id]["Formularios"]["Form_UGS_Suelos"]["Form_UGS_Suelos_"+jDisc]["FotosAnexas"]["FotoAnexa_"+auxDiscont]= {activo:true};
+    //   }
+    //   if (isEdit||addInEdit) {
+    //     Discont = estaciones["estacion_"+id]["Formularios"]["Form_UGS_Suelos"]["Form_UGS_Suelos_"+jDisc]["FotosAnexas"]["FotoAnexa_"+auxDiscont];
+    //   }
 
-      var formularioFormDisc = '';
-      formularioFormDisc += 
-      '<div class="card">'+
-        '<div class="card-header" role="tab" id="sectionHeaderId_'+jDisc+'UGSSFotos_'+ auxDiscont +'">'+
-          '<h5 class="mb-0">'+
-            '<a class="text-decoration-none" data-toggle="collapse" data-parent="#accordianId_'+jDisc+'_FotosUGSS" href="#sectionContentId_'+jDisc+'UGSSFotos_'+ auxDiscont +'" aria-expanded="true" aria-controls="'+jDisc+'Fotos_'+ auxDiscont +'">'+
-              'Foto Anexa '+auxDiscont +
-            '</a>'+
-          '</h5>'+
-        '</div>'+
-        '<div id="sectionContentId_'+jDisc+'UGSSFotos_'+ auxDiscont +'" class="collapse in" role="tabpanel" aria-labelledby="'+jDisc+'Fotos_'+ auxDiscont +'">'+
-          '<div class="card-body">'+
-            '<div class="row">';
+    //   var formularioFormDisc = '';
+    //   formularioFormDisc += 
+    //   '<div class="card">'+
+    //     '<div class="card-header" role="tab" id="sectionHeaderId_'+jDisc+'UGSSFotos_'+ auxDiscont +'">'+
+    //       '<h5 class="mb-0">'+
+    //         '<a class="text-decoration-none" data-toggle="collapse" data-parent="#accordianId_'+jDisc+'_FotosUGSS" href="#sectionContentId_'+jDisc+'UGSSFotos_'+ auxDiscont +'" aria-expanded="true" aria-controls="'+jDisc+'Fotos_'+ auxDiscont +'">'+
+    //           'Foto Anexa '+auxDiscont +
+    //         '</a>'+
+    //       '</h5>'+
+    //     '</div>'+
+    //     '<div id="sectionContentId_'+jDisc+'UGSSFotos_'+ auxDiscont +'" class="collapse in" role="tabpanel" aria-labelledby="'+jDisc+'Fotos_'+ auxDiscont +'">'+
+    //       '<div class="card-body">'+
+    //         '<div class="row">';
 
-            for (let i = 0; i < listaElementosUGSFotosAnexas.length; i++) {
+    //         for (let i = 0; i < listaElementosUGSFotosAnexas.length; i++) {
   
-              var eleTag = listaElementosUGSFotosAnexas[i].tag;
-              var eleName = listaElementosUGSFotosAnexas[i].nombre;
-              var eleClase = listaElementosUGSFotosAnexas[i].clase;
-              var eleStringArray = listaElementosUGSFotosAnexas[i].stringArray;
+    //           var eleTag = listaElementosUGSFotosAnexas[i].tag;
+    //           var eleName = listaElementosUGSFotosAnexas[i].nombre;
+    //           var eleClase = listaElementosUGSFotosAnexas[i].clase;
+    //           var eleStringArray = listaElementosUGSFotosAnexas[i].stringArray;
 
-              if (eleClase == "edittext") {
-                if (eleTag == "DescriFotosAnexas") {
-                  formularioFormDisc += 
-                  '<div class="form-group col-6">'+
-                    '<label for="'+eleTag+'_UGSS_Foto_'+auxDiscont+'_'+jDisc+'">'+eleName+'</label>'+
-                    '<textarea class="form-control" rows="2" id="'+eleTag+'_UGSS_Foto_'+auxDiscont+'_'+jDisc+'">'+(isEdit? Discont[eleTag] : "")+'</textarea/>'+
-                  '</div>'+
-                  '<div class="form-group col-12 row" id="contenedorFotosAnexas_UGSS_'+auxDiscont+'_'+jDisc+'"></div>'
-                }else{
-                  formularioFormDisc += 
-                  '<div class="form-group col-sm-6 col-md-4 col-lg-3">'+
-                    '<label for="'+eleTag+'_UGSS_Foto_'+auxDiscont+'_'+jDisc+'" class="bold">'+eleName+'</label>'+
-                    '<input type="text" class="form-control" id="'+eleTag+'_UGSS_Foto_'+auxDiscont+'_'+jDisc+'" value="'+(isEdit? Discont[eleTag] : "")+'"></input>'+
-                  '</div>';
-                }
-                idsFormatos[auxTipoFormat+'_'+eleTag+'_UGSS_Foto_'+auxDiscont+'_'+j] = eleTag+'_UGSS_Foto_'+auxDiscont+'_'+j;
-              }
-            }
-            if (isEdit) {
-              var auxCountFotoAnexa = auxDiscont - 1;
-              var auxFotoanexa = estaciones["estacion_"+id]["Formularios"]["Form_UGS_Suelos"]["Form_UGS_Suelos_"+jDisc]["FotosAnexas"]["FotosURL"];
-              if (auxFotoanexa !== undefined) {
-                if (auxFotoanexa["FotoActivo_"+auxCountFotoAnexa]) {
-                  formularioFormDisc += '<div class="col-12"><img class="fotosEstaciones  img-fluid" src="'+ auxFotoanexa["Foto_"+auxCountFotoAnexa] +'"></div>'
-                }
-              }
-            }
-            else{
-              formularioFormDisc += '<input type="file" class="form-control col-sm-6 col-md-4 col-lg-3" id="fotoAnexa_UGSS_'+auxDiscont+'_'+jDisc+'" onchange="handleFilesAflor(this.files, id)">'
-            }
+    //           if (eleClase == "edittext") {
+    //             if (eleTag == "DescriFotosAnexas") {
+    //               formularioFormDisc += 
+    //               '<div class="form-group col-6">'+
+    //                 '<label for="'+eleTag+'_UGSS_Foto_'+auxDiscont+'_'+jDisc+'">'+eleName+'</label>'+
+    //                 '<textarea class="form-control" rows="2" id="'+eleTag+'_UGSS_Foto_'+auxDiscont+'_'+jDisc+'">'+(isEdit? Discont[eleTag] : "")+'</textarea/>'+
+    //               '</div>'+
+    //               '<div class="form-group col-12 row" id="contenedorFotosAnexas_UGSS_'+auxDiscont+'_'+jDisc+'"></div>'
+    //             }else{
+    //               formularioFormDisc += 
+    //               '<div class="form-group col-sm-6 col-md-4 col-lg-3">'+
+    //                 '<label for="'+eleTag+'_UGSS_Foto_'+auxDiscont+'_'+jDisc+'" class="bold">'+eleName+'</label>'+
+    //                 '<input type="text" class="form-control" id="'+eleTag+'_UGSS_Foto_'+auxDiscont+'_'+jDisc+'" value="'+(isEdit? Discont[eleTag] : "")+'"></input>'+
+    //               '</div>';
+    //             }
+    //             idsFormatos[auxTipoFormat+'_'+eleTag+'_UGSS_Foto_'+auxDiscont+'_'+j] = eleTag+'_UGSS_Foto_'+auxDiscont+'_'+j;
+    //           }
+    //         }
+    //         if (isEdit) {
+    //           var auxCountFotoAnexa = auxDiscont - 1;
+    //           var auxFotoanexa = estaciones["estacion_"+id]["Formularios"]["Form_UGS_Suelos"]["Form_UGS_Suelos_"+jDisc]["FotosAnexas"]["FotosURL"];
+    //           if (auxFotoanexa !== undefined) {
+    //             if (auxFotoanexa["FotoActivo_"+auxCountFotoAnexa]) {
+    //               formularioFormDisc += '<div class="col-12"><img class="fotosEstaciones  img-fluid" src="'+ auxFotoanexa["Foto_"+auxCountFotoAnexa] +'"></div>'
+    //             }
+    //           }
+    //         }
+    //         else{
+    //           formularioFormDisc += '<input type="file" class="form-control col-sm-6 col-md-4 col-lg-3" id="fotoAnexa_UGSS_'+auxDiscont+'_'+jDisc+'" onchange="handleFilesAflor(this.files, id)">'
+    //         }
 
-            formularioFormDisc +=
-            '<div class="col-3">'+
-              '<button id="estBorrarFotoUGSS-'+id+'-'+jDisc+'-'+auxDiscont+'-'+(addInEdit||isEdit?"1":"0")+'" class="btn estilo-modales">Borrar Foto Anexa</button>'+
-            '</div>';
+    //         formularioFormDisc +=
+    //         '<div class="col-3">'+
+    //           '<button id="estBorrarFotoUGSS-'+id+'-'+jDisc+'-'+auxDiscont+'-'+(addInEdit||isEdit?"1":"0")+'" class="btn estilo-modales">Borrar Foto Anexa</button>'+
+    //         '</div>';
 
-      formularioFormDisc += '</div></div></div></div>';
+    //   formularioFormDisc += '</div></div></div></div>';
 
-      $("#accordianId_"+jDisc+'_FotosUGSS').append(formularioFormDisc);
+    //   $("#accordianId_"+jDisc+'_FotosUGSS').append(formularioFormDisc);
 
 
-      $('#estBorrarFotoUGSS-'+id+'-'+jDisc+'-'+auxDiscont+'-'+(addInEdit||isEdit?"1":"0")).click(function (e) { 
-        e.preventDefault();
-        var idfo = parseInt($(this).attr('id').split('-')[1]);
-        var f = parseInt($(this).attr('id').split('-')[2]);
-        var fdisconta = $(this).attr('id').split('-')[3];
-        var fisEdit = $(this).attr('id').split('-')[4];
-        if (fisEdit == "1") {
-          estaciones["estacion_"+idfo]["Formularios"]["Form_UGS_Suelos"]["Form_UGS_Suelos_"+f]["FotosAnexas"]["FotoAnexa_"+fdisconta]['activo'] = false; 
-        }
-        else{
-          statAddFotoSuelos[jDisc][fdisconta-1] = false;
-        }
+    //   $('#estBorrarFotoUGSS-'+id+'-'+jDisc+'-'+auxDiscont+'-'+(addInEdit||isEdit?"1":"0")).click(function (e) { 
+    //     e.preventDefault();
+    //     var idfo = parseInt($(this).attr('id').split('-')[1]);
+    //     var f = parseInt($(this).attr('id').split('-')[2]);
+    //     var fdisconta = $(this).attr('id').split('-')[3];
+    //     var fisEdit = $(this).attr('id').split('-')[4];
+    //     if (fisEdit == "1") {
+    //       estaciones["estacion_"+idfo]["Formularios"]["Form_UGS_Suelos"]["Form_UGS_Suelos_"+f]["FotosAnexas"]["FotoAnexa_"+fdisconta]['activo'] = false; 
+    //     }
+    //     else{
+    //       statAddFotoSuelos[jDisc][fdisconta-1] = false;
+    //     }
 
-        $("#sectionHeaderId_"+f+'UGSSFotos_'+fdisconta).addClass('d-none');
-        $("#sectionContentId_"+f+'UGSSFotos_'+fdisconta).addClass('d-none');
+    //     $("#sectionHeaderId_"+f+'UGSSFotos_'+fdisconta).addClass('d-none');
+    //     $("#sectionContentId_"+f+'UGSSFotos_'+fdisconta).addClass('d-none');
         
-        notice(`Se ha Borrada exitosamente la Foto Anexa ${fdisconta} del Formato UGSS ${f}, Proceda a guardar los cambios en la estación.`, {
-          type: 'success', 
-          position: 'topcenter', 
-          appendType: 'append',
-          closeBtn: false,
-          autoClose: 3000,
-          className: '',
-        })
+    //     notice(`Se ha Borrada exitosamente la Foto Anexa ${fdisconta} del Formato UGSS ${f}, Proceda a guardar los cambios en la estación.`, {
+    //       type: 'success', 
+    //       position: 'topcenter', 
+    //       appendType: 'append',
+    //       closeBtn: false,
+    //       autoClose: 3000,
+    //       className: '',
+    //     })
       
-      });
-    }
+    //   });
+    // }
     
   }
 
@@ -1816,14 +1754,14 @@ function GraficarEstacion(isEdit, id, addInEdit){
     '</div>'+ 
     '<div class="col-12 mt-4 mb-4">'+
       '<button id="add-new-SGMF-'+id +'-'+j+'-'+(isEdit?"1":"0")+'-'+(addInEdit?"1":"0")+'" class="btn estilo-modales mr-4">Agregar SGMF</button>'+
-      '<button id="add-foto-SGMF-'+id +'-'+j+'-'+(isEdit?"1":"0")+'-'+(addInEdit?"1":"0")+'" class="btn estilo-modales">Agregar Foto Anexa</button>'+
+      // '<button id="add-foto-SGMF-'+id +'-'+j+'-'+(isEdit?"1":"0")+'-'+(addInEdit?"1":"0")+'" class="btn estilo-modales">Agregar Foto Anexa</button>'+
     '</div>'+
     '<div class="col-12">'+
       '<div id="accordianId_'+j+'_SGMF" class="accordion"></div>'+
-    '</div>'+ 
-    '<div class="col-12">'+
-      '<div id="accordianId_'+j+'_FotosSGMF" class="accordion"></div>'+
     '</div>';
+    // '<div class="col-12">'+
+    //   '<div id="accordianId_'+j+'_FotosSGMF" class="accordion"></div>'+
+    // '</div>';
 
     formularioForm += '</div>'
     
@@ -1847,15 +1785,15 @@ function GraficarEstacion(isEdit, id, addInEdit){
             }
           } 
         }
-        if (formato["FotosAnexas"]["count"]>0) {
-          for (let d = 0; d < formato["FotosAnexas"]["count"]; d++) {
-            var auxDiscont = d + 1;
-            var Discont = estaciones["estacion_"+id]["Formularios"]["Form_SGMF"]["Form_SGMF_"+j]["FotosAnexas"]["FotoAnexa_"+auxDiscont];
-            if (Discont.activo) {
-              GraficarFotoSGMF(auxDiscont, id, j, true, false);
-            }
-          } 
-        }
+        // if (formato["FotosAnexas"]["count"]>0) {
+        //   for (let d = 0; d < formato["FotosAnexas"]["count"]; d++) {
+        //     var auxDiscont = d + 1;
+        //     var Discont = estaciones["estacion_"+id]["Formularios"]["Form_SGMF"]["Form_SGMF_"+j]["FotosAnexas"]["FotoAnexa_"+auxDiscont];
+        //     if (Discont.activo) {
+        //       GraficarFotoSGMF(auxDiscont, id, j, true, false);
+        //     }
+        //   } 
+        // }
       }
       
     }
@@ -1912,29 +1850,29 @@ function GraficarEstacion(isEdit, id, addInEdit){
       GraficarNewSGMF(auxDiscont, id, jDisc, false, addInEdit);
     });
 
-    $("#add-foto-SGMF-"+id+'-'+j+'-'+(isEdit?"1":"0")+'-'+(addInEdit?"1":"0")).click(function (e) { 
-      e.preventDefault();
-      var id = parseInt($(this).attr('id').split('-')[3]);
-      var jDisc = parseInt($(this).attr('id').split('-')[4]);
-      var isEdit = parseInt($(this).attr('id').split('-')[5]);
-      var auxaddInEdit = parseInt($(this).attr('id').split('-')[6]);
-      var auxDiscont;
-      var addInEdit = false;
-      if (isEdit == "1" || auxaddInEdit == "1") {
-        addInEdit = true;
-        auxDiscont = parseInt(estaciones["estacion_"+id]["Formularios"]["Form_SGMF"]["Form_SGMF_"+jDisc]["FotosAnexas"]["count"]) + 1;
-        estaciones["estacion_"+id]["Formularios"]["Form_SGMF"]["Form_SGMF_"+jDisc]["FotosAnexas"]["count"] = auxDiscont;
-        if (estaciones["estacion_"+id]["Formularios"]["Form_SGMF"]["Form_SGMF_"+jDisc]["FotosAnexas"]["FotosURL"] === undefined) {
-          estaciones["estacion_"+id]["Formularios"]["Form_SGMF"]["Form_SGMF_"+jDisc]["FotosAnexas"]["FotosURL"] = {"count":auxDiscont}
-        }
-      }
-      else{
-        contAddFotoSGMF[jDisc]++;
-        auxDiscont = contAddFotoSGMF[jDisc];
-        statAddFotoSGMF[jDisc].push(true);
-      }
-      GraficarFotoSGMF(auxDiscont, id, jDisc, false, addInEdit);
-    });
+    // $("#add-foto-SGMF-"+id+'-'+j+'-'+(isEdit?"1":"0")+'-'+(addInEdit?"1":"0")).click(function (e) { 
+    //   e.preventDefault();
+    //   var id = parseInt($(this).attr('id').split('-')[3]);
+    //   var jDisc = parseInt($(this).attr('id').split('-')[4]);
+    //   var isEdit = parseInt($(this).attr('id').split('-')[5]);
+    //   var auxaddInEdit = parseInt($(this).attr('id').split('-')[6]);
+    //   var auxDiscont;
+    //   var addInEdit = false;
+    //   if (isEdit == "1" || auxaddInEdit == "1") {
+    //     addInEdit = true;
+    //     auxDiscont = parseInt(estaciones["estacion_"+id]["Formularios"]["Form_SGMF"]["Form_SGMF_"+jDisc]["FotosAnexas"]["count"]) + 1;
+    //     estaciones["estacion_"+id]["Formularios"]["Form_SGMF"]["Form_SGMF_"+jDisc]["FotosAnexas"]["count"] = auxDiscont;
+    //     if (estaciones["estacion_"+id]["Formularios"]["Form_SGMF"]["Form_SGMF_"+jDisc]["FotosAnexas"]["FotosURL"] === undefined) {
+    //       estaciones["estacion_"+id]["Formularios"]["Form_SGMF"]["Form_SGMF_"+jDisc]["FotosAnexas"]["FotosURL"] = {"count":auxDiscont}
+    //     }
+    //   }
+    //   else{
+    //     contAddFotoSGMF[jDisc]++;
+    //     auxDiscont = contAddFotoSGMF[jDisc];
+    //     statAddFotoSGMF[jDisc].push(true);
+    //   }
+    //   GraficarFotoSGMF(auxDiscont, id, jDisc, false, addInEdit);
+    // });
 
     function GraficarNewSGMF(auxDiscont, id, jDisc, isEdit, addInEdit) {
       var Discont;
@@ -2074,439 +2012,105 @@ function GraficarEstacion(isEdit, id, addInEdit){
       });
     }
   
-    function GraficarFotoSGMF(auxDiscont, id, jDisc, isEdit, addInEdit) {
-      var Discont;
-      if (addInEdit) {
-        estaciones["estacion_"+id]["Formularios"]["Form_SGMF"]["Form_SGMF_"+jDisc]["FotosAnexas"]["FotoAnexa_"+auxDiscont]= {activo:true};
-      }
-      if (isEdit||addInEdit) {
-        Discont = estaciones["estacion_"+id]["Formularios"]["Form_SGMF"]["Form_SGMF_"+jDisc]["FotosAnexas"]["FotoAnexa_"+auxDiscont];
-      }
+    // function GraficarFotoSGMF(auxDiscont, id, jDisc, isEdit, addInEdit) {
+    //   var Discont;
+    //   if (addInEdit) {
+    //     estaciones["estacion_"+id]["Formularios"]["Form_SGMF"]["Form_SGMF_"+jDisc]["FotosAnexas"]["FotoAnexa_"+auxDiscont]= {activo:true};
+    //   }
+    //   if (isEdit||addInEdit) {
+    //     Discont = estaciones["estacion_"+id]["Formularios"]["Form_SGMF"]["Form_SGMF_"+jDisc]["FotosAnexas"]["FotoAnexa_"+auxDiscont];
+    //   }
 
-      var formularioFormDisc = '';
-      formularioFormDisc += 
-      '<div class="card">'+
-        '<div class="card-header" role="tab" id="sectionHeaderId_'+jDisc+'SGMFFotos_'+ auxDiscont +'">'+
-          '<h5 class="mb-0">'+
-            '<a class="text-decoration-none" data-toggle="collapse" data-parent="#accordianId_'+jDisc+'_FotosSGMF" href="#sectionContentId_'+jDisc+'SGMFFotos_'+ auxDiscont +'" aria-expanded="true" aria-controls="'+jDisc+'Fotos_'+ auxDiscont +'">'+
-              'Foto Anexa '+auxDiscont +
-            '</a>'+
-          '</h5>'+
-        '</div>'+
-        '<div id="sectionContentId_'+jDisc+'SGMFFotos_'+ auxDiscont +'" class="collapse in" role="tabpanel" aria-labelledby="'+jDisc+'Fotos_'+ auxDiscont +'">'+
-          '<div class="card-body">'+
-            '<div class="row">';
+    //   var formularioFormDisc = '';
+    //   formularioFormDisc += 
+    //   '<div class="card">'+
+    //     '<div class="card-header" role="tab" id="sectionHeaderId_'+jDisc+'SGMFFotos_'+ auxDiscont +'">'+
+    //       '<h5 class="mb-0">'+
+    //         '<a class="text-decoration-none" data-toggle="collapse" data-parent="#accordianId_'+jDisc+'_FotosSGMF" href="#sectionContentId_'+jDisc+'SGMFFotos_'+ auxDiscont +'" aria-expanded="true" aria-controls="'+jDisc+'Fotos_'+ auxDiscont +'">'+
+    //           'Foto Anexa '+auxDiscont +
+    //         '</a>'+
+    //       '</h5>'+
+    //     '</div>'+
+    //     '<div id="sectionContentId_'+jDisc+'SGMFFotos_'+ auxDiscont +'" class="collapse in" role="tabpanel" aria-labelledby="'+jDisc+'Fotos_'+ auxDiscont +'">'+
+    //       '<div class="card-body">'+
+    //         '<div class="row">';
 
-            for (let i = 0; i < listaElementosUGSFotosAnexas.length; i++) {
+    //         for (let i = 0; i < listaElementosUGSFotosAnexas.length; i++) {
   
-              var eleTag = listaElementosUGSFotosAnexas[i].tag;
-              var eleName = listaElementosUGSFotosAnexas[i].nombre;
-              var eleClase = listaElementosUGSFotosAnexas[i].clase;
-              var eleStringArray = listaElementosUGSFotosAnexas[i].stringArray;
+    //           var eleTag = listaElementosUGSFotosAnexas[i].tag;
+    //           var eleName = listaElementosUGSFotosAnexas[i].nombre;
+    //           var eleClase = listaElementosUGSFotosAnexas[i].clase;
+    //           var eleStringArray = listaElementosUGSFotosAnexas[i].stringArray;
 
-              if (eleClase == "edittext") {
-                if (eleTag == "DescriFotosAnexas") {
-                  formularioFormDisc += 
-                  '<div class="form-group col-6">'+
-                    '<label for="'+eleTag+'_SGMF_Foto_'+auxDiscont+'_'+jDisc+'">'+eleName+'</label>'+
-                    '<textarea class="form-control" rows="2" id="'+eleTag+'_SGMF_Foto_'+auxDiscont+'_'+jDisc+'">'+(isEdit? Discont[eleTag] : "")+'</textarea/>'+
-                  '</div>'+
-                  '<div class="form-group col-12 row" id="contenedorFotosAnexas_SGMF_'+auxDiscont+'_'+jDisc+'"></div>'
-                }else{
-                  formularioFormDisc += 
-                  '<div class="form-group col-sm-6 col-md-4 col-lg-3">'+
-                    '<label for="'+eleTag+'_SGMF_Foto_'+auxDiscont+'_'+jDisc+'" class="bold">'+eleName+'</label>'+
-                    '<input type="text" class="form-control" id="'+eleTag+'_SGMF_Foto_'+auxDiscont+'_'+jDisc+'" value="'+(isEdit? Discont[eleTag] : "")+'"></input>'+
-                  '</div>';
-                }
-                idsFormatos[auxTipoFormat+'_'+eleTag+'_SGMF_Foto_'+auxDiscont+'_'+j] = eleTag+'_SGMF_Foto_'+auxDiscont+'_'+j;
-              }
-            }
-            if (isEdit) {
-              var auxCountFotoAnexa = auxDiscont - 1;
-              var auxFotoanexa = estaciones["estacion_"+id]["Formularios"]["Form_SGMF"]["Form_SGMF_"+jDisc]["FotosAnexas"]["FotosURL"];
-              if (auxFotoanexa !== undefined) {
-                if (auxFotoanexa["FotoActivo_"+auxCountFotoAnexa]) {
-                  formularioFormDisc += '<div class="col-12"><img class="fotosEstaciones  img-fluid" src="'+ auxFotoanexa["Foto_"+auxCountFotoAnexa] +'"></div>'
-                }
-              }
-            }
-            else{
-              formularioFormDisc += '<input type="file" class="form-control col-sm-6 col-md-4 col-lg-3" id="fotoAnexa_SGMF_'+auxDiscont+'_'+jDisc+'" onchange="handleFilesAflor(this.files, id)">'
-            }
+    //           if (eleClase == "edittext") {
+    //             if (eleTag == "DescriFotosAnexas") {
+    //               formularioFormDisc += 
+    //               '<div class="form-group col-6">'+
+    //                 '<label for="'+eleTag+'_SGMF_Foto_'+auxDiscont+'_'+jDisc+'">'+eleName+'</label>'+
+    //                 '<textarea class="form-control" rows="2" id="'+eleTag+'_SGMF_Foto_'+auxDiscont+'_'+jDisc+'">'+(isEdit? Discont[eleTag] : "")+'</textarea/>'+
+    //               '</div>'+
+    //               '<div class="form-group col-12 row" id="contenedorFotosAnexas_SGMF_'+auxDiscont+'_'+jDisc+'"></div>'
+    //             }else{
+    //               formularioFormDisc += 
+    //               '<div class="form-group col-sm-6 col-md-4 col-lg-3">'+
+    //                 '<label for="'+eleTag+'_SGMF_Foto_'+auxDiscont+'_'+jDisc+'" class="bold">'+eleName+'</label>'+
+    //                 '<input type="text" class="form-control" id="'+eleTag+'_SGMF_Foto_'+auxDiscont+'_'+jDisc+'" value="'+(isEdit? Discont[eleTag] : "")+'"></input>'+
+    //               '</div>';
+    //             }
+    //             idsFormatos[auxTipoFormat+'_'+eleTag+'_SGMF_Foto_'+auxDiscont+'_'+j] = eleTag+'_SGMF_Foto_'+auxDiscont+'_'+j;
+    //           }
+    //         }
+    //         if (isEdit) {
+    //           var auxCountFotoAnexa = auxDiscont - 1;
+    //           var auxFotoanexa = estaciones["estacion_"+id]["Formularios"]["Form_SGMF"]["Form_SGMF_"+jDisc]["FotosAnexas"]["FotosURL"];
+    //           if (auxFotoanexa !== undefined) {
+    //             if (auxFotoanexa["FotoActivo_"+auxCountFotoAnexa]) {
+    //               formularioFormDisc += '<div class="col-12"><img class="fotosEstaciones  img-fluid" src="'+ auxFotoanexa["Foto_"+auxCountFotoAnexa] +'"></div>'
+    //             }
+    //           }
+    //         }
+    //         else{
+    //           formularioFormDisc += '<input type="file" class="form-control col-sm-6 col-md-4 col-lg-3" id="fotoAnexa_SGMF_'+auxDiscont+'_'+jDisc+'" onchange="handleFilesAflor(this.files, id)">'
+    //         }
 
-            formularioFormDisc +=
-            '<div class="col-3">'+
-              '<button id="estBorrarFotoSGMF-'+id+'-'+jDisc+'-'+auxDiscont+'-'+(addInEdit||isEdit?"1":"0")+'" class="btn estilo-modales">Borrar Foto Anexa</button>'+
-            '</div>';
+    //         formularioFormDisc +=
+    //         '<div class="col-3">'+
+    //           '<button id="estBorrarFotoSGMF-'+id+'-'+jDisc+'-'+auxDiscont+'-'+(addInEdit||isEdit?"1":"0")+'" class="btn estilo-modales">Borrar Foto Anexa</button>'+
+    //         '</div>';
 
-      formularioFormDisc += '</div></div></div></div>';
+    //   formularioFormDisc += '</div></div></div></div>';
 
-      $("#accordianId_"+jDisc+'_FotosSGMF').append(formularioFormDisc);
+    //   $("#accordianId_"+jDisc+'_FotosSGMF').append(formularioFormDisc);
 
 
-      $('#estBorrarFotoSGMF-'+id+'-'+jDisc+'-'+auxDiscont+'-'+(addInEdit||isEdit?"1":"0")).click(function (e) { 
-        e.preventDefault();
-        var idfo = parseInt($(this).attr('id').split('-')[1]);
-        var f = parseInt($(this).attr('id').split('-')[2]);
-        var fdisconta = $(this).attr('id').split('-')[3];
-        var fisEdit = $(this).attr('id').split('-')[4];
-        if (fisEdit == "1") {
-          estaciones["estacion_"+idfo]["Formularios"]["Form_SGMF"]["Form_SGMF_"+f]["FotosAnexas"]["FotoAnexa_"+fdisconta]['activo'] = false; 
-        }
-        else{
-          statAddFotoSGMF[jDisc][fdisconta-1] = false;
-        }
+    //   $('#estBorrarFotoSGMF-'+id+'-'+jDisc+'-'+auxDiscont+'-'+(addInEdit||isEdit?"1":"0")).click(function (e) { 
+    //     e.preventDefault();
+    //     var idfo = parseInt($(this).attr('id').split('-')[1]);
+    //     var f = parseInt($(this).attr('id').split('-')[2]);
+    //     var fdisconta = $(this).attr('id').split('-')[3];
+    //     var fisEdit = $(this).attr('id').split('-')[4];
+    //     if (fisEdit == "1") {
+    //       estaciones["estacion_"+idfo]["Formularios"]["Form_SGMF"]["Form_SGMF_"+f]["FotosAnexas"]["FotoAnexa_"+fdisconta]['activo'] = false; 
+    //     }
+    //     else{
+    //       statAddFotoSGMF[jDisc][fdisconta-1] = false;
+    //     }
 
-        $("#sectionHeaderId_"+f+'SGMFFotos_'+fdisconta).addClass('d-none');
-        $("#sectionContentId_"+f+'SGMFFotos_'+fdisconta).addClass('d-none');
+    //     $("#sectionHeaderId_"+f+'SGMFFotos_'+fdisconta).addClass('d-none');
+    //     $("#sectionContentId_"+f+'SGMFFotos_'+fdisconta).addClass('d-none');
         
-        notice(`Se ha Borrada exitosamente la Foto Anexa ${fdisconta} del Formato SGMF ${f}, Proceda a guardar los cambios en la estación.`, {
-          type: 'success', 
-          position: 'topcenter', 
-          appendType: 'append',
-          closeBtn: false,
-          autoClose: 3000,
-          className: '',
-        })
+    //     notice(`Se ha Borrada exitosamente la Foto Anexa ${fdisconta} del Formato SGMF ${f}, Proceda a guardar los cambios en la estación.`, {
+    //       type: 'success', 
+    //       position: 'topcenter', 
+    //       appendType: 'append',
+    //       closeBtn: false,
+    //       autoClose: 3000,
+    //       className: '',
+    //     })
       
-      });
-    }
+    //   });
+    // }
 
-  }
-
-  function GraficarCATALOGO(isEdit, j, id, addInEdit) {
-    var auxTipoFormat = 'CATALOGO';
-    var formato; 
-    var noformato; 
-    var estacion; 
-    if (isEdit || addInEdit) {
-      if (isEdit) {
-        formato = estaciones["estacion_"+id]["Formularios"]["Form_CATALOGO"]["Form_CATALOGO_"+j]; 
-        noformato = auxTipoFormat + "_"+ formato.ID_PARTE; 
-        estacion = estaciones["estacion_"+id]["Estacion"]; 
-      }
-      else{
-        noformato = auxTipoFormat + j; 
-        estacion = estaciones["estacion_"+id]["Estacion"]; 
-      }
-      var myTabs ='<li class="nav-item">';
-      if(primerForm){
-        myTabs += '<a class="nav-link active" id="'+auxTipoFormat+'tab-'+j+'" data-toggle="tab" href="#'+auxTipoFormat+'tabcontent-'+j+'" role="tab" aria-controls="'+noformato+'_'+estacion+'" aria-selected="true">';
-        primerForm = false;
-      }
-      else{
-        myTabs +='<a class="nav-link" id="'+auxTipoFormat+'tab-'+j+'" data-toggle="tab" href="#'+auxTipoFormat+'tabcontent-'+j+'" role="tab" aria-controls="'+noformato+'_'+estacion+'" aria-selected="true">';
-      }
-      myTabs +='<h4>'+noformato+'</h4></a></li>';
-      $("#myTabs").append(myTabs);      
-      
-    }
-    else{
-      noformato = auxTipoFormat + j; 
-      estacion = "nuevaEstacion"; 
-      myTabs ='<li class="nav-item">';
-      if(primerFormAdd){
-        myTabs += '<a class="nav-link active" id="'+auxTipoFormat+'tab-'+j+'" data-toggle="tab" href="#'+auxTipoFormat+'tabcontent-'+j+'" role="tab" aria-controls="'+noformato+'_'+estacion+'" aria-selected="true">';
-        primerFormAdd = false;
-      }
-      else{
-        myTabs +='<a class="nav-link" id="'+auxTipoFormat+'tab-'+j+'" data-toggle="tab" href="#'+auxTipoFormat+'tabcontent-'+j+'" role="tab" aria-controls="'+noformato+'_'+estacion+'" aria-selected="true">';
-      }
-      myTabs +='<h4>'+noformato+'</h4></a></li>';
-      $("#myTabsAdd").append(myTabs);
-    }
-
-    var formularioForm = '<div class="row">'
-
-    for (let i = 0; i < listaElementosCAT.length; i++) {
-      var eleTag = listaElementosCAT[i].tag;
-      var eleName = listaElementosCAT[i].nombre;
-      var eleClase = listaElementosCAT[i].clase;
-      var eleStringArray = listaElementosCAT[i].stringArray;
-      if (eleClase == "titulo") {
-        formularioForm += 
-        '<div class="form-group col-12">'+
-          '<label class="bold">'+eleName+'</label>'+
-        '</div>';
-      }
-      if (eleClase == "edittext" || eleClase == "edittextMM") {
-        if (eleTag == "notas" || eleTag == "REF_GEOGRF" || eleTag == "FTE_INFSEC") {
-          formularioForm += 
-          '<div class="form-group col-6">'+
-            '<label for="'+noformato+'_'+eleTag+j+'"  class="bold">'+eleName+'</label>'+
-            '<textarea class="form-control" rows="2" id="'+noformato+'_'+eleTag+j+'">'+(isEdit? formato[eleTag] : "")+'</textarea/>'+
-          '</div>';
-        }
-        else if(eleTag == "ID_PARTE"){
-          formularioForm += 
-          '<div class="form-group col-sm-6 col-md-4 col-lg-3">'+
-            '<label for="'+noformato+'_'+eleTag+j+'" class="bold" style="display: block";>'+eleName+'</label>'+
-            '<input type="text" class="form-control" id="'+noformato+'_'+eleTag+j+'" value="'+(isEdit? formato[eleTag] : "")+'" style="display: inline-block;width: 40%;"></input>'+
-            '<button id="searchmmbtn-'+noformato+'-'+j+'" type="button" onclick="CargarMM(id)"  class="btn estilo-modales" style="margin-bottom: 4px;margin-left: 10px;"><i class="fas fa-search"></i> Buscar</button>'+
-          '</div>';
-        }
-        else{
-          formularioForm += 
-          '<div class="form-group col-sm-6 col-md-3">'+
-            '<label for="'+noformato+'_'+eleTag+j+'"  class="bold">'+eleName+'</label>'+
-            '<input type="text" class="form-control" id="'+noformato+'_'+eleTag+j+'" value="'+(isEdit? formato[eleTag] : "")+'"></input>'+
-          '</div>';
-        }
-        idsFormatos[auxTipoFormat+'_'+eleTag+'_'+j] = noformato+'_'+eleTag+j;
-      }
-      if (eleClase == "textview") {
-        formularioForm += 
-        '<div class="form-group col-12">'+
-          '<p class="">'+eleStringArray+'</p>'+
-        '</div>';
-      }
-      if (eleClase == "spinner" || eleClase == "spinnerMM") {
-        formularioForm += 
-        '<div class="form-group col-sm-6 col-md-4 col-lg-3">'+
-          '<label for="'+noformato+'_'+eleTag+j+'"  class="bold">'+eleName+'</label>'+
-          '<select class="form-control" id="'+noformato+'_'+eleTag+j+'">';
-              for (let k = 0; k < eleStringArray.length; k++) {
-                if (isEdit) {
-                  if(eleStringArray[k] == formato[eleTag]){
-                    formularioForm += '<option selected="selected" value="'+eleStringArray[k]+'">'+eleStringArray[k]+'</option>';
-                  }
-                  else{
-                    formularioForm += '<option value="'+eleStringArray[k]+'">'+eleStringArray[k]+'</option>';
-                  }
-                }
-                else{
-                  formularioForm += '<option value="'+eleStringArray[k]+'">'+eleStringArray[k]+'</option>';
-                }
-              }
-              idsFormatos[auxTipoFormat+'_'+eleTag+'_'+j] = noformato+'_'+eleTag+j;
-        formularioForm +=
-            '</select>'+
-        '</div>'
-      }
-      if (eleClase == "radiobtnMM") {
-        formularioForm += 
-          '<div class="form-group col-sm-6 col-lg-4">'+
-            '<div class="row">'+
-              '<div class="col-7 bold">'+eleName+'</div>'+
-              '<div class="col-2 litologias">1</div>'+
-              '<div class="col-3 litologias">2</div>';
-
-              for (let k = 0; k < eleStringArray.length; k++) {
-                formularioForm += '<div class="col-8">'+eleStringArray[k]+'</div>';
-
-                if (isEdit) {
-                  formularioForm += 
-                  '<div class="col-2">'+'<input class="form-check-input"'+(formato[eleTag+'1'] == eleStringArray[k] ? "checked " : "")+'type="radio" name="'+noformato+'_'+eleTag+'1'+j+'" id="'+noformato+'_'+eleTag+'1'+j+'" value="'+eleStringArray[k]+'"></input></div>'+          
-                  '<div class="col-2">'+'<input class="form-check-input"'+ (formato[eleTag+'2'] == eleStringArray[k] ? "checked " : "") +'type="radio" name="'+noformato+'_'+eleTag+'2'+j+'" id="'+noformato+'_'+eleTag+'2'+j+'" value="'+eleStringArray[k]+'"></input></div>';
-                }
-                else{
-                  formularioForm +=
-                  '<div class="col-2">'+'<input class="form-check-input" '+ (k == 0 ? "checked " : "") +' type="radio" name="'+noformato+'_'+eleTag+'1'+j+'" id="'+noformato+'_'+eleTag+'1'+j+'" value="'+eleStringArray[k]+'"></input></div>'+
-                  '<div class="col-2">'+'<input class="form-check-input" '+ (k == 0 ? "checked " : "") +' type="radio" name="'+noformato+'_'+eleTag+'2'+j+'" id="'+noformato+'_'+eleTag+'2'+j+'" value="'+eleStringArray[k]+'"></input></div>';
-                }
-
-                idsFormatos[auxTipoFormat+'_'+eleTag+'1'+'_radiobtnMM_'+j] = noformato+'_'+eleTag+'1'+j;
-                idsFormatos[auxTipoFormat+'_'+eleTag+'2'+'_radiobtnMM_'+j] = noformato+'_'+eleTag+'2'+j;
-              }
-            formularioForm += '</div></div>';                          
-      }
-    }
-
-    formularioForm +=
-    '<div class="col-3">'+
-      '<button id="CATALOGO-btn-borrar-'+id+'-'+j+'" class="btn estilo-modales">Borrar Formato</button>'+
-    '</div>'+
-    '<div class="col-12 mt-4 mb-4">'+
-      '<button id="add-dano-CATALOGO-'+id +'-'+j+'-'+(isEdit?"1":"0")+'-'+(addInEdit?"1":"0")+'" class="btn estilo-modales mr-4">Agregar Daño</button>'+
-    '</div>'+
-    '<div class="col-12">'+
-      '<div id="accordianId_'+j+'_Danos" class="accordion">'+
-    '</div>';
-
-    formularioForm += '</div>';
-
-    if (isEdit || addInEdit) {
-      var auxAppend = "";
-      if(primerForm1){
-        auxAppend = '<div class="tab-pane fade show active" id="'+auxTipoFormat+'tabcontent-'+j+'" role="tabpanel" aria-labelledby="'+noformato+'_'+estacion+'-tab">'+formularioForm+'</div>'
-        $("#myTabsContent").append(auxAppend);
-        primerForm1 = false
-      }else{
-        auxAppend = '<div class="tab-pane fade" id="'+auxTipoFormat+'tabcontent-'+j+'" role="tabpanel" aria-labelledby="'+noformato+'_'+estacion+'-tab">'+formularioForm+'</div>'
-        $("#myTabsContent").append(auxAppend);
-      }
-      if (isEdit) {
-        if (formato["DANOS"]["count"]>0) {
-          for (let d = 0; d < formato["DANOS"]["count"]; d++) {
-            var auxDiscont = d + 1;
-            var Discont = estaciones["estacion_"+id]["Formularios"]["Form_CATALOGO"]["Form_CATALOGO_"+j]["DANOS"]["DANOS_"+auxDiscont];
-            if (Discont.activo) {
-              GraficarDanoCat(auxDiscont, id, j, true, false);
-            }
-          }   
-        }
-      }
-      
-    }
-    else{
-      var auxAppend = "";
-      if(primerForm1Add){
-        auxAppend = '<div class="tab-pane fade show active" id="'+auxTipoFormat+'tabcontent-'+j+'" role="tabpanel" aria-labelledby="'+noformato+'_'+estacion+'-tab">'+formularioForm+'</div>'
-        primerForm1Add = false
-      }else{
-        auxAppend = '<div class="tab-pane fade" id="'+auxTipoFormat+'tabcontent-'+j+'" role="tabpanel" aria-labelledby="'+noformato+'_'+estacion+'-tab">'+formularioForm+'</div>'
-      }
-      $("#myTabsContentAdd").append(auxAppend);
-    }
-
-    
-
-    $('#CATALOGO-btn-borrar-'+id+'-'+j).click(function (e) { 
-      e.preventDefault();
-      var idfo = parseInt($(this).attr('id').split('-')[3]);
-      var f = parseInt($(this).attr('id').split('-')[4]);
-      estaciones["estacion_"+idfo]["Formularios"]["Form_CATALOGO"]["Form_CATALOGO_"+f]['activo'] = false; 
-      $("#CATALOGOtab-"+f).addClass('d-none');
-      $("#CATALOGOtabcontent-"+f).addClass('d-none');
-      
-      notice(`Se ha Borrado exitosamente el Formato CATALOGO ${f} en la Estación ${estacion}, Proceda a guardar los cambios en la estación.`, {
-        type: 'success', 
-        position: 'topcenter', 
-        appendType: 'append',
-        closeBtn: false,
-        autoClose: 3000,
-        className: '',
-      })
-    
-    });
-  
-    $("#add-dano-CATALOGO-"+id+'-'+j+'-'+(isEdit?"1":"0")+'-'+(addInEdit?"1":"0")).click(function (e) { 
-      e.preventDefault();
-      var id = parseInt($(this).attr('id').split('-')[3]);
-      var jDisc = parseInt($(this).attr('id').split('-')[4]);
-      var isEdit = parseInt($(this).attr('id').split('-')[5]);
-      var auxaddInEdit = parseInt($(this).attr('id').split('-')[6]);
-      var auxDiscont;
-      var addInEdit = false;
-      if (isEdit == "1" || auxaddInEdit == "1") {
-        addInEdit = true;
-        auxDiscont = parseInt(estaciones["estacion_"+id]["Formularios"]["Form_CATALOGO"]["Form_CATALOGO_"+jDisc]["DANOS"]["count"]) + 1;
-        estaciones["estacion_"+id]["Formularios"]["Form_CATALOGO"]["Form_CATALOGO_"+jDisc]["DANOS"]["count"] = auxDiscont;
-      }
-      else{
-        contAddCatDanos[jDisc]++;
-        auxDiscont = contAddCatDanos[jDisc];
-        statAddCatDanos[jDisc].push(true);
-      }
-      GraficarDanoCat(auxDiscont, id, jDisc, false, addInEdit);
-    });
-
-    function GraficarDanoCat(auxDiscont, id, jDisc, isEdit, addInEdit) {
-      var Discont;
-      if (isEdit||addInEdit) {
-        Discont = estaciones["estacion_"+id]["Formularios"]["Form_CATALOGO"]["Form_CATALOGO_"+jDisc]["DANOS"]["DANOS_"+auxDiscont];
-      }
-      if (addInEdit) {
-        estaciones["estacion_"+id]["Formularios"]["Form_CATALOGO"]["Form_CATALOGO_"+jDisc]["DANOS"]["DANOS_"+auxDiscont]= {activo:true};
-      }
-      var formularioFormDisc = '';
-      formularioFormDisc += 
-      '<div class="card">'+
-        '<div class="card-header" role="tab" id="sectionHeaderId_'+jDisc+'DanoCat_'+ auxDiscont +'">'+
-          '<h5 class="mb-0">'+
-            '<a class="text-decoration-none" data-toggle="collapse" data-parent="#accordianId_'+jDisc+'_Danos" href="#sectionContentId_'+jDisc+'DanoCat_'+ auxDiscont +'" aria-expanded="true" aria-controls="'+jDisc+'DanoCat_'+ auxDiscont +'">'+
-              'Daño '+auxDiscont +
-            '</a>'+
-          '</h5>'+
-        '</div>'+
-        '<div id="sectionContentId_'+jDisc+'DanoCat_'+ auxDiscont +'" class="collapse in" role="tabpanel" aria-labelledby="'+jDisc+'DanoCat_'+ auxDiscont +'">'+
-          '<div class="card-body">'+
-            '<div class="row">';
-
-            for (let i = 0; i < listaElementosDANOS.length; i++) {
-  
-              var eleTag = listaElementosDANOS[i].tag;
-              var eleName = listaElementosDANOS[i].nombre;
-              var eleClase = listaElementosDANOS[i].clase;
-              var eleStringArray = listaElementosDANOS[i].stringArray;
-
-              if (eleClase == "edittext") {
-                if (eleTag == "ObservacionesDiscont") {
-                  formularioFormDisc += 
-                  '<div class="form-group col-6">'+
-                    '<label for="'+eleTag+'_DanoCat_'+auxDiscont+'_'+jDisc+'">'+eleName+'</label>'+
-                    '<textarea class="form-control" rows="2" id="'+eleTag+'_DanoCat_'+auxDiscont+'_'+jDisc+'">'+(isEdit? Discont[eleTag] : "")+'</textarea/>'+
-                  '</div>';
-                }else{
-                  formularioFormDisc += 
-                  '<div class="form-group col-sm-6 col-md-4 col-lg-3">'+
-                    '<label for="'+eleTag+'_DanoCat_'+auxDiscont+'_'+jDisc+'" class="bold">'+eleName+'</label>'+
-                    '<input type="text" class="form-control" id="'+eleTag+'_DanoCat_'+auxDiscont+'_'+jDisc+'" value="'+(isEdit? Discont[eleTag] : "")+'"></input>'+
-                  '</div>';
-                }
-                idsFormatos[auxTipoFormat+'_'+eleTag+'_DanoCat_'+auxDiscont+'_'+j] = eleTag+'_DanoCat_'+auxDiscont+'_'+j;
-              }
-              if (eleClase == "spinner") {
-                formularioFormDisc += 
-                '<div class="form-group col-sm-6 col-md-4 col-lg-3">'+
-                    '<label for="'+eleTag+'_DanoCat_'+auxDiscont+'_'+jDisc+'" class="bold">'+eleName+'</label>'+
-                    '<select class="form-control" id="'+eleTag+'_DanoCat_'+auxDiscont+'_'+jDisc+'">';
-                        for (let k = 0; k < eleStringArray.length; k++) {
-                          if (isEdit) {
-                            if(eleStringArray[k] == Discont[eleTag]){
-                              formularioFormDisc += '<option selected="selected" value="'+eleStringArray[k]+'">'+eleStringArray[k]+'</option>';
-                            }
-                            else{
-                              formularioFormDisc += '<option value="'+eleStringArray[k]+'">'+eleStringArray[k]+'</option>';
-                            }
-                          }
-                          else{
-                            formularioFormDisc += '<option value="'+eleStringArray[k]+'">'+eleStringArray[k]+'</option>';
-                          } 
-                        }
-                        idsFormatos[auxTipoFormat+'_'+eleTag+'_DanoCat_'+auxDiscont+'_'+jDisc] = eleTag+'_DanoCat_'+auxDiscont+'_'+jDisc;   
-                formularioFormDisc += '</select></div>';
-              }
-            }
-
-            formularioFormDisc +=
-            '<div class="col-3">'+
-              '<button id="estBorrarDanoCat-'+id+'-'+jDisc+'-'+auxDiscont+'-'+(addInEdit||isEdit?"1":"0")+'" class="btn estilo-modales">Borrar Daño</button>'+
-            '</div>';
-
-      formularioFormDisc += '</div></div></div></div>';
-
-      $("#accordianId_"+jDisc+'_Danos').append(formularioFormDisc);
-
-      $('#estBorrarDanoCat-'+id+'-'+jDisc+'-'+auxDiscont+'-'+(addInEdit||isEdit?"1":"0")).click(function (e) { 
-        e.preventDefault();
-        var idfo = parseInt($(this).attr('id').split('-')[1]);
-        var f = parseInt($(this).attr('id').split('-')[2]);
-        var fdisconta = $(this).attr('id').split('-')[3];
-        var fisEdit = $(this).attr('id').split('-')[4];
-        if (fisEdit == "1") {
-          estaciones["estacion_"+idfo]["Formularios"]["Form_CATALOGO"]["Form_CATALOGO_"+f]["DANOS"]["DANOS_"+fdisconta]['activo'] = false; 
-        }
-        else{
-          statAddCatDanos[jDisc][fdisconta-1] = false;
-        }
-
-        $("#sectionHeaderId_"+f+'DanoCat_'+fdisconta).addClass('d-none');
-        $("#sectionContentId_"+f+'DanoCat_'+fdisconta).addClass('d-none');
-        
-        notice(`Se ha Borrada exitosamente el Daño ${fdisconta} del Formato CATALOGO ${f}, Proceda a guardar los cambios en la estación.`, {
-          type: 'success', 
-          position: 'topcenter', 
-          appendType: 'append',
-          closeBtn: false,
-          autoClose: 3000,
-          className: '',
-        })
-      
-      });
-    }
-  
   }
   
   function GraficarINVENTARIO(isEdit, j, id, addInEdit) {
@@ -2565,21 +2169,21 @@ function GraficarEstacion(isEdit, id, addInEdit){
         '</div>';
       }
       if (eleClase == "edittext" || eleClase == "edittextMM") {
-        if (eleTag == "notas" || eleTag == "REF_GEOGRF" || eleTag == "FTE_INFSEC" || eleTag == "LITOLOGIA" || eleTag == "apreciacionriesgo") {
+        if (eleTag == "OBSERVACION" || eleTag == "REF_GEOGRF" || eleTag == "FTE_INFSEC" || eleTag == "LITOLOGIA" || eleTag == "apreciacionriesgo") {
           formularioForm += 
           '<div class="form-group col-6">'+
               '<label for="'+noformato+'_'+eleTag+j+'"  class="bold">'+eleName+'</label>'+
-              '<textarea class="form-control" rows="2" id="'+noformato+'_'+eleTag+j+'">'+(isEdit? formato[eleTag] : "")+'</textarea/>'+
+              '<textarea class="form-control" rows="3" id="'+noformato+'_'+eleTag+j+'">'+(isEdit? formato[eleTag] : "")+'</textarea/>'+
           '</div>';
         }
-        else if(eleTag == "ID_PARTE"){
-          formularioForm += 
-          '<div class="form-group col-sm-6 col-md-4 col-lg-3">'+
-            '<label for="'+noformato+'_'+eleTag+j+'" class="bold" style="display: block";>'+eleName+'</label>'+
-            '<input type="text" class="form-control" id="'+noformato+'_'+eleTag+j+'" value="'+(isEdit? formato[eleTag] : "")+'" style="display: inline-block;width: 40%;"></input>'+
-            '<button id="searchmmbtn-'+noformato+'-'+j+'" type="button" onclick="CargarINVMM(id)"  class="btn estilo-modales" style="margin-bottom: 4px;margin-left: 10px;"><i class="fas fa-search"></i> Buscar</button>'+
-          '</div>';
-        }
+        // else if(eleTag == "ID_PARTE"){
+        //   formularioForm += 
+        //   '<div class="form-group col-sm-6 col-md-4 col-lg-3">'+
+        //     '<label for="'+noformato+'_'+eleTag+j+'" class="bold" style="display: block";>'+eleName+'</label>'+
+        //     '<input type="text" class="form-control" id="'+noformato+'_'+eleTag+j+'" value="'+(isEdit? formato[eleTag] : "")+'" style="display: inline-block;width: 40%;"></input>'+
+        //     '<button id="searchmmbtn-'+noformato+'-'+j+'" type="button" onclick="CargarINVMM(id)"  class="btn estilo-modales" style="margin-bottom: 4px;margin-left: 10px;"><i class="fas fa-search"></i> Buscar</button>'+
+        //   '</div>';
+        // }
         else{
           formularioForm += 
           '<div class="form-group col-sm-6 col-md-3">'+
@@ -2772,17 +2376,17 @@ function GraficarEstacion(isEdit, id, addInEdit){
     formularioForm +=
     '<div class="col-3">'+
       '<button id="INVENTARIO-btn-borrar-'+id+'-'+j+'" class="btn estilo-modales">Borrar Formato</button>'+
-    '</div>'+
-    '<div class="col-12 mt-4 mb-4">'+
-      '<button id="add-dano-INVENTARIO-'+id +'-'+j+'-'+(isEdit?"1":"0")+'-'+(addInEdit?"1":"0")+'" class="btn estilo-modales mr-4">Agregar Daño</button>'+
-      '<button id="add-foto-INVENTARIO-'+id +'-'+j+'-'+(isEdit?"1":"0")+'-'+(addInEdit?"1":"0")+'" class="btn estilo-modales">Agregar Foto Anexa</button>'+
-    '</div>'+
-    '<div class="col-12">'+
-      '<div id="accordianId_'+j+'_DanosINVENTARIO" class="accordion"></div>'+
-    '</div>'+
-    '<div class="col-12">'+
-      '<div id="accordianId_'+j+'_FotosINVENTARIO" class="accordion"></div>'+
     '</div>';
+    // '<div class="col-12 mt-4 mb-4">'+
+    //   '<button id="add-dano-INVENTARIO-'+id +'-'+j+'-'+(isEdit?"1":"0")+'-'+(addInEdit?"1":"0")+'" class="btn estilo-modales mr-4">Agregar Daño</button>'+
+    //   '<button id="add-foto-INVENTARIO-'+id +'-'+j+'-'+(isEdit?"1":"0")+'-'+(addInEdit?"1":"0")+'" class="btn estilo-modales">Agregar Foto Anexa</button>'+
+    // '</div>'+
+    // '<div class="col-12">'+
+    //   '<div id="accordianId_'+j+'_DanosINVENTARIO" class="accordion"></div>'+
+    // '</div>'+
+    // '<div class="col-12">'+
+    //   '<div id="accordianId_'+j+'_FotosINVENTARIO" class="accordion"></div>'+
+    // '</div>';
     
     formularioForm += '</div>';
 
@@ -2796,26 +2400,26 @@ function GraficarEstacion(isEdit, id, addInEdit){
         auxAppend = '<div class="tab-pane fade" id="'+auxTipoFormat+'tabcontent-'+j+'" role="tabpanel" aria-labelledby="'+noformato+'_'+estacion+'-tab">'+formularioForm+'</div>'
         $("#myTabsContent").append(auxAppend);
       }
-      if (isEdit) {
-        if (formato["DANOS"]["count"]>0) {
-          for (let d = 0; d < formato["DANOS"]["count"]; d++) {
-            var auxDiscont = d + 1;
-            var Discont = estaciones["estacion_"+id]["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+j]["DANOS"]["DANOS_"+auxDiscont];
-            if (Discont.activo) {
-              GraficarDanoInv(auxDiscont, id, j, true, false);
-            }
-          }   
-        }
-        if (formato["FotosAnexas"]["count"]>0) {
-          for (let d = 0; d < formato["FotosAnexas"]["count"]; d++) {
-            var auxDiscont = d + 1;
-            var Discont = estaciones["estacion_"+id]["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+j]["FotosAnexas"]["FotoAnexa_"+auxDiscont];
-            if (Discont.activo) {
-              GraficarFotoINVENTARIO(auxDiscont, id, j, true, false);
-            }
-          } 
-        }
-      }
+      // if (isEdit) {
+      //   if (formato["DANOS"]["count"]>0) {
+      //     for (let d = 0; d < formato["DANOS"]["count"]; d++) {
+      //       var auxDiscont = d + 1;
+      //       var Discont = estaciones["estacion_"+id]["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+j]["DANOS"]["DANOS_"+auxDiscont];
+      //       if (Discont.activo) {
+      //         GraficarDanoInv(auxDiscont, id, j, true, false);
+      //       }
+      //     }   
+      //   }
+      //   if (formato["FotosAnexas"]["count"]>0) {
+      //     for (let d = 0; d < formato["FotosAnexas"]["count"]; d++) {
+      //       var auxDiscont = d + 1;
+      //       var Discont = estaciones["estacion_"+id]["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+j]["FotosAnexas"]["FotoAnexa_"+auxDiscont];
+      //       if (Discont.activo) {
+      //         GraficarFotoINVENTARIO(auxDiscont, id, j, true, false);
+      //       }
+      //     } 
+      //   }
+      // }
       
     }
     else{
@@ -2848,576 +2452,255 @@ function GraficarEstacion(isEdit, id, addInEdit){
     
     });
   
-    $("#add-dano-INVENTARIO-"+id+'-'+j+'-'+(isEdit?"1":"0")+'-'+(addInEdit?"1":"0")).click(function (e) { 
-      e.preventDefault();
-      var id = parseInt($(this).attr('id').split('-')[3]);
-      var jDisc = parseInt($(this).attr('id').split('-')[4]);
-      var isEdit = parseInt($(this).attr('id').split('-')[5]);
-      var auxaddInEdit = parseInt($(this).attr('id').split('-')[6]);
-      var auxDiscont;
-      var addInEdit = false;
-      if (isEdit == "1" || auxaddInEdit == "1") {
-        addInEdit = true;
-        auxDiscont = parseInt(estaciones["estacion_"+id]["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+jDisc]["DANOS"]["count"]) + 1;
-        estaciones["estacion_"+id]["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+jDisc]["DANOS"]["count"] = auxDiscont;
-      }
-      else{
-        contAddInvDanos[jDisc]++;
-        auxDiscont = contAddInvDanos[jDisc];
-        statAddInvDanos[jDisc].push(true);
-      }
-      GraficarDanoInv(auxDiscont, id, jDisc, false, addInEdit);
-    });
+    // $("#add-dano-INVENTARIO-"+id+'-'+j+'-'+(isEdit?"1":"0")+'-'+(addInEdit?"1":"0")).click(function (e) { 
+    //   e.preventDefault();
+    //   var id = parseInt($(this).attr('id').split('-')[3]);
+    //   var jDisc = parseInt($(this).attr('id').split('-')[4]);
+    //   var isEdit = parseInt($(this).attr('id').split('-')[5]);
+    //   var auxaddInEdit = parseInt($(this).attr('id').split('-')[6]);
+    //   var auxDiscont;
+    //   var addInEdit = false;
+    //   if (isEdit == "1" || auxaddInEdit == "1") {
+    //     addInEdit = true;
+    //     auxDiscont = parseInt(estaciones["estacion_"+id]["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+jDisc]["DANOS"]["count"]) + 1;
+    //     estaciones["estacion_"+id]["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+jDisc]["DANOS"]["count"] = auxDiscont;
+    //   }
+    //   else{
+    //     contAddInvDanos[jDisc]++;
+    //     auxDiscont = contAddInvDanos[jDisc];
+    //     statAddInvDanos[jDisc].push(true);
+    //   }
+    //   GraficarDanoInv(auxDiscont, id, jDisc, false, addInEdit);
+    // });
 
-    $("#add-foto-INVENTARIO-"+id+'-'+j+'-'+(isEdit?"1":"0")+'-'+(addInEdit?"1":"0")).click(function (e) { 
-      e.preventDefault();
-      var id = parseInt($(this).attr('id').split('-')[3]);
-      var jDisc = parseInt($(this).attr('id').split('-')[4]);
-      var isEdit = parseInt($(this).attr('id').split('-')[5]);
-      var auxaddInEdit = parseInt($(this).attr('id').split('-')[6]);
-      var auxDiscont;
-      var addInEdit = false;
-      if (isEdit == "1" || auxaddInEdit == "1") {
-        addInEdit = true;
-        auxDiscont = parseInt(estaciones["estacion_"+id]["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+jDisc]["FotosAnexas"]["count"]) + 1;
-        estaciones["estacion_"+id]["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+jDisc]["FotosAnexas"]["count"] = auxDiscont;
-        if (estaciones["estacion_"+id]["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+jDisc]["FotosAnexas"]["FotosURL"] === undefined) {
-          estaciones["estacion_"+id]["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+jDisc]["FotosAnexas"]["FotosURL"] = {"count":auxDiscont}
-        }
-      }
-      else{
-        contAddFotoInv[jDisc]++;
-        auxDiscont = contAddFotoInv[jDisc];
-        statAddFotoInv[jDisc].push(true);
-      }
-      GraficarFotoINVENTARIO(auxDiscont, id, jDisc, false, addInEdit);
-    });
+    // $("#add-foto-INVENTARIO-"+id+'-'+j+'-'+(isEdit?"1":"0")+'-'+(addInEdit?"1":"0")).click(function (e) { 
+    //   e.preventDefault();
+    //   var id = parseInt($(this).attr('id').split('-')[3]);
+    //   var jDisc = parseInt($(this).attr('id').split('-')[4]);
+    //   var isEdit = parseInt($(this).attr('id').split('-')[5]);
+    //   var auxaddInEdit = parseInt($(this).attr('id').split('-')[6]);
+    //   var auxDiscont;
+    //   var addInEdit = false;
+    //   if (isEdit == "1" || auxaddInEdit == "1") {
+    //     addInEdit = true;
+    //     auxDiscont = parseInt(estaciones["estacion_"+id]["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+jDisc]["FotosAnexas"]["count"]) + 1;
+    //     estaciones["estacion_"+id]["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+jDisc]["FotosAnexas"]["count"] = auxDiscont;
+    //     if (estaciones["estacion_"+id]["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+jDisc]["FotosAnexas"]["FotosURL"] === undefined) {
+    //       estaciones["estacion_"+id]["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+jDisc]["FotosAnexas"]["FotosURL"] = {"count":auxDiscont}
+    //     }
+    //   }
+    //   else{
+    //     contAddFotoInv[jDisc]++;
+    //     auxDiscont = contAddFotoInv[jDisc];
+    //     statAddFotoInv[jDisc].push(true);
+    //   }
+    //   GraficarFotoINVENTARIO(auxDiscont, id, jDisc, false, addInEdit);
+    // });
 
-    function GraficarDanoInv(auxDiscont, id, jDisc, isEdit, addInEdit) {
-      var Discont;
-      if (isEdit||addInEdit) {
-        Discont = estaciones["estacion_"+id]["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+jDisc]["DANOS"]["DANOS_"+auxDiscont];
-      }
-      if (addInEdit) {
-        estaciones["estacion_"+id]["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+jDisc]["DANOS"]["DANOS_"+auxDiscont]= {activo:true};
-      }
-      var formularioFormDisc = '';
-      formularioFormDisc += 
-      '<div class="card">'+
-        '<div class="card-header" role="tab" id="sectionHeaderId_'+jDisc+'DanoInv_'+ auxDiscont +'">'+
-          '<h5 class="mb-0">'+
-            '<a class="text-decoration-none" data-toggle="collapse" data-parent="#accordianId_'+jDisc+'_DanosINVENTARIO" href="#sectionContentId_'+jDisc+'DanoInv_'+ auxDiscont +'" aria-expanded="true" aria-controls="'+jDisc+'DanoInv_'+ auxDiscont +'">'+
-              'Daño '+auxDiscont +
-            '</a>'+
-          '</h5>'+
-        '</div>'+
-        '<div id="sectionContentId_'+jDisc+'DanoInv_'+ auxDiscont +'" class="collapse in" role="tabpanel" aria-labelledby="'+jDisc+'DanoInv_'+ auxDiscont +'">'+
-          '<div class="card-body">'+
-            '<div class="row">';
+    // function GraficarDanoInv(auxDiscont, id, jDisc, isEdit, addInEdit) {
+    //   var Discont;
+    //   if (isEdit||addInEdit) {
+    //     Discont = estaciones["estacion_"+id]["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+jDisc]["DANOS"]["DANOS_"+auxDiscont];
+    //   }
+    //   if (addInEdit) {
+    //     estaciones["estacion_"+id]["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+jDisc]["DANOS"]["DANOS_"+auxDiscont]= {activo:true};
+    //   }
+    //   var formularioFormDisc = '';
+    //   formularioFormDisc += 
+    //   '<div class="card">'+
+    //     '<div class="card-header" role="tab" id="sectionHeaderId_'+jDisc+'DanoInv_'+ auxDiscont +'">'+
+    //       '<h5 class="mb-0">'+
+    //         '<a class="text-decoration-none" data-toggle="collapse" data-parent="#accordianId_'+jDisc+'_DanosINVENTARIO" href="#sectionContentId_'+jDisc+'DanoInv_'+ auxDiscont +'" aria-expanded="true" aria-controls="'+jDisc+'DanoInv_'+ auxDiscont +'">'+
+    //           'Daño '+auxDiscont +
+    //         '</a>'+
+    //       '</h5>'+
+    //     '</div>'+
+    //     '<div id="sectionContentId_'+jDisc+'DanoInv_'+ auxDiscont +'" class="collapse in" role="tabpanel" aria-labelledby="'+jDisc+'DanoInv_'+ auxDiscont +'">'+
+    //       '<div class="card-body">'+
+    //         '<div class="row">';
 
-            for (let i = 0; i < listaElementosDANOS.length; i++) {
+    //         for (let i = 0; i < listaElementosDANOS.length; i++) {
   
-              var eleTag = listaElementosDANOS[i].tag;
-              var eleName = listaElementosDANOS[i].nombre;
-              var eleClase = listaElementosDANOS[i].clase;
-              var eleStringArray = listaElementosDANOS[i].stringArray;
+    //           var eleTag = listaElementosDANOS[i].tag;
+    //           var eleName = listaElementosDANOS[i].nombre;
+    //           var eleClase = listaElementosDANOS[i].clase;
+    //           var eleStringArray = listaElementosDANOS[i].stringArray;
 
-              if (eleClase == "edittext") {
-                if (eleTag == "ObservacionesDiscont") {
-                  formularioFormDisc += 
-                  '<div class="form-group col-6">'+
-                    '<label for="'+eleTag+'_DanoInv_'+auxDiscont+'_'+jDisc+'">'+eleName+'</label>'+
-                    '<textarea class="form-control" rows="2" id="'+eleTag+'_DanoInv_'+auxDiscont+'_'+jDisc+'">'+(isEdit? Discont[eleTag] : "")+'</textarea/>'+
-                  '</div>';
-                }else{
-                  formularioFormDisc += 
-                  '<div class="form-group col-sm-6 col-md-4 col-lg-3">'+
-                    '<label for="'+eleTag+'_DanoInv_'+auxDiscont+'_'+jDisc+'" class="bold">'+eleName+'</label>'+
-                    '<input type="text" class="form-control" id="'+eleTag+'_DanoInv_'+auxDiscont+'_'+jDisc+'" value="'+(isEdit? Discont[eleTag] : "")+'"></input>'+
-                  '</div>';
-                }
-                idsFormatos[auxTipoFormat+'_'+eleTag+'_DanoInv_'+auxDiscont+'_'+j] = eleTag+'_DanoInv_'+auxDiscont+'_'+j;
-              }
-              if (eleClase == "spinner") {
-                formularioFormDisc += 
-                '<div class="form-group col-sm-6 col-md-4 col-lg-3">'+
-                    '<label for="'+eleTag+'_DanoInv_'+auxDiscont+'_'+jDisc+'" class="bold">'+eleName+'</label>'+
-                    '<select class="form-control" id="'+eleTag+'_DanoInv_'+auxDiscont+'_'+jDisc+'">';
-                        for (let k = 0; k < eleStringArray.length; k++) {
-                          if (isEdit) {
-                            if(eleStringArray[k] == Discont[eleTag]){
-                              formularioFormDisc += '<option selected="selected" value="'+eleStringArray[k]+'">'+eleStringArray[k]+'</option>';
-                            }
-                            else{
-                              formularioFormDisc += '<option value="'+eleStringArray[k]+'">'+eleStringArray[k]+'</option>';
-                            }
-                          }
-                          else{
-                            formularioFormDisc += '<option value="'+eleStringArray[k]+'">'+eleStringArray[k]+'</option>';
-                          } 
-                        }
-                        idsFormatos[auxTipoFormat+'_'+eleTag+'_DanoInv_'+auxDiscont+'_'+jDisc] = eleTag+'_DanoInv_'+auxDiscont+'_'+jDisc;   
-                formularioFormDisc += '</select></div>';
-              }
-            }
+    //           if (eleClase == "edittext") {
+    //             if (eleTag == "ObservacionesDiscont") {
+    //               formularioFormDisc += 
+    //               '<div class="form-group col-6">'+
+    //                 '<label for="'+eleTag+'_DanoInv_'+auxDiscont+'_'+jDisc+'">'+eleName+'</label>'+
+    //                 '<textarea class="form-control" rows="2" id="'+eleTag+'_DanoInv_'+auxDiscont+'_'+jDisc+'">'+(isEdit? Discont[eleTag] : "")+'</textarea/>'+
+    //               '</div>';
+    //             }else{
+    //               formularioFormDisc += 
+    //               '<div class="form-group col-sm-6 col-md-4 col-lg-3">'+
+    //                 '<label for="'+eleTag+'_DanoInv_'+auxDiscont+'_'+jDisc+'" class="bold">'+eleName+'</label>'+
+    //                 '<input type="text" class="form-control" id="'+eleTag+'_DanoInv_'+auxDiscont+'_'+jDisc+'" value="'+(isEdit? Discont[eleTag] : "")+'"></input>'+
+    //               '</div>';
+    //             }
+    //             idsFormatos[auxTipoFormat+'_'+eleTag+'_DanoInv_'+auxDiscont+'_'+j] = eleTag+'_DanoInv_'+auxDiscont+'_'+j;
+    //           }
+    //           if (eleClase == "spinner") {
+    //             formularioFormDisc += 
+    //             '<div class="form-group col-sm-6 col-md-4 col-lg-3">'+
+    //                 '<label for="'+eleTag+'_DanoInv_'+auxDiscont+'_'+jDisc+'" class="bold">'+eleName+'</label>'+
+    //                 '<select class="form-control" id="'+eleTag+'_DanoInv_'+auxDiscont+'_'+jDisc+'">';
+    //                     for (let k = 0; k < eleStringArray.length; k++) {
+    //                       if (isEdit) {
+    //                         if(eleStringArray[k] == Discont[eleTag]){
+    //                           formularioFormDisc += '<option selected="selected" value="'+eleStringArray[k]+'">'+eleStringArray[k]+'</option>';
+    //                         }
+    //                         else{
+    //                           formularioFormDisc += '<option value="'+eleStringArray[k]+'">'+eleStringArray[k]+'</option>';
+    //                         }
+    //                       }
+    //                       else{
+    //                         formularioFormDisc += '<option value="'+eleStringArray[k]+'">'+eleStringArray[k]+'</option>';
+    //                       } 
+    //                     }
+    //                     idsFormatos[auxTipoFormat+'_'+eleTag+'_DanoInv_'+auxDiscont+'_'+jDisc] = eleTag+'_DanoInv_'+auxDiscont+'_'+jDisc;   
+    //             formularioFormDisc += '</select></div>';
+    //           }
+    //         }
 
-            formularioFormDisc +=
-            '<div class="col-3">'+
-              '<button id="estBorrarDanoInv-'+id+'-'+jDisc+'-'+auxDiscont+'-'+(addInEdit||isEdit?"1":"0")+'" class="btn estilo-modales">Borrar Daño</button>'+
-            '</div>';
+    //         formularioFormDisc +=
+    //         '<div class="col-3">'+
+    //           '<button id="estBorrarDanoInv-'+id+'-'+jDisc+'-'+auxDiscont+'-'+(addInEdit||isEdit?"1":"0")+'" class="btn estilo-modales">Borrar Daño</button>'+
+    //         '</div>';
 
-      formularioFormDisc += '</div></div></div></div>';
+    //   formularioFormDisc += '</div></div></div></div>';
 
-      $("#accordianId_"+jDisc+'_DanosINVENTARIO').append(formularioFormDisc);
+    //   $("#accordianId_"+jDisc+'_DanosINVENTARIO').append(formularioFormDisc);
 
-      $('#estBorrarDanoInv-'+id+'-'+jDisc+'-'+auxDiscont+'-'+(addInEdit||isEdit?"1":"0")).click(function (e) { 
-        e.preventDefault();
-        var idfo = parseInt($(this).attr('id').split('-')[1]);
-        var f = parseInt($(this).attr('id').split('-')[2]);
-        var fdisconta = $(this).attr('id').split('-')[3];
-        var fisEdit = $(this).attr('id').split('-')[4];
-        if (fisEdit == "1") {
-          estaciones["estacion_"+idfo]["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+f]["DANOS"]["DANOS_"+fdisconta]['activo'] = false; 
-        }
-        else{
-          statAddInvDanos[jDisc][fdisconta-1] = false;
-        }
+    //   $('#estBorrarDanoInv-'+id+'-'+jDisc+'-'+auxDiscont+'-'+(addInEdit||isEdit?"1":"0")).click(function (e) { 
+    //     e.preventDefault();
+    //     var idfo = parseInt($(this).attr('id').split('-')[1]);
+    //     var f = parseInt($(this).attr('id').split('-')[2]);
+    //     var fdisconta = $(this).attr('id').split('-')[3];
+    //     var fisEdit = $(this).attr('id').split('-')[4];
+    //     if (fisEdit == "1") {
+    //       estaciones["estacion_"+idfo]["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+f]["DANOS"]["DANOS_"+fdisconta]['activo'] = false; 
+    //     }
+    //     else{
+    //       statAddInvDanos[jDisc][fdisconta-1] = false;
+    //     }
 
-        $("#sectionHeaderId_"+f+'DanoInv_'+fdisconta).addClass('d-none');
-        $("#sectionContentId_"+f+'DanoInv_'+fdisconta).addClass('d-none');
+    //     $("#sectionHeaderId_"+f+'DanoInv_'+fdisconta).addClass('d-none');
+    //     $("#sectionContentId_"+f+'DanoInv_'+fdisconta).addClass('d-none');
         
-        notice(`Se ha Borrada exitosamente el Daño ${fdisconta} del Formato INVENTARIO ${f}, Proceda a guardar los cambios en la estación.`, {
-          type: 'success', 
-          position: 'topcenter', 
-          appendType: 'append',
-          closeBtn: false,
-          autoClose: 3000,
-          className: '',
-        })
+    //     notice(`Se ha Borrada exitosamente el Daño ${fdisconta} del Formato INVENTARIO ${f}, Proceda a guardar los cambios en la estación.`, {
+    //       type: 'success', 
+    //       position: 'topcenter', 
+    //       appendType: 'append',
+    //       closeBtn: false,
+    //       autoClose: 3000,
+    //       className: '',
+    //     })
       
-      });
-    }
+    //   });
+    // }
 
-    function GraficarFotoINVENTARIO(auxDiscont, id, jDisc, isEdit, addInEdit) {
-      var Discont;
-      if (addInEdit) {
-        estaciones["estacion_"+id]["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+jDisc]["FotosAnexas"]["FotoAnexa_"+auxDiscont]= {activo:true};
-      }
-      if (isEdit||addInEdit) {
-        Discont = estaciones["estacion_"+id]["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+jDisc]["FotosAnexas"]["FotoAnexa_"+auxDiscont];
-      }
+    // function GraficarFotoINVENTARIO(auxDiscont, id, jDisc, isEdit, addInEdit) {
+    //   var Discont;
+    //   if (addInEdit) {
+    //     estaciones["estacion_"+id]["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+jDisc]["FotosAnexas"]["FotoAnexa_"+auxDiscont]= {activo:true};
+    //   }
+    //   if (isEdit||addInEdit) {
+    //     Discont = estaciones["estacion_"+id]["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+jDisc]["FotosAnexas"]["FotoAnexa_"+auxDiscont];
+    //   }
 
-      var formularioFormDisc = '';
-      formularioFormDisc += 
-      '<div class="card">'+
-        '<div class="card-header" role="tab" id="sectionHeaderId_'+jDisc+'INVENTARIOFotos_'+ auxDiscont +'">'+
-          '<h5 class="mb-0">'+
-            '<a class="text-decoration-none" data-toggle="collapse" data-parent="#accordianId_'+jDisc+'_FotosINVENTARIO" href="#sectionContentId_'+jDisc+'INVENTARIOFotos_'+ auxDiscont +'" aria-expanded="true" aria-controls="'+jDisc+'Fotos_'+ auxDiscont +'">'+
-              'Foto Anexa '+auxDiscont +
-            '</a>'+
-          '</h5>'+
-        '</div>'+
-        '<div id="sectionContentId_'+jDisc+'INVENTARIOFotos_'+ auxDiscont +'" class="collapse in" role="tabpanel" aria-labelledby="'+jDisc+'Fotos_'+ auxDiscont +'">'+
-          '<div class="card-body">'+
-            '<div class="row">';
+    //   var formularioFormDisc = '';
+    //   formularioFormDisc += 
+    //   '<div class="card">'+
+    //     '<div class="card-header" role="tab" id="sectionHeaderId_'+jDisc+'INVENTARIOFotos_'+ auxDiscont +'">'+
+    //       '<h5 class="mb-0">'+
+    //         '<a class="text-decoration-none" data-toggle="collapse" data-parent="#accordianId_'+jDisc+'_FotosINVENTARIO" href="#sectionContentId_'+jDisc+'INVENTARIOFotos_'+ auxDiscont +'" aria-expanded="true" aria-controls="'+jDisc+'Fotos_'+ auxDiscont +'">'+
+    //           'Foto Anexa '+auxDiscont +
+    //         '</a>'+
+    //       '</h5>'+
+    //     '</div>'+
+    //     '<div id="sectionContentId_'+jDisc+'INVENTARIOFotos_'+ auxDiscont +'" class="collapse in" role="tabpanel" aria-labelledby="'+jDisc+'Fotos_'+ auxDiscont +'">'+
+    //       '<div class="card-body">'+
+    //         '<div class="row">';
 
-            for (let i = 0; i < listaElementosInvFotosAnexas.length; i++) {
+    //         for (let i = 0; i < listaElementosInvFotosAnexas.length; i++) {
   
-              var eleTag = listaElementosInvFotosAnexas[i].tag;
-              var eleName = listaElementosInvFotosAnexas[i].nombre;
-              var eleClase = listaElementosInvFotosAnexas[i].clase;
-              var eleStringArray = listaElementosInvFotosAnexas[i].stringArray;
+    //           var eleTag = listaElementosInvFotosAnexas[i].tag;
+    //           var eleName = listaElementosInvFotosAnexas[i].nombre;
+    //           var eleClase = listaElementosInvFotosAnexas[i].clase;
+    //           var eleStringArray = listaElementosInvFotosAnexas[i].stringArray;
 
-              if (eleClase == "edittext") {
-                if (eleTag == "obsFotosAnexas") {
-                  formularioFormDisc += 
-                  '<div class="form-group col-6">'+
-                    '<label for="'+eleTag+'_INVENTARIO_Foto_'+auxDiscont+'_'+jDisc+'">'+eleName+'</label>'+
-                    '<textarea class="form-control" rows="2" id="'+eleTag+'_INVENTARIO_Foto_'+auxDiscont+'_'+jDisc+'">'+(isEdit? Discont[eleTag] : "")+'</textarea/>'+
-                  '</div>'+
-                  '<div class="form-group col-12 row" id="contenedorFotosAnexas_INVENTARIO_'+auxDiscont+'_'+jDisc+'"></div>'
-                }else{
-                  formularioFormDisc += 
-                  '<div class="form-group col-sm-6 col-md-4 col-lg-3">'+
-                    '<label for="'+eleTag+'_INVENTARIO_Foto_'+auxDiscont+'_'+jDisc+'" class="bold">'+eleName+'</label>'+
-                    '<input type="text" class="form-control" id="'+eleTag+'_INVENTARIO_Foto_'+auxDiscont+'_'+jDisc+'" value="'+(isEdit? Discont[eleTag] : "")+'"></input>'+
-                  '</div>';
-                }
-                idsFormatos[auxTipoFormat+'_'+eleTag+'_INVENTARIO_Foto_'+auxDiscont+'_'+j] = eleTag+'_INVENTARIO_Foto_'+auxDiscont+'_'+j;
-              }
-            }
-            if (isEdit) {
-              var auxCountFotoAnexa = auxDiscont - 1;
-              var auxFotoanexa = estaciones["estacion_"+id]["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+jDisc]["FotosAnexas"]["FotosURL"];
-              if (auxFotoanexa !== undefined) {
-                if (auxFotoanexa["FotoActivo_"+auxCountFotoAnexa]) {
-                  formularioFormDisc += '<div class="col-12"><img class="fotosEstaciones  img-fluid" src="'+ auxFotoanexa["Foto_"+auxCountFotoAnexa] +'"></div>'
-                }
-              }
-            }
-            else{
-              formularioFormDisc += '<input type="file" class="form-control col-sm-6 col-md-4 col-lg-3" id="fotoAnexa_INVENTARIO_'+auxDiscont+'_'+jDisc+'" onchange="handleFilesAflor(this.files, id)">'
-            }
+    //           if (eleClase == "edittext") {
+    //             if (eleTag == "obsFotosAnexas") {
+    //               formularioFormDisc += 
+    //               '<div class="form-group col-6">'+
+    //                 '<label for="'+eleTag+'_INVENTARIO_Foto_'+auxDiscont+'_'+jDisc+'">'+eleName+'</label>'+
+    //                 '<textarea class="form-control" rows="2" id="'+eleTag+'_INVENTARIO_Foto_'+auxDiscont+'_'+jDisc+'">'+(isEdit? Discont[eleTag] : "")+'</textarea/>'+
+    //               '</div>'+
+    //               '<div class="form-group col-12 row" id="contenedorFotosAnexas_INVENTARIO_'+auxDiscont+'_'+jDisc+'"></div>'
+    //             }else{
+    //               formularioFormDisc += 
+    //               '<div class="form-group col-sm-6 col-md-4 col-lg-3">'+
+    //                 '<label for="'+eleTag+'_INVENTARIO_Foto_'+auxDiscont+'_'+jDisc+'" class="bold">'+eleName+'</label>'+
+    //                 '<input type="text" class="form-control" id="'+eleTag+'_INVENTARIO_Foto_'+auxDiscont+'_'+jDisc+'" value="'+(isEdit? Discont[eleTag] : "")+'"></input>'+
+    //               '</div>';
+    //             }
+    //             idsFormatos[auxTipoFormat+'_'+eleTag+'_INVENTARIO_Foto_'+auxDiscont+'_'+j] = eleTag+'_INVENTARIO_Foto_'+auxDiscont+'_'+j;
+    //           }
+    //         }
+    //         if (isEdit) {
+    //           var auxCountFotoAnexa = auxDiscont - 1;
+    //           var auxFotoanexa = estaciones["estacion_"+id]["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+jDisc]["FotosAnexas"]["FotosURL"];
+    //           if (auxFotoanexa !== undefined) {
+    //             if (auxFotoanexa["FotoActivo_"+auxCountFotoAnexa]) {
+    //               formularioFormDisc += '<div class="col-12"><img class="fotosEstaciones  img-fluid" src="'+ auxFotoanexa["Foto_"+auxCountFotoAnexa] +'"></div>'
+    //             }
+    //           }
+    //         }
+    //         else{
+    //           formularioFormDisc += '<input type="file" class="form-control col-sm-6 col-md-4 col-lg-3" id="fotoAnexa_INVENTARIO_'+auxDiscont+'_'+jDisc+'" onchange="handleFilesAflor(this.files, id)">'
+    //         }
 
-            formularioFormDisc +=
-            '<div class="col-3">'+
-              '<button id="estBorrarFotoINVENTARIO-'+id+'-'+jDisc+'-'+auxDiscont+'-'+(addInEdit||isEdit?"1":"0")+'" class="btn estilo-modales">Borrar Foto Anexa</button>'+
-            '</div>';
+    //         formularioFormDisc +=
+    //         '<div class="col-3">'+
+    //           '<button id="estBorrarFotoINVENTARIO-'+id+'-'+jDisc+'-'+auxDiscont+'-'+(addInEdit||isEdit?"1":"0")+'" class="btn estilo-modales">Borrar Foto Anexa</button>'+
+    //         '</div>';
 
-      formularioFormDisc += '</div></div></div></div>';
+    //   formularioFormDisc += '</div></div></div></div>';
 
-      $("#accordianId_"+jDisc+'_FotosINVENTARIO').append(formularioFormDisc);
+    //   $("#accordianId_"+jDisc+'_FotosINVENTARIO').append(formularioFormDisc);
 
 
-      $('#estBorrarFotoINVENTARIO-'+id+'-'+jDisc+'-'+auxDiscont+'-'+(addInEdit||isEdit?"1":"0")).click(function (e) { 
-        e.preventDefault();
-        var idfo = parseInt($(this).attr('id').split('-')[1]);
-        var f = parseInt($(this).attr('id').split('-')[2]);
-        var fdisconta = $(this).attr('id').split('-')[3];
-        var fisEdit = $(this).attr('id').split('-')[4];
-        if (fisEdit == "1") {
-          estaciones["estacion_"+idfo]["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+f]["FotosAnexas"]["FotoAnexa_"+fdisconta]['activo'] = false; 
-        }
-        else{
-          statAddFotoInv[jDisc][fdisconta-1] = false;
-        }
+    //   $('#estBorrarFotoINVENTARIO-'+id+'-'+jDisc+'-'+auxDiscont+'-'+(addInEdit||isEdit?"1":"0")).click(function (e) { 
+    //     e.preventDefault();
+    //     var idfo = parseInt($(this).attr('id').split('-')[1]);
+    //     var f = parseInt($(this).attr('id').split('-')[2]);
+    //     var fdisconta = $(this).attr('id').split('-')[3];
+    //     var fisEdit = $(this).attr('id').split('-')[4];
+    //     if (fisEdit == "1") {
+    //       estaciones["estacion_"+idfo]["Formularios"]["Form_INVENTARIO"]["Form_INVENTARIO_"+f]["FotosAnexas"]["FotoAnexa_"+fdisconta]['activo'] = false; 
+    //     }
+    //     else{
+    //       statAddFotoInv[jDisc][fdisconta-1] = false;
+    //     }
 
-        $("#sectionHeaderId_"+f+'INVENTARIOFotos_'+fdisconta).addClass('d-none');
-        $("#sectionContentId_"+f+'INVENTARIOFotos_'+fdisconta).addClass('d-none');
+    //     $("#sectionHeaderId_"+f+'INVENTARIOFotos_'+fdisconta).addClass('d-none');
+    //     $("#sectionContentId_"+f+'INVENTARIOFotos_'+fdisconta).addClass('d-none');
         
-        notice(`Se ha Borrada exitosamente la Foto Anexa ${fdisconta} del Formato INVENTARIO ${f}, Proceda a guardar los cambios en la estación.`, {
-          type: 'success', 
-          position: 'topcenter', 
-          appendType: 'append',
-          closeBtn: false,
-          autoClose: 3000,
-          className: '',
-        })
+    //     notice(`Se ha Borrada exitosamente la Foto Anexa ${fdisconta} del Formato INVENTARIO ${f}, Proceda a guardar los cambios en la estación.`, {
+    //       type: 'success', 
+    //       position: 'topcenter', 
+    //       appendType: 'append',
+    //       closeBtn: false,
+    //       autoClose: 3000,
+    //       className: '',
+    //     })
       
-      });
-    }
+    //   });
+    // }
   
-  }
-
-  function GraficarUSOS(isEdit, j, id, addInEdit) {
-    var auxTipoFormat = 'USOS';
-    var formato; 
-    var noformato; 
-    var estacion; 
-    if (isEdit || addInEdit) {
-      if (isEdit) {
-        formato = estaciones["estacion_"+id]["Formularios"]["Form_USOS"]["Form_USOS_"+j]; 
-        noformato = "PLANILLA" + formato.NOPLANILLA; 
-        estacion = estaciones["estacion_"+id]["Estacion"]; 
-      }
-      else{
-        noformato = "PLANILLA" + j; 
-        estacion = estaciones["estacion_"+id]["Estacion"]; 
-      }
-      var myTabs ='<li class="nav-item">';
-      if(primerForm){
-        myTabs += '<a class="nav-link active" id="'+auxTipoFormat+'tab-'+j+'" data-toggle="tab" href="#'+auxTipoFormat+'tabcontent-'+j+'" role="tab" aria-controls="'+noformato+'_'+estacion+'" aria-selected="true">';
-        primerForm = false;
-      }
-      else{
-        myTabs +='<a class="nav-link" id="'+auxTipoFormat+'tab-'+j+'" data-toggle="tab" href="#'+auxTipoFormat+'tabcontent-'+j+'" role="tab" aria-controls="'+noformato+'_'+estacion+'" aria-selected="true">';
-      }
-      myTabs +='<h4>'+noformato+'</h4></a></li>';
-      $("#myTabs").append(myTabs);      
-    }
-    else{
-      noformato = "PLANILLA" + j; 
-      estacion = "nuevaEstacion"; 
-      myTabs ='<li class="nav-item">';
-      if(primerFormAdd){
-        myTabs += '<a class="nav-link active" id="'+auxTipoFormat+'tab-'+j+'" data-toggle="tab" href="#'+auxTipoFormat+'tabcontent-'+j+'" role="tab" aria-controls="'+noformato+'_'+estacion+'" aria-selected="true">';
-        primerFormAdd = false;
-      }
-      else{
-        myTabs +='<a class="nav-link" id="'+auxTipoFormat+'tab-'+j+'" data-toggle="tab" href="#'+auxTipoFormat+'tabcontent-'+j+'" role="tab" aria-controls="'+noformato+'_'+estacion+'" aria-selected="true">';
-      }
-      myTabs +='<h4>'+noformato+'</h4></a></li>';
-      $("#myTabsAdd").append(myTabs);
-    }
-
-    var formularioForm = '<div class="row">';
-    
-    for (let i = 0; i < listaElementosUSOS.length; i++) {
-      var eleTag = listaElementosUSOS[i].tag;
-      var eleName = listaElementosUSOS[i].nombre;
-      var eleClase = listaElementosUSOS[i].clase;
-      var eleStringArray = listaElementosUSOS[i].stringArray;
-      if (eleClase == "titulo") {
-        formularioForm += 
-        '<div class="form-group col-12">'+
-          '<label class="bold">'+eleName+'</label>'+
-        '</div>';
-      }
-      if (eleClase == "edittext") {
-        formularioForm += 
-        '<div class="form-group col-sm-6 col-md-3">'+
-            '<label for="'+noformato+'_'+eleTag+j+'"  class="bold">'+eleName+'</label>'+
-            '<input type="text" class="form-control" id="'+noformato+'_'+eleTag+j+'" value="'+(isEdit? formato[eleTag] : "")+'"></input>'+
-        '</div>';
-        idsFormatos[auxTipoFormat+'_'+eleTag+'_'+j] = noformato+'_'+eleTag+j;
-      }
-      if (eleClase == "spinner") {
-        formularioForm += 
-        '<div class="form-group col-sm-6 col-md-4 col-lg-3">'+
-          '<label for="'+noformato+'_'+eleTag+j+'"  class="bold">'+eleName+'</label>'+
-          '<select class="form-control" id="'+noformato+'_'+eleTag+j+'">';
-            for (let k = 0; k < eleStringArray.length; k++) {
-              if (isEdit) {
-                if(eleStringArray[k] == formato[eleTag]){
-                  formularioForm += '<option selected="selected" value="'+eleStringArray[k]+'">'+eleStringArray[k]+'</option>';
-                }
-                else{
-                  formularioForm += '<option value="'+eleStringArray[k]+'">'+eleStringArray[k]+'</option>';
-                }
-              }
-              else{
-                formularioForm += '<option value="'+eleStringArray[k]+'">'+eleStringArray[k]+'</option>';
-              } 
-            }
-            idsFormatos[auxTipoFormat+'_'+eleTag+'_'+j] = noformato+'_'+eleTag+j;
-        formularioForm +=
-            '</select>'+
-        '</div>'
-      }
-    }
-
-    formularioForm +=
-    '<div class="col-3">'+
-      '<button id="USOS-btn-borrar-'+ id+'-'+j+'" class="btn estilo-modales">Borrar Formato</button>'+
-    '</div>'+ 
-    '<div class="col-12 mt-4 mb-4">'+
-      '<button id="add-new-USOS-'+id +'-'+j+'-'+(isEdit?"1":"0")+'-'+(addInEdit?"1":"0")+'" class="btn estilo-modales mr-4">Agregar Punto</button>'+
-    '</div>'+
-    '<div class="col-12">'+
-      '<div id="accordianId_'+j+'_USOS" class="accordion"></div>'+
-    '</div>';
-
-
-    formularioForm += '</div>';
-    
-    if (isEdit || addInEdit) {
-      var auxAppend = "";
-      if(primerForm1){
-        auxAppend = '<div class="tab-pane fade show active" id="'+auxTipoFormat+'tabcontent-'+j+'" role="tabpanel" aria-labelledby="'+noformato+'_'+estacion+'-tab">'+formularioForm+'</div>'
-        $("#myTabsContent").append(auxAppend);
-        primerForm1 = false
-      }else{
-        auxAppend = '<div class="tab-pane fade" id="'+auxTipoFormat+'tabcontent-'+j+'" role="tabpanel" aria-labelledby="'+noformato+'_'+estacion+'-tab">'+formularioForm+'</div>'
-        $("#myTabsContent").append(auxAppend);
-      }
-      if (isEdit) {
-        if (formato["PUNTOS"]["count"]>0) {
-          for (let d = 0; d < formato["PUNTOS"]["count"]; d++) {
-            var auxDiscont = d + 1;
-            var Discont = estaciones["estacion_"+id]["Formularios"]["Form_USOS"]["Form_USOS_"+j]["PUNTOS"]["PUNTO_"+auxDiscont];
-            if (Discont.activo){
-              GraficarNewPunto(auxDiscont, id, j, true, false);
-            }
-          } 
-        }
-      }
-      
-    }
-    else{
-      var auxAppend = "";
-      if(primerForm1Add){
-        auxAppend = '<div class="tab-pane fade show active" id="'+auxTipoFormat+'tabcontent-'+j+'" role="tabpanel" aria-labelledby="'+noformato+'_'+estacion+'-tab">'+formularioForm+'</div>'
-        primerForm1Add = false
-      }else{
-        auxAppend = '<div class="tab-pane fade" id="'+auxTipoFormat+'tabcontent-'+j+'" role="tabpanel" aria-labelledby="'+noformato+'_'+estacion+'-tab">'+formularioForm+'</div>'
-      }
-      $("#myTabsContentAdd").append(auxAppend);
-    }
-
-    $('#USOS-btn-borrar-'+ id+'-'+j).click(function (e) { 
-      e.preventDefault();
-      var idfo = parseInt($(this).attr('id').split('-')[3]);
-      var f = parseInt($(this).attr('id').split('-')[4]);
-      var festacio = $(this).attr('id').split('-')[5];
-      var fnoforma = $(this).attr('id').split('-')[6];
-      estaciones["estacion_"+idfo]["Formularios"]["Form_USOS"]["Form_USOS_"+f]['activo'] = false; 
-      $("#USOStab-"+f).addClass('d-none');
-      $("#USOStabcontent-"+f).addClass('d-none');
-      
-      notice(`Se ha Borrado exitosamente el Formato USOS ${f} en la Estación ${estacion}, Proceda a guardar los cambios en la estación.`, {
-        type: 'success', 
-        position: 'topcenter', 
-        appendType: 'append',
-        closeBtn: false,
-        autoClose: 3000,
-        className: '',
-      })
-    
-    });
-
-    $("#add-new-USOS-"+id+'-'+j+'-'+(isEdit?"1":"0")+'-'+(addInEdit?"1":"0")).click(function (e) { 
-      e.preventDefault();
-      var id = parseInt($(this).attr('id').split('-')[3]);
-      var jDisc = parseInt($(this).attr('id').split('-')[4]);
-      var isEdit = parseInt($(this).attr('id').split('-')[5]);
-      var auxaddInEdit = parseInt($(this).attr('id').split('-')[6]);
-      var auxDiscont;
-      var addInEdit = false;
-      if (isEdit == "1" || auxaddInEdit == "1") {
-        addInEdit = true;
-        auxDiscont = parseInt(estaciones["estacion_"+id]["Formularios"]["Form_USOS"]["Form_USOS_"+jDisc]["PUNTOS"]["count"]) + 1;
-        estaciones["estacion_"+id]["Formularios"]["Form_USOS"]["Form_USOS_"+jDisc]["PUNTOS"]["count"] = auxDiscont;
-      }
-      else{
-        contAddPuntoUSOS[jDisc]++;
-        auxDiscont = contAddPuntoUSOS[jDisc];
-        statAddPuntoUSOS[jDisc].push(true);
-      }
-      GraficarNewPunto(auxDiscont, id, jDisc, false, addInEdit);
-    });
-
-    function GraficarNewPunto(auxDiscont, id, jDisc, isEdit, addInEdit) {
-      var Discont;
-      if (isEdit||addInEdit) {
-        Discont = estaciones["estacion_"+id]["Formularios"]["Form_USOS"]["Form_USOS_"+jDisc]["PUNTOS"]["PUNTO_"+auxDiscont];
-      }
-      if (addInEdit) {
-        estaciones["estacion_"+id]["Formularios"]["Form_USOS"]["Form_USOS_"+jDisc]["PUNTOS"]["PUNTO_"+auxDiscont]= {activo:true};
-      }
-
-      var formularioFormDisc = '';
-      formularioFormDisc += 
-      '<div class="card">'+
-        '<div class="card-header" role="tab" id="sectionHeaderId_'+jDisc+'USOS_'+ auxDiscont +'">'+
-          '<h5 class="mb-0">'+
-            '<a class="text-decoration-none" data-toggle="collapse" data-parent="#accordianId_'+jDisc+'_USOS" href="#sectionContentId_'+jDisc+'USOS_'+ auxDiscont +'" aria-expanded="true" aria-controls="'+jDisc+'USOS_'+ auxDiscont +'">'+
-              'Punto '+auxDiscont +
-            '</a>'+
-          '</h5>'+
-        '</div>'+
-        '<div id="sectionContentId_'+jDisc+'USOS_'+ auxDiscont +'" class="collapse in" role="tabpanel" aria-labelledby="'+jDisc+'USOS_'+ auxDiscont +'">'+
-          '<div class="card-body">'+
-            '<div class="row">';
-          for (let i = 0; i < listaElementosPuntosUSOS.length; i++) {
-
-            var eleTag = listaElementosPuntosUSOS[i].tag;
-            var eleName = listaElementosPuntosUSOS[i].nombre;
-            var eleClase = listaElementosPuntosUSOS[i].clase;
-            var eleStringArray = listaElementosPuntosUSOS[i].stringArray;
-            
-            if (eleClase == "titulo") {
-              formularioFormDisc += 
-              '<div class="form-group col-12">'+
-                  '<label class="bold">'+eleName+'</label>'+
-              '</div>';
-            }
-            if (eleClase == "edittext") {
-              if (eleTag == "OBSUSOS") {
-                formularioFormDisc += 
-                '<div class="form-group col-6">'+
-                    '<label for="'+eleTag+'_NewPunto_'+auxDiscont+'_'+jDisc+'" class="bold">'+eleName+'</label>'+
-                    '<textarea class="form-control" rows="2" id="'+eleTag+'_NewPunto_'+auxDiscont+'_'+jDisc+'">'+(isEdit? Discont[eleTag] : "")+'</textarea/>'+
-                '</div>';
-                
-              }
-              else if (eleTag == "FotosPunto"){
-                formularioFormDisc += 
-                '<div class="form-group col-12">'+
-                    '<label for="'+eleTag+'_NewPunto_'+auxDiscont+'_'+jDisc+'" class="bold">'+eleName+'</label>'+
-                    '<input type="text" class="form-control" id="'+eleTag+'_NewPunto_'+auxDiscont+'_'+jDisc+'" value="'+(isEdit? Discont[eleTag] : "")+'"></input>'+
-                '</div>'+
-                '<div class="form-group col-12 row" id="contenedorFotosAnexas_USOS_'+auxDiscont+'_'+jDisc+'"></div>'+
-                '<input type="file" class="form-control col-sm-6 col-md-4 col-lg-3" multiple id="fotoAnexa_USOS_'+auxDiscont+'_'+jDisc+'" onchange="handleFilesAflor(this.files, id)">'+
-                '<div class="col-12"></div>';
-              }else{
-                formularioFormDisc += 
-                '<div class="form-group col-sm-6 col-md-4 col-lg-3">'+
-                    '<label for="'+eleTag+'_NewPunto_'+auxDiscont+'_'+jDisc+'" class="bold">'+eleName+'</label>'+
-                    '<input type="text" class="form-control" id="'+eleTag+'_NewPunto_'+auxDiscont+'_'+jDisc+'" value="'+(isEdit? Discont[eleTag] : "")+'"></input>'+
-                '</div>';
-              }
-              idsFormatos[auxTipoFormat+'_'+eleTag+'_NewPunto_'+auxDiscont+'_'+jDisc] = eleTag+'_NewPunto_'+auxDiscont+'_'+jDisc;
-            }
-            if (eleClase == "spinner") {
-              formularioFormDisc += 
-              '<div class="form-group col-sm-6 col-md-4 col-lg-3">'+
-                  '<label for="'+eleTag+'_NewPunto_'+auxDiscont+'_'+jDisc+'" class="bold">'+eleName+'</label>'+
-                  '<select class="form-control" id="'+eleTag+'_NewPunto_'+auxDiscont+'_'+jDisc+'">';
-                      for (let k = 0; k < eleStringArray.length; k++) {
-                        if (isEdit) {
-                          if(eleStringArray[k] == Discont[eleTag]){
-                            formularioFormDisc += '<option selected="selected" value="'+eleStringArray[k]+'">'+eleStringArray[k]+'</option>';
-                          }
-                          else{
-                            formularioFormDisc += '<option value="'+eleStringArray[k]+'">'+eleStringArray[k]+'</option>';
-                          }
-                        }
-                        else{
-                          formularioFormDisc += '<option value="'+eleStringArray[k]+'">'+eleStringArray[k]+'</option>';
-                        } 
-                      }
-                      idsFormatos[auxTipoFormat+'_'+eleTag+'_NewPunto_'+auxDiscont+'_'+jDisc] = eleTag+'_NewPunto_'+auxDiscont+'_'+jDisc;   
-              formularioFormDisc +=
-                  '</select>'+
-              '</div>'
-            }
-          }
-          
-
-        formularioFormDisc +=
-        '<div class="col-3">'+
-          '<button id="estBorrarPUNTO-'+id+'-'+jDisc+'-'+auxDiscont+'-'+(addInEdit||isEdit?"1":"0")+'" class="btn estilo-modales">Borrar Punto</button>'+
-        '</div>';
-
-      formularioFormDisc += '</div></div></div></div>';
-
-      $("#accordianId_"+jDisc+'_USOS').append(formularioFormDisc);
-
-      if (isEdit) {
-        var auxFotoanexa = estaciones["estacion_"+id]["Formularios"]["Form_USOS"]["Form_USOS_"+jDisc]["PUNTOS"]["PUNTO_"+auxDiscont]["FotosURL"];
-        if (auxFotoanexa !== undefined) {
-          for (let ifoto = 0; ifoto < auxFotoanexa['count']; ifoto++) {
-            if (auxFotoanexa["FotoActivo_"+ifoto]) {
-              $('#contenedorFotosAnexas_USOS_'+auxDiscont+'_'+jDisc).append(
-                '<div class="col-sm-6 col-md-4 col-lg-3" id="PuntoUsos_'+id+'_'+ifoto+'_'+auxDiscont+'_'+jDisc+'">'+
-                  '<img class="fotosEstaciones  img-fluid" src="'+ auxFotoanexa["Foto_"+ifoto] +'">'+
-                  '<div class="borrarFotoIcon" id="iconoBorrarFoto_PuntosUsos_'+id+'_'+ifoto+'_'+auxDiscont+'_'+jDisc+'" data-toggle="modal" data-target="#eliminar-modal-fotosestaciones" data-whatever="PuntoUsos_'+id+'_'+ifoto+'_'+auxDiscont+'_'+jDisc+'">'+
-                    '<i class="fas fa-trash-alt"></i>'+
-                  '</div>'+
-                '</div>'
-              ); 
-            }
-          }
-        }
-      }
-
-      $('#estBorrarPUNTO-'+id+'-'+jDisc+'-'+auxDiscont+'-'+(addInEdit||isEdit?"1":"0")).click(function (e) { 
-        e.preventDefault();
-        var idfo = parseInt($(this).attr('id').split('-')[1]);
-        var f = parseInt($(this).attr('id').split('-')[2]);
-        var fdisconta = $(this).attr('id').split('-')[3];
-        var fisEdit = $(this).attr('id').split('-')[4];
-        if (fisEdit == "1") {
-          estaciones["estacion_"+idfo]["Formularios"]["Form_USOS"]["Form_USOS_"+f]["PUNTOS"]["PUNTO_"+fdisconta]['activo'] = false; 
-        }
-        else{
-          statAddPuntoUSOS[jDisc][fdisconta-1] = false;
-        }
-
-        $("#sectionHeaderId_"+f+'USOS_'+fdisconta).addClass('d-none');
-        $("#sectionContentId_"+f+'USOS_'+fdisconta).addClass('d-none');
-        
-        notice(`Se ha Borrada exitosamente el Punto ${fdisconta} del de la Planilla ${f}, Proceda a guardar los cambios en la estación.`, {
-          type: 'success', 
-          position: 'topcenter', 
-          appendType: 'append',
-          closeBtn: false,
-          autoClose: 3000,
-          className: '',
-        })
-      
-      });
-    }
   }
 }
 
@@ -3515,56 +2798,56 @@ function GuardarEstacion(isEdit, id) {
   formatosUGSR = [];
   formatosUGSS = [];
   formatosSGMF = [];
-  formatosCATALOGO = [];
+  // formatosCATALOGO = [];
   formatosINVENTARIO = [];
-  formatosUSOS = [];
+  // formatosUSOS = [];
   
   var formFormatos={};
 
   formFormatos['Form_UGS_Rocas'] = {};
   formFormatos['Form_UGS_Suelos'] = {};
   formFormatos['Form_SGMF'] = {};
-  formFormatos['Form_CATALOGO'] = {};
+  // formFormatos['Form_CATALOGO'] = {};
   formFormatos['Form_INVENTARIO'] = {};
-  formFormatos['Form_USOS'] = {};
+  // formFormatos['Form_USOS'] = {};
   
   if (isEdit) {
     
     formUGSRcount = estaciones['estacion_'+id]['Formularios']['count_UGS_Rocas'];
     formUGSScount = estaciones['estacion_'+id]['Formularios']['count_UGS_Suelos'];
     formSGMFcount = estaciones['estacion_'+id]['Formularios']['count_SGMF'];
-    formCATALOGOcount = estaciones['estacion_'+id]['Formularios']['count_CATALOGO'];
+    // formCATALOGOcount = estaciones['estacion_'+id]['Formularios']['count_CATALOGO'];
     formINVENTARIOcount = estaciones['estacion_'+id]['Formularios']['count_INVENTARIO'];
-    formUSOScount = 0;
-    if (estaciones['estacion_'+id]['Formularios']['count_USOS'] === undefined) {
-      estaciones['estacion_'+id]['Formularios']['count_USOS'] = 0
-    }
-    else{
-      formUSOScount = estaciones['estacion_'+id]['Formularios']['count_USOS'];
-    }
+    // formUSOScount = 0;
+    // if (estaciones['estacion_'+id]['Formularios']['count_USOS'] === undefined) {
+    //   estaciones['estacion_'+id]['Formularios']['count_USOS'] = 0
+    // }
+    // else{
+    //   formUSOScount = estaciones['estacion_'+id]['Formularios']['count_USOS'];
+    // }
   }
   else{
     formUGSRcount = contAddUGSR;
     formUGSScount = contAddUGSS;
     formSGMFcount = contAddSGMF;
-    formCATALOGOcount = contAddCATALOGO;
+    // formCATALOGOcount = contAddCATALOGO;
     formINVENTARIOcount = contAddINVENTARIO;
-    formUSOScount = contAddUSOS;
+    // formUSOScount = contAddUSOS;
   }
   
   formFormatos['count_UGS_Rocas'] = formUGSRcount;
   formFormatos['count_UGS_Suelos'] = formUGSScount;
   formFormatos['count_SGMF'] = formSGMFcount;
-  formFormatos['count_CATALOGO'] = formCATALOGOcount;
+  // formFormatos['count_CATALOGO'] = formCATALOGOcount;
   formFormatos['count_INVENTARIO'] = formINVENTARIOcount;
-  formFormatos['count_USOS'] = formUSOScount;
+  // formFormatos['count_USOS'] = formUSOScount;
   
   var UGSRActivos;
   var UGSSActivos;
   var SGMFActivos;
-  var CATALOGOActivos;
+  // var CATALOGOActivos;
   var INVENTARIOActivos;
-  var USOSActivos;
+  // var USOSActivos;
 
   
   
@@ -3573,8 +2856,9 @@ function GuardarEstacion(isEdit, id) {
       
       UGSRActivos = estaciones['estacion_'+id]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+i]['activo'];
       var auxDiscount = estaciones['estacion_'+id]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+i]['Discontinuidades']['count'];
-      var auxFotocount = estaciones['estacion_'+id]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+i]['FotosAnexas']['count'];
-      formatosUGSR.push({'activo': UGSRActivos,'Discontinuidades':{'count' : auxDiscount}, 'FotosAnexas':{'count' : auxFotocount}});
+      // var auxFotocount = estaciones['estacion_'+id]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+i]['FotosAnexas']['count'];
+      formatosUGSR.push({'activo': UGSRActivos,'Discontinuidades':{'count' : auxDiscount}});
+      // formatosUGSR.push({'activo': UGSRActivos,'Discontinuidades':{'count' : auxDiscount}, 'FotosAnexas':{'count' : auxFotocount}});
       for (let j = 1; j < auxDiscount+1; j++) {
         formatosUGSR[i]['Discontinuidades']['Discont_'+j] = {};
         if (estaciones['estacion_'+id]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+i]['activo']) {
@@ -3629,67 +2913,69 @@ function GuardarEstacion(isEdit, id) {
         }
         
       }
-      for (let j = 1; j < auxFotocount+1; j++) {
-        formatosUGSR[i]['FotosAnexas']['FotoAnexa_'+j] = {};
-        if (estaciones['estacion_'+id]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+i]['activo']) {
-          if (estaciones['estacion_'+id]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+i]['FotosAnexas']['FotoAnexa_'+j]['activo'] || estaciones['estacion_'+id]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+i]['FotosAnexas']['FotoAnexa_'+j]['activo'] == "true") {
-            formatosUGSR[i]['FotosAnexas']['FotoAnexa_'+j]['activo'] = estaciones['estacion_'+id]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+i]['FotosAnexas']['FotoAnexa_'+j]['activo'];
-            formatosUGSR[i]['FotosAnexas']['FotosURL'] = estaciones['estacion_'+id]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+i]['FotosAnexas']['FotosURL'];
-          }
-          else{
-            formatosUGSR[i]['FotosAnexas']['FotoAnexa_'+j] = {
-              'DescriFotosAnexas': '',
-              'NombreFotosAnexas': '',
-              'activo': false
-            }
-          }
-        }
-        else{
-          formatosUGSR[i]['FotosAnexas']['FotoAnexa_'+j] = {
-            'DescriFotosAnexas': '',
-            'NombreFotosAnexas': '',
-            'activo': false
-          }
-        }
+      // for (let j = 1; j < auxFotocount+1; j++) {
+      //   formatosUGSR[i]['FotosAnexas']['FotoAnexa_'+j] = {};
+      //   if (estaciones['estacion_'+id]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+i]['activo']) {
+      //     if (estaciones['estacion_'+id]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+i]['FotosAnexas']['FotoAnexa_'+j]['activo'] || estaciones['estacion_'+id]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+i]['FotosAnexas']['FotoAnexa_'+j]['activo'] == "true") {
+      //       formatosUGSR[i]['FotosAnexas']['FotoAnexa_'+j]['activo'] = estaciones['estacion_'+id]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+i]['FotosAnexas']['FotoAnexa_'+j]['activo'];
+      //       formatosUGSR[i]['FotosAnexas']['FotosURL'] = estaciones['estacion_'+id]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+i]['FotosAnexas']['FotosURL'];
+      //     }
+      //     else{
+      //       formatosUGSR[i]['FotosAnexas']['FotoAnexa_'+j] = {
+      //         'DescriFotosAnexas': '',
+      //         'NombreFotosAnexas': '',
+      //         'activo': false
+      //       }
+      //     }
+      //   }
+      //   else{
+      //     formatosUGSR[i]['FotosAnexas']['FotoAnexa_'+j] = {
+      //       'DescriFotosAnexas': '',
+      //       'NombreFotosAnexas': '',
+      //       'activo': false
+      //     }
+      //   }
 
-        //console.log(formatosUGSR[i]['FotosAnexas']['FotoAnexa_'+j]);
-      }
+      //   //console.log(formatosUGSR[i]['FotosAnexas']['FotoAnexa_'+j]);
+      // }
     }
     for (let i = 0; i < formUGSScount; i++) {
       UGSSActivos = estaciones['estacion_'+id]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+i]['activo'];
-      var auxFotocount = estaciones['estacion_'+id]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+i]['FotosAnexas']['count'];
-      formatosUGSS.push({'activo': UGSSActivos, 'FotosAnexas':{'count' : auxFotocount}});
+      // var auxFotocount = estaciones['estacion_'+id]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+i]['FotosAnexas']['count'];
+      // formatosUGSS.push({'activo': UGSSActivos, 'FotosAnexas':{'count' : auxFotocount}});
+      formatosUGSS.push({'activo': UGSSActivos});
     
-      for (let j = 1; j < auxFotocount+1; j++) {
-        formatosUGSS[i]['FotosAnexas']['FotoAnexa_'+j] = {};
-        if (estaciones['estacion_'+id]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+i]['activo']) {
-          if (estaciones['estacion_'+id]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+i]['FotosAnexas']['FotoAnexa_'+j]['activo'] || estaciones['estacion_'+id]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+i]['FotosAnexas']['FotoAnexa_'+j]['activo'] == "true") {
-            formatosUGSS[i]['FotosAnexas']['FotoAnexa_'+j]['activo'] = estaciones['estacion_'+id]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+i]['FotosAnexas']['FotoAnexa_'+j]['activo'];
-            formatosUGSS[i]['FotosAnexas']['FotosURL'] = estaciones['estacion_'+id]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+i]['FotosAnexas']['FotosURL'];
-          }
-          else{
-            formatosUGSS[i]['FotosAnexas']['FotoAnexa_'+j] = {
-              'DescriFotosAnexas': '',
-              'NombreFotosAnexas': '',
-              'activo': false
-            }
-          }
-        }
-        else{
-          formatosUGSS[i]['FotosAnexas']['FotoAnexa_'+j] = {
-            'DescriFotosAnexas': '',
-            'NombreFotosAnexas': '',
-            'activo': false
-          }
-        }
-      }
-      console.log(formatosUGSS[i]);
+      // for (let j = 1; j < auxFotocount+1; j++) {
+      //   formatosUGSS[i]['FotosAnexas']['FotoAnexa_'+j] = {};
+      //   if (estaciones['estacion_'+id]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+i]['activo']) {
+      //     if (estaciones['estacion_'+id]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+i]['FotosAnexas']['FotoAnexa_'+j]['activo'] || estaciones['estacion_'+id]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+i]['FotosAnexas']['FotoAnexa_'+j]['activo'] == "true") {
+      //       formatosUGSS[i]['FotosAnexas']['FotoAnexa_'+j]['activo'] = estaciones['estacion_'+id]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+i]['FotosAnexas']['FotoAnexa_'+j]['activo'];
+      //       formatosUGSS[i]['FotosAnexas']['FotosURL'] = estaciones['estacion_'+id]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+i]['FotosAnexas']['FotosURL'];
+      //     }
+      //     else{
+      //       formatosUGSS[i]['FotosAnexas']['FotoAnexa_'+j] = {
+      //         'DescriFotosAnexas': '',
+      //         'NombreFotosAnexas': '',
+      //         'activo': false
+      //       }
+      //     }
+      //   }
+      //   else{
+      //     formatosUGSS[i]['FotosAnexas']['FotoAnexa_'+j] = {
+      //       'DescriFotosAnexas': '',
+      //       'NombreFotosAnexas': '',
+      //       'activo': false
+      //     }
+      //   }
+      // }
+      // console.log(formatosUGSS[i]);
     }
     for (let i = 0; i < formSGMFcount; i++) {
       SGMFActivos = estaciones['estacion_'+id]['Formularios']['Form_SGMF']['Form_SGMF_'+i]['activo'];
       var auxDiscount = estaciones['estacion_'+id]['Formularios']['Form_SGMF']['Form_SGMF_'+i]['SGMF']['count'];
-      var auxFotocount = estaciones['estacion_'+id]['Formularios']['Form_SGMF']['Form_SGMF_'+i]['FotosAnexas']['count'];
-      formatosSGMF.push({'activo': SGMFActivos,'SGMF':{'count' : auxDiscount}, 'FotosAnexas':{'count' : auxFotocount}});
+      // var auxFotocount = estaciones['estacion_'+id]['Formularios']['Form_SGMF']['Form_SGMF_'+i]['FotosAnexas']['count'];
+      // formatosSGMF.push({'activo': SGMFActivos,'SGMF':{'count' : auxDiscount}, 'FotosAnexas':{'count' : auxFotocount}});
+      formatosSGMF.push({'activo': SGMFActivos,'SGMF':{'count' : auxDiscount}});
     
       for (let j = 1; j < auxDiscount+1; j++) {
         formatosSGMF[i]['SGMF']['SGMF_'+j] = {};
@@ -3763,276 +3049,281 @@ function GuardarEstacion(isEdit, id) {
         }
         
       }
-      for (let j = 1; j < auxFotocount+1; j++) {
-        formatosSGMF[i]['FotosAnexas']['FotoAnexa_'+j] = {};
-        if (estaciones['estacion_'+id]['Formularios']['Form_SGMF']['Form_SGMF_'+i]['activo']) {
-          if (estaciones['estacion_'+id]['Formularios']['Form_SGMF']['Form_SGMF_'+i]['FotosAnexas']['FotoAnexa_'+j]['activo']) {
-            formatosSGMF[i]['FotosAnexas']['FotoAnexa_'+j]['activo'] = estaciones['estacion_'+id]['Formularios']['Form_SGMF']['Form_SGMF_'+i]['FotosAnexas']['FotoAnexa_'+j]['activo'];
-            formatosSGMF[i]['FotosAnexas']['FotosURL'] = estaciones['estacion_'+id]['Formularios']['Form_SGMF']['Form_SGMF_'+i]['FotosAnexas']['FotosURL'];
-          }
-          else{
-            formatosSGMF[i]['FotosAnexas']['FotoAnexa_'+j] = {
-              'DescriFotosAnexas': '',
-              'NombreFotosAnexas': '',
-              'activo': false
-            }
-          }
-        }
-        else{
-          formatosSGMF[i]['FotosAnexas']['FotoAnexa_'+j] = {
-            'DescriFotosAnexas': '',
-            'NombreFotosAnexas': '',
-            'activo': false
-          }
-        }
-      }
-      console.log(formatosSGMF[i]);
+      // for (let j = 1; j < auxFotocount+1; j++) {
+      //   formatosSGMF[i]['FotosAnexas']['FotoAnexa_'+j] = {};
+      //   if (estaciones['estacion_'+id]['Formularios']['Form_SGMF']['Form_SGMF_'+i]['activo']) {
+      //     if (estaciones['estacion_'+id]['Formularios']['Form_SGMF']['Form_SGMF_'+i]['FotosAnexas']['FotoAnexa_'+j]['activo']) {
+      //       formatosSGMF[i]['FotosAnexas']['FotoAnexa_'+j]['activo'] = estaciones['estacion_'+id]['Formularios']['Form_SGMF']['Form_SGMF_'+i]['FotosAnexas']['FotoAnexa_'+j]['activo'];
+      //       formatosSGMF[i]['FotosAnexas']['FotosURL'] = estaciones['estacion_'+id]['Formularios']['Form_SGMF']['Form_SGMF_'+i]['FotosAnexas']['FotosURL'];
+      //     }
+      //     else{
+      //       formatosSGMF[i]['FotosAnexas']['FotoAnexa_'+j] = {
+      //         'DescriFotosAnexas': '',
+      //         'NombreFotosAnexas': '',
+      //         'activo': false
+      //       }
+      //     }
+      //   }
+      //   else{
+      //     formatosSGMF[i]['FotosAnexas']['FotoAnexa_'+j] = {
+      //       'DescriFotosAnexas': '',
+      //       'NombreFotosAnexas': '',
+      //       'activo': false
+      //     }
+      //   }
+      // }
+      // console.log(formatosSGMF[i]);
     }
-    for (let i = 0; i < formCATALOGOcount; i++) {
-      CATALOGOActivos = estaciones['estacion_'+id]['Formularios']['Form_CATALOGO']['Form_CATALOGO_'+i]['activo'];
-      var auxDiscount = estaciones['estacion_'+id]['Formularios']['Form_CATALOGO']['Form_CATALOGO_'+i]['DANOS']['count'];
-      formatosCATALOGO.push({'activo': CATALOGOActivos,'DANOS':{'count' : auxDiscount}});
+    // for (let i = 0; i < formCATALOGOcount; i++) {
+    //   CATALOGOActivos = estaciones['estacion_'+id]['Formularios']['Form_CATALOGO']['Form_CATALOGO_'+i]['activo'];
+    //   var auxDiscount = estaciones['estacion_'+id]['Formularios']['Form_CATALOGO']['Form_CATALOGO_'+i]['DANOS']['count'];
+    //   formatosCATALOGO.push({'activo': CATALOGOActivos,'DANOS':{'count' : auxDiscount}});
     
-      for (let j = 1; j < auxDiscount+1; j++) {
-        formatosCATALOGO[i]['DANOS']['DANOS_'+j] = {};
-        if (estaciones['estacion_'+id]['Formularios']['Form_CATALOGO']['Form_CATALOGO_'+i]['activo']) {
-          if (estaciones['estacion_'+id]['Formularios']['Form_CATALOGO']['Form_CATALOGO_'+i]['DANOS']['DANOS_'+j]['activo']) {
-            formatosCATALOGO[i]['DANOS']['DANOS_'+j]['activo'] = estaciones['estacion_'+id]['Formularios']['Form_CATALOGO']['Form_CATALOGO_'+i]['DANOS']['DANOS_'+j]['activo'];
-          }
-          else{
-            formatosCATALOGO[i]['DANOS']['DANOS_'+j] = {
-              "clasedano": "I: Infraestructura",
-              "tiposdano": "DL: Daño leve",
-              "tipodano": "",
-              "cantidaddano": "",
-              "unidaddano": "",
-              "valordano": "",
-              'activo': false
-            }
-          }
-        }
-        else{
-          formatosCATALOGO[i]['DANOS']['DANOS_'+j] = {
-            "clasedano": "I: Infraestructura",
-            "tiposdano": "DL: Daño leve",
-            "tipodano": "",
-            "cantidaddano": "",
-            "unidaddano": "",
-            "valordano": "",
-            'activo': false
-          }
+    //   for (let j = 1; j < auxDiscount+1; j++) {
+    //     formatosCATALOGO[i]['DANOS']['DANOS_'+j] = {};
+    //     if (estaciones['estacion_'+id]['Formularios']['Form_CATALOGO']['Form_CATALOGO_'+i]['activo']) {
+    //       if (estaciones['estacion_'+id]['Formularios']['Form_CATALOGO']['Form_CATALOGO_'+i]['DANOS']['DANOS_'+j]['activo']) {
+    //         formatosCATALOGO[i]['DANOS']['DANOS_'+j]['activo'] = estaciones['estacion_'+id]['Formularios']['Form_CATALOGO']['Form_CATALOGO_'+i]['DANOS']['DANOS_'+j]['activo'];
+    //       }
+    //       else{
+    //         formatosCATALOGO[i]['DANOS']['DANOS_'+j] = {
+    //           "clasedano": "I: Infraestructura",
+    //           "tiposdano": "DL: Daño leve",
+    //           "tipodano": "",
+    //           "cantidaddano": "",
+    //           "unidaddano": "",
+    //           "valordano": "",
+    //           'activo': false
+    //         }
+    //       }
+    //     }
+    //     else{
+    //       formatosCATALOGO[i]['DANOS']['DANOS_'+j] = {
+    //         "clasedano": "I: Infraestructura",
+    //         "tiposdano": "DL: Daño leve",
+    //         "tipodano": "",
+    //         "cantidaddano": "",
+    //         "unidaddano": "",
+    //         "valordano": "",
+    //         'activo': false
+    //       }
 
-        }
+    //     }
         
-      }
+    //   }
 
-      console.log(formatosCATALOGO[i]);
-    }
+    //   console.log(formatosCATALOGO[i]);
+    // }
     for (let i = 0; i < formINVENTARIOcount; i++) {
       INVENTARIOActivos = estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['activo'];
-      var auxDiscount = estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['DANOS']['count'];
-      var auxFotocount = estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['FotosAnexas']['count'];
-      formatosINVENTARIO.push({'activo': INVENTARIOActivos,'DANOS':{'count' : auxDiscount},'FotosAnexas':{'count' : auxFotocount}});
+      // var auxDiscount = estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['DANOS']['count'];
+      // var auxFotocount = estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['FotosAnexas']['count'];
+      // formatosINVENTARIO.push({'activo': INVENTARIOActivos,'DANOS':{'count' : auxDiscount},'FotosAnexas':{'count' : auxFotocount}});
+      formatosINVENTARIO.push({'activo': INVENTARIOActivos});
     
-      for (let j = 1; j < auxDiscount+1; j++) {
-        formatosINVENTARIO[i]['DANOS']['DANOS_'+j] = {};
-        if (estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['activo']) {
-          if (estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['DANOS']['DANOS_'+j]['activo']) {
-            formatosINVENTARIO[i]['DANOS']['DANOS_'+j]['activo'] = estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['DANOS']['DANOS_'+j]['activo'];
-          }
-          else{
-            formatosINVENTARIO[i]['DANOS']['DANOS_'+j] = {
-              "clasedano": "I: Infraestructura",
-              "tiposdano": "DL: Daño leve",
-              "tipodano": "",
-              "cantidaddano": "",
-              "unidaddano": "",
-              "valordano": "",
-              'activo': false
-            }
-          }
-        }
-        else{
-          formatosINVENTARIO[i]['DANOS']['DANOS_'+j] = {
-            "clasedano": "I: Infraestructura",
-            "tiposdano": "DL: Daño leve",
-            "tipodano": "",
-            "cantidaddano": "",
-            "unidaddano": "",
-            "valordano": "",
-            'activo': false
-          }
+      // for (let j = 1; j < auxDiscount+1; j++) {
+      //   formatosINVENTARIO[i]['DANOS']['DANOS_'+j] = {};
+      //   if (estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['activo']) {
+      //     if (estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['DANOS']['DANOS_'+j]['activo']) {
+      //       formatosINVENTARIO[i]['DANOS']['DANOS_'+j]['activo'] = estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['DANOS']['DANOS_'+j]['activo'];
+      //     }
+      //     else{
+      //       formatosINVENTARIO[i]['DANOS']['DANOS_'+j] = {
+      //         "clasedano": "I: Infraestructura",
+      //         "tiposdano": "DL: Daño leve",
+      //         "tipodano": "",
+      //         "cantidaddano": "",
+      //         "unidaddano": "",
+      //         "valordano": "",
+      //         'activo': false
+      //       }
+      //     }
+      //   }
+      //   else{
+      //     formatosINVENTARIO[i]['DANOS']['DANOS_'+j] = {
+      //       "clasedano": "I: Infraestructura",
+      //       "tiposdano": "DL: Daño leve",
+      //       "tipodano": "",
+      //       "cantidaddano": "",
+      //       "unidaddano": "",
+      //       "valordano": "",
+      //       'activo': false
+      //     }
 
-        }
+      //   }
         
-      }
-      for (let j = 1; j < auxFotocount+1; j++) {
-        formatosINVENTARIO[i]['FotosAnexas']['FotoAnexa_'+j] = {};
-        if (estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['activo']) {
-          if (estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['FotosAnexas']['FotoAnexa_'+j]['activo']) {
-            formatosINVENTARIO[i]['FotosAnexas']['FotoAnexa_'+j]['activo'] = estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['FotosAnexas']['FotoAnexa_'+j]['activo'];
-            formatosINVENTARIO[i]['FotosAnexas']['FotosURL'] = estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['FotosAnexas']['FotosURL'];
-          }
-          else{
-            formatosINVENTARIO[i]['FotosAnexas']['FotoAnexa_'+j] = {
-              "autorFotosAnexas": "",
-              "fechaFotosAnexas": "",
-              'nombreFotosAnexasINV': '',
-              'obsFotosAnexas': '',
-              'activo': false
-            }
-          }
-        }
-        else{
-          formatosINVENTARIO[i]['FotosAnexas']['FotoAnexa_'+j] = {
-            "autorFotosAnexas": "",
-            "fechaFotosAnexas": "",
-            'nombreFotosAnexasINV': '',
-            'obsFotosAnexas': '',
-            'activo': false
-          }
-        }
-      }
+      // }
+      // for (let j = 1; j < auxFotocount+1; j++) {
+      //   formatosINVENTARIO[i]['FotosAnexas']['FotoAnexa_'+j] = {};
+      //   if (estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['activo']) {
+      //     if (estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['FotosAnexas']['FotoAnexa_'+j]['activo']) {
+      //       formatosINVENTARIO[i]['FotosAnexas']['FotoAnexa_'+j]['activo'] = estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['FotosAnexas']['FotoAnexa_'+j]['activo'];
+      //       formatosINVENTARIO[i]['FotosAnexas']['FotosURL'] = estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['FotosAnexas']['FotosURL'];
+      //     }
+      //     else{
+      //       formatosINVENTARIO[i]['FotosAnexas']['FotoAnexa_'+j] = {
+      //         "autorFotosAnexas": "",
+      //         "fechaFotosAnexas": "",
+      //         'nombreFotosAnexasINV': '',
+      //         'obsFotosAnexas': '',
+      //         'activo': false
+      //       }
+      //     }
+      //   }
+      //   else{
+      //     formatosINVENTARIO[i]['FotosAnexas']['FotoAnexa_'+j] = {
+      //       "autorFotosAnexas": "",
+      //       "fechaFotosAnexas": "",
+      //       'nombreFotosAnexasINV': '',
+      //       'obsFotosAnexas': '',
+      //       'activo': false
+      //     }
+      //   }
+      // }
     }
-    for (let i = 0; i < formUSOScount; i++) {
-      USOSActivos = estaciones['estacion_'+id]['Formularios']['Form_USOS']['Form_USOS_'+i]['activo'];
-      if (estaciones['estacion_'+id]['Formularios']['Form_USOS']['Form_USOS_'+i]['PUNTOS'] === undefined) {
-        estaciones['estacion_'+id]['Formularios']['Form_USOS']['Form_USOS_'+i]['PUNTOS'] = {"count":0};
-      }
-      var auxDiscount = estaciones['estacion_'+id]['Formularios']['Form_USOS']['Form_USOS_'+i]['PUNTOS']['count'];
-      formatosUSOS.push({'activo': USOSActivos,'PUNTOS':{'count' : auxDiscount}});
+    // for (let i = 0; i < formUSOScount; i++) {
+    //   USOSActivos = estaciones['estacion_'+id]['Formularios']['Form_USOS']['Form_USOS_'+i]['activo'];
+    //   if (estaciones['estacion_'+id]['Formularios']['Form_USOS']['Form_USOS_'+i]['PUNTOS'] === undefined) {
+    //     estaciones['estacion_'+id]['Formularios']['Form_USOS']['Form_USOS_'+i]['PUNTOS'] = {"count":0};
+    //   }
+    //   var auxDiscount = estaciones['estacion_'+id]['Formularios']['Form_USOS']['Form_USOS_'+i]['PUNTOS']['count'];
+    //   formatosUSOS.push({'activo': USOSActivos,'PUNTOS':{'count' : auxDiscount}});
     
-      for (let j = 1; j < auxDiscount+1; j++) {
-        formatosUSOS[i]['PUNTOS']['PUNTO_'+j] = {};
-        if (estaciones['estacion_'+id]['Formularios']['Form_USOS']['Form_USOS_'+i]['activo']) {
-          if (estaciones['estacion_'+id]['Formularios']['Form_USOS']['Form_USOS_'+i]['PUNTOS']['PUNTO_'+j]['activo'] ) {
-            formatosUSOS[i]['PUNTOS']['PUNTO_'+j]['activo'] = estaciones['estacion_'+id]['Formularios']['Form_USOS']['Form_USOS_'+i]['PUNTOS']['PUNTO_'+j]['activo'];
-            if (estaciones['estacion_'+id]['Formularios']['Form_USOS']['Form_USOS_'+i]['PUNTOS']['PUNTO_'+j]['FotosURL'] === undefined) {
-              estaciones['estacion_'+id]['Formularios']['Form_USOS']['Form_USOS_'+i]['PUNTOS']['PUNTO_'+j]['FotosURL'] = {"count":0}
-            }
-            formatosUSOS[i]['PUNTOS']['PUNTO_'+j]['FotosURL'] = estaciones['estacion_'+id]['Formularios']['Form_USOS']['Form_USOS_'+i]['PUNTOS']['PUNTO_'+j]['FotosURL'];
-          }
-          else{
-            formatosUSOS[i]['PUNTOS']['PUNTO_'+j] = {
-              "PUNTO": "",
-              "ESTE": "",
-              "NORTE": "",
-              "FotosPunto": "",
-              "COBERTURA": "",
-              "OBS_USOS": "",
-              "USO_SUELO": "",
-              "DENSIDAD_SIEMBRA": "",
-              "INTENSIDAD_USO": "",
-              "TECNICAS_PROD": "",
-              "ARREGLO_ESP": "",
-              "RIEGO": "",
-              "TIPO_ESTAB": "",
-              "DIR_SIEMBRA": "",
-              "QUEMA": "",
-              "ACT_PECUARIA": "",
-              "REST_USO": "",
-              "AFECTACION": "",
-              "COBERTURA_INT": "",
-              "FotosURL" : {"count": 0},
-              'activo': false
-            }
-          }
-        }
-        else{
-          formatosUSOS[i]['PUNTOS']['PUNTO_'+j] = {
-            "PUNTO": "",
-            "ESTE": "",
-            "NORTE": "",
-            "FotosPunto": "",
-            "COBERTURA": "",
-            "OBS_USOS": "",
-            "USO_SUELO": "",
-            "DENSIDAD_SIEMBRA": "",
-            "INTENSIDAD_USO": "",
-            "TECNICAS_PROD": "",
-            "ARREGLO_ESP": "",
-            "RIEGO": "",
-            "TIPO_ESTAB": "",
-            "DIR_SIEMBRA": "",
-            "QUEMA": "",
-            "ACT_PECUARIA": "",
-            "REST_USO": "",
-            "AFECTACION": "",
-            "COBERTURA_INT": "",
-            "FotosURL" : {"count": 0},
-            'activo': false
-          }
+    //   for (let j = 1; j < auxDiscount+1; j++) {
+    //     formatosUSOS[i]['PUNTOS']['PUNTO_'+j] = {};
+    //     if (estaciones['estacion_'+id]['Formularios']['Form_USOS']['Form_USOS_'+i]['activo']) {
+    //       if (estaciones['estacion_'+id]['Formularios']['Form_USOS']['Form_USOS_'+i]['PUNTOS']['PUNTO_'+j]['activo'] ) {
+    //         formatosUSOS[i]['PUNTOS']['PUNTO_'+j]['activo'] = estaciones['estacion_'+id]['Formularios']['Form_USOS']['Form_USOS_'+i]['PUNTOS']['PUNTO_'+j]['activo'];
+    //         if (estaciones['estacion_'+id]['Formularios']['Form_USOS']['Form_USOS_'+i]['PUNTOS']['PUNTO_'+j]['FotosURL'] === undefined) {
+    //           estaciones['estacion_'+id]['Formularios']['Form_USOS']['Form_USOS_'+i]['PUNTOS']['PUNTO_'+j]['FotosURL'] = {"count":0}
+    //         }
+    //         formatosUSOS[i]['PUNTOS']['PUNTO_'+j]['FotosURL'] = estaciones['estacion_'+id]['Formularios']['Form_USOS']['Form_USOS_'+i]['PUNTOS']['PUNTO_'+j]['FotosURL'];
+    //       }
+    //       else{
+    //         formatosUSOS[i]['PUNTOS']['PUNTO_'+j] = {
+    //           "PUNTO": "",
+    //           "ESTE": "",
+    //           "NORTE": "",
+    //           "FotosPunto": "",
+    //           "COBERTURA": "",
+    //           "OBS_USOS": "",
+    //           "USO_SUELO": "",
+    //           "DENSIDAD_SIEMBRA": "",
+    //           "INTENSIDAD_USO": "",
+    //           "TECNICAS_PROD": "",
+    //           "ARREGLO_ESP": "",
+    //           "RIEGO": "",
+    //           "TIPO_ESTAB": "",
+    //           "DIR_SIEMBRA": "",
+    //           "QUEMA": "",
+    //           "ACT_PECUARIA": "",
+    //           "REST_USO": "",
+    //           "AFECTACION": "",
+    //           "COBERTURA_INT": "",
+    //           "FotosURL" : {"count": 0},
+    //           'activo': false
+    //         }
+    //       }
+    //     }
+    //     else{
+    //       formatosUSOS[i]['PUNTOS']['PUNTO_'+j] = {
+    //         "PUNTO": "",
+    //         "ESTE": "",
+    //         "NORTE": "",
+    //         "FotosPunto": "",
+    //         "COBERTURA": "",
+    //         "OBS_USOS": "",
+    //         "USO_SUELO": "",
+    //         "DENSIDAD_SIEMBRA": "",
+    //         "INTENSIDAD_USO": "",
+    //         "TECNICAS_PROD": "",
+    //         "ARREGLO_ESP": "",
+    //         "RIEGO": "",
+    //         "TIPO_ESTAB": "",
+    //         "DIR_SIEMBRA": "",
+    //         "QUEMA": "",
+    //         "ACT_PECUARIA": "",
+    //         "REST_USO": "",
+    //         "AFECTACION": "",
+    //         "COBERTURA_INT": "",
+    //         "FotosURL" : {"count": 0},
+    //         'activo': false
+    //       }
 
-        }
+    //     }
         
-      }
-      console.log(formatosUSOS[i]);
-    }
+    //   }
+    //   console.log(formatosUSOS[i]);
+    // }
   }
   else{
     for (let i = 0; i < formUGSRcount; i++) {
       var auxDiscount = contAddDiscont[i];
-      var auxFotocount = contAddFoto[i];
-      formatosUGSR.push({'Discontinuidades':{'count' : auxDiscount}, 'FotosAnexas':{'count' : auxFotocount},'activo':true});
+      // var auxFotocount = contAddFoto[i];
+      formatosUGSR.push({'Discontinuidades':{'count' : auxDiscount},'activo':true});
+      // formatosUGSR.push({'Discontinuidades':{'count' : auxDiscount}, 'FotosAnexas':{'count' : auxFotocount},'activo':true});
       for (let j = 1; j < auxDiscount+1; j++) {
         var auxj = j-1;
         formatosUGSR[i]['Discontinuidades']['Discont_'+j] = {'activo' : statAddDiscont[i][auxj]};
       }
-      for (let j = 1; j < auxFotocount+1; j++) {
-        var auxj = j-1;
-        formatosUGSR[i]['FotosAnexas']['FotoAnexa_'+j] = {'activo': statAddFoto[i][auxj]};
-      }
+      // for (let j = 1; j < auxFotocount+1; j++) {
+      //   var auxj = j-1;
+      //   formatosUGSR[i]['FotosAnexas']['FotoAnexa_'+j] = {'activo': statAddFoto[i][auxj]};
+      // }
     }
     for (let i = 0; i < formUGSScount; i++) {
-      var auxFotocount = contAddFotoSuelos[i];
-      formatosUGSS.push({'FotosAnexas':{'count' : auxFotocount},'activo':true});
-      for (let j = 1; j < auxFotocount+1; j++) {
-        var auxj = j-1;
-        formatosUGSS[i]['FotosAnexas']['FotoAnexa_'+j] = {'activo': statAddFotoSuelos[i][auxj]};
-      }
+      // var auxFotocount = contAddFotoSuelos[i];
+      formatosUGSS.push({'activo':true});
+      // formatosUGSS.push({'FotosAnexas':{'count' : auxFotocount},'activo':true});
+      // for (let j = 1; j < auxFotocount+1; j++) {
+      //   var auxj = j-1;
+      //   formatosUGSS[i]['FotosAnexas']['FotoAnexa_'+j] = {'activo': statAddFotoSuelos[i][auxj]};
+      // }
     }
     for (let i = 0; i < formSGMFcount; i++) {
-      var auxFotocount = contAddFotoSGMF[i];
+      // var auxFotocount = contAddFotoSGMF[i];
       var auxDiscount = contAddNewSGMF[i];
-      formatosSGMF.push({'SGMF':{'count' : auxDiscount},'FotosAnexas':{'count' : auxFotocount},'activo':true});
+      // formatosSGMF.push({'SGMF':{'count' : auxDiscount},'FotosAnexas':{'count' : auxFotocount},'activo':true});
+      formatosSGMF.push({'SGMF':{'count' : auxDiscount},'activo':true});
       for (let j = 1; j < auxDiscount+1; j++) {
         var auxj = j-1;
         formatosSGMF[i]['SGMF']['SGMF_'+j] = {'activo': statAddNewSGMF[i][auxj]};
       }
-      for (let j = 1; j < auxFotocount+1; j++) {
-        var auxj = j-1;
-        formatosSGMF[i]['FotosAnexas']['FotoAnexa_'+j] = {'activo': statAddFotoSGMF[i][auxj]};
-      }
+      // for (let j = 1; j < auxFotocount+1; j++) {
+      //   var auxj = j-1;
+      //   formatosSGMF[i]['FotosAnexas']['FotoAnexa_'+j] = {'activo': statAddFotoSGMF[i][auxj]};
+      // }
     }
-    for (let i = 0; i < formCATALOGOcount; i++) {
-      var auxDiscount = contAddCatDanos[i];
-      formatosCATALOGO.push({'DANOS':{'count' : auxDiscount},'activo':true});
-      for (let j = 1; j < auxDiscount+1; j++) {
-        var auxj = j-1;
-        formatosCATALOGO[i]['DANOS']['DANOS_'+j] = {'activo': statAddCatDanos[i][auxj]};
-      }
-    }
+    // for (let i = 0; i < formCATALOGOcount; i++) {
+    //   var auxDiscount = contAddCatDanos[i];
+    //   formatosCATALOGO.push({'DANOS':{'count' : auxDiscount},'activo':true});
+    //   for (let j = 1; j < auxDiscount+1; j++) {
+    //     var auxj = j-1;
+    //     formatosCATALOGO[i]['DANOS']['DANOS_'+j] = {'activo': statAddCatDanos[i][auxj]};
+    //   }
+    // }
     for (let i = 0; i < formINVENTARIOcount; i++) {
-      var auxDiscount = contAddInvDanos[i];
-      var auxFotocount = contAddFotoInv[i];
-      formatosINVENTARIO.push({'DANOS':{'count' : auxDiscount},'FotosAnexas':{'count' : auxFotocount},'activo':true});
-      for (let j = 1; j < auxDiscount+1; j++) {
-        var auxj = j-1;
-        formatosINVENTARIO[i]['DANOS']['DANOS_'+j] = {'activo': statAddInvDanos[i][auxj]};
-      }
-      for (let j = 1; j < auxFotocount+1; j++) {
-        var auxj = j-1;
-        formatosINVENTARIO[i]['FotosAnexas']['FotoAnexa_'+j] = {'activo': statAddFotoInv[i][auxj]};
-      }
+      // var auxDiscount = contAddInvDanos[i];
+      // var auxFotocount = contAddFotoInv[i];
+      formatosINVENTARIO.push({'activo':true});
+      // formatosINVENTARIO.push({'DANOS':{'count' : auxDiscount},'FotosAnexas':{'count' : auxFotocount},'activo':true});
+      // for (let j = 1; j < auxDiscount+1; j++) {
+      //   var auxj = j-1;
+      //   formatosINVENTARIO[i]['DANOS']['DANOS_'+j] = {'activo': statAddInvDanos[i][auxj]};
+      // }
+      // for (let j = 1; j < auxFotocount+1; j++) {
+      //   var auxj = j-1;
+      //   formatosINVENTARIO[i]['FotosAnexas']['FotoAnexa_'+j] = {'activo': statAddFotoInv[i][auxj]};
+      // }
     }
-    for (let i = 0; i < formUSOScount; i++) {
-      var auxDiscount = contAddPuntoUSOS[i];
-      formatosUSOS.push({'PUNTOS':{'count' : auxDiscount},'activo':true});
-      for (let j = 1; j < auxDiscount+1; j++) {
-        var auxj = j-1;
-        formatosUSOS[i]['PUNTOS']['PUNTO_'+j] = {'activo': statAddPuntoUSOS[i][auxj]};
-      }
-    }
+    // for (let i = 0; i < formUSOScount; i++) {
+    //   var auxDiscount = contAddPuntoUSOS[i];
+    //   formatosUSOS.push({'PUNTOS':{'count' : auxDiscount},'activo':true});
+    //   for (let j = 1; j < auxDiscount+1; j++) {
+    //     var auxj = j-1;
+    //     formatosUSOS[i]['PUNTOS']['PUNTO_'+j] = {'activo': statAddPuntoUSOS[i][auxj]};
+    //   }
+    // }
   }
 
   for (const attr in idsFormatos) {
@@ -4053,9 +3344,9 @@ function GuardarEstacion(isEdit, id) {
       if (auxAttr[2] == 'Disc') {
         formatosUGSR[auxAttr[4]]['Discontinuidades']['Discont_'+auxAttr[3]][auxAttr[1]] = $('#'+idsFormatos[attr]).val();
       }
-      if (auxAttr[3] == 'Foto') {
-        formatosUGSR[auxAttr[5]]['FotosAnexas']['FotoAnexa_'+auxAttr[4]][auxAttr[1]] = $('#'+idsFormatos[attr]).val();
-      }
+      // if (auxAttr[3] == 'Foto') {
+      //   formatosUGSR[auxAttr[5]]['FotosAnexas']['FotoAnexa_'+auxAttr[4]][auxAttr[1]] = $('#'+idsFormatos[attr]).val();
+      // }
     }
     if(auxAttr[0]=='UGSS'){
       if (auxAttr[3] !== 'Foto') {
@@ -4075,9 +3366,9 @@ function GuardarEstacion(isEdit, id) {
           formatosUGSS[auxAttr[2]][auxAttr[1]] = $('#'+idsFormatos[attr]).val();
         }
       }
-      if (auxAttr[3] == 'Foto') {
-        formatosUGSS[auxAttr[5]]['FotosAnexas']['FotoAnexa_'+auxAttr[4]][auxAttr[1]] = $('#'+idsFormatos[attr]).val();
-      }
+      // if (auxAttr[3] == 'Foto') {
+      //   formatosUGSS[auxAttr[5]]['FotosAnexas']['FotoAnexa_'+auxAttr[4]][auxAttr[1]] = $('#'+idsFormatos[attr]).val();
+      // }
     }
     if(auxAttr[0]=='SGMF' ){
       if (auxAttr[3] !== 'Foto' && auxAttr[2] !== 'NewSGMF') {
@@ -4101,26 +3392,26 @@ function GuardarEstacion(isEdit, id) {
           formatosSGMF[auxAttr[4]]['SGMF']['SGMF_'+auxAttr[3]][auxAttr[1]] = $('#'+idsFormatos[attr]).val();
         }                 
       }
-      if (auxAttr[3] == 'Foto') {
-        formatosSGMF[auxAttr[5]]['FotosAnexas']['FotoAnexa_'+auxAttr[4]][auxAttr[1]] = $('#'+idsFormatos[attr]).val();
-      }
+      // if (auxAttr[3] == 'Foto') {
+      //   formatosSGMF[auxAttr[5]]['FotosAnexas']['FotoAnexa_'+auxAttr[4]][auxAttr[1]] = $('#'+idsFormatos[attr]).val();
+      // }
     }
-    if(auxAttr[0]=='CATALOGO'){
-      if (auxAttr[2] !== 'DanoCat') {
-        if (auxAttr[3] == 'radiobtnMM') {
-          formatosCATALOGO[auxAttr[4]][auxAttr[1]+'_'+auxAttr[2]] = $('input:radio[name='+idsFormatos[attr]+']:checked').val()
-        }
-        else if(auxAttr[2] == 'PARTE' || auxAttr[2] == 'MOV' || auxAttr[2] == 'FUENTE' || auxAttr[2] == 'REP' || auxAttr[2] == 'SIMMA' || auxAttr[2] == 'MUN' || auxAttr[2] == 'GEOGRF' || auxAttr[1] === 'SUBTIPO' || auxAttr[2] == 'INFSEC'){
-          formatosCATALOGO[auxAttr[3]][auxAttr[1]+'_'+auxAttr[2]] = $('#'+idsFormatos[attr]).val();
-        }
-        else{
-          formatosCATALOGO[auxAttr[2]][auxAttr[1]] = $('#'+idsFormatos[attr]).val();
-        }
-      }
-      if (auxAttr[2] == 'DanoCat') {
-        formatosCATALOGO[auxAttr[4]]['DANOS']['DANOS_'+auxAttr[3]][auxAttr[1]] = $('#'+idsFormatos[attr]).val();
-      }
-    }
+    // if(auxAttr[0]=='CATALOGO'){
+    //   if (auxAttr[2] !== 'DanoCat') {
+    //     if (auxAttr[3] == 'radiobtnMM') {
+    //       formatosCATALOGO[auxAttr[4]][auxAttr[1]+'_'+auxAttr[2]] = $('input:radio[name='+idsFormatos[attr]+']:checked').val()
+    //     }
+    //     else if(auxAttr[2] == 'PARTE' || auxAttr[2] == 'MOV' || auxAttr[2] == 'FUENTE' || auxAttr[2] == 'REP' || auxAttr[2] == 'SIMMA' || auxAttr[2] == 'MUN' || auxAttr[2] == 'GEOGRF' || auxAttr[1] === 'SUBTIPO' || auxAttr[2] == 'INFSEC'){
+    //       formatosCATALOGO[auxAttr[3]][auxAttr[1]+'_'+auxAttr[2]] = $('#'+idsFormatos[attr]).val();
+    //     }
+    //     else{
+    //       formatosCATALOGO[auxAttr[2]][auxAttr[1]] = $('#'+idsFormatos[attr]).val();
+    //     }
+    //   }
+    //   if (auxAttr[2] == 'DanoCat') {
+    //     formatosCATALOGO[auxAttr[4]]['DANOS']['DANOS_'+auxAttr[3]][auxAttr[1]] = $('#'+idsFormatos[attr]).val();
+    //   }
+    // }
     if(auxAttr[0]=='INVENTARIO'){
       if (auxAttr[2] !== 'DanoInv' && auxAttr[3] !== 'Foto') {
         if (auxAttr[3] == 'radiobtnMM') {
@@ -4145,21 +3436,21 @@ function GuardarEstacion(isEdit, id) {
           formatosINVENTARIO[auxAttr[2]][auxAttr[1]] = $('#'+idsFormatos[attr]).val();
         }
       }
-      if (auxAttr[2] == 'DanoInv') {
-        formatosINVENTARIO[auxAttr[4]]['DANOS']['DANOS_'+auxAttr[3]][auxAttr[1]] = $('#'+idsFormatos[attr]).val();
-      }
-      if (auxAttr[3] == 'Foto') {
-        formatosINVENTARIO[auxAttr[5]]['FotosAnexas']['FotoAnexa_'+auxAttr[4]][auxAttr[1]] = $('#'+idsFormatos[attr]).val();
-      }
+      // if (auxAttr[2] == 'DanoInv') {
+      //   formatosINVENTARIO[auxAttr[4]]['DANOS']['DANOS_'+auxAttr[3]][auxAttr[1]] = $('#'+idsFormatos[attr]).val();
+      // }
+      // if (auxAttr[3] == 'Foto') {
+      //   formatosINVENTARIO[auxAttr[5]]['FotosAnexas']['FotoAnexa_'+auxAttr[4]][auxAttr[1]] = $('#'+idsFormatos[attr]).val();
+      // }
     }
-    if(auxAttr[0]=='USOS' ){
-      if (auxAttr[2] !== 'NewPunto') {
-          formatosUSOS[auxAttr[2]][auxAttr[1]] = $('#'+idsFormatos[attr]).val();
-      }
-      if (auxAttr[2] == 'NewPunto') {
-        formatosUSOS[auxAttr[4]]['PUNTOS']['PUNTO_'+auxAttr[3]][auxAttr[1]] = $('#'+idsFormatos[attr]).val();              
-      }
-    }  
+    // if(auxAttr[0]=='USOS' ){
+    //   if (auxAttr[2] !== 'NewPunto') {
+    //       formatosUSOS[auxAttr[2]][auxAttr[1]] = $('#'+idsFormatos[attr]).val();
+    //   }
+    //   if (auxAttr[2] == 'NewPunto') {
+    //     formatosUSOS[auxAttr[4]]['PUNTOS']['PUNTO_'+auxAttr[3]][auxAttr[1]] = $('#'+idsFormatos[attr]).val();              
+    //   }
+    // }  
   }
 
   if (isEdit) {
@@ -4169,7 +3460,7 @@ function GuardarEstacion(isEdit, id) {
       }else{
         formFormatos['Form_UGS_Rocas']['Form_UGS_Rocas_'+i]={
           'Discontinuidades' : {'count': 0},
-          'FotosAnexas' : {'count': 0},  
+          // 'FotosAnexas' : {'count': 0},  
           'activo': false,
           'claseaflor': "Natural",
           'color1': "",
@@ -4216,7 +3507,7 @@ function GuardarEstacion(isEdit, id) {
       
       UGSRActivos = estaciones['estacion_'+id]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+i]['activo'];
       var auxDiscount = estaciones['estacion_'+id]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+i]['Discontinuidades']['count'];
-      var auxFotocount = estaciones['estacion_'+id]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+i]['FotosAnexas']['count'];
+      // var auxFotocount = estaciones['estacion_'+id]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+i]['FotosAnexas']['count'];
 
       for (let j = 1; j < auxDiscount+1; j++) {
         
@@ -4271,30 +3562,30 @@ function GuardarEstacion(isEdit, id) {
         }
       
       }
-      for (let j = 1; j < auxFotocount+1; j++) {
+      // for (let j = 1; j < auxFotocount+1; j++) {
         
-        if (estaciones['estacion_'+id]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+i]['activo']) {
-          if (estaciones['estacion_'+id]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+i]['FotosAnexas']['FotoAnexa_'+j]['activo']) {
+      //   if (estaciones['estacion_'+id]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+i]['activo']) {
+      //     if (estaciones['estacion_'+id]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+i]['FotosAnexas']['FotoAnexa_'+j]['activo']) {
             
-          }
-          else{
-            formatosUGSR[i]['FotosAnexas']['FotoAnexa_'+j] = {
-              'DescriFotosAnexas': '',
-              'NombreFotosAnexas': '',
-              'activo': false
-            }
-          }
-        }
-        else{
-          formatosUGSR[i]['FotosAnexas']['FotoAnexa_'+j] = {
-            'DescriFotosAnexas': '',
-            'NombreFotosAnexas': '',
-            'activo': false
-          }
-        }
+      //     }
+      //     else{
+      //       formatosUGSR[i]['FotosAnexas']['FotoAnexa_'+j] = {
+      //         'DescriFotosAnexas': '',
+      //         'NombreFotosAnexas': '',
+      //         'activo': false
+      //       }
+      //     }
+      //   }
+      //   else{
+      //     formatosUGSR[i]['FotosAnexas']['FotoAnexa_'+j] = {
+      //       'DescriFotosAnexas': '',
+      //       'NombreFotosAnexas': '',
+      //       'activo': false
+      //     }
+      //   }
 
-        //console.log(formatosUGSR[i]['FotosAnexas']['FotoAnexa_'+j]);
-      }
+      //   //console.log(formatosUGSR[i]['FotosAnexas']['FotoAnexa_'+j]);
+      // }
     }
 
     for (let i = 0; i < formUGSScount; i++) {
@@ -4304,7 +3595,7 @@ function GuardarEstacion(isEdit, id) {
       }else{
         formFormatos['Form_UGS_Suelos']['Form_UGS_Suelos_'+i] =
         {
-          'FotosAnexas':{'count': 0},
+          // 'FotosAnexas':{'count': 0},
           'activo': false,
           'claseaflor': "Natural",
           'color1': "",
@@ -4388,31 +3679,31 @@ function GuardarEstacion(isEdit, id) {
           'vereda': "",
         }
       }
-      var auxFotocount = estaciones['estacion_'+id]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+i]['FotosAnexas']['count'];
-      for (let j = 1; j < auxFotocount+1; j++) {
+      // var auxFotocount = estaciones['estacion_'+id]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+i]['FotosAnexas']['count'];
+      // for (let j = 1; j < auxFotocount+1; j++) {
         
-        if (estaciones['estacion_'+id]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+i]['activo']) {
-          if (estaciones['estacion_'+id]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+i]['FotosAnexas']['FotoAnexa_'+j]['activo']) {
+      //   if (estaciones['estacion_'+id]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+i]['activo']) {
+      //     if (estaciones['estacion_'+id]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+i]['FotosAnexas']['FotoAnexa_'+j]['activo']) {
             
-          }
-          else{
-            formatosUGSS[i]['FotosAnexas']['FotoAnexa_'+j] = {
-              'DescriFotosAnexas': '',
-              'NombreFotosAnexas': '',
-              'activo': false
-            }
-          }
-        }
-        else{
-          formatosUGSS[i]['FotosAnexas']['FotoAnexa_'+j] = {
-            'DescriFotosAnexas': '',
-            'NombreFotosAnexas': '',
-            'activo': false
-          }
-        }
+      //     }
+      //     else{
+      //       formatosUGSS[i]['FotosAnexas']['FotoAnexa_'+j] = {
+      //         'DescriFotosAnexas': '',
+      //         'NombreFotosAnexas': '',
+      //         'activo': false
+      //       }
+      //     }
+      //   }
+      //   else{
+      //     formatosUGSS[i]['FotosAnexas']['FotoAnexa_'+j] = {
+      //       'DescriFotosAnexas': '',
+      //       'NombreFotosAnexas': '',
+      //       'activo': false
+      //     }
+      //   }
 
-        //console.log(formatosUGSR[i]['FotosAnexas']['FotoAnexa_'+j]);
-      }
+      //   //console.log(formatosUGSR[i]['FotosAnexas']['FotoAnexa_'+j]);
+      // }
 
 
     }
@@ -4422,7 +3713,7 @@ function GuardarEstacion(isEdit, id) {
         formFormatos['Form_SGMF']['Form_SGMF_'+i]=formatosSGMF[i];
       }else{
         formFormatos['Form_SGMF']['Form_SGMF_'+i] = {
-          'FotosAnexas':{'count': 0},
+          // 'FotosAnexas':{'count': 0},
           'SGMF':{'count': 0},
           "ambiente0check": true,
           "ambiente1check": false,
@@ -4450,31 +3741,31 @@ function GuardarEstacion(isEdit, id) {
         }
       }
       var auxDiscount = estaciones['estacion_'+id]['Formularios']['Form_SGMF']['Form_SGMF_'+i]['SGMF']['count'];
-      var auxFotocount = estaciones['estacion_'+id]['Formularios']['Form_SGMF']['Form_SGMF_'+i]['FotosAnexas']['count'];
-      for (let j = 1; j < auxFotocount+1; j++) {
+      // var auxFotocount = estaciones['estacion_'+id]['Formularios']['Form_SGMF']['Form_SGMF_'+i]['FotosAnexas']['count'];
+      // for (let j = 1; j < auxFotocount+1; j++) {
         
-        if (estaciones['estacion_'+id]['Formularios']['Form_SGMF']['Form_SGMF_'+i]['activo']) {
-          if (estaciones['estacion_'+id]['Formularios']['Form_SGMF']['Form_SGMF_'+i]['FotosAnexas']['FotoAnexa_'+j]['activo']) {
+      //   if (estaciones['estacion_'+id]['Formularios']['Form_SGMF']['Form_SGMF_'+i]['activo']) {
+      //     if (estaciones['estacion_'+id]['Formularios']['Form_SGMF']['Form_SGMF_'+i]['FotosAnexas']['FotoAnexa_'+j]['activo']) {
             
-          }
-          else{
-            formatosSGMF[i]['FotosAnexas']['FotoAnexa_'+j] = {
-              'DescriFotosAnexas': '',
-              'NombreFotosAnexas': '',
-              'activo': false
-            }
-          }
-        }
-        else{
-          formatosSGMF[i]['FotosAnexas']['FotoAnexa_'+j] = {
-            'DescriFotosAnexas': '',
-            'NombreFotosAnexas': '',
-            'activo': false
-          }
-        }
+      //     }
+      //     else{
+      //       formatosSGMF[i]['FotosAnexas']['FotoAnexa_'+j] = {
+      //         'DescriFotosAnexas': '',
+      //         'NombreFotosAnexas': '',
+      //         'activo': false
+      //       }
+      //     }
+      //   }
+      //   else{
+      //     formatosSGMF[i]['FotosAnexas']['FotoAnexa_'+j] = {
+      //       'DescriFotosAnexas': '',
+      //       'NombreFotosAnexas': '',
+      //       'activo': false
+      //     }
+      //   }
 
-        //console.log(formatosUGSR[i]['FotosAnexas']['FotoAnexa_'+j]);
-      }
+      //   //console.log(formatosUGSR[i]['FotosAnexas']['FotoAnexa_'+j]);
+      // }
       for (let j = 1; j < auxDiscount+1; j++) {
         
         if (estaciones['estacion_'+id]['Formularios']['Form_SGMF']['Form_SGMF_'+i]['activo']) {
@@ -4549,471 +3840,259 @@ function GuardarEstacion(isEdit, id) {
 
     }
 
-    for (let i = 0; i < formCATALOGOcount; i++) {
-      if (estaciones['estacion_'+id]['Formularios']['Form_CATALOGO']['Form_CATALOGO_'+i]['activo']) {
-        formFormatos['Form_CATALOGO']['Form_CATALOGO_'+i]=formatosCATALOGO[i];
-      }else{
-        formFormatos['Form_CATALOGO']['Form_CATALOGO_'+i] = {
-          "IMPORTANC": "",
-          'activo': false,
-          "DANOS": {'count': 0},
-          "FECHA_FUENTE": "",
-          "ConfiFechaMM": "",
-          "NOM_MUN": "",
-          "SUBTIPO_1": "No Aplica",
-          "SUBTIPO_2": "No Aplica",
-          "ID_PARTE": "",
-          "ENCUESTAD": "",
-          "FECHA_MOV": "",
-          "FECHA_REP": "",
-          "COD_SIMMA": "",
-          "VEREDA": "",
-          "SITIO": "",
-          "REF_GEOGRF": "",
-          "HERIDOS": "",
-          "VIDAS": "",
-          "DESAPARECIDOS": "",
-          "PERSONAS": "",
-          "FAMILIAS": "",
-          "sensoresremotos": "",
-          "FTE_INFSEC": "",
-          "notas": "",
-          "TIPO_MOV2": "No Aplica",
-          "TIPO_MOV1": "No Aplica"
-        }
-      }
-      var auxDiscount = estaciones['estacion_'+id]['Formularios']['Form_CATALOGO']['Form_CATALOGO_'+i]['DANOS']['count'];
+    // for (let i = 0; i < formCATALOGOcount; i++) {
+    //   if (estaciones['estacion_'+id]['Formularios']['Form_CATALOGO']['Form_CATALOGO_'+i]['activo']) {
+    //     formFormatos['Form_CATALOGO']['Form_CATALOGO_'+i]=formatosCATALOGO[i];
+    //   }else{
+    //     formFormatos['Form_CATALOGO']['Form_CATALOGO_'+i] = {
+    //       "IMPORTANC": "",
+    //       'activo': false,
+    //       "DANOS": {'count': 0},
+    //       "FECHA_FUENTE": "",
+    //       "ConfiFechaMM": "",
+    //       "NOM_MUN": "",
+    //       "SUBTIPO_1": "No Aplica",
+    //       "SUBTIPO_2": "No Aplica",
+    //       "ID_PARTE": "",
+    //       "ENCUESTAD": "",
+    //       "FECHA_MOV": "",
+    //       "FECHA_REP": "",
+    //       "COD_SIMMA": "",
+    //       "VEREDA": "",
+    //       "SITIO": "",
+    //       "REF_GEOGRF": "",
+    //       "HERIDOS": "",
+    //       "VIDAS": "",
+    //       "DESAPARECIDOS": "",
+    //       "PERSONAS": "",
+    //       "FAMILIAS": "",
+    //       "sensoresremotos": "",
+    //       "FTE_INFSEC": "",
+    //       "notas": "",
+    //       "TIPO_MOV2": "No Aplica",
+    //       "TIPO_MOV1": "No Aplica"
+    //     }
+    //   }
+    //   var auxDiscount = estaciones['estacion_'+id]['Formularios']['Form_CATALOGO']['Form_CATALOGO_'+i]['DANOS']['count'];
 
-      for (let j = 1; j < auxDiscount+1; j++) {
+    //   for (let j = 1; j < auxDiscount+1; j++) {
         
-        if (estaciones['estacion_'+id]['Formularios']['Form_CATALOGO']['Form_CATALOGO_'+i]['activo']) {
-          if (estaciones['estacion_'+id]['Formularios']['Form_CATALOGO']['Form_CATALOGO_'+i]['DANOS']['DANOS_'+j]['activo']) {
-          }
-          else{
-            formatosCATALOGO[i]['DANOS']['DANOS_'+j] = {
-              "clasedano": "I: Infraestructura",
-              "tiposdano": "DL: Daño leve",
-              "tipodano": "",
-              "cantidaddano": "",
-              "unidaddano": "",
-              "valordano": "",
-              'activo': false
-            }
-          }
-        }
-        else{
-          formatosCATALOGO[i]['DANOS']['DANOS_'+j] = {
-            "clasedano": "I: Infraestructura",
-            "tiposdano": "DL: Daño leve",
-            "tipodano": "",
-            "cantidaddano": "",
-            "unidaddano": "",
-            "valordano": "",
-            'activo': false
-          }
+    //     if (estaciones['estacion_'+id]['Formularios']['Form_CATALOGO']['Form_CATALOGO_'+i]['activo']) {
+    //       if (estaciones['estacion_'+id]['Formularios']['Form_CATALOGO']['Form_CATALOGO_'+i]['DANOS']['DANOS_'+j]['activo']) {
+    //       }
+    //       else{
+    //         formatosCATALOGO[i]['DANOS']['DANOS_'+j] = {
+    //           "clasedano": "I: Infraestructura",
+    //           "tiposdano": "DL: Daño leve",
+    //           "tipodano": "",
+    //           "cantidaddano": "",
+    //           "unidaddano": "",
+    //           "valordano": "",
+    //           'activo': false
+    //         }
+    //       }
+    //     }
+    //     else{
+    //       formatosCATALOGO[i]['DANOS']['DANOS_'+j] = {
+    //         "clasedano": "I: Infraestructura",
+    //         "tiposdano": "DL: Daño leve",
+    //         "tipodano": "",
+    //         "cantidaddano": "",
+    //         "unidaddano": "",
+    //         "valordano": "",
+    //         'activo': false
+    //       }
 
-        }
+    //     }
       
-      }
+    //   }
 
-    }
+    // }
 
     for (let i = 0; i < formINVENTARIOcount; i++) {
       if (estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['activo']) {
         formFormatos['Form_INVENTARIO']['Form_INVENTARIO_'+i]=formatosINVENTARIO[i];
       }else{
         formFormatos['Form_INVENTARIO']['Form_INVENTARIO_'+i] = {
-          'activo': false,
-          "AN_GMF": "",
-          "COD_SIMMA": "",
-          "ConfiFechaMM": "Incierta",
-          "DANOS": {'count': 0},
-          "DESAPARECIDOS": "",
-          "DISTRIBUC": "Movil",
-          "ENCUESTAD": "Yair Rodriguez Acosta",
-          "ESTADO_ACT": "Activo",
-          "ESTILO": "Único",
-          "FAMILIAS": "",
-          "FECHA_FUENTE": "Sensores remotos",
-          "FECHA_MOV": "2013-12-24",
-          "FECHA_REP": "2022-03-12",
-          "FTE_INFSEC": "Fotografí­as aéreas IGAC 0763_0764 Vuelo 186030 (24/07/2013); Image 2022 Maxar Technologies (10/01/2013)",
-          "FotosAnexas": {'count': 0},
-          "HERIDOS": "",
-          "ID_PARTE": "YR002-05",
-          "IMPORTANC": "Baja",
-          "LITOLOGIA": "",
-          "NOM_MUN": "RIOSUCIO",
-          "PERSONAS": "",
-          "REF_GEOGRF": "700 m hacia el Este desde el kilómetro 18+600 de la ví­a Riosucio - Jardí­n",
-          "SITIO": "",
-          "SUBTIPO_1": "Reptación de suelos",
-          "SUBTIPO_2": "No Aplica",
-          "TIPO_MOV1": "Reptación",
+          "AREA": "",
+          "ConfiFecha": "Certeza mes y año",
+          "DISTRIBUC": "Decreciente",
+          "ENCUESTAD": "",
+          "ESTADO_ACT": "Abandonado",
+          "ESTILO": "Compuesto",
+          "FECHA_MOV": "",
+          "FECHA_REP": "",
+          "FTE_INFSEC": "",
+          "ID_FORM": "",
+          "ID_MM": "",
+          "ID_PARTE": "",
+          "NOM_DEP": "ANTIOQUIA",
+          "OBSERVACION": "",
+          "PARTE": "",
+          "SUBTIPO_1": "Deslizamiento rotacional",
+          "SUBTIPO_2": "Deslizamiento rotacional",
+          "TIPO_MOV1": "No Aplica",
           "TIPO_MOV2": "No Aplica",
-          "VEREDA": "La Antioqueña",
-          "VIDAS": "",
-          // "activo": true,
-          "apreciacionriesgo": "",
-          "causascontrideto0check_1": "false",
-          "causascontrideto0check_2": "false",
-          "causascontrideto10check_1": "false",
-          "causascontrideto10check_2": "false",
-          "causascontrideto11check_1": "false",
-          "causascontrideto11check_2": "false",
-          "causascontrideto12check_1": "false",
-          "causascontrideto12check_2": "false",
-          "causascontrideto13check_1": "false",
-          "causascontrideto13check_2": "false",
-          "causascontrideto14check_1": "false",
-          "causascontrideto14check_2": "false",
-          "causascontrideto15check_1": "false",
-          "causascontrideto15check_2": "false",
-          "causascontrideto16check_1": "false",
-          "causascontrideto16check_2": "false",
-          "causascontrideto17check_1": "false",
-          "causascontrideto17check_2": "false",
-          "causascontrideto18check_1": "false",
-          "causascontrideto18check_2": "false",
-          "causascontrideto19check_1": "false",
-          "causascontrideto19check_2": "false",
-          "causascontrideto1check_1": "false",
-          "causascontrideto1check_2": "false",
-          "causascontrideto20check_1": "false",
-          "causascontrideto20check_2": "false",
-          "causascontrideto21check_1": "false",
-          "causascontrideto21check_2": "false",
-          "causascontrideto22check_1": "false",
-          "causascontrideto22check_2": "false",
-          "causascontrideto23check_1": "false",
-          "causascontrideto23check_2": "false",
-          "causascontrideto24check_1": "false",
-          "causascontrideto24check_2": "false",
-          "causascontrideto2check_1": "false",
-          "causascontrideto2check_2": "false",
-          "causascontrideto3check_1": "false",
-          "causascontrideto3check_2": "false",
-          "causascontrideto4check_1": "false",
-          "causascontrideto4check_2": "false",
-          "causascontrideto5check_1": "false",
-          "causascontrideto5check_2": "false",
-          "causascontrideto6check_1": "false",
-          "causascontrideto6check_2": "false",
-          "causascontrideto7check_1": "false",
-          "causascontrideto7check_2": "false",
-          "causascontrideto8check_1": "false",
-          "causascontrideto8check_2": "false",
-          "causascontrideto9check_1": "false",
-          "causascontrideto9check_2": "false",
-          "causasinherentes0check": "false",
-          "causasinherentes10check": "false",
-          "causasinherentes11check": "false",
-          "causasinherentes1check": "false",
-          "causasinherentes2check": "false",
-          "causasinherentes3check": "false",
-          "causasinherentes4check": "false",
-          "causasinherentes5check": "false",
-          "causasinherentes6check": "false",
-          "causasinherentes7check": "false",
-          "causasinherentes8check": "false",
-          "causasinherentes9check": "false",
-          "cobertura0": "",
-          "cobertura1": "",
-          "cobertura2": "",
-          "cobertura3": "",
-          "cobertura4": "",
-          "cobertura5": "",
-          "cobertura6": "",
-          "cobertura7": "",
-          "edadmm": "Menor a 1 año",
-          "erosionedad": "Antigua",
-          "erosioneolica": "Si",
-          "erosionestado": "Baja",
-          "erosionfluvial": "Socav. fondo",
-          "erosionsubsuperficial0check": "false",
-          "erosionsubsuperficial1check": "false",
-          "erosionsuperficial0check": "false",
-          "erosionsuperficial1check": "false",
-          "erosionsuperficial2check": "false",
-          "erosionsuperficial3check": "false",
-          "erosionsuperficial4check": "false",
-          "estructura0buz": "",
-          "estructura0check": "false",
-          "estructura0dirbuz": "",
-          "estructura0espaciamiento": ">2",
-          "estructura1buz": "",
-          "estructura1check": "false",
-          "estructura1dirbuz": "",
-          "estructura1espaciamiento": ">2",
-          "estructura2buz": "",
-          "estructura2check": "false",
-          "estructura2dirbuz": "",
-          "estructura2espaciamiento": ">2",
-          "estructura3buz": "",
-          "estructura3check": "false",
-          "estructura3dirbuz": "",
-          "estructura3espaciamiento": ">2",
-          "estructura4buz": "",
-          "estructura4check": "false",
-          "estructura4dirbuz": "",
-          "estructura4espaciamiento": ">2",
-          "estructura5buz": "",
-          "estructura5check": "false",
-          "estructura5dirbuz": "",
-          "estructura5espaciamiento": ">2",
-          "humedad1": "Mojado",
-          "humedad2": "Mojado",
-          "lluviasMM0": "",
-          "lluviasMM1": "",
-          "lluviasMM2": "",
-          "lluviasMM3": "",
-          "morfodimensiones0": "",
-          "morfodimensiones1": "",
-          "morfodimensiones10": "",
-          "morfodimensiones11": "",
-          "morfodimensiones12": "",
-          "morfodimensiones2": "",
-          "morfodimensiones3": "",
-          "morfodimensiones4": "",
-          "morfodimensiones5": "",
-          "morfodimensiones6": "",
-          "morfodimensiones7": "",
-          "morfodimensiones8": "",
-          "morfodimensiones9": "",
-          "morfogeneral0": "",
-          "morfogeneral1": "",
-          "morfogeneral2": "",
-          "morfogeneral3": "",
-          "morfogeneral4": "",
-          "morfogeneral5": "",
-          "morfogeneral6": "",
-          "morfomodo": "Ondulación",
-          "morfoseveridad": "Leve",
-          "notas": "",
-          "origensuelo0check": "false",
-          "origensuelo1check": "false",
-          "origensuelo2check": "false",
-          "origensuelo3check": "false",
-          "planchas": "",
-          "plasticidad1": "Alta",
-          "plasticidad2": "Alta",
-          "referenciasautor": "",
-          "referenciasaño": "",
-          "referenciasciudad": "",
-          "referenciaseditor": "",
-          "referenciaspaginas": "",
-          "referenciastitulo": "",
-          "represamientocondiciones0check": "false",
-          "represamientocondiciones1check": "false",
-          "represamientocondiciones2check": "false",
-          "represamientocondiciones3check": "false",
-          "represamientocondiciones4check": "false",
-          "represamientocondiciones5check": "false",
-          "represamientocondiciones6check": "false",
-          "represamientocondiciones7check": "false",
-          "represamientoefectos0check": "false",
-          "represamientoefectos1check": "false",
-          "represamientoefectos2check": "false",
-          "represamientoefectos3check": "false",
-          "represamientoefectos4check": "false",
-          "represamientomorfometria0": "",
-          "represamientomorfometria1": "",
-          "represamientomorfometria2": "",
-          "represamientomorfometria3": "",
-          "represamientomorfometria4": "",
-          "represamientomorfometria5": "",
-          "represamientotipo": "I",
-          "sensoresremotos": "",
-          "sisclasificacion": "Hutchinson, 1988",
-          "sismoMM0": "",
-          "sismoMM1": "",
-          "sismoMM2": "",
-          "sismoMM3": "",
-          "tipodeposito0check": "",
-          "tipodeposito1check": "",
-          "tipodeposito2check": "",
-          "tipodeposito3check": "",
-          "tipodeposito4check": "",
-          "tipomaterial0check_1": "false",
-          "tipomaterial0check_2": "false",
-          "tipomaterial1check_1": "false",
-          "tipomaterial1check_2": "false",
-          "tipomaterial2check_1": "false",
-          "tipomaterial2check_2": "false",
-          "tipomaterial3check_1": "false",
-          "tipomaterial3check_2": "false",
-          "tipomaterial4check_1": "false",
-          "tipomaterial4check_2": "false",
-          "usosuelo0": "",
-          "usosuelo1": "",
-          "usosuelo2": "",
-          "usosuelo3": "",
-          "usosuelo4": "",
-          "usosuelo5": "",
-          "usosuelo6": "",
-          "usosuelo7": "",
-          "usosuelo8": "",
-          "usosuelo9": "",
-          "velocidad": "Extr. rápido (>5 m/s)",
-          "velocidadmax": "",
-          "velocidadmin": ""
+          "VEREDA": "PLAYA RICA",
+          "VERIFICADO": "NO",
+          "activo": false
         }
       }
-      var auxDiscount = estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['DANOS']['count'];
-      var auxFotocount = estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['FotosAnexas']['count'];
-      for (let j = 1; j < auxDiscount+1; j++) {
+      // var auxDiscount = estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['DANOS']['count'];
+      // var auxFotocount = estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['FotosAnexas']['count'];
+      // for (let j = 1; j < auxDiscount+1; j++) {
         
-        if (estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['activo']) {
-          if (estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['DANOS']['DANOS_'+j]['activo']) {
-          }
-          else{
-            formatosINVENTARIO[i]['DANOS']['DANOS_'+j] = {
-              "clasedano": "I: Infraestructura",
-              "tiposdano": "DL: Daño leve",
-              "tipodano": "",
-              "cantidaddano": "",
-              "unidaddano": "",
-              "valordano": "",
-              'activo': false
-            }
-          }
-        }
-        else{
-          formatosINVENTARIO[i]['DANOS']['DANOS_'+j] = {
-            "clasedano": "I: Infraestructura",
-            "tiposdano": "DL: Daño leve",
-            "tipodano": "",
-            "cantidaddano": "",
-            "unidaddano": "",
-            "valordano": "",
-            'activo': false
-          }
+      //   if (estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['activo']) {
+      //     if (estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['DANOS']['DANOS_'+j]['activo']) {
+      //     }
+      //     else{
+      //       formatosINVENTARIO[i]['DANOS']['DANOS_'+j] = {
+      //         "clasedano": "I: Infraestructura",
+      //         "tiposdano": "DL: Daño leve",
+      //         "tipodano": "",
+      //         "cantidaddano": "",
+      //         "unidaddano": "",
+      //         "valordano": "",
+      //         'activo': false
+      //       }
+      //     }
+      //   }
+      //   else{
+      //     formatosINVENTARIO[i]['DANOS']['DANOS_'+j] = {
+      //       "clasedano": "I: Infraestructura",
+      //       "tiposdano": "DL: Daño leve",
+      //       "tipodano": "",
+      //       "cantidaddano": "",
+      //       "unidaddano": "",
+      //       "valordano": "",
+      //       'activo': false
+      //     }
 
-        }
+      //   }
       
-      }
-      for (let j = 1; j < auxFotocount+1; j++) {
+      // }
+      // for (let j = 1; j < auxFotocount+1; j++) {
         
-        if (estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['activo']) {
-          if (estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['FotosAnexas']['FotoAnexa_'+j]['activo']) {
+      //   if (estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['activo']) {
+      //     if (estaciones['estacion_'+id]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+i]['FotosAnexas']['FotoAnexa_'+j]['activo']) {
             
-          }
-          else{
-            formatosINVENTARIO[i]['FotosAnexas']['FotoAnexa_'+j] = {
-              "autorFotosAnexas": "",
-              "fechaFotosAnexas": "",
-              'nombreFotosAnexasINV': '',
-              'obsFotosAnexas': '',
-              'activo': false
-            }
-          }
-        }
-        else{
-          formatosINVENTARIO[i]['FotosAnexas']['FotoAnexa_'+j] = {
-            "autorFotosAnexas": "",
-            "fechaFotosAnexas": "",
-            'nombreFotosAnexasINV': '',
-            'obsFotosAnexas': '',
-            'activo': false
-          }
-        }
+      //     }
+      //     else{
+      //       formatosINVENTARIO[i]['FotosAnexas']['FotoAnexa_'+j] = {
+      //         "autorFotosAnexas": "",
+      //         "fechaFotosAnexas": "",
+      //         'nombreFotosAnexasINV': '',
+      //         'obsFotosAnexas': '',
+      //         'activo': false
+      //       }
+      //     }
+      //   }
+      //   else{
+      //     formatosINVENTARIO[i]['FotosAnexas']['FotoAnexa_'+j] = {
+      //       "autorFotosAnexas": "",
+      //       "fechaFotosAnexas": "",
+      //       'nombreFotosAnexasINV': '',
+      //       'obsFotosAnexas': '',
+      //       'activo': false
+      //     }
+      //   }
 
-        //console.log(formatosUGSR[i]['FotosAnexas']['FotoAnexa_'+j]);
-      }
+      //   //console.log(formatosUGSR[i]['FotosAnexas']['FotoAnexa_'+j]);
+      // }
 
     }
 
-    for (let i = 0; i < formUSOScount; i++) {
-      if (estaciones['estacion_'+id]['Formularios']['Form_USOS']['Form_USOS_'+i]['activo']) {
-        formFormatos['Form_USOS']['Form_USOS_'+i] = formatosUSOS[i];
-      }else{
-        formFormatos['Form_USOS']['Form_USOS_'+i] = {
-          "PUNTO": "",
-            "ESTE": "",
-            "NORTE": "",
-            "FotosPunto": "",
-            "COBERTURA": "",
-            "OBS_USOS": "",
-            "USO_SUELO": "",
-            "DENSIDAD_SIEMBRA": "",
-            "INTENSIDAD_USO": "",
-            "TECNICAS_PROD": "",
-            "ARREGLO_ESP": "",
-            "RIEGO": "",
-            "TIPO_ESTAB": "",
-            "DIR_SIEMBRA": "",
-            "QUEMA": "",
-            "ACT_PECUARIA": "",
-            "REST_USO": "",
-            "AFECTACION": "",
-            "COBERTURA_INT": "",
-            "FotosURL" : {"count": 0},
-            'activo': false
-        }
-      }
-      var auxDiscount = estaciones['estacion_'+id]['Formularios']['Form_USOS']['Form_USOS_'+i]['PUNTOS']['count'];
+    // for (let i = 0; i < formUSOScount; i++) {
+    //   if (estaciones['estacion_'+id]['Formularios']['Form_USOS']['Form_USOS_'+i]['activo']) {
+    //     formFormatos['Form_USOS']['Form_USOS_'+i] = formatosUSOS[i];
+    //   }else{
+    //     formFormatos['Form_USOS']['Form_USOS_'+i] = {
+    //       "PUNTO": "",
+    //         "ESTE": "",
+    //         "NORTE": "",
+    //         "FotosPunto": "",
+    //         "COBERTURA": "",
+    //         "OBS_USOS": "",
+    //         "USO_SUELO": "",
+    //         "DENSIDAD_SIEMBRA": "",
+    //         "INTENSIDAD_USO": "",
+    //         "TECNICAS_PROD": "",
+    //         "ARREGLO_ESP": "",
+    //         "RIEGO": "",
+    //         "TIPO_ESTAB": "",
+    //         "DIR_SIEMBRA": "",
+    //         "QUEMA": "",
+    //         "ACT_PECUARIA": "",
+    //         "REST_USO": "",
+    //         "AFECTACION": "",
+    //         "COBERTURA_INT": "",
+    //         "FotosURL" : {"count": 0},
+    //         'activo': false
+    //     }
+    //   }
+    //   var auxDiscount = estaciones['estacion_'+id]['Formularios']['Form_USOS']['Form_USOS_'+i]['PUNTOS']['count'];
       
-      for (let j = 1; j < auxDiscount+1; j++) {
+    //   for (let j = 1; j < auxDiscount+1; j++) {
         
-        if (estaciones['estacion_'+id]['Formularios']['Form_USOS']['Form_USOS_'+i]['activo']) {
-          if (estaciones['estacion_'+id]['Formularios']['Form_USOS']['Form_USOS_'+i]['PUNTOS']['PUNTO_'+j]['activo']) {
-          }
-          else{
-            formatosUSOS[i]['PUNTOS']['PUNTO_'+j] = {
-              "PUNTO": "",
-              "ESTE": "",
-              "NORTE": "",
-              "FotosPunto": "",
-              "COBERTURA": "",
-              "OBS_USOS": "",
-              "USO_SUELO": "",
-              "DENSIDAD_SIEMBRA": "",
-              "INTENSIDAD_USO": "",
-              "TECNICAS_PROD": "",
-              "ARREGLO_ESP": "",
-              "RIEGO": "",
-              "TIPO_ESTAB": "",
-              "DIR_SIEMBRA": "",
-              "QUEMA": "",
-              "ACT_PECUARIA": "",
-              "REST_USO": "",
-              "AFECTACION": "",
-              "COBERTURA_INT": "",
-              "FotosURL" : {"count": 0},
-              'activo': false
-            }
-          }
-        }
-        else{
-          formatosUSOS[i]['PUNTOS']['PUNTO_'+j] = {
-            "PUNTO": "",
-            "ESTE": "",
-            "NORTE": "",
-            "FotosPunto": "",
-            "COBERTURA": "",
-            "OBS_USOS": "",
-            "USO_SUELO": "",
-            "DENSIDAD_SIEMBRA": "",
-            "INTENSIDAD_USO": "",
-            "TECNICAS_PROD": "",
-            "ARREGLO_ESP": "",
-            "RIEGO": "",
-            "TIPO_ESTAB": "",
-            "DIR_SIEMBRA": "",
-            "QUEMA": "",
-            "ACT_PECUARIA": "",
-            "REST_USO": "",
-            "AFECTACION": "",
-            "COBERTURA_INT": "",
-            "FotosURL" : {"count": 0},
-            'activo': false
-          }
+    //     if (estaciones['estacion_'+id]['Formularios']['Form_USOS']['Form_USOS_'+i]['activo']) {
+    //       if (estaciones['estacion_'+id]['Formularios']['Form_USOS']['Form_USOS_'+i]['PUNTOS']['PUNTO_'+j]['activo']) {
+    //       }
+    //       else{
+    //         formatosUSOS[i]['PUNTOS']['PUNTO_'+j] = {
+    //           "PUNTO": "",
+    //           "ESTE": "",
+    //           "NORTE": "",
+    //           "FotosPunto": "",
+    //           "COBERTURA": "",
+    //           "OBS_USOS": "",
+    //           "USO_SUELO": "",
+    //           "DENSIDAD_SIEMBRA": "",
+    //           "INTENSIDAD_USO": "",
+    //           "TECNICAS_PROD": "",
+    //           "ARREGLO_ESP": "",
+    //           "RIEGO": "",
+    //           "TIPO_ESTAB": "",
+    //           "DIR_SIEMBRA": "",
+    //           "QUEMA": "",
+    //           "ACT_PECUARIA": "",
+    //           "REST_USO": "",
+    //           "AFECTACION": "",
+    //           "COBERTURA_INT": "",
+    //           "FotosURL" : {"count": 0},
+    //           'activo': false
+    //         }
+    //       }
+    //     }
+    //     else{
+    //       formatosUSOS[i]['PUNTOS']['PUNTO_'+j] = {
+    //         "PUNTO": "",
+    //         "ESTE": "",
+    //         "NORTE": "",
+    //         "FotosPunto": "",
+    //         "COBERTURA": "",
+    //         "OBS_USOS": "",
+    //         "USO_SUELO": "",
+    //         "DENSIDAD_SIEMBRA": "",
+    //         "INTENSIDAD_USO": "",
+    //         "TECNICAS_PROD": "",
+    //         "ARREGLO_ESP": "",
+    //         "RIEGO": "",
+    //         "TIPO_ESTAB": "",
+    //         "DIR_SIEMBRA": "",
+    //         "QUEMA": "",
+    //         "ACT_PECUARIA": "",
+    //         "REST_USO": "",
+    //         "AFECTACION": "",
+    //         "COBERTURA_INT": "",
+    //         "FotosURL" : {"count": 0},
+    //         'activo': false
+    //       }
 
-        }
+    //     }
       
-      }
+    //   }
 
-    }
+    // }
   }
   else {
     for (let i = 0; i < formUGSRcount; i++) {
@@ -5025,15 +4104,15 @@ function GuardarEstacion(isEdit, id) {
     for (let i = 0; i < formSGMFcount; i++) {
       formFormatos['Form_SGMF']['Form_SGMF_'+i]=formatosSGMF[i];
     }
-    for (let i = 0; i < formCATALOGOcount; i++) {
-      formFormatos['Form_CATALOGO']['Form_CATALOGO_'+i]=formatosCATALOGO[i];
-    }
+    // for (let i = 0; i < formCATALOGOcount; i++) {
+    //   formFormatos['Form_CATALOGO']['Form_CATALOGO_'+i]=formatosCATALOGO[i];
+    // }
     for (let i = 0; i < formINVENTARIOcount; i++) {
       formFormatos['Form_INVENTARIO']['Form_INVENTARIO_'+i]=formatosINVENTARIO[i];
     }
-    for (let i = 0; i < formUSOScount; i++) {
-      formFormatos['Form_USOS']['Form_USOS_'+i] = formatosUSOS[i];
-    }
+    // for (let i = 0; i < formUSOScount; i++) {
+    //   formFormatos['Form_USOS']['Form_USOS_'+i] = formatosUSOS[i];
+    // }
   }
   
   return formFormatos;
@@ -5046,24 +4125,24 @@ function SubirFotosAnexas(idEstacion, isEdit) {
   var auxCountGeneralesEdit = 0;
   var auxCountLibreta = 0;
   var auxCountLibretaEdit = 0;
-  var auxCountUGSR = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-  var auxCountUGSREdit = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-  var auxCountUGSS = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-  var auxCountUGSSEdit = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-  var auxCountSGMF = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-  var auxCountSGMFEdit = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-  var auxCountINV = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-  var auxCountINVEdit = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-  var auxCountUSOS = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]];
-  var auxCountUSOSEdit = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]];
+  // var auxCountUGSR = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  // var auxCountUGSREdit = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  // var auxCountUGSS = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  // var auxCountUGSSEdit = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  // var auxCountSGMF = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  // var auxCountSGMFEdit = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  // var auxCountINV = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  // var auxCountINVEdit = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  // var auxCountUSOS = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]];
+  // var auxCountUSOSEdit = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]];
 
   var auxVaciaGenerales = false;
   var auxVaciaLibreta = false;
-  var auxVaciaUGSR = false;
-  var auxVaciaUGSS = false;
-  var auxVaciaSGMF = false;
-  var auxVaciaINV = false;
-  var auxVaciaUSOS = false;
+  // var auxVaciaUGSR = false;
+  // var auxVaciaUGSS = false;
+  // var auxVaciaSGMF = false;
+  // var auxVaciaINV = false;
+  // var auxVaciaUSOS = false;
 
   if (isEdit) {
     
@@ -5097,81 +4176,81 @@ function SubirFotosAnexas(idEstacion, isEdit) {
           auxCountLibretaEdit++;
         }
       }
-      if (auxAttrFotos[0] == 'UGSR') {
+      // if (auxAttrFotos[0] == 'UGSR') {
 
-        if (estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL'] == undefined) {
-          auxVaciaUGSR = true;
-          estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL'] = {};
-        }
-        if (auxVaciaUGSR) {
-          auxCountUGSR[auxAttrFotos[2]]++;
-        }
-        else{
-          auxCountUGSR[auxAttrFotos[2]] = estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL']['count'];
-          auxCountUGSREdit[auxAttrFotos[2]]++;
-        }
+      //   if (estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL'] == undefined) {
+      //     auxVaciaUGSR = true;
+      //     estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL'] = {};
+      //   }
+      //   if (auxVaciaUGSR) {
+      //     auxCountUGSR[auxAttrFotos[2]]++;
+      //   }
+      //   else{
+      //     auxCountUGSR[auxAttrFotos[2]] = estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL']['count'];
+      //     auxCountUGSREdit[auxAttrFotos[2]]++;
+      //   }
         
-      }
-      if (auxAttrFotos[0] == 'UGSS') {
+      // }
+      // if (auxAttrFotos[0] == 'UGSS') {
 
-        if (estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL'] == undefined) {
-          auxVaciaUGSS = true;
-          estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL'] = {};
-        }
-        if (auxVaciaUGSS) {
-          auxCountUGSS[auxAttrFotos[2]]++;
-        }
-        else{
-          auxCountUGSS[auxAttrFotos[2]] = estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL']['count'];
-          auxCountUGSSEdit[auxAttrFotos[2]]++;
-        }
+      //   if (estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL'] == undefined) {
+      //     auxVaciaUGSS = true;
+      //     estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL'] = {};
+      //   }
+      //   if (auxVaciaUGSS) {
+      //     auxCountUGSS[auxAttrFotos[2]]++;
+      //   }
+      //   else{
+      //     auxCountUGSS[auxAttrFotos[2]] = estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL']['count'];
+      //     auxCountUGSSEdit[auxAttrFotos[2]]++;
+      //   }
         
-      }
-      if (auxAttrFotos[0] == 'SGMF') {
+      // }
+      // if (auxAttrFotos[0] == 'SGMF') {
 
-        if (estaciones["estacion_"+idEstacion]['Formularios']['Form_SGMF']['Form_SGMF_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL'] == undefined) {
-          auxVaciaSGMF = true;
-          estaciones["estacion_"+idEstacion]['Formularios']['Form_SGMF']['Form_SGMF_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL'] = {};
-        }
-        if (auxVaciaSGMF) {
-          auxCountSGMF[auxAttrFotos[2]]++;
-        }
-        else{
-          auxCountSGMF[auxAttrFotos[2]] = estaciones["estacion_"+idEstacion]['Formularios']['Form_SGMF']['Form_SGMF_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL']['count'];
-          auxCountSGMFEdit[auxAttrFotos[2]]++;
-        }
+      //   if (estaciones["estacion_"+idEstacion]['Formularios']['Form_SGMF']['Form_SGMF_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL'] == undefined) {
+      //     auxVaciaSGMF = true;
+      //     estaciones["estacion_"+idEstacion]['Formularios']['Form_SGMF']['Form_SGMF_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL'] = {};
+      //   }
+      //   if (auxVaciaSGMF) {
+      //     auxCountSGMF[auxAttrFotos[2]]++;
+      //   }
+      //   else{
+      //     auxCountSGMF[auxAttrFotos[2]] = estaciones["estacion_"+idEstacion]['Formularios']['Form_SGMF']['Form_SGMF_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL']['count'];
+      //     auxCountSGMFEdit[auxAttrFotos[2]]++;
+      //   }
         
-      }
-      if (auxAttrFotos[0] == 'INV') {
+      // }
+      // if (auxAttrFotos[0] == 'INV') {
 
-        if (estaciones["estacion_"+idEstacion]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL'] == undefined) {
-          auxVaciaINV = true;
-          estaciones["estacion_"+idEstacion]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL'] = {};
-        }
-        if (auxVaciaINV) {
-          auxCountINV[auxAttrFotos[2]]++;
-        }
-        else{
-          auxCountINV[auxAttrFotos[2]] = estaciones["estacion_"+idEstacion]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL']['count'];
-          auxCountINVEdit[auxAttrFotos[2]]++;
-        }
+      //   if (estaciones["estacion_"+idEstacion]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL'] == undefined) {
+      //     auxVaciaINV = true;
+      //     estaciones["estacion_"+idEstacion]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL'] = {};
+      //   }
+      //   if (auxVaciaINV) {
+      //     auxCountINV[auxAttrFotos[2]]++;
+      //   }
+      //   else{
+      //     auxCountINV[auxAttrFotos[2]] = estaciones["estacion_"+idEstacion]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL']['count'];
+      //     auxCountINVEdit[auxAttrFotos[2]]++;
+      //   }
         
-      }
-      if (auxAttrFotos[0] == 'USOS') {
+      // }
+      // if (auxAttrFotos[0] == 'USOS') {
 
-        if (estaciones["estacion_"+idEstacion]['Formularios']['Form_USOS']['Form_USOS_'+auxAttrFotos[3]]['PUNTOS']['PUNTO_'+auxAttrFotos[2]]['FotosURL'] == undefined) {
-          auxVaciaUSOS = true;
-          estaciones["estacion_"+idEstacion]['Formularios']['Form_USOS']['Form_USOS_'+auxAttrFotos[3]]['PUNTOS']['PUNTO_'+auxAttrFotos[2]]['FotosURL'] = {"count":0};
-        }
-        if (auxVaciaUSOS) {
-          auxCountUSOS[auxAttrFotos[3]][auxAttrFotos[2]]++;
-        }
-        else{
-          auxCountUSOS[auxAttrFotos[3]][auxAttrFotos[2]] = estaciones["estacion_"+idEstacion]['Formularios']['Form_USOS']['Form_USOS_'+auxAttrFotos[3]]['PUNTOS']['PUNTO_'+auxAttrFotos[2]]['FotosURL']['count'];
-          auxCountUSOSEdit[auxAttrFotos[3]][auxAttrFotos[2]]++;
-        }
+      //   if (estaciones["estacion_"+idEstacion]['Formularios']['Form_USOS']['Form_USOS_'+auxAttrFotos[3]]['PUNTOS']['PUNTO_'+auxAttrFotos[2]]['FotosURL'] == undefined) {
+      //     auxVaciaUSOS = true;
+      //     estaciones["estacion_"+idEstacion]['Formularios']['Form_USOS']['Form_USOS_'+auxAttrFotos[3]]['PUNTOS']['PUNTO_'+auxAttrFotos[2]]['FotosURL'] = {"count":0};
+      //   }
+      //   if (auxVaciaUSOS) {
+      //     auxCountUSOS[auxAttrFotos[3]][auxAttrFotos[2]]++;
+      //   }
+      //   else{
+      //     auxCountUSOS[auxAttrFotos[3]][auxAttrFotos[2]] = estaciones["estacion_"+idEstacion]['Formularios']['Form_USOS']['Form_USOS_'+auxAttrFotos[3]]['PUNTOS']['PUNTO_'+auxAttrFotos[2]]['FotosURL']['count'];
+      //     auxCountUSOSEdit[auxAttrFotos[3]][auxAttrFotos[2]]++;
+      //   }
         
-      }
+      // }
 
     } 
     
@@ -5180,10 +4259,10 @@ function SubirFotosAnexas(idEstacion, isEdit) {
 
     auxVaciaGenerales = true;
     auxVaciaLibreta = true;
-    auxVaciaUGSR = true;
-    auxVaciaUGSS = true;
-    auxVaciaSGMF = true;
-    auxVaciaINV = true;
+    // auxVaciaUGSR = true;
+    // auxVaciaUGSS = true;
+    // auxVaciaSGMF = true;
+    // auxVaciaINV = true;
 
     for (const attr in FotosAnexasFiles) {
       var auxAttrFotos = attr.split("_");
@@ -5244,6 +4323,7 @@ function SubirFotosAnexas(idEstacion, isEdit) {
         (error) => {
           // A full list of error codes is available at
           // https://firebase.google.com/docs/storage/web/handle-errors
+          notification.alert('Fotos', 'Error al cargar');
           switch (error.code) {
             case 'storage/unauthorized':
               // User doesn't have permission to access the object
@@ -5261,6 +4341,7 @@ function SubirFotosAnexas(idEstacion, isEdit) {
           // Upload completed successfully, now we can get the download URL
           uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
             console.log('File available at', downloadURL);
+            notification.info('Fotos', 'Se cargó con exito');
             if (auxVaciaGenerales) {
               estaciones["estacion_"+idEstacion]['FotosGenerales']['FotosURL']['Foto_'+auxcountFoto] = downloadURL;
               estaciones["estacion_"+idEstacion]['FotosGenerales']['FotosURL']['FotoActivo_'+auxcountFoto] = true;
@@ -5332,6 +4413,7 @@ function SubirFotosAnexas(idEstacion, isEdit) {
         (error) => {
           // A full list of error codes is available at
           // https://firebase.google.com/docs/storage/web/handle-errors
+          notification.alert('Fotos', 'Error al cargar');
           switch (error.code) {
             case 'storage/unauthorized':
               // User doesn't have permission to access the object
@@ -5349,6 +4431,7 @@ function SubirFotosAnexas(idEstacion, isEdit) {
           // Upload completed successfully, now we can get the download URL
           uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
             console.log('File available at', downloadURL);
+            notification.info('Fotos', 'Se cargó con exito');
             if (auxVaciaLibreta) {
               estaciones["estacion_"+idEstacion]['FotosLibreta']['FotosURL']['Foto_'+auxcountFoto] = downloadURL;
               estaciones["estacion_"+idEstacion]['FotosLibreta']['FotosURL']['FotoActivo_'+auxcountFoto] = true;
@@ -5358,14 +4441,14 @@ function SubirFotosAnexas(idEstacion, isEdit) {
               database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/FotosLibreta/FotosURL/FotoActivo_'+auxcountFoto).set(true);
               database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/FotosLibreta/FotosURL/count').set(auxCountLibreta);
 
-              notice(`Cargada la foto ${auxcountFoto} de la Libreta de la estación ${idEstacion}`, {
-                type: 'success', 
-                position: 'topright', 
-                appendType: 'append',
-                closeBtn: false,
-                autoClose: 5000,
-                className: '',
-              })
+              // notice(`Cargada la foto ${auxcountFoto} de la Libreta de la estación ${idEstacion}`, {
+              //   type: 'success', 
+              //   position: 'topright', 
+              //   appendType: 'append',
+              //   closeBtn: false,
+              //   autoClose: 5000,
+              //   className: '',
+              // })
 
             }
             else{
@@ -5393,464 +4476,464 @@ function SubirFotosAnexas(idEstacion, isEdit) {
       );
     }
 
-    if (auxAttrFotos[0] == 'UGSR') {
-      const auxcountFoto = parseInt(auxAttrFotos[1])-1;
-      const auxcountFotoCorregido = auxcountFoto;
-      const auxcountForm = auxAttrFotos[2];
+    // if (auxAttrFotos[0] == 'UGSR') {
+    //   const auxcountFoto = parseInt(auxAttrFotos[1])-1;
+    //   const auxcountFotoCorregido = auxcountFoto;
+    //   const auxcountForm = auxAttrFotos[2];
 
-      // Upload file and metadata to the object 'images/mountains.jpg'
-      const uploadTask = storageRef.child('EstacionesCampo/estacion_'+idEstacion+'/Form_UGS_Rocas_'+auxcountForm+'/'+auxFotoAnexaSubir.name).put(auxFotoAnexaSubir);
+    //   // Upload file and metadata to the object 'images/mountains.jpg'
+    //   const uploadTask = storageRef.child('EstacionesCampo/estacion_'+idEstacion+'/Form_UGS_Rocas_'+auxcountForm+'/'+auxFotoAnexaSubir.name).put(auxFotoAnexaSubir);
 
-      // Listen for state changes, errors, and completion of the upload.
-      uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
-        (snapshot) => {
-          // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-          var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log('Upload is ' + progress + '% done');
-          switch (snapshot.state) {
-            case firebase.storage.TaskState.PAUSED: // or 'paused'
-              console.log('Upload is paused');
-              break;
-            case firebase.storage.TaskState.RUNNING: // or 'running'
-              console.log('Upload is running');
-              break;
-          }
-        },
-        (error) => {
-          // A full list of error codes is available at
-          // https://firebase.google.com/docs/storage/web/handle-errors
-          switch (error.code) {
-            case 'storage/unauthorized':
-              // User doesn't have permission to access the object
-              break;
-            case 'storage/canceled':
-              // User canceled the upload
-              break;
+    //   // Listen for state changes, errors, and completion of the upload.
+    //   uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+    //     (snapshot) => {
+    //       // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+    //       var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+    //       console.log('Upload is ' + progress + '% done');
+    //       switch (snapshot.state) {
+    //         case firebase.storage.TaskState.PAUSED: // or 'paused'
+    //           console.log('Upload is paused');
+    //           break;
+    //         case firebase.storage.TaskState.RUNNING: // or 'running'
+    //           console.log('Upload is running');
+    //           break;
+    //       }
+    //     },
+    //     (error) => {
+    //       // A full list of error codes is available at
+    //       // https://firebase.google.com/docs/storage/web/handle-errors
+    //       switch (error.code) {
+    //         case 'storage/unauthorized':
+    //           // User doesn't have permission to access the object
+    //           break;
+    //         case 'storage/canceled':
+    //           // User canceled the upload
+    //           break;
 
-            case 'storage/unknown':
-              // Unknown error occurred, inspect error.serverResponse
-              break;
-          }
-        },
-        () => {
-          // Upload completed successfully, now we can get the download URL
-          uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-            console.log('File available at', downloadURL);
-            if (auxVaciaUGSR) {
-              estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+auxcountForm]['FotosAnexas']['FotosURL']['Foto_'+auxcountFoto] = downloadURL;
-              estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+auxcountForm]['FotosAnexas']['FotosURL']['FotoActivo_'+auxcountFoto] = true;
-              estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+auxcountForm]['FotosAnexas']['FotosURL']['count'] = auxCountUGSR[auxcountForm];
+    //         case 'storage/unknown':
+    //           // Unknown error occurred, inspect error.serverResponse
+    //           break;
+    //       }
+    //     },
+    //     () => {
+    //       // Upload completed successfully, now we can get the download URL
+    //       uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+    //         console.log('File available at', downloadURL);
+    //         if (auxVaciaUGSR) {
+    //           estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+auxcountForm]['FotosAnexas']['FotosURL']['Foto_'+auxcountFoto] = downloadURL;
+    //           estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+auxcountForm]['FotosAnexas']['FotosURL']['FotoActivo_'+auxcountFoto] = true;
+    //           estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+auxcountForm]['FotosAnexas']['FotosURL']['count'] = auxCountUGSR[auxcountForm];
   
-              database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_UGS_Rocas/Form_UGS_Rocas_'+auxcountForm+'/FotosAnexas/FotosURL/Foto_'+auxcountFoto).set(downloadURL);
-              database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_UGS_Rocas/Form_UGS_Rocas_'+auxcountForm+'/FotosAnexas/FotosURL/FotoActivo_'+auxcountFoto).set(true);
-              database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_UGS_Rocas/Form_UGS_Rocas_'+auxcountForm+'/FotosAnexas/FotosURL/count').set(auxCountUGSR[auxcountForm]);
+    //           database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_UGS_Rocas/Form_UGS_Rocas_'+auxcountForm+'/FotosAnexas/FotosURL/Foto_'+auxcountFoto).set(downloadURL);
+    //           database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_UGS_Rocas/Form_UGS_Rocas_'+auxcountForm+'/FotosAnexas/FotosURL/FotoActivo_'+auxcountFoto).set(true);
+    //           database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_UGS_Rocas/Form_UGS_Rocas_'+auxcountForm+'/FotosAnexas/FotosURL/count').set(auxCountUGSR[auxcountForm]);
              
-              notice(`Cargada la foto ${auxcountFoto} del formato UGSR ${auxcountForm} de la estación ${idEstacion}`, {
-                type: 'success', 
-                position: 'topright', 
-                appendType: 'append',
-                closeBtn: false,
-                autoClose: 5000,
-                className: '',
-              })
+    //           notice(`Cargada la foto ${auxcountFoto} del formato UGSR ${auxcountForm} de la estación ${idEstacion}`, {
+    //             type: 'success', 
+    //             position: 'topright', 
+    //             appendType: 'append',
+    //             closeBtn: false,
+    //             autoClose: 5000,
+    //             className: '',
+    //           })
 
-            }
-            else{
-              const auxCountDefinitivo = auxCountUGSR[auxcountForm] + auxCountUGSREdit[auxcountForm];
+    //         }
+    //         else{
+    //           const auxCountDefinitivo = auxCountUGSR[auxcountForm] + auxCountUGSREdit[auxcountForm];
 
-              estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+auxcountForm]['FotosAnexas']['FotosURL']['Foto_'+auxcountFotoCorregido] = downloadURL;
-              estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+auxcountForm]['FotosAnexas']['FotosURL']['FotoActivo_'+auxcountFotoCorregido] = true;
-              estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+auxcountForm]['FotosAnexas']['FotosURL']['count'] = auxCountDefinitivo;
+    //           estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+auxcountForm]['FotosAnexas']['FotosURL']['Foto_'+auxcountFotoCorregido] = downloadURL;
+    //           estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+auxcountForm]['FotosAnexas']['FotosURL']['FotoActivo_'+auxcountFotoCorregido] = true;
+    //           estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+auxcountForm]['FotosAnexas']['FotosURL']['count'] = auxCountDefinitivo;
 
-              database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_UGS_Rocas/Form_UGS_Rocas_'+auxcountForm+'/FotosAnexas/FotosURL/Foto_'+auxcountFotoCorregido).set(downloadURL);
-              database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_UGS_Rocas/Form_UGS_Rocas_'+auxcountForm+'/FotosAnexas/FotosURL/FotoActivo_'+auxcountFotoCorregido).set(true);
-              database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_UGS_Rocas/Form_UGS_Rocas_'+auxcountForm+'/FotosAnexas/FotosURL/count').set(auxCountDefinitivo);
+    //           database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_UGS_Rocas/Form_UGS_Rocas_'+auxcountForm+'/FotosAnexas/FotosURL/Foto_'+auxcountFotoCorregido).set(downloadURL);
+    //           database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_UGS_Rocas/Form_UGS_Rocas_'+auxcountForm+'/FotosAnexas/FotosURL/FotoActivo_'+auxcountFotoCorregido).set(true);
+    //           database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_UGS_Rocas/Form_UGS_Rocas_'+auxcountForm+'/FotosAnexas/FotosURL/count').set(auxCountDefinitivo);
             
-              notice(`Cargada la foto ${auxcountFotoCorregido} del formato UGSR ${auxcountForm} de la estación ${idEstacion}`, {
-                type: 'success', 
-                position: 'topright', 
-                appendType: 'append',
-                closeBtn: false,
-                autoClose: 5000,
-                className: '',
-              })
+    //           notice(`Cargada la foto ${auxcountFotoCorregido} del formato UGSR ${auxcountForm} de la estación ${idEstacion}`, {
+    //             type: 'success', 
+    //             position: 'topright', 
+    //             appendType: 'append',
+    //             closeBtn: false,
+    //             autoClose: 5000,
+    //             className: '',
+    //           })
             
-            }
+    //         }
 
-          });
-        }
-      );
+    //       });
+    //     }
+    //   );
 
 
 
-    }
-    if (auxAttrFotos[0] == 'UGSS') {
-      const auxcountFoto = parseInt(auxAttrFotos[1])-1;
-      const auxcountFotoCorregido = auxcountFoto;
-      const auxcountForm = auxAttrFotos[2];
+    // }
+    // if (auxAttrFotos[0] == 'UGSS') {
+    //   const auxcountFoto = parseInt(auxAttrFotos[1])-1;
+    //   const auxcountFotoCorregido = auxcountFoto;
+    //   const auxcountForm = auxAttrFotos[2];
 
-      // Upload file and metadata to the object 'images/mountains.jpg'
-      const uploadTask = storageRef.child('EstacionesCampo/estacion_'+idEstacion+'/Form_UGS_Suelos_'+auxcountForm+'/'+auxFotoAnexaSubir.name).put(auxFotoAnexaSubir);
+    //   // Upload file and metadata to the object 'images/mountains.jpg'
+    //   const uploadTask = storageRef.child('EstacionesCampo/estacion_'+idEstacion+'/Form_UGS_Suelos_'+auxcountForm+'/'+auxFotoAnexaSubir.name).put(auxFotoAnexaSubir);
 
-      // Listen for state changes, errors, and completion of the upload.
-      uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
-        (snapshot) => {
-          // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-          var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log('Upload is ' + progress + '% done');
-          switch (snapshot.state) {
-            case firebase.storage.TaskState.PAUSED: // or 'paused'
-              console.log('Upload is paused');
-              break;
-            case firebase.storage.TaskState.RUNNING: // or 'running'
-              console.log('Upload is running');
-              break;
-          }
-        },
-        (error) => {
-          // A full list of error codes is available at
-          // https://firebase.google.com/docs/storage/web/handle-errors
-          switch (error.code) {
-            case 'storage/unauthorized':
-              // User doesn't have permission to access the object
-              break;
-            case 'storage/canceled':
-              // User canceled the upload
-              break;
+    //   // Listen for state changes, errors, and completion of the upload.
+    //   uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+    //     (snapshot) => {
+    //       // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+    //       var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+    //       console.log('Upload is ' + progress + '% done');
+    //       switch (snapshot.state) {
+    //         case firebase.storage.TaskState.PAUSED: // or 'paused'
+    //           console.log('Upload is paused');
+    //           break;
+    //         case firebase.storage.TaskState.RUNNING: // or 'running'
+    //           console.log('Upload is running');
+    //           break;
+    //       }
+    //     },
+    //     (error) => {
+    //       // A full list of error codes is available at
+    //       // https://firebase.google.com/docs/storage/web/handle-errors
+    //       switch (error.code) {
+    //         case 'storage/unauthorized':
+    //           // User doesn't have permission to access the object
+    //           break;
+    //         case 'storage/canceled':
+    //           // User canceled the upload
+    //           break;
 
-            case 'storage/unknown':
-              // Unknown error occurred, inspect error.serverResponse
-              break;
-          }
-        },
-        () => {
-          // Upload completed successfully, now we can get the download URL
-          uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-            console.log('File available at', downloadURL);
-            if (auxVaciaUGSS) {
-              estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+auxcountForm]['FotosAnexas']['FotosURL']['Foto_'+auxcountFoto] = downloadURL;
-              estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+auxcountForm]['FotosAnexas']['FotosURL']['FotoActivo_'+auxcountFoto] = true;
-              estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+auxcountForm]['FotosAnexas']['FotosURL']['count'] = auxCountUGSS[auxcountForm];
+    //         case 'storage/unknown':
+    //           // Unknown error occurred, inspect error.serverResponse
+    //           break;
+    //       }
+    //     },
+    //     () => {
+    //       // Upload completed successfully, now we can get the download URL
+    //       uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+    //         console.log('File available at', downloadURL);
+    //         if (auxVaciaUGSS) {
+    //           estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+auxcountForm]['FotosAnexas']['FotosURL']['Foto_'+auxcountFoto] = downloadURL;
+    //           estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+auxcountForm]['FotosAnexas']['FotosURL']['FotoActivo_'+auxcountFoto] = true;
+    //           estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+auxcountForm]['FotosAnexas']['FotosURL']['count'] = auxCountUGSS[auxcountForm];
   
-              database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_UGS_Suelos/Form_UGS_Suelos_'+auxcountForm+'/FotosAnexas/FotosURL/Foto_'+auxcountFoto).set(downloadURL);
-              database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_UGS_Suelos/Form_UGS_Suelos_'+auxcountForm+'/FotosAnexas/FotosURL/FotoActivo_'+auxcountFoto).set(true);
-              database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_UGS_Suelos/Form_UGS_Suelos_'+auxcountForm+'/FotosAnexas/FotosURL/count').set(auxCountUGSS[auxcountForm]);
+    //           database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_UGS_Suelos/Form_UGS_Suelos_'+auxcountForm+'/FotosAnexas/FotosURL/Foto_'+auxcountFoto).set(downloadURL);
+    //           database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_UGS_Suelos/Form_UGS_Suelos_'+auxcountForm+'/FotosAnexas/FotosURL/FotoActivo_'+auxcountFoto).set(true);
+    //           database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_UGS_Suelos/Form_UGS_Suelos_'+auxcountForm+'/FotosAnexas/FotosURL/count').set(auxCountUGSS[auxcountForm]);
               
-              notice(`Cargada la foto ${auxcountFoto} del formato UGSS ${auxcountForm} de la estación ${idEstacion}`, {
-                type: 'success', 
-                position: 'topright', 
-                appendType: 'append',
-                closeBtn: false,
-                autoClose: 5000,
-                className: '',
-              })
+    //           notice(`Cargada la foto ${auxcountFoto} del formato UGSS ${auxcountForm} de la estación ${idEstacion}`, {
+    //             type: 'success', 
+    //             position: 'topright', 
+    //             appendType: 'append',
+    //             closeBtn: false,
+    //             autoClose: 5000,
+    //             className: '',
+    //           })
 
-            }
-            else{
-              const auxCountDefinitivo = auxCountUGSS[auxcountForm] + auxCountUGSSEdit[auxcountForm];
+    //         }
+    //         else{
+    //           const auxCountDefinitivo = auxCountUGSS[auxcountForm] + auxCountUGSSEdit[auxcountForm];
 
-              estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+auxcountForm]['FotosAnexas']['FotosURL']['Foto_'+auxcountFotoCorregido] = downloadURL;
-              estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+auxcountForm]['FotosAnexas']['FotosURL']['FotoActivo_'+auxcountFotoCorregido] = true;
-              estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+auxcountForm]['FotosAnexas']['FotosURL']['count'] = auxCountDefinitivo;
+    //           estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+auxcountForm]['FotosAnexas']['FotosURL']['Foto_'+auxcountFotoCorregido] = downloadURL;
+    //           estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+auxcountForm]['FotosAnexas']['FotosURL']['FotoActivo_'+auxcountFotoCorregido] = true;
+    //           estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+auxcountForm]['FotosAnexas']['FotosURL']['count'] = auxCountDefinitivo;
 
-              database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_UGS_Suelos/Form_UGS_Suelos_'+auxcountForm+'/FotosAnexas/FotosURL/Foto_'+auxcountFotoCorregido).set(downloadURL);
-              database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_UGS_Suelos/Form_UGS_Suelos_'+auxcountForm+'/FotosAnexas/FotosURL/FotoActivo_'+auxcountFotoCorregido).set(true);
-              database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_UGS_Suelos/Form_UGS_Suelos_'+auxcountForm+'/FotosAnexas/FotosURL/count').set(auxCountDefinitivo);
+    //           database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_UGS_Suelos/Form_UGS_Suelos_'+auxcountForm+'/FotosAnexas/FotosURL/Foto_'+auxcountFotoCorregido).set(downloadURL);
+    //           database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_UGS_Suelos/Form_UGS_Suelos_'+auxcountForm+'/FotosAnexas/FotosURL/FotoActivo_'+auxcountFotoCorregido).set(true);
+    //           database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_UGS_Suelos/Form_UGS_Suelos_'+auxcountForm+'/FotosAnexas/FotosURL/count').set(auxCountDefinitivo);
            
-              notice(`Cargada la foto ${auxcountFotoCorregido} del formato UGSS ${auxcountForm} de la estación ${idEstacion}`, {
-                type: 'success', 
-                position: 'topright', 
-                appendType: 'append',
-                closeBtn: false,
-                autoClose: 5000,
-                className: '',
-              })
-            }
+    //           notice(`Cargada la foto ${auxcountFotoCorregido} del formato UGSS ${auxcountForm} de la estación ${idEstacion}`, {
+    //             type: 'success', 
+    //             position: 'topright', 
+    //             appendType: 'append',
+    //             closeBtn: false,
+    //             autoClose: 5000,
+    //             className: '',
+    //           })
+    //         }
 
-          });
-        }
-      );
+    //       });
+    //     }
+    //   );
 
 
 
-    }
-    if (auxAttrFotos[0] == 'SGMF') {
-      const auxcountFoto = parseInt(auxAttrFotos[1])-1;
-      const auxcountFotoCorregido = auxcountFoto;
-      const auxcountForm = auxAttrFotos[2];
+    // }
+    // if (auxAttrFotos[0] == 'SGMF') {
+    //   const auxcountFoto = parseInt(auxAttrFotos[1])-1;
+    //   const auxcountFotoCorregido = auxcountFoto;
+    //   const auxcountForm = auxAttrFotos[2];
 
-      // Upload file and metadata to the object 'images/mountains.jpg'
-      const uploadTask = storageRef.child('EstacionesCampo/estacion_'+idEstacion+'/Form_SGMF_'+auxcountForm+'/'+auxFotoAnexaSubir.name).put(auxFotoAnexaSubir);
+    //   // Upload file and metadata to the object 'images/mountains.jpg'
+    //   const uploadTask = storageRef.child('EstacionesCampo/estacion_'+idEstacion+'/Form_SGMF_'+auxcountForm+'/'+auxFotoAnexaSubir.name).put(auxFotoAnexaSubir);
 
-      // Listen for state changes, errors, and completion of the upload.
-      uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
-        (snapshot) => {
-          // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-          var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log('Upload is ' + progress + '% done');
-          switch (snapshot.state) {
-            case firebase.storage.TaskState.PAUSED: // or 'paused'
-              console.log('Upload is paused');
-              break;
-            case firebase.storage.TaskState.RUNNING: // or 'running'
-              console.log('Upload is running');
-              break;
-          }
-        },
-        (error) => {
-          // A full list of error codes is available at
-          // https://firebase.google.com/docs/storage/web/handle-errors
-          switch (error.code) {
-            case 'storage/unauthorized':
-              // User doesn't have permission to access the object
-              break;
-            case 'storage/canceled':
-              // User canceled the upload
-              break;
+    //   // Listen for state changes, errors, and completion of the upload.
+    //   uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+    //     (snapshot) => {
+    //       // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+    //       var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+    //       console.log('Upload is ' + progress + '% done');
+    //       switch (snapshot.state) {
+    //         case firebase.storage.TaskState.PAUSED: // or 'paused'
+    //           console.log('Upload is paused');
+    //           break;
+    //         case firebase.storage.TaskState.RUNNING: // or 'running'
+    //           console.log('Upload is running');
+    //           break;
+    //       }
+    //     },
+    //     (error) => {
+    //       // A full list of error codes is available at
+    //       // https://firebase.google.com/docs/storage/web/handle-errors
+    //       switch (error.code) {
+    //         case 'storage/unauthorized':
+    //           // User doesn't have permission to access the object
+    //           break;
+    //         case 'storage/canceled':
+    //           // User canceled the upload
+    //           break;
 
-            case 'storage/unknown':
-              // Unknown error occurred, inspect error.serverResponse
-              break;
-          }
-        },
-        () => {
-          // Upload completed successfully, now we can get the download URL
-          uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-            console.log('File available at', downloadURL);
-            if (auxVaciaSGMF) {
-              estaciones["estacion_"+idEstacion]['Formularios']['Form_SGMF']['Form_SGMF_'+auxcountForm]['FotosAnexas']['FotosURL']['Foto_'+auxcountFoto] = downloadURL;
-              estaciones["estacion_"+idEstacion]['Formularios']['Form_SGMF']['Form_SGMF_'+auxcountForm]['FotosAnexas']['FotosURL']['FotoActivo_'+auxcountFoto] = true;
-              estaciones["estacion_"+idEstacion]['Formularios']['Form_SGMF']['Form_SGMF_'+auxcountForm]['FotosAnexas']['FotosURL']['count'] = auxCountSGMF[auxcountForm];
+    //         case 'storage/unknown':
+    //           // Unknown error occurred, inspect error.serverResponse
+    //           break;
+    //       }
+    //     },
+    //     () => {
+    //       // Upload completed successfully, now we can get the download URL
+    //       uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+    //         console.log('File available at', downloadURL);
+    //         if (auxVaciaSGMF) {
+    //           estaciones["estacion_"+idEstacion]['Formularios']['Form_SGMF']['Form_SGMF_'+auxcountForm]['FotosAnexas']['FotosURL']['Foto_'+auxcountFoto] = downloadURL;
+    //           estaciones["estacion_"+idEstacion]['Formularios']['Form_SGMF']['Form_SGMF_'+auxcountForm]['FotosAnexas']['FotosURL']['FotoActivo_'+auxcountFoto] = true;
+    //           estaciones["estacion_"+idEstacion]['Formularios']['Form_SGMF']['Form_SGMF_'+auxcountForm]['FotosAnexas']['FotosURL']['count'] = auxCountSGMF[auxcountForm];
   
-              database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_SGMF/Form_SGMF_'+auxcountForm+'/FotosAnexas/FotosURL/Foto_'+auxcountFoto).set(downloadURL);
-              database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_SGMF/Form_SGMF_'+auxcountForm+'/FotosAnexas/FotosURL/FotoActivo_'+auxcountFoto).set(true);
-              database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_SGMF/Form_SGMF_'+auxcountForm+'/FotosAnexas/FotosURL/count').set(auxCountSGMF[auxcountForm]);
+    //           database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_SGMF/Form_SGMF_'+auxcountForm+'/FotosAnexas/FotosURL/Foto_'+auxcountFoto).set(downloadURL);
+    //           database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_SGMF/Form_SGMF_'+auxcountForm+'/FotosAnexas/FotosURL/FotoActivo_'+auxcountFoto).set(true);
+    //           database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_SGMF/Form_SGMF_'+auxcountForm+'/FotosAnexas/FotosURL/count').set(auxCountSGMF[auxcountForm]);
               
-              notice(`Cargada la foto ${auxcountFoto} del formato SGMF ${auxcountForm} de la estación ${idEstacion}`, {
-                type: 'success', 
-                position: 'topright', 
-                appendType: 'append',
-                closeBtn: false,
-                autoClose: 5000,
-                className: '',
-              })
-            }
-            else{
-              const auxCountDefinitivo = auxCountSGMF[auxcountForm] + auxCountSGMFEdit[auxcountForm];
+    //           notice(`Cargada la foto ${auxcountFoto} del formato SGMF ${auxcountForm} de la estación ${idEstacion}`, {
+    //             type: 'success', 
+    //             position: 'topright', 
+    //             appendType: 'append',
+    //             closeBtn: false,
+    //             autoClose: 5000,
+    //             className: '',
+    //           })
+    //         }
+    //         else{
+    //           const auxCountDefinitivo = auxCountSGMF[auxcountForm] + auxCountSGMFEdit[auxcountForm];
 
-              estaciones["estacion_"+idEstacion]['Formularios']['Form_SGMF']['Form_SGMF_'+auxcountForm]['FotosAnexas']['FotosURL']['Foto_'+auxcountFotoCorregido] = downloadURL;
-              estaciones["estacion_"+idEstacion]['Formularios']['Form_SGMF']['Form_SGMF_'+auxcountForm]['FotosAnexas']['FotosURL']['FotoActivo_'+auxcountFotoCorregido] = true;
-              estaciones["estacion_"+idEstacion]['Formularios']['Form_SGMF']['Form_SGMF_'+auxcountForm]['FotosAnexas']['FotosURL']['count'] = auxCountDefinitivo;
+    //           estaciones["estacion_"+idEstacion]['Formularios']['Form_SGMF']['Form_SGMF_'+auxcountForm]['FotosAnexas']['FotosURL']['Foto_'+auxcountFotoCorregido] = downloadURL;
+    //           estaciones["estacion_"+idEstacion]['Formularios']['Form_SGMF']['Form_SGMF_'+auxcountForm]['FotosAnexas']['FotosURL']['FotoActivo_'+auxcountFotoCorregido] = true;
+    //           estaciones["estacion_"+idEstacion]['Formularios']['Form_SGMF']['Form_SGMF_'+auxcountForm]['FotosAnexas']['FotosURL']['count'] = auxCountDefinitivo;
 
-              database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_SGMF/Form_SGMF_'+auxcountForm+'/FotosAnexas/FotosURL/Foto_'+auxcountFotoCorregido).set(downloadURL);
-              database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_SGMF/Form_SGMF_'+auxcountForm+'/FotosAnexas/FotosURL/FotoActivo_'+auxcountFotoCorregido).set(true);
-              database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_SGMF/Form_SGMF_'+auxcountForm+'/FotosAnexas/FotosURL/count').set(auxCountDefinitivo);
+    //           database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_SGMF/Form_SGMF_'+auxcountForm+'/FotosAnexas/FotosURL/Foto_'+auxcountFotoCorregido).set(downloadURL);
+    //           database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_SGMF/Form_SGMF_'+auxcountForm+'/FotosAnexas/FotosURL/FotoActivo_'+auxcountFotoCorregido).set(true);
+    //           database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_SGMF/Form_SGMF_'+auxcountForm+'/FotosAnexas/FotosURL/count').set(auxCountDefinitivo);
             
-              notice(`Cargada la foto ${auxcountFotoCorregido} del formato SGMF ${auxcountForm} de la estación ${idEstacion}`, {
-                type: 'success', 
-                position: 'topright', 
-                appendType: 'append',
-                closeBtn: false,
-                autoClose: 5000,
-                className: '',
-              })
+    //           notice(`Cargada la foto ${auxcountFotoCorregido} del formato SGMF ${auxcountForm} de la estación ${idEstacion}`, {
+    //             type: 'success', 
+    //             position: 'topright', 
+    //             appendType: 'append',
+    //             closeBtn: false,
+    //             autoClose: 5000,
+    //             className: '',
+    //           })
             
-            }
+    //         }
 
-          });
-        }
-      );
+    //       });
+    //     }
+    //   );
 
 
 
-    }
-    if (auxAttrFotos[0] == 'INVENTARIO') {
-      const auxcountFoto = parseInt(auxAttrFotos[1])-1;
-      const auxcountFotoCorregido = auxcountFoto;
-      const auxcountForm = auxAttrFotos[2];
+    // }
+    // if (auxAttrFotos[0] == 'INVENTARIO') {
+    //   const auxcountFoto = parseInt(auxAttrFotos[1])-1;
+    //   const auxcountFotoCorregido = auxcountFoto;
+    //   const auxcountForm = auxAttrFotos[2];
 
-      // Upload file and metadata to the object 'images/mountains.jpg'
-      const uploadTask = storageRef.child('EstacionesCampo/estacion_'+idEstacion+'/Form_INVENTARIO_'+auxcountForm+'/'+auxFotoAnexaSubir.name).put(auxFotoAnexaSubir);
+    //   // Upload file and metadata to the object 'images/mountains.jpg'
+    //   const uploadTask = storageRef.child('EstacionesCampo/estacion_'+idEstacion+'/Form_INVENTARIO_'+auxcountForm+'/'+auxFotoAnexaSubir.name).put(auxFotoAnexaSubir);
 
-      // Listen for state changes, errors, and completion of the upload.
-      uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
-        (snapshot) => {
-          // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-          var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log('Upload is ' + progress + '% done');
-          switch (snapshot.state) {
-            case firebase.storage.TaskState.PAUSED: // or 'paused'
-              console.log('Upload is paused');
-              break;
-            case firebase.storage.TaskState.RUNNING: // or 'running'
-              console.log('Upload is running');
-              break;
-          }
-        },
-        (error) => {
-          // A full list of error codes is available at
-          // https://firebase.google.com/docs/storage/web/handle-errors
-          switch (error.code) {
-            case 'storage/unauthorized':
-              // User doesn't have permission to access the object
-              break;
-            case 'storage/canceled':
-              // User canceled the upload
-              break;
+    //   // Listen for state changes, errors, and completion of the upload.
+    //   uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+    //     (snapshot) => {
+    //       // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+    //       var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+    //       console.log('Upload is ' + progress + '% done');
+    //       switch (snapshot.state) {
+    //         case firebase.storage.TaskState.PAUSED: // or 'paused'
+    //           console.log('Upload is paused');
+    //           break;
+    //         case firebase.storage.TaskState.RUNNING: // or 'running'
+    //           console.log('Upload is running');
+    //           break;
+    //       }
+    //     },
+    //     (error) => {
+    //       // A full list of error codes is available at
+    //       // https://firebase.google.com/docs/storage/web/handle-errors
+    //       switch (error.code) {
+    //         case 'storage/unauthorized':
+    //           // User doesn't have permission to access the object
+    //           break;
+    //         case 'storage/canceled':
+    //           // User canceled the upload
+    //           break;
 
-            case 'storage/unknown':
-              // Unknown error occurred, inspect error.serverResponse
-              break;
-          }
-        },
-        () => {
-          // Upload completed successfully, now we can get the download URL
-          uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-            console.log('File available at', downloadURL);
-            if (auxVaciaINV) {
-              estaciones["estacion_"+idEstacion]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+auxcountForm]['FotosAnexas']['FotosURL']['Foto_'+auxcountFoto] = downloadURL;
-              estaciones["estacion_"+idEstacion]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+auxcountForm]['FotosAnexas']['FotosURL']['FotoActivo_'+auxcountFoto] = true;
-              estaciones["estacion_"+idEstacion]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+auxcountForm]['FotosAnexas']['FotosURL']['count'] = auxCountINV[auxcountForm];
+    //         case 'storage/unknown':
+    //           // Unknown error occurred, inspect error.serverResponse
+    //           break;
+    //       }
+    //     },
+    //     () => {
+    //       // Upload completed successfully, now we can get the download URL
+    //       uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+    //         console.log('File available at', downloadURL);
+    //         if (auxVaciaINV) {
+    //           estaciones["estacion_"+idEstacion]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+auxcountForm]['FotosAnexas']['FotosURL']['Foto_'+auxcountFoto] = downloadURL;
+    //           estaciones["estacion_"+idEstacion]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+auxcountForm]['FotosAnexas']['FotosURL']['FotoActivo_'+auxcountFoto] = true;
+    //           estaciones["estacion_"+idEstacion]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+auxcountForm]['FotosAnexas']['FotosURL']['count'] = auxCountINV[auxcountForm];
   
-              database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_INVENTARIO/Form_INVENTARIO_'+auxcountForm+'/FotosAnexas/FotosURL/Foto_'+auxcountFoto).set(downloadURL);
-              database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_INVENTARIO/Form_INVENTARIO_'+auxcountForm+'/FotosAnexas/FotosURL/FotoActivo_'+auxcountFoto).set(true);
-              database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_INVENTARIO/Form_INVENTARIO_'+auxcountForm+'/FotosAnexas/FotosURL/count').set(auxCountINV[auxcountForm]);
+    //           database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_INVENTARIO/Form_INVENTARIO_'+auxcountForm+'/FotosAnexas/FotosURL/Foto_'+auxcountFoto).set(downloadURL);
+    //           database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_INVENTARIO/Form_INVENTARIO_'+auxcountForm+'/FotosAnexas/FotosURL/FotoActivo_'+auxcountFoto).set(true);
+    //           database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_INVENTARIO/Form_INVENTARIO_'+auxcountForm+'/FotosAnexas/FotosURL/count').set(auxCountINV[auxcountForm]);
               
-              notice(`Cargada la foto ${auxcountFoto} del formato INVENTARIO ${auxcountForm} de la estación ${idEstacion}`, {
-                type: 'success', 
-                position: 'topright', 
-                appendType: 'append',
-                closeBtn: false,
-                autoClose: 5000,
-                className: '',
-              })
+    //           notice(`Cargada la foto ${auxcountFoto} del formato INVENTARIO ${auxcountForm} de la estación ${idEstacion}`, {
+    //             type: 'success', 
+    //             position: 'topright', 
+    //             appendType: 'append',
+    //             closeBtn: false,
+    //             autoClose: 5000,
+    //             className: '',
+    //           })
 
 
-            }
-            else{
-              const auxCountDefinitivo = auxCountINV[auxcountForm] + auxCountINVEdit[auxcountForm];
+    //         }
+    //         else{
+    //           const auxCountDefinitivo = auxCountINV[auxcountForm] + auxCountINVEdit[auxcountForm];
 
-              estaciones["estacion_"+idEstacion]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+auxcountForm]['FotosAnexas']['FotosURL']['Foto_'+auxcountFotoCorregido] = downloadURL;
-              estaciones["estacion_"+idEstacion]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+auxcountForm]['FotosAnexas']['FotosURL']['FotoActivo_'+auxcountFotoCorregido] = true;
-              estaciones["estacion_"+idEstacion]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+auxcountForm]['FotosAnexas']['FotosURL']['count'] = auxCountDefinitivo;
+    //           estaciones["estacion_"+idEstacion]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+auxcountForm]['FotosAnexas']['FotosURL']['Foto_'+auxcountFotoCorregido] = downloadURL;
+    //           estaciones["estacion_"+idEstacion]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+auxcountForm]['FotosAnexas']['FotosURL']['FotoActivo_'+auxcountFotoCorregido] = true;
+    //           estaciones["estacion_"+idEstacion]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+auxcountForm]['FotosAnexas']['FotosURL']['count'] = auxCountDefinitivo;
 
-              database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_INVENTARIO/Form_INVENTARIO_'+auxcountForm+'/FotosAnexas/FotosURL/Foto_'+auxcountFotoCorregido).set(downloadURL);
-              database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_INVENTARIO/Form_INVENTARIO_'+auxcountForm+'/FotosAnexas/FotosURL/FotoActivo_'+auxcountFotoCorregido).set(true);
-              database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_INVENTARIO/Form_INVENTARIO_'+auxcountForm+'/FotosAnexas/FotosURL/count').set(auxCountDefinitivo);
+    //           database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_INVENTARIO/Form_INVENTARIO_'+auxcountForm+'/FotosAnexas/FotosURL/Foto_'+auxcountFotoCorregido).set(downloadURL);
+    //           database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_INVENTARIO/Form_INVENTARIO_'+auxcountForm+'/FotosAnexas/FotosURL/FotoActivo_'+auxcountFotoCorregido).set(true);
+    //           database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_INVENTARIO/Form_INVENTARIO_'+auxcountForm+'/FotosAnexas/FotosURL/count').set(auxCountDefinitivo);
             
-              notice(`Cargada la foto ${auxcountFotoCorregido} del formato INVENTARIO ${auxcountForm} de la estación ${idEstacion}`, {
-                type: 'success', 
-                position: 'topright', 
-                appendType: 'append',
-                closeBtn: false,
-                autoClose: 5000,
-                className: '',
-              })
-            }
+    //           notice(`Cargada la foto ${auxcountFotoCorregido} del formato INVENTARIO ${auxcountForm} de la estación ${idEstacion}`, {
+    //             type: 'success', 
+    //             position: 'topright', 
+    //             appendType: 'append',
+    //             closeBtn: false,
+    //             autoClose: 5000,
+    //             className: '',
+    //           })
+    //         }
 
-          });
-        }
-      );
-
-
-
-    }
-    if (auxAttrFotos[0] == 'USOS') {
-      const auxcountFoto = parseInt(auxAttrFotos[1]);
-      const auxcountPunto = parseInt(auxAttrFotos[2]);
-      const auxcountForm = parseInt(auxAttrFotos[3]);
-      const auxcountFotoCorregido = auxcountFoto + auxCountUSOS[auxcountForm][auxcountPunto];
-
-      if (estaciones["estacion_"+idEstacion]['Formularios']['Form_USOS']['Form_USOS_'+auxcountForm]['PUNTOS']['PUNTO_'+auxcountPunto]['FotosURL'] === undefined) {
-        estaciones["estacion_"+idEstacion]['Formularios']['Form_USOS']['Form_USOS_'+auxcountForm]['PUNTOS']['PUNTO_'+auxcountPunto]['FotosURL'] = {};
-      }
+    //       });
+    //     }
+    //   );
 
 
-      // Upload file and metadata to the object 'images/mountains.jpg'
-      const uploadTask = storageRef.child('EstacionesCampo/estacion_'+idEstacion+'/Form_USOS_'+auxcountForm+'/'+auxFotoAnexaSubir.name).put(auxFotoAnexaSubir);
 
-      // Listen for state changes, errors, and completion of the upload.
-      uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
-        (snapshot) => {
-          // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-          var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log('Upload is ' + progress + '% done');
-          switch (snapshot.state) {
-            case firebase.storage.TaskState.PAUSED: // or 'paused'
-              console.log('Upload is paused');
-              break;
-            case firebase.storage.TaskState.RUNNING: // or 'running'
-              console.log('Upload is running');
-              break;
-          }
-        },
-        (error) => {
-          // A full list of error codes is available at
-          // https://firebase.google.com/docs/storage/web/handle-errors
-          switch (error.code) {
-            case 'storage/unauthorized':
-              // User doesn't have permission to access the object
-              break;
-            case 'storage/canceled':
-              // User canceled the upload
-              break;
+    // }
+    // if (auxAttrFotos[0] == 'USOS') {
+    //   const auxcountFoto = parseInt(auxAttrFotos[1]);
+    //   const auxcountPunto = parseInt(auxAttrFotos[2]);
+    //   const auxcountForm = parseInt(auxAttrFotos[3]);
+    //   const auxcountFotoCorregido = auxcountFoto + auxCountUSOS[auxcountForm][auxcountPunto];
 
-            case 'storage/unknown':
-              // Unknown error occurred, inspect error.serverResponse
-              break;
-          }
-        },
-        () => {
-          // Upload completed successfully, now we can get the download URL
-          uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-            console.log('File available at', downloadURL);
-            if (auxVaciaUSOS) {
-              estaciones["estacion_"+idEstacion]['Formularios']['Form_USOS']['Form_USOS_'+auxcountForm]['PUNTOS']['PUNTO_'+auxcountPunto]['FotosURL']['Foto_'+auxcountFoto] = downloadURL;
-              estaciones["estacion_"+idEstacion]['Formularios']['Form_USOS']['Form_USOS_'+auxcountForm]['PUNTOS']['PUNTO_'+auxcountPunto]['FotosURL']['FotoActivo_'+auxcountFoto] = true;
-              estaciones["estacion_"+idEstacion]['Formularios']['Form_USOS']['Form_USOS_'+auxcountForm]['PUNTOS']['PUNTO_'+auxcountPunto]['FotosURL']['count'] = auxCountUSOS[auxcountForm][auxcountPunto];
+    //   if (estaciones["estacion_"+idEstacion]['Formularios']['Form_USOS']['Form_USOS_'+auxcountForm]['PUNTOS']['PUNTO_'+auxcountPunto]['FotosURL'] === undefined) {
+    //     estaciones["estacion_"+idEstacion]['Formularios']['Form_USOS']['Form_USOS_'+auxcountForm]['PUNTOS']['PUNTO_'+auxcountPunto]['FotosURL'] = {};
+    //   }
+
+
+    //   // Upload file and metadata to the object 'images/mountains.jpg'
+    //   const uploadTask = storageRef.child('EstacionesCampo/estacion_'+idEstacion+'/Form_USOS_'+auxcountForm+'/'+auxFotoAnexaSubir.name).put(auxFotoAnexaSubir);
+
+    //   // Listen for state changes, errors, and completion of the upload.
+    //   uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+    //     (snapshot) => {
+    //       // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+    //       var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+    //       console.log('Upload is ' + progress + '% done');
+    //       switch (snapshot.state) {
+    //         case firebase.storage.TaskState.PAUSED: // or 'paused'
+    //           console.log('Upload is paused');
+    //           break;
+    //         case firebase.storage.TaskState.RUNNING: // or 'running'
+    //           console.log('Upload is running');
+    //           break;
+    //       }
+    //     },
+    //     (error) => {
+    //       // A full list of error codes is available at
+    //       // https://firebase.google.com/docs/storage/web/handle-errors
+    //       switch (error.code) {
+    //         case 'storage/unauthorized':
+    //           // User doesn't have permission to access the object
+    //           break;
+    //         case 'storage/canceled':
+    //           // User canceled the upload
+    //           break;
+
+    //         case 'storage/unknown':
+    //           // Unknown error occurred, inspect error.serverResponse
+    //           break;
+    //       }
+    //     },
+    //     () => {
+    //       // Upload completed successfully, now we can get the download URL
+    //       uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+    //         console.log('File available at', downloadURL);
+    //         if (auxVaciaUSOS) {
+    //           estaciones["estacion_"+idEstacion]['Formularios']['Form_USOS']['Form_USOS_'+auxcountForm]['PUNTOS']['PUNTO_'+auxcountPunto]['FotosURL']['Foto_'+auxcountFoto] = downloadURL;
+    //           estaciones["estacion_"+idEstacion]['Formularios']['Form_USOS']['Form_USOS_'+auxcountForm]['PUNTOS']['PUNTO_'+auxcountPunto]['FotosURL']['FotoActivo_'+auxcountFoto] = true;
+    //           estaciones["estacion_"+idEstacion]['Formularios']['Form_USOS']['Form_USOS_'+auxcountForm]['PUNTOS']['PUNTO_'+auxcountPunto]['FotosURL']['count'] = auxCountUSOS[auxcountForm][auxcountPunto];
   
-              database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_USOS/Form_USOS_'+auxcountForm+'/PUNTOS/PUNTO_'+auxcountPunto+'/FotosURL/Foto_'+auxcountFoto).set(downloadURL);
-              database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_USOS/Form_USOS_'+auxcountForm+'/PUNTOS/PUNTO_'+auxcountPunto+'/FotosURL/FotoActivo_'+auxcountFoto).set(true);
-              database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_USOS/Form_USOS_'+auxcountForm+'/PUNTOS/PUNTO_'+auxcountPunto+'/FotosURL/count').set(auxCountUSOS[auxcountForm][auxcountPunto]);
+    //           database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_USOS/Form_USOS_'+auxcountForm+'/PUNTOS/PUNTO_'+auxcountPunto+'/FotosURL/Foto_'+auxcountFoto).set(downloadURL);
+    //           database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_USOS/Form_USOS_'+auxcountForm+'/PUNTOS/PUNTO_'+auxcountPunto+'/FotosURL/FotoActivo_'+auxcountFoto).set(true);
+    //           database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_USOS/Form_USOS_'+auxcountForm+'/PUNTOS/PUNTO_'+auxcountPunto+'/FotosURL/count').set(auxCountUSOS[auxcountForm][auxcountPunto]);
               
-              notice(`Cargada la foto ${auxcountFoto} del punto ${auxcountPunto} de la Planilla ${auxcountForm} de la estación ${idEstacion}`, {
-                type: 'success', 
-                position: 'topright', 
-                appendType: 'append',
-                closeBtn: false,
-                autoClose: 5000,
-                className: '',
-              })
+    //           notice(`Cargada la foto ${auxcountFoto} del punto ${auxcountPunto} de la Planilla ${auxcountForm} de la estación ${idEstacion}`, {
+    //             type: 'success', 
+    //             position: 'topright', 
+    //             appendType: 'append',
+    //             closeBtn: false,
+    //             autoClose: 5000,
+    //             className: '',
+    //           })
 
-            }
-            else{
-              const auxCountDefinitivo = auxCountUSOS[auxcountForm][auxcountPunto] + auxCountUSOSEdit[auxcountForm][auxcountPunto];
+    //         }
+    //         else{
+    //           const auxCountDefinitivo = auxCountUSOS[auxcountForm][auxcountPunto] + auxCountUSOSEdit[auxcountForm][auxcountPunto];
 
-              estaciones["estacion_"+idEstacion]['Formularios']['Form_USOS']['Form_USOS_'+auxcountForm]['PUNTOS']['PUNTO_'+auxcountPunto]['FotosURL']['Foto_'+auxcountFotoCorregido] = downloadURL;
-              estaciones["estacion_"+idEstacion]['Formularios']['Form_USOS']['Form_USOS_'+auxcountForm]['PUNTOS']['PUNTO_'+auxcountPunto]['FotosURL']['FotoActivo_'+auxcountFotoCorregido] = true;
-              estaciones["estacion_"+idEstacion]['Formularios']['Form_USOS']['Form_USOS_'+auxcountForm]['PUNTOS']['PUNTO_'+auxcountPunto]['FotosURL']['count'] = auxCountDefinitivo;
+    //           estaciones["estacion_"+idEstacion]['Formularios']['Form_USOS']['Form_USOS_'+auxcountForm]['PUNTOS']['PUNTO_'+auxcountPunto]['FotosURL']['Foto_'+auxcountFotoCorregido] = downloadURL;
+    //           estaciones["estacion_"+idEstacion]['Formularios']['Form_USOS']['Form_USOS_'+auxcountForm]['PUNTOS']['PUNTO_'+auxcountPunto]['FotosURL']['FotoActivo_'+auxcountFotoCorregido] = true;
+    //           estaciones["estacion_"+idEstacion]['Formularios']['Form_USOS']['Form_USOS_'+auxcountForm]['PUNTOS']['PUNTO_'+auxcountPunto]['FotosURL']['count'] = auxCountDefinitivo;
 
-              database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_USOS/Form_USOS_'+auxcountForm+'/PUNTOS/PUNTO_'+auxcountPunto+'/FotosURL/Foto_'+auxcountFotoCorregido).set(downloadURL);
-              database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_USOS/Form_USOS_'+auxcountForm+'/PUNTOS/PUNTO_'+auxcountPunto+'/FotosURL/FotoActivo_'+auxcountFotoCorregido).set(true);
-              database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_USOS/Form_USOS_'+auxcountForm+'/PUNTOS/PUNTO_'+auxcountPunto+'/FotosURL/count').set(auxCountDefinitivo);
+    //           database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_USOS/Form_USOS_'+auxcountForm+'/PUNTOS/PUNTO_'+auxcountPunto+'/FotosURL/Foto_'+auxcountFotoCorregido).set(downloadURL);
+    //           database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_USOS/Form_USOS_'+auxcountForm+'/PUNTOS/PUNTO_'+auxcountPunto+'/FotosURL/FotoActivo_'+auxcountFotoCorregido).set(true);
+    //           database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/Formularios/Form_USOS/Form_USOS_'+auxcountForm+'/PUNTOS/PUNTO_'+auxcountPunto+'/FotosURL/count').set(auxCountDefinitivo);
 
-              notice(`Cargada la foto ${auxcountFotoCorregido} del punto ${auxcountPunto} de la Planilla ${auxcountForm} de la estación ${idEstacion}`, {
-                type: 'success', 
-                position: 'topright', 
-                appendType: 'append',
-                closeBtn: false,
-                autoClose: 5000,
-                className: '',
-              })
-            }
+    //           notice(`Cargada la foto ${auxcountFotoCorregido} del punto ${auxcountPunto} de la Planilla ${auxcountForm} de la estación ${idEstacion}`, {
+    //             type: 'success', 
+    //             position: 'topright', 
+    //             appendType: 'append',
+    //             closeBtn: false,
+    //             autoClose: 5000,
+    //             className: '',
+    //           })
+    //         }
 
-          });
-        }
-      );
+    //       });
+    //     }
+    //   );
 
 
 
-    }
+    // }
 
   }
   
@@ -5884,11 +4967,11 @@ $("#btnBorrarFotoEstacion").click(function (e) {
   if (tipoBorrarFoto == "FotoLibreta") {
     estaciones["estacion_"+idEstacionBorrarFoto]["FotosLibreta"]["FotosURL"]["FotoActivo_"+idBorrarFoto] = false;
   }
-  if (tipoBorrarFoto == "PuntoUsos") {
-    var idpunto = idbtnBorrar.split("_")[3];
-    var idform = idbtnBorrar.split("_")[4];
-    estaciones["estacion_"+idEstacionBorrarFoto]["Formularios"]["Form_USOS"]["Form_USOS_"+idform]["PUNTOS"]["PUNTO_"+idpunto]["FotosURL"]["FotoActivo_"+idBorrarFoto] = false;
-  }
+  // if (tipoBorrarFoto == "PuntoUsos") {
+  //   var idpunto = idbtnBorrar.split("_")[3];
+  //   var idform = idbtnBorrar.split("_")[4];
+  //   estaciones["estacion_"+idEstacionBorrarFoto]["Formularios"]["Form_USOS"]["Form_USOS_"+idform]["PUNTOS"]["PUNTO_"+idpunto]["FotosURL"]["FotoActivo_"+idBorrarFoto] = false;
+  // }
   $("#"+idbtnBorrar).remove();
 
   $('#eliminar-modal-fotosestaciones').modal('hide');
@@ -6767,15 +5850,15 @@ function QueryEjecutarVisor(base_clase1) {
       tagsSec.push(listaElementosNewSGMF[i].tag);
     }
   }
-  for (let i = 0; i < listaElementosCAT.length; i++) {
-    if (listaElementosCAT[i].clase == "radiobtn" || listaElementosCAT[i].clase == "radiobtnMM") {
-      tags.push(listaElementosCAT[i].tag + "1");
-      tags.push(listaElementosCAT[i].tag + "2");
-    }
-    else{
-      tags.push(listaElementosCAT[i].tag);
-    }
-  }
+  // for (let i = 0; i < listaElementosCAT.length; i++) {
+  //   if (listaElementosCAT[i].clase == "radiobtn" || listaElementosCAT[i].clase == "radiobtnMM") {
+  //     tags.push(listaElementosCAT[i].tag + "1");
+  //     tags.push(listaElementosCAT[i].tag + "2");
+  //   }
+  //   else{
+  //     tags.push(listaElementosCAT[i].tag);
+  //   }
+  // }
   for (let i = 0; i < listaElementosINV.length; i++) {
     if (listaElementosINV[i].clase == "radiobtn" || listaElementosINV[i].clase == "radiobtnMM") {
       tags.push(listaElementosINV[i].tag + "1");
@@ -7046,26 +6129,26 @@ var ListaGenerarSGMF = [
   new ElementoGenerar("12","Ubicación Geomorfológica", "textarea", "Ubicación Geomorfológica", "ubicacionGeomorfoTL", []),
   new ElementoGenerar("12","Caracterización Geoformas", "textarea", "Caracterización Geoformas", "caracterizacionSGMFTL", []),
 ];
-var ListaGenerarCMM = [
-  new ElementoGenerar("12","Referencia Geográfica", "textarea", "Referencia Geográfica", "refGeoTL", []),
-  new ElementoGenerar("4","Vereda", "input", "Vereda CMM", "veredaTL", []),
-  new ElementoGenerar("4","Municipio", "select", "Municipio", "muniTL", ["","AGUADAS","ARANZAZU","FILADELFIA","MARQUETALIA","RIOSUCIO","SUPIA"]),
-  new ElementoGenerar("6","Coordenada", "input", "Coordenada", "coorTL", []),
-  new ElementoGenerar("4","Altura", "input", "Altura", "alturaTL", []),
-  new ElementoGenerar("4","Fecha Evento", "input", "Fecha Evento", "fechaEventoTL", []),
-  new ElementoGenerar("4","Confiabilidad Fecha", "input", "Confiabilidad Fecha", "confiFechaTL", []),
-];
-var ListaGenerarCMM1 = [
-  new ElementoGenerar("6","Tipo Movimiento", "input", "Tipo Movimiento", "tipoMMTL", []),
-  new ElementoGenerar("6","Subtipo Movimiento", "input", "Subtipo Movimiento", "subTipoMMTL", []),
-];
-var ListaGenerarCMM2 = [
-  new ElementoGenerar("6","Tipo Movimiento", "input", "Tipo Movimiento 2", "tipoMMTL2", []),
-  new ElementoGenerar("6","Subtipo Movimiento", "input", "Subtipo Movimiento 2", "subTipoMMTL2", []),
-];
-var ListaGenerarCMMNotas = [
-  new ElementoGenerar("12","Notas", "textarea", "Notas", "notasMMTL", []),
-];
+// var ListaGenerarCMM = [
+//   new ElementoGenerar("12","Referencia Geográfica", "textarea", "Referencia Geográfica", "refGeoTL", []),
+//   new ElementoGenerar("4","Vereda", "input", "Vereda CMM", "veredaTL", []),
+//   new ElementoGenerar("4","Municipio", "select", "Municipio", "muniTL", ["","AGUADAS","ARANZAZU","FILADELFIA","MARQUETALIA","RIOSUCIO","SUPIA"]),
+//   new ElementoGenerar("6","Coordenada", "input", "Coordenada", "coorTL", []),
+//   new ElementoGenerar("4","Altura", "input", "Altura", "alturaTL", []),
+//   new ElementoGenerar("4","Fecha Evento", "input", "Fecha Evento", "fechaEventoTL", []),
+//   new ElementoGenerar("4","Confiabilidad Fecha", "input", "Confiabilidad Fecha", "confiFechaTL", []),
+// ];
+// var ListaGenerarCMM1 = [
+//   new ElementoGenerar("6","Tipo Movimiento", "input", "Tipo Movimiento", "tipoMMTL", []),
+//   new ElementoGenerar("6","Subtipo Movimiento", "input", "Subtipo Movimiento", "subTipoMMTL", []),
+// ];
+// var ListaGenerarCMM2 = [
+//   new ElementoGenerar("6","Tipo Movimiento", "input", "Tipo Movimiento 2", "tipoMMTL2", []),
+//   new ElementoGenerar("6","Subtipo Movimiento", "input", "Subtipo Movimiento 2", "subTipoMMTL2", []),
+// ];
+// var ListaGenerarCMMNotas = [
+//   new ElementoGenerar("12","Notas", "textarea", "Notas", "notasMMTL", []),
+// ];
 var ListaGenerarIMM = [
   new ElementoGenerar("4","Ancho MM", "input", "Ancho MM", "anchoMMTL", []),
   new ElementoGenerar("4","Largo MM", "input", "Largo MM", "largoMMTL", []),

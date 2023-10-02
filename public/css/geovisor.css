@@ -459,12 +459,12 @@ body{
   width: 70%;
 }
 
-#sidebar .btn-comun {
+.btn-comun {
   color: #247461;
   background: #ffffff;
   border-color: #247461;
 }
-#sidebar .btn-comun:hover {
+.btn-comun:hover {
   color: #ffffff;
   background: #247461;
   border-color: #247461;
@@ -495,4 +495,9 @@ body{
 
 .firebaseui-list-item{
   list-style: none;
+}
+
+.leaflet-popup-content{
+  font-size: 1.5em;
+  width: 320px;
 }

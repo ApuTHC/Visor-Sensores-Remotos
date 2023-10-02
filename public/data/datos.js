@@ -74,46 +74,19 @@ var datos = {
     }
   },
   "tiposCapa": {
-    'geologia': 'Geología',
-    'modelos': 'Modelos',
-    'generales': 'Generales',
-    'procesos': 'Procesos',
-    'rasgos': 'Rasgos',
+    'ugi': 'Unidades Geológicas',
+    'procesos': 'Procesos Morfodinámicos',
+    'cgmf': 'Componentes Geomorfológicos',
+    'lineamientos': 'Lineamientos',
+    'fallas': 'Fallas',
     'estaciones': 'Estaciones',
   },
   "lista_capas": {
     "peru": {
         "cod": 0,
         "name": "Capas",
-        "tipos": ['procesos', 'rasgos', 'estaciones'],
+        "tipos": ['ugi','procesos', 'cgmf', 'lineamientos', 'fallas', 'estaciones'],
         "capas": [
-          {
-            "name": "Geología Superficial", 
-            "cod": "geoSup",
-            "tipo": "procesos",
-            "clase": "dynamic",
-            "layers": [1],
-            "attribution": "Área Metropolitana del Valle de Aburrá",
-            "url": "http://geografico.metropol.gov.co:6080/arcgis/rest/services/Geologia/Geologia/MapServer",
-          },
-          {
-            "name": "Geología Estructural", 
-            "cod": "geoEstruct",
-            "tipo": "rasgos",
-            "clase": "dynamic",
-            "layers": [0],
-            "attribution": "Área Metropolitana del Valle de Aburrá",
-            "url": "http://geografico.metropol.gov.co:6080/arcgis/rest/services/Geologia/Geologia/MapServer",
-          },
-          {
-            "name": "Litología",
-            "cod": "litologia",
-            "tipo": "estaciones",
-            "clase": "dynamic",
-            "layers": [2],
-            "attribution": "Área Metropolitana del Valle de Aburrá",
-            "url": "http://geografico.metropol.gov.co:6080/arcgis/rest/services/Geologia/Geologia/MapServer",
-          }
         ]
     },
     "colombia": {
@@ -134,56 +107,13 @@ var datos = {
     },
   },
   "datos_feat":{
-    "procesos":[
-      {
-        "text":"Registrar Proceso",
-        "type":"titulo",
-      },
-      {
-        "text":"Input1",
-        "campo_id":"ejem1",
-        "type":"input",
-        "msg":"mensajito1",
-        "is_textarea":false,
-        "is_date":false,
-      },
-      {
-        "text":"Input2",
-        "type":"input",
-        "campo_id":"ejem2",
-        "msg":"mensajito2",
-        "is_textarea":true,
-        "is_date":false,
-      },
-      {
-        "text":"Input3",
-        "type":"input",
-        "campo_id":"ejem3",
-        "msg":"mensajito3",
-        "is_textarea":false,
-        "is_date":true,
-      },
-      {
-        "text":"Registrar Proceso",
-        "type":"select",
-        "campo_id":"ejem4",
-        "msg":"mensajito4",
-        "options":["opt1","opt2","opt3"],
-      },
-      {
-        "text":"Guardar Proceso",
-        "type":"btn",
-      },
-    ],
-    "rasgos":[
-      {
-        "text":"Registrar Rasgo",
-        "type":"titulo",
-      },
-      {
-        "text":"Guardar Rasgo",
-        "type":"btn",
-      },
+    "feats":[
+      {'clase':'ugi', 'name':'Unidades Geológicas','color':'#0f97f1'},
+      {'clase':'procesos', 'name':'Procesos Morfodinámicos','color':'#2ecc71'},
+      {'clase':'cgmf', 'name':'Componentes Geomorfológicos','color':'#f1c40f'},
+      {'clase':'lineamientos', 'name':'Lineamientos','color':'#8f0b0b'},
+      {'clase':'fallas', 'name':'Fallas','color':'#a43f04'},
+      {'clase':'estaciones', 'name':'Cargar Estaciones','color':'#f1c40f'},
     ],
     "estaciones":[
       {

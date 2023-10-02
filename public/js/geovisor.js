@@ -67,9 +67,9 @@ var markerControlSGMF = L.AwesomeMarkers.icon({
 });
 
 var markerInv = L.AwesomeMarkers.icon({
-  icon: 'hill-avalanche',
+  icon: 'hill-rockslide',
   prefix:'fa',
-  markerColor: 'blue'
+  markerColor: 'cadetblue'
 });
 
 (function () {
@@ -116,9 +116,11 @@ var markerInv = L.AwesomeMarkers.icon({
     
     CargarSearch();
     
-    CargarBtnSplit();
+    // CargarBtnSplit();
     
     CargarRegla();
+
+    CargarDatos();
   });
 })();
 
@@ -1241,7 +1243,7 @@ function GraficarFileRaster(f) {
 function CargarNotificaciones() {
   notification = L.control.notifications({
       timeout: 4000,
-      position: 'topright',
+      position: 'bottomright',
       closable: true,
       dismissable: true,
       className: 'pastel'
@@ -1335,15 +1337,15 @@ function CargarDraw() {
   map.pm.addControls({
     position: 'topright',
     drawMarker: true,
-    drawPolyline: true,
-    drawPolygon: true,
+    drawPolyline: false,
+    drawPolygon: false,
     
     drawRectangle: false,
     drawCircle: false,
     drawCircleMarker: false,
     drawText: false,
 
-    editMode: true,
+    editMode: false,
     dragMode:true,
     cutPolygon:false,
     removalMode: false,
@@ -1521,7 +1523,7 @@ function ResaltarFeat(newFeat, notNew) {
           layergeojsonAnterior.setStyle({weight:3, color : capasDatos[0].color, fillColor: capasDatos[0].color, fillOpacity:0.2})
         }
       }else if (layergeojsonAnterior.feature.properties.clase == 'rasgos') {
-        layergeojsonAnterior.setStyle({weight:3, color : capasDatos[1].color, fillColor: capasDatos[2].color, fillOpacity:0.2})
+        layergeojsonAnterior.setStyle({weight:3, color : capasDatos[1].color, fillColor: capasDatos["estaciones"].color, fillOpacity:0.2})
       }else{
         layergeojsonAnterior.setStyle({weight:3, color : colorNew, fillColor: colorNew, fillOpacity:0.2})
       }
@@ -1593,8 +1595,13 @@ function GenerarFormulario(tipo, coor, is_new, feat) {
     }
     if (element["type"] === "btn") {
       if (tipo === "estacion") {
+        if (estaciones === undefined) {
+          contentDatos += '<h3> Activa la capa de estaciones por favor </h3>'
+        }
+        else{
+          contentDatos += '<button class="btn btn-comun" data-toggle="modal" data-target="#addEstacionModal" data-whatever="0_'+coor[1]+'_'+coor[0]+'">'+element["text"]+'</button>'
+        }
         // console.log(coor);
-        contentDatos += '<button class="btn btn-comun" data-toggle="modal" data-target="#addEstacionModal" data-whatever="0_'+coor[1]+'_'+coor[0]+'">'+element["text"]+'</button>'
       }
       else{
         contentDatos += '<div class="form-group">';
@@ -1670,13 +1677,654 @@ function EditExist(e) {
   console.log(e.layer.toGeoJSON());
 }
 
+// ---------> Datos
+// Declaración del objeto 'CapaDatos'
+function CapaDatos(capa, figuras, database, active, clase, name, color) {
+  this.capa = capa;
+  this.figuras = figuras;
+  this.database = database;
+  this.active = active;
+  this.clase = clase;
+  this.name = name;
+  this.color = color;
+  this.CargarCapaDatos = CargarCapaDatos;
+}
+var capasDatos = {};
+var capasEst = [
+  new CapaDatos( L.layerGroup() ,[],null,1,'ugs','UGI Rocas y Suelos','#2ecc71'),
+  new CapaDatos( L.layerGroup() ,[],null,1,'sgmf','CGMF','#f1c40f'),
+  new CapaDatos( L.layerGroup() ,[],null,1,'inv','Inventarios MM','#8e44ad'),
+  new CapaDatos( L.layerGroup() ,[],null,1,'otro','Sin Tipo','#410000'),
+  new CapaDatos( L.layerGroup() ,[],null,1,'query','Capa Query','#410000'),
+];
+
+function CargarDatos() {
+  const data_feats = datos["datos_feat"]["feats"];
+  for (let i = 0; i < data_feats.length; i++) {
+    elem = data_feats[i]
+    capasDatos[elem['clase']] = new CapaDatos(null,[],null,0,elem['clase'],elem['name'],elem['color']);
+  }
+
+  for (auxFeat in capasDatos) {
+    const auxCapa = capasDatos[auxFeat];
+    var contentCapa = '<div class="content-file">' +
+    '<label class="switchi">' +
+    '<input type="checkbox" id="forma_' + auxCapa.clase +'" onChange="toggleDatos(id)">' +
+    '<span class="slider round"></span>' +
+    "</label>" +
+    "<a>" + auxCapa.name + "</a>";
+    // '<div class="d-block"></div>' +
+    // '<div class="slidecontainer">' +
+    // '<input type="range" min="0" max="100" value="0" class="sliderb" id="transp-file_' + auxCapa.clase +'">' +
+    // '<p>Transparencia: <span id="valTransp-file_' + auxCapa.clase +'"></span>%</p></div>';
+    
+    
+    $("#peru-tipo-"+ auxCapa.clase).append(contentCapa);
+    
+    
+    $("#forma_"+auxCapa.clase).prop("checked", false);
+    
+    // var slider = $("#transp-file_" + auxCapa.clase)[0];
+    // var output = $("#valTransp-file_" + auxCapa.clase)[0];
+    // output.innerHTML = slider.value;
+    // slider.oninput = function () {
+    //   var auxClase = $(this).attr("id").split("_")[1];
+    //   var output = $("#valTransp-file_" + auxClase)[0];
+    //   output.innerHTML = this.value;
+    //   var transpa = (100 - parseInt(this.value)) / 100;
+    //   if ($("#forma_" + auxClase).prop("checked")) {
+    //     capasDatos[auxClase].capa.setStyle({
+    //       opacity: transpa,
+    //     });
+    //   }
+    // };
+    
+    
+    
+  }
+  $("#lista_capas_descargar").append(
+    '<br>'+
+    '<label for="capa_descarga">Capa a Descargar: </label>' +
+    '<select id="capa_descarga" class="form-control select-mpios">' +
+        '<option value="0">Procesos Morfodinámicos</option>' +
+        '<option value="1">Rasgos</option>' +
+        '<option value="2">Estaciones (Todas)</option>' +
+        '<option value="3">Estaciones (Viviendas)</option>' +
+        '<option value="4">Estaciones (UGS)</option>' +
+        '<option value="5">Estaciones (Inventarios y Catalogos)</option>' +
+    '</select>'+
+    '<label for="tipo_descarga">Descargar en Formato: </label>' +
+    '<select id="tipo_descarga" class="form-control select-mpios">' +
+        '<option value="shp">Shapefile</option>' +
+        '<option value="geojson">GeoJSON</option>' +
+    '</select>'+
+    '<a class="btn-descargar" id="clase_descarga" onclick="CargarDatosDescarga(id, this)" type="button" >  <i class="fas fa-layer-group"></i>   Cargar la Capa </a>'+
+    '<a class="btn-descargar" id="clase_descarga" onclick="DescargarDatos(id, this)" type="button" >  <i class="fas fa-file-download"></i>   Descargar </a>'
+  );
+}
+
+function toggleDatos(id) {
+  let clase = id.split("_")[1];
+  if (capasDatos[clase].active == 0) {
+    capasDatos[clase].active = 2;
+    capasDatos[clase].CargarCapaDatos();
+  } else if (capasDatos[clase].active == 1){
+    capasDatos[clase].active = 2;
+    capasDatos[clase].capa.addTo(map);
+  } else if (capasDatos[clase].active == 2){
+    capasDatos[clase].active = 1;
+    map.removeLayer(capasDatos[clase].capa);
+  }
+}
+function toggleDatosEst(id) {
+  var num = id.split("_")[1];
+  console.log(capasEst[num].active)
+  if (capasEst[num].active == 1){
+    capasEst[num].active = 2;
+    capasEst[num].capa.addTo(map);
+  } else if (capasEst[num].active == 2){
+    capasEst[num].active = 1;
+    map.removeLayer(capasEst[num].capa);
+  }
+}
+
+var estaciones;
+
+function CargarCapaDatos() {
+  map.spin(true, spinOpts);
+  this.capa = L.layerGroup();
+  // var markers = L.markerClusterGroup();
+  // this.capa.addTo(map);
+  if (this.clase == 'estaciones') {
+    database.ref().child('EstacionesCampo').get().then((snapshot) => {
+      if (snapshot.exists()) {
+        this.database = snapshot.val();
+        estaciones = snapshot.val();
+        console.log(snapshot.val());
+        for (let i = 0; i < this.database.cont.cont; i++) {
+          if (this.database['estacion_'+i]?.activo) {
+            var point = L.marker([this.database['estacion_'+i]['Norte'], this.database['estacion_'+i]['Este']]).toGeoJSON();
+            // console.log(point);
+            var auxmarker;
+            var auxFormatosPopUp = "";
+            var auxcapa = ""
+            var auxtipo = this.database['estacion_'+i]['TipoEstacion'];
+            var auxtipoup = auxtipo.toUpperCase();
+
+            if (auxtipoup.includes('UGS')){
+              auxcapa = "ugs"
+            }
+            else if (auxtipoup.includes('SGMF')){
+              auxcapa = "sgmf"
+            }
+            else if (auxtipoup.includes('VIVIENDA')){
+              auxcapa = "vivienda"
+            }
+            else if (auxtipoup.includes('CMM') || auxtipoup.includes('CATÁLOGO') || auxtipoup.includes('CATALOGO')){
+              auxcapa = "cat"
+            }
+            else if (auxtipoup.includes('IMM') || auxtipoup.includes('INVENTARIO')){
+              auxcapa = "inv"
+            }
+            else{
+              auxcapa = "otro"
+            }
+
+            if ( (auxtipo.includes('Punto') || auxtipo.includes('punto') ) && (auxtipo.includes('UGS') || auxtipo.includes('ugs'))) {
+              auxmarker = markerControlUGS;
+            }
+            else if ( (auxtipo.includes('Punto') || auxtipo.includes('punto') ) && (auxtipo.includes('SGMF') || auxtipo.includes('sgmf'))) {
+              auxmarker = markerControlSGMF;
+            }
+            else if (auxtipo.includes('SGMF') || auxtipo.includes('sgmf') || this.database['estacion_'+i]['Propietario'] ==="Maria Areiza Rodríguez") {
+              auxmarker = markerControlSGMF;
+            }
+            else if (auxtipo.includes('UGS') || auxtipo.includes('ugs') ) {
+              auxmarker = markerControlUGS;
+            }
+            else if (auxtipoup.includes('IMM')) {
+              auxmarker = markerInv;
+            }
+            else if (auxtipo.includes('Vivienda')) {
+              auxmarker = markerViv;
+              auxcapa = "vivienda";
+            }
+
+            if (this.database['estacion_'+i]['Formularios']['count_UGS_Rocas']>0) {
+              for (let k = 0; k < this.database['estacion_'+i]['Formularios']['count_UGS_Rocas']; k++) {
+                auxFormatosPopUp += 'UGSR' + this.database['estacion_'+i]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+k]['noformato'] + ', ';   
+              }
+              auxmarker = markerUGSR;
+              auxcapa = "ugs"
+            }
+            if (this.database['estacion_'+i]['Formularios']['count_UGS_Suelos']>0) {
+              for (let k = 0; k < this.database['estacion_'+i]['Formularios']['count_UGS_Suelos']; k++) {
+                auxFormatosPopUp += 'UGSS' + this.database['estacion_'+i]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+k]['noformato'] + ', ';   
+              }
+              auxmarker = markerUGSS;
+              auxcapa = "ugs"
+            }
+            if (this.database['estacion_'+i]['Formularios']['count_SGMF']>0) {
+              for (let k = 0; k < this.database['estacion_'+i]['Formularios']['count_SGMF']; k++) {
+                auxFormatosPopUp += 'SGMF' + this.database['estacion_'+i]['Formularios']['Form_SGMF']['Form_SGMF_'+k]['noformato'] + ', ';   
+              }
+              auxmarker = markerSGMF;
+              auxcapa = "sgmf"
+            }
+            if (this.database['estacion_'+i]['Formularios']['count_CATALOGO']>0) {
+              for (let k = 0; k < this.database['estacion_'+i]['Formularios']['count_CATALOGO']; k++) {
+                auxFormatosPopUp += 'CATALOGO_' + this.database['estacion_'+i]['Formularios']['Form_CATALOGO']['Form_CATALOGO_'+k]['ID_PARTE'] + ', ';   
+              }
+              auxmarker = markerCat;
+              auxcapa = "cat"
+            }
+            if (this.database['estacion_'+i]['Formularios']['count_INVENTARIO']>0) {
+              for (let k = 0; k < this.database['estacion_'+i]['Formularios']['count_INVENTARIO']; k++) {
+                auxFormatosPopUp += 'INVENTARIO_' + this.database['estacion_'+i]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+k]['ID_PARTE'] + ', ';   
+              }
+              auxmarker = markerInv;
+              auxcapa = "inv"
+            }
+            if (this.database['estacion_'+i]['Formularios']['count_VIVIENDA']>0) {
+              for (let k = 0; k < this.database['estacion_'+i]['Formularios']['count_VIVIENDA']; k++) {
+                auxFormatosPopUp += 'VIVIENDA_' + this.database['estacion_'+i]['Formularios']['Form_VIVIENDA']['Form_VIVIENDA_'+k]['idformatoValpa'] + ', ';   
+              }
+              auxmarker = markerViv;
+              auxcapa = "vivienda"
+            }
+
+            L.extend(point.properties, {
+              id: i,
+              Estacion: this.database['estacion_'+i]['Estacion'],
+              Fecha: this.database['estacion_'+i]['Fecha'],
+              TipoEstacion: this.database['estacion_'+i]['TipoEstacion'],
+              Propietario: this.database['estacion_'+i]['Propietario'],
+              Observaciones: this.database['estacion_'+i]['Observaciones'],
+              Este: this.database['estacion_'+i]['Este'],
+              Norte: this.database['estacion_'+i]['Norte'],
+              Altitud: this.database['estacion_'+i]['Altitud'],
+              Formatos: auxFormatosPopUp
+            });
+            this.figuras.push(point);
+            // console.log(i);
+            var puntico = L.geoJson(point,{
+                onEachFeature: function (feature, layer) {
+                  feature.layer = layer;
+                  layer.bindPopup(popupEstaciones);
+                  layer.setIcon(auxmarker);
+                }
+              })
+              .bindPopup(popupEstaciones)
+              .addTo(this.capa)
+              .addTo(allData);
+              // .on('click', function(e) {
+              //   EditExist(e);
+              // });    
+              
+              if (auxcapa === "ugs"){
+                puntico.addTo(capasEst[0].capa)
+              }
+              else if (auxcapa === "sgmf"){
+                puntico.addTo(capasEst[1].capa)
+              }
+              else if (auxcapa === "inv"){
+                puntico.addTo(capasEst[2].capa)
+              }
+              else{
+                puntico.addTo(capasEst[3].capa)
+              }
+              
+          }
+          else{
+            this.figuras.push(null);
+          }
+        }
+
+        console.log(this.figuras);
+        console.log(this.capa.toGeoJSON());
+        console.log(allData.toGeoJSON());
+        searchCtrl.indexFeatures(allData.toGeoJSON(), ['Estacion', 'TipoEstacion', 'Formatos', 'Propietario','nombreclase','id','ID_MOV','ENCUESTAD','TIPO_MOV1','ID_PARTE','Tipo_MM','VEREDA','Propietario','Nom_Rasgo','Cod_Rasgo','Nom_UGS','Tipo','TipoRocaSuelo','Vereda','Cod_SGMF','Nom_SGMF','Forma','NOM_MUN']);
+        map.spin(false);
+        notification.success('¡Listo!', 'Se cargó con exito las estaciones, elija cuales desea ver');
+
+        for (let j = 0; j < capasEst.length; j++) {
+          if (capasEst[j].clase === "query") {
+            $("#peru-tipo-estaciones").append(
+              '<div class="content-file">' +
+              '<label class="switchi">' +
+              '<input type="checkbox" id="est_' + j + '" onChange="toggleDatosEst(id)">' +
+              '<span class="slider round"></span>' +
+              "</label>" +
+              "<a>" + capasEst[j].name + "</a>"+
+              '<div class="d-inline">'+
+                  '<button class="btn btn-comun ml-3" type="button" id="peticionesQuery" data-toggle="modal" data-target="#id-Query-Estaciones">Realizar Query</button>'+
+              '</div>'
+            );
+          }
+          else {
+            $("#peru-tipo-estaciones").append(
+              '<div class="content-file">' +
+              '<label class="switchi">' +
+              '<input type="checkbox" id="est_' + j + '" onChange="toggleDatosEst(id)">' +
+              '<span class="slider round"></span>' +
+              "</label>" +
+              "<a>" + capasEst[j].name + "</a>"
+            );
+          }
+        }
+
+        //var tagged = turf.tag(this.capa.toGeoJSON(), alturas, 'MPIO_CNMBR', 'MUNICIPIO');
+        //console.log(tagged);
+        
+        // var capita = this.capa.toGeoJSON()
+        // for (let index = 0; index < capita.features.length; index++) {
+        //   capita.features[index].properties.MUN = alturas.features[index].properties.MPIO_CNMBR;
+        // }
+        // console.log(capita);
+        // DepurarDatosEstaciones(capita)
+
+        
+      } else {
+        console.log("No data available");
+        notification.alert('¡Error!', 'No se pudo cargar la capa');
+      }
+      
+    }).catch((error) => {
+      console.error(error);
+      notification.alert('¡Error!', 'No se pudo cargar la capa');
+    });
+    
+  } else {
+    this.capa.addTo(map);
+    database.ref().child('features/'+this.clase).get().then((snapshot) => {
+      if (snapshot.exists()) {
+        this.database = snapshot.val();
+        console.log(snapshot.val());
+        for (let i = 0; i < this.database.count.count; i++) {
+          if (this.database['feature_'+i]?.activo) {
+            this.figuras.push(this.database['feature_'+i]['layergeojson']);
+            var style = {
+              weight: 3,
+              color : this.color,
+              dashArray: '0'
+            }
+            if (this.clase == 'procesos') {
+              style.dashArray = '6,6';
+              if (this.database['feature_'+i]['layergeojson'].properties['ACTIVIDAD'] == '1') {
+                style.dashArray = '0';
+              }
+              this.database['feature_'+i]['layergeojson'].properties['COD_SIMMA'] = this.database['feature_'+i]['layergeojson'].properties['COD_SIMMA']+''
+            }
+            L.extend(this.database['feature_'+i]['layergeojson'].properties, {
+              id: this.database["feature_"+i]["id"]+'',
+              clase: this.clase,
+              nombreclase: this.name
+            });
+            // console.log(i);
+            L.geoJson(this.database['feature_'+i]['layergeojson'],{
+                onEachFeature: function (feature, layer) {
+                  feature.layer = layer;
+                  layer.bindPopup(popupFiguras);
+                }
+              })
+              .setStyle(style)
+              .bindPopup(popupFiguras)
+              .addTo(this.capa)
+              .addTo(allData)
+              .on('click', function(e) {
+                EditExist(e);
+              });  
+              
+              // markers.addLayer(mark);
+          }
+        }
+        // map.addLayer(markers);
+        console.log(this.figuras);
+        console.log(this.capa.toGeoJSON());
+        console.log(allData.toGeoJSON());
+        searchCtrl.indexFeatures(allData.toGeoJSON(), ['nombreclase','id','ID_MOV','COD_SIMMA','ENCUESTAD','TIPO_MOV1','ID_PARTE','Tipo_MM','VEREDA','Propietario','Nom_Rasgo','Cod_Rasgo','Nom_UGS','Tipo','TipoRocaSuelo','Vereda','Cod_SGMF','Nom_SGMF','Forma','NOM_MUN']);
+        map.spin(false);
+      } else {
+        console.log("No data available");
+      }
+    }).catch((error) => {
+      console.error(error);
+    });
+  }
+
+}
+
+// ****PESTAÑA DESCARGAR DATOS
+
+// Función para cargar los datos desde Descargar Datos y dejarlos almacenados
+function CargarDatosDescarga(id, obj){
+  var num_descarga = parseInt($("#capa_descarga").val());
+  if (num_descarga > 2){
+    num_descarga = 2;
+  }
+  if (capasDatos[num_descarga].active == 0) {
+    capasDatos[num_descarga].active = 2;
+    capasDatos[num_descarga].CargarCapaDatos();
+    $("#forma_"+num_descarga).prop("checked", true);
+  } else if (capasDatos[num_descarga].active == 1) {
+    capasDatos[num_descarga].active = 2;
+    capasDatos[num_descarga].capa.addTo(map);
+    $("#forma_"+num_descarga).prop("checked", true);
+  }
+}
+
+function DescargarDatos(id, obj) {
+  var num_descarga = parseInt($("#capa_descarga").val());
+  const numero_real = num_descarga;
+  if (num_descarga > 2){
+    num_descarga = 2;
+  }
+  if (capasDatos[num_descarga].active == 0) {
+    alert("Por favor active la capa que desea descargar.")
+  } else{
+    let filtroDescarga = '';
+    let filtrotipo = $("#tipo_descarga").val();
+    if (capasDatos[num_descarga].clase == 'estaciones') {
+      DescargarDatosJSON(capasDatos[num_descarga].figuras, capasDatos[num_descarga].clase, filtroDescarga, filtrotipo, numero_real )
+    }
+    else{
+      DescargarDatosJSON(capasDatos[num_descarga].database, capasDatos[num_descarga].clase, filtroDescarga, filtrotipo, numero_real )
+    }
+  }
+}
+
+// Función para descargar un archivo
+function saveToFile(content, filename) {
+  var file = filename + '.json';
+  console.log(content)
+  saveAs(new File([JSON.stringify(content, getCircularReplacer())], file, {
+    type: "text/plain;charset=utf-8"
+  }), file);
+}
+
+//Función que filtra los datos según el mpio seleccionado y construye el geojson
+function DescargarDatosJSON(baseDatos, clase, filtro, filtrotipo, numero_real){
+  let capas = L.layerGroup();
+  let copiaDatos = {...baseDatos}
+
+  if(clase === "procesos"){
+    for (let j = 0; j < copiaDatos["count"]["count"]; j++) {
+      if (copiaDatos["feature_"+j]?.activo && copiaDatos["feature_"+j]["layergeojson"]["geometry"]["type"] !== 'LineString') {
+        var temp = copiaDatos["feature_"+j]["layergeojson"];
+        // if(filtro == "polygon"){
+          if(copiaDatos['feature_'+j]["layergeojson"]["geometry"]["type"] == 'Polygon'){
+            L.geoJson(temp).addTo(capas);
+          }
+        // }
+        // else {
+        //   if(copiaDatos['feature_'+j]["layergeojson"]["geometry"]["type"] == 'Point'){
+        //     L.geoJson(temp).addTo(capas);
+        //   }
+        // }
+      }
+    }
+  }
+  else if(clase === "rasgos"){
+    for (let j = 0; j < copiaDatos["count"]["count"]; j++) {
+      if (copiaDatos["feature_"+j]["activo"] && copiaDatos["feature_"+j]["layergeojson"]["geometry"]["type"] !== 'Polygon') {
+        let temp = copiaDatos["feature_"+j]["layergeojson"];
+        // if(filtro == "ALL"){
+          temp["properties"].COD_MUN = temp["properties"].COD_MUN+"";
+          L.geoJson(temp).addTo(capas);
+        // }else if(copiaDatos['feature_'+j]["layergeojson"]["properties"].COD_MUN == filtro){
+        //   temp["properties"].COD_MUN = temp["properties"].COD_MUN+"";
+        //   L.geoJson(temp).addTo(capas);
+        // }
+      }
+    }
+  }
+  else if(clase === "estaciones"){
+    if (numero_real === 2) {
+      for (est in copiaDatos) {
+        if (copiaDatos[est]!==null) {
+          let temp = copiaDatos[est];
+          
+            L.geoJson(temp).addTo(capas);
+          
+        }
+      }
+    }
+    else {
+      let copiaDatos1 = {...capasDatos["estaciones"].database}
+
+      if(numero_real === 3){
+        capas = GenerarCapaVIVIENDA(copiaDatos1)
+        clase = 'Viviendas';
+      }
+      if(numero_real === 4){
+        capas = GenerarCapaNombreUGS(copiaDatos1)
+        clase = 'UGS';
+      }
+      if(numero_real === 5){
+        capas = GenerarCapaProcesosCampo(copiaDatos1)
+        clase = 'Procesos';
+      }
+
+    }
+  }
+
+  
+  console.log(copiaDatos);
+  console.log(capas);
+  let archivoFinal = capas.toGeoJSON();
+  console.log(archivoFinal);
+  //Eliminar el campos no deseados
+  for(let k= 0; k < archivoFinal.features.length; k++ ){
+    delete archivoFinal["features"][k].layer;
+    delete archivoFinal["features"][k]["properties"]["_feature"];
+    // delete archivoFinal["features"][k]["properties"]["id"];
+    delete archivoFinal["features"][k]["properties"]["clase"];
+    delete archivoFinal["features"][k]["properties"]["nombreclase"];
+
+    delete archivoFinal["features"][k]["properties"].codigo;
+    delete archivoFinal["features"][k]["properties"].descripcion;
+    delete archivoFinal["features"][k]["properties"].fecha;
+    delete archivoFinal["features"][k]["properties"].nombre;
+    delete archivoFinal["features"][k]["properties"].propietario;
+    delete archivoFinal["features"][k]["properties"].zona;
+
+    delete archivoFinal["features"][k]["properties"].CR;
+    delete archivoFinal["features"][k]["properties"].Visible_25;
+    delete archivoFinal["features"][k]["properties"].Propietari;
+
+    // archivoFinal["features"][k]["id"] = k;
+  }
+
+  if (filtrotipo === 'shp') {
+    var options = {
+      folder: 'Capa_'+ clase+ "_" + filtro + '_' +dateFormat(new Date(),'Y-m-d'),
+      types: {
+          point: clase+ "_" + filtro + '_' +dateFormat(new Date(),'Y-m-d'),
+          polygon: clase+ "_" + filtro + '_' +dateFormat(new Date(),'Y-m-d'),
+          polyline: clase+ "_" + filtro + '_' +dateFormat(new Date(),'Y-m-d')
+      }
+    }
+    archivoFinal1 = unescape(encodeURIComponent(JSON.stringify(archivoFinal)))
+    archivoFinal2 = JSON.parse(archivoFinal1)
+    shpwrite.download(archivoFinal2, options);
+  } else {
+    saveToFile(archivoFinal, 'Capa_'+ clase + "_" + filtro + '_'+dateFormat(new Date(),'Y-m-d')); //Generar el archivo descargable
+  }
+
+  capas = null;
+  copiaDatos = null;
+  
+}
+
+// Función para eliminar el error de referencia cíclica de un json
+const getCircularReplacer = () => {
+  const seen = new WeakSet();
+  return (key, value) => {
+    if (typeof value === "object" && value !== null) {
+      if (seen.has(value)) {
+        return;
+      }
+      seen.add(value);
+    }
+    return value;
+  };
+};
+
+// Función que define los popup de las figuras según su clase
+function popupFiguras(layer) {
+  if (!editMode) {
+    if (layer.feature.properties.clase == 'procesos') {
+      var tipo;
+      if (layer.feature.properties.TIPO_MOV1 == '01') {
+        tipo='Deslizamiento';
+      }else if (layer.feature.properties.TIPO_MOV1 == '02') {
+        tipo='Reptación';
+      }else if (layer.feature.properties.TIPO_MOV1 == '03') {
+        tipo='Caida';
+      }else if (layer.feature.properties.TIPO_MOV1 == '04') {
+        tipo='Flujo';
+      }else {
+        tipo='Tipo no definido';
+      }
+      if (layer.feature.properties.nombre === undefined) {     
+        // console.log(layer.toGeoJSON());   
+        auxLayerCentroid = layer.toGeoJSON();
+    
+        var gradLng = Math.trunc(turf.getCoord(turf.centroid(auxLayerCentroid))[0])
+        gradLng = (gradLng<0) ? gradLng*-1 : gradLng;
+        var gradLat = Math.trunc(turf.getCoord(turf.centroid(auxLayerCentroid))[1])
+        gradLat = (gradLat<0) ? gradLat*-1 : gradLat;
+        console.log(gradLng, gradLat);
+        var minLng = Math.trunc((turf.getCoord(turf.centroid(auxLayerCentroid))[0]-Math.trunc(turf.getCoord(turf.centroid(auxLayerCentroid))[0]))*60);
+        minLng = (minLng<0) ? minLng*-1 : minLng;
+        var minLat = Math.trunc((turf.getCoord(turf.centroid(auxLayerCentroid))[1]-Math.trunc(turf.getCoord(turf.centroid(auxLayerCentroid))[1]))*60);
+        minLat = (minLat<0) ? minLat*-1 : minLat;
+        console.log(minLng, minLat);
+        var segLng =Math.trunc((Math.trunc((turf.getCoord(turf.centroid(auxLayerCentroid))[0]-Math.trunc(turf.getCoord(turf.centroid(auxLayerCentroid))[0]))*60) - (turf.getCoord(turf.centroid(auxLayerCentroid))[0]-Math.trunc(turf.getCoord(turf.centroid(auxLayerCentroid))[0]))*60)*60);
+        segLng = (segLng<0) ? segLng*-1 : segLng;
+        var segLat =Math.trunc((Math.trunc((turf.getCoord(turf.centroid(auxLayerCentroid))[1]-Math.trunc(turf.getCoord(turf.centroid(auxLayerCentroid))[1]))*60) - (turf.getCoord(turf.centroid(auxLayerCentroid))[1]-Math.trunc(turf.getCoord(turf.centroid(auxLayerCentroid))[1]))*60)*60);
+        segLat = (segLat<0) ? segLat*-1 : segLat;
+        console.log(segLng, segLat);
+        var corregidaLgn = '-' + gradLng + '°' + ((minLng<10)? '0'+minLng : minLng) + "'" + ((segLng<10)? '0'+segLng : segLng) + '"';
+        var corregidaLat = '0' + gradLat + '°' + ((minLat<10)? '0'+minLat : minLat) + "'" + ((segLat<10)? '0'+segLat : segLat) + '"';
+        console.log(corregidaLgn);
+        console.log(corregidaLat);
+      
+        
+        return L.Util.template('<p><strong>Clase</strong>: {nombreclase}.<br>'+ 
+                              '<strong>ID_MOV</strong>: {ID_MOV}.<br>'+
+                              '<strong>Tipo de MM</strong>: '+tipo+'.<br>'+
+                              // '<strong>Subtipo</strong>: {SUBTIPO_1}.<br>'+
+                              '<strong>ID_PARTE</strong>: {ID_PARTE}.<br>'+
+                              '<strong>ID en la Base de Datos</strong>: {id}.<br>'+
+                              '<strong>Encuestador</strong>: {ENCUESTAD}.<br>'+
+                              '<strong>Centroide</strong>: '+ corregidaLgn + ', ' + corregidaLat +'<br>', layer.feature.properties);
+      }else{
+        return L.Util.template('<p><strong>Clase</strong>: {nombreclase}.<br>'+ 
+                              '<strong>ID_MOV</strong>: {nombre}.<br>'+
+                              // '<strong>Propietario</strong>: {propietario}.<br>'+
+                              '<strong>ID en la Base de Datos</strong>: {id}.<br>'+
+                              '<strong>Esta forma debe ser actualizada con los datos del respectivo formulario</strong>', layer.feature.properties);
+      }
+  
+    }else if (layer.feature.properties.clase == 'geomorfo') {
+      return L.Util.template('<p><strong>Clase</strong>: {nombreclase}.<br>'+ 
+                              '<strong>Nombre</strong>: {SGMF_NAME}.<br>'+
+                              '<strong>ID en la Base de Datos</strong>: {id}.<br>'+
+                              '<strong>Propietario</strong>: {Propietario}.<br>', layer.feature.properties);
+    }else if (layer.feature.properties.clase == 'rasgos') {
+      return L.Util.template('<p><strong>Clase</strong>: {nombreclase}.<br>'+ 
+                              '<strong>Nombre</strong>:'+ cod_name_Rasgo[layer.feature.properties.Nom_Rasgo] +'.<br>'+
+                              '<strong>ID en la Base de Datos</strong>: {id}.<br>'
+                              // '<strong>Propietario</strong>: {Propietario}.<br>'
+                              , layer.feature.properties);
+    }else if (layer.feature.properties.clase == 'geologia') {
+      return L.Util.template( //'<p><strong>Clase</strong>: {nombreclase}.<br>'+ 
+                              // '<strong>Nombre UGS</strong>: {Nom_UGS}.<br>'+
+                              // '<strong>Tipo de Unidad</strong>: {Tipo}.<br>'+
+                              // '<strong>Tipo</strong>: {TipoRocaSuelo}.<br>'+
+                              '<strong>ID en la Base de Datos</strong>: {id}.<br>'
+                              // '<strong>Propietario</strong>: {Propietario}.<br>'
+                              , layer.feature.properties); 
+    }else if (layer.feature.properties.clase == 'estructuras') {
+      return L.Util.template('<p><strong>Clase</strong>: {nombreclase}.<br>'+ 
+                              '<strong>ID en la Base de Datos</strong>: {id}.<br>'+
+                              '<strong>Nombre</strong>: {NombreLineamiento}.<br>', layer.feature.properties);
+    }else if (layer.feature.properties.clase == 'morfo') {
+      return L.Util.template('<p><strong>Clase</strong>: {nombreclase}.<br>'+ 
+                              '<strong>{Forma}</strong><br>'+
+                              '<strong>ID en la Base de Datos</strong>: {id}.<br>'+
+                              '<strong>Propietario</strong>: {Propietario}.<br>', layer.feature.properties);
+    }
+  }
+}
 
 
 function popupEstaciones(layer) {
   console.log(layer.feature.layer._latlng);
   if (!editMode) {
 
-    var feature =  capasDatos[2].database["estacion_"+layer.feature.properties.id];
+    var feature =  capasDatos["estaciones"].database["estacion_"+layer.feature.properties.id];
 
     if(feature["Formularios"].count_UGS_Rocas>0){
       for (let j = 0; j < feature["Formularios"].count_UGS_Rocas; j++) {
@@ -1715,7 +2363,7 @@ function popupEstaciones(layer) {
                             '<strong>Altitud</strong>: '+layer.feature.properties.Altitud+'.<br>'+
                             '<strong>ID en la base de datos</strong>: '+layer.feature.properties.id+'.<br>'+
                             '<strong>Calidad de la Roca</strong>: '+calificacion+', (GSI:'+ formato["gsi"] +').<br>'+
-                            '<strong><button class="estilo-modales-1" data-toggle="modal" data-target="#modal-estaciones" data-whatever="'+layer.feature.properties.id+'_'+ layer.feature.layer._latlng.lat +'_'+ layer.feature.layer._latlng.lng +'">Ver Detalles de la Estación</button></strong><br>', layer.feature.properties);
+                            '<strong><button class="btn btn-comun" data-toggle="modal" data-target="#modal-estaciones" data-whatever="'+layer.feature.properties.id+'_'+ layer.feature.layer._latlng.lat +'_'+ layer.feature.layer._latlng.lng +'">Ver Detalles de la Estación</button></strong><br>', layer.feature.properties);
           }
         }
         else{
@@ -1728,7 +2376,7 @@ function popupEstaciones(layer) {
                                   '<strong>['+layer.feature.properties.Norte+', '+layer.feature.properties.Este+']</strong><br>'+
                                   '<strong>Altitud</strong>: '+layer.feature.properties.Altitud+'.<br>'+
                                   '<strong>ID en la base de datos</strong>: '+layer.feature.properties.id+'.<br>'+
-                                  '<strong><button class="estilo-modales-1" data-toggle="modal" data-target="#modal-estaciones" data-whatever="'+layer.feature.properties.id+'_'+ layer.feature.layer._latlng.lat +'_'+ layer.feature.layer._latlng.lng +'">Ver Detalles de la Estación</button></strong><br>', layer.feature.properties
+                                  '<strong><button class="btn btn-comun" data-toggle="modal" data-target="#modal-estaciones" data-whatever="'+layer.feature.properties.id+'_'+ layer.feature.layer._latlng.lat +'_'+ layer.feature.layer._latlng.lng +'">Ver Detalles de la Estación</button></strong><br>', layer.feature.properties
                                 );
         }
       }
@@ -1755,7 +2403,7 @@ function popupEstaciones(layer) {
                             '<strong>Altitud</strong>: '+layer.feature.properties.Altitud+'.<br>'+
                             '<strong>ID en la base de datos</strong>: '+layer.feature.properties.id+'.<br>'+
                             '<strong>Tipo de MM 1</strong>: '+tipos+'.<br>'+
-                            '<strong><button class="estilo-modales-1" data-toggle="modal" data-target="#modal-estaciones" data-whatever="'+layer.feature.properties.id+'_'+ layer.feature.layer._latlng.lat +'_'+ layer.feature.layer._latlng.lng +'">Ver Detalles de la Estación</button></strong><br>', layer.feature.properties);
+                            '<strong><button class="btn btn-comun" data-toggle="modal" data-target="#modal-estaciones" data-whatever="'+layer.feature.properties.id+'_'+ layer.feature.layer._latlng.lat +'_'+ layer.feature.layer._latlng.lng +'">Ver Detalles de la Estación</button></strong><br>', layer.feature.properties);
       }
       else{
         return L.Util.template( '<p><strong>Estacion</strong>: '+layer.feature.properties.Estacion+'.<br>'+
@@ -1767,7 +2415,7 @@ function popupEstaciones(layer) {
                                 '<strong>['+layer.feature.properties.Norte+', '+layer.feature.properties.Este+']</strong><br>'+
                                 '<strong>Altitud</strong>: '+layer.feature.properties.Altitud+'.<br>'+
                                 '<strong>ID en la base de datos</strong>: '+layer.feature.properties.id+'.<br>'+
-                                '<strong><button class="estilo-modales-1" data-toggle="modal" data-target="#modal-estaciones" data-whatever="'+layer.feature.properties.id+'_'+ layer.feature.layer._latlng.lat +'_'+ layer.feature.layer._latlng.lng +'">Ver Detalles de la Estación</button></strong><br>', layer.feature.properties
+                                '<strong><button class="btn btn-comun" data-toggle="modal" data-target="#modal-estaciones" data-whatever="'+layer.feature.properties.id+'_'+ layer.feature.layer._latlng.lat +'_'+ layer.feature.layer._latlng.lng +'">Ver Detalles de la Estación</button></strong><br>', layer.feature.properties
                               );
       }
     }
@@ -1781,7 +2429,7 @@ function popupEstaciones(layer) {
                               '<strong>['+layer.feature.properties.Norte+', '+layer.feature.properties.Este+']</strong><br>'+
                               '<strong>Altitud</strong>: '+layer.feature.properties.Altitud+'.<br>'+
                               '<strong>ID en la base de datos</strong>: '+layer.feature.properties.id+'.<br>'+
-                              '<strong><button class="estilo-modales-1" data-toggle="modal" data-target="#modal-estaciones" data-whatever="'+layer.feature.properties.id+'_'+ layer.feature.layer._latlng.lat +'_'+ layer.feature.layer._latlng.lng +'">Ver Detalles de la Estación</button></strong><br>', layer.feature.properties
+                              '<strong><button class="btn btn-comun" data-toggle="modal" data-target="#modal-estaciones" data-whatever="'+layer.feature.properties.id+'_'+ layer.feature.layer._latlng.lat +'_'+ layer.feature.layer._latlng.lng +'">Ver Detalles de la Estación</button></strong><br>', layer.feature.properties
                             );
     }
   }
@@ -1924,7 +2572,7 @@ $("#btnModalEditar").click(function (e) {
 
   $('#modal-estaciones').modal('hide');
 
-  alert("Estación Guardada con Exito")
+  notification.success('Listo','Se ha actualizado exitosamente la estación '+id)
   
 });
 
@@ -2042,9 +2690,9 @@ $("#ejecutar-query").click(function(e){
     map.removeLayer(capasEst[6].capa);
     capasEst[6].capa = L.layerGroup();
   }
-  var estQuery = QueryEjecutarVisor(capasDatos[2].database);
+  var estQuery = QueryEjecutarVisor(capasDatos["estaciones"].database);
   for (let i = 0; i < estQuery.length; i++) {
-    var estaci = capasDatos[2].database["estacion_"+estQuery[i]];
+    var estaci = capasDatos["estaciones"].database["estacion_"+estQuery[i]];
     var point = L.marker([estaci['Norte'], estaci['Este']]).toGeoJSON();
     var auxmarker;
     var auxFormatosPopUp = "";
@@ -2054,15 +2702,15 @@ $("#ejecutar-query").click(function(e){
     if (auxtipoup.includes('UGS')){
       auxcapa = "ugs"
     }
-    else if (auxtipoup.includes('VIVIENDA')){
-      auxcapa = "vivienda"
-    }
+    // else if (auxtipoup.includes('VIVIENDA')){
+    //   auxcapa = "vivienda"
+    // }
     else if (auxtipoup.includes('SGMF')){
       auxcapa = "sgmf"
     }
-    else if (auxtipoup.includes('CMM') || auxtipoup.includes('CATÁLOGO') || auxtipoup.includes('CATALOGO')){
-      auxcapa = "cat"
-    }
+    // else if (auxtipoup.includes('CMM') || auxtipoup.includes('CATÁLOGO') || auxtipoup.includes('CATALOGO')){
+    //   auxcapa = "cat"
+    // }
     else if (auxtipoup.includes('IMM') || auxtipoup.includes('INVENTARIO')){
       auxcapa = "inv"
     }
@@ -2144,7 +2792,7 @@ $("#ejecutar-query").click(function(e){
       Altitud: estaci['Altitud'],
       Formatos: auxFormatosPopUp
     });
-    capasEst[6].figuras.push(point);
+    capasEst[4].figuras.push(point);
     // console.log(i);
     var puntico = L.geoJson(point,{
         onEachFeature: function (feature, layer) {
@@ -2154,14 +2802,14 @@ $("#ejecutar-query").click(function(e){
         }
       })
       .bindPopup(popupEstaciones)
-      .addTo(capasEst[6].capa)
+      .addTo(capasEst[4].capa)
       .addTo(allData); 
 
   }
-  capasEst[6].capa.addTo(map);
-  capasEst[6].active = 2;
+  capasEst[4].capa.addTo(map);
+  capasEst[4].active = 2;
   auxCapaQuery = true;
   $('#id-Query-Estaciones').modal('hide');
-  $("#est_6").prop("checked", true);
+  $("#est_4").prop("checked", true);
 })
 
