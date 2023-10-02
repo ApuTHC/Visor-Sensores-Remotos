@@ -1,5 +1,5 @@
 body{
-  overflow: hidden;
+  overflow: hidden !important;
   margin: 0;
   font-family: 'Gabarito', cursive;
   /* background: #00000060;
@@ -11,7 +11,7 @@ body{
 .panel .sections {
   position: absolute;
   top: 0;
-  z-index: 99999;
+  z-index: 999;
 }
 .panel .sections .left {
   position: absolute;
@@ -74,59 +74,139 @@ body{
   padding: 0;
   width: auto;
 }
-.main .cover #info-tablas .row{
+.main .cover #info-tablas .row-main{
   margin: 0;
   height: 80vh;
   color: #333;
   display: block;
 }
-.main .cover #info-tablas .row #tematicas{
+.main .cover #info-tablas .row-main #tematicas{
   width: 100%;
   justify-content: center;
   border-bottom: none;
 }
-.main .cover #info-tablas .row #tematicas .nav-item{
+.main .cover #info-tablas .row-main #tematicas .nav-item{
   margin: 0 10px;
   border-bottom: 1px solid black;
 }
-.main .cover #info-tablas .row #tematicas .nav-item .nav-link{
+.main .cover #info-tablas .row-main #tematicas .nav-item .nav-link{
   background: #ffffffbb;
   color: #333;
   border: none;
 }
-.main .cover #info-tablas .row #tematicas .nav-item .nav-link.active{
+.main .cover #info-tablas .row-main #tematicas .nav-item .nav-link.active{
   background: #247461;
   color: #fff;
   border: none;
 }
-.main .cover #info-tablas .row #tabla{
+.main .cover #info-tablas .row-main #tabla{
   padding: 5px;
   height: 93%;
   background: #ffffffcc;
   border: 4px solid #247461;
   border-radius: 10px;
 }
-.main .cover #info-tablas .row #tabla .inicio{
+.main .cover #info-tablas .row-main #tabla .inicio{
   margin-top: 40px;
 }
-.main .cover #info-tablas .row #tabla .inicio .sep-inicio{
+.main .cover #info-tablas .row-main #tabla .inicio .sep-inicio{
   border-top: 2px solid #247461;
 }
-.main .cover #info-tablas .row #tabla .inicio .contenedor-logos{
+.main .cover #info-tablas .row-main #tabla .inicio .contenedor-logos{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
-.main .cover #info-tablas .row #tabla .inicio .contenedor-logos #logo-unal{
+.main .cover #info-tablas .row-main #tabla .inicio .contenedor-logos #logo-unal{
   height: 180px;
 }
-.main .cover #info-tablas .row #tabla .inicio .contenedor-logos #logo-geohazards{
+.main .cover #info-tablas .row-main #tabla .inicio .contenedor-logos #logo-geohazards{
   height: 130px;
 }
-.main .cover #info-tablas .row #tabla .tablaconfig{
+.main .cover #info-tablas .row-main #tabla .tablaconfig{
   height: 100%;
   overflow: auto;
 
+}
+
+.table-bordered thead th {
+  border-bottom-width: 2px;
+  color: white;
+  background: #247461;
+}
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #000000;
+}
+.table-bordered td, .table-bordered th {
+  border: 1px solid #000000;
+}
+
+.btn-comun {
+  color: #247461;
+  background: #ffffff;
+  border-color: #247461;
+}
+.btn-comun:hover {
+  color: #ffffff;
+  background: #247461;
+  border-color: #247461;
+}
+.btnEditar,
+.btnEliminar,
+.btnFigura {
+  color: #247461;
+  background: #ffffff00;
+  border-color: #24746100;
+}
+.btnEditar:hover,
+.btnEliminar:hover,
+.btnFigura:hover {
+  color: #ffffff;
+  background: #247461;
+  border-color: #247461;
+}
+
+.modal-dialog{
+  width: 90vw;
+  max-width: none;
+}
+.modal-dialog .estilo-modales{
+  background: #247461;
+  color: #ffffff;
+}
+.modal-dialog .estilo-modales .close{
+  color: #ffffff;
+}
+
+.modal-dialog .estilo-modales.btn {
+  color: #247461;
+  background: #ffffff;
+  border-color: #247461;
+}
+.modal-dialog .estilo-modales.btn:hover {
+  color: #ffffff;
+  background: #247461;
+  border-color: #247461;
+}
+
+.alert {
+  top: -80vh;
+}
+
+.seal-info-est {
+  color: #247461;
+  background: #ffffff;
+  border-color: #247461;
+  position: fixed;
+  right: 39px;
+  top: 110px;
+  font-size: 20px;
+}
+.seal-info-est:hover {
+  color: #ffffff;
+  background: #247461;
+  border-color: #247461;
 }

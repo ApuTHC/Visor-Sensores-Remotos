@@ -3420,7 +3420,7 @@ function GuardarEstacion(isEdit, id) {
         else if (auxAttr[2] == 'radiobtnMM') {
           formatosINVENTARIO[auxAttr[3]][auxAttr[1]] = $('input:radio[name='+idsFormatos[attr]+']:checked').val();
         }
-        else if(auxAttr[2] == 'PARTE' || auxAttr[2] == 'MOV' || auxAttr[2] == 'FUENTE' || auxAttr[2] == 'REP' || auxAttr[2] == 'SIMMA' || auxAttr[2] == 'MUN' || auxAttr[2] == 'GEOGRF' || auxAttr[1] === 'SUBTIPO' || auxAttr[2] == 'INFSEC' || auxAttr[2] == 'ACT' || auxAttr[2] == 'GMF'){
+        else if(auxAttr[1] == 'ID' || auxAttr[2] == 'DEP' || auxAttr[2] == 'PARTE' || auxAttr[2] == 'MOV' || auxAttr[2] == 'FUENTE' || auxAttr[2] == 'REP' || auxAttr[2] == 'SIMMA' || auxAttr[2] == 'MUN' || auxAttr[2] == 'GEOGRF' || auxAttr[1] === 'SUBTIPO' || auxAttr[2] == 'INFSEC' || auxAttr[2] == 'ACT' || auxAttr[2] == 'GMF'){
           formatosINVENTARIO[auxAttr[3]][auxAttr[1]+'_'+auxAttr[2]] = $('#'+idsFormatos[attr]).val();
         }
         else if (auxAttr[2] == 'checkbtnMM') {
@@ -4274,22 +4274,22 @@ function SubirFotosAnexas(idEstacion, isEdit) {
         auxCountLibreta++;
         estaciones["estacion_"+idEstacion]['FotosLibreta'] = {'FotosURL':{}};
       }
-      if (auxAttrFotos[0] == 'UGSR') {
-        auxCountUGSR[auxAttrFotos[2]]++;
-        estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL'] = {};
-      }
-      if (auxAttrFotos[0] == 'UGSS') {
-        auxCountUGSS[auxAttrFotos[2]]++;
-        estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL'] = {};
-      }
-      if (auxAttrFotos[0] == 'SGMF') {
-        auxCountSGMF[auxAttrFotos[2]]++;
-        estaciones["estacion_"+idEstacion]['Formularios']['Form_SGMF']['Form_SGMF_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL'] = {};
-      }
-      if (auxAttrFotos[0] == 'INVENTARIO') {
-        auxCountINV[auxAttrFotos[2]]++;
-        estaciones["estacion_"+idEstacion]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL'] = {};
-      }
+      // if (auxAttrFotos[0] == 'UGSR') {
+      //   auxCountUGSR[auxAttrFotos[2]]++;
+      //   estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Rocas']['Form_UGS_Rocas_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL'] = {};
+      // }
+      // if (auxAttrFotos[0] == 'UGSS') {
+      //   auxCountUGSS[auxAttrFotos[2]]++;
+      //   estaciones["estacion_"+idEstacion]['Formularios']['Form_UGS_Suelos']['Form_UGS_Suelos_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL'] = {};
+      // }
+      // if (auxAttrFotos[0] == 'SGMF') {
+      //   auxCountSGMF[auxAttrFotos[2]]++;
+      //   estaciones["estacion_"+idEstacion]['Formularios']['Form_SGMF']['Form_SGMF_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL'] = {};
+      // }
+      // if (auxAttrFotos[0] == 'INVENTARIO') {
+      //   auxCountINV[auxAttrFotos[2]]++;
+      //   estaciones["estacion_"+idEstacion]['Formularios']['Form_INVENTARIO']['Form_INVENTARIO_'+auxAttrFotos[2]]['FotosAnexas']['FotosURL'] = {};
+      // }
     }
 
   }
@@ -4311,6 +4311,14 @@ function SubirFotosAnexas(idEstacion, isEdit) {
           // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
           var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           console.log('Upload is ' + progress + '% done');
+          notice('foto '+auxcountFotoCorregido+' cargando: '+ progress + '% done', {
+            type: 'info', 
+            position: 'topcenter', 
+            appendType: 'append',
+            closeBtn: false,
+            autoClose: 1000,
+            className: '',
+          })
           switch (snapshot.state) {
             case firebase.storage.TaskState.PAUSED: // or 'paused'
               console.log('Upload is paused');
@@ -4323,7 +4331,14 @@ function SubirFotosAnexas(idEstacion, isEdit) {
         (error) => {
           // A full list of error codes is available at
           // https://firebase.google.com/docs/storage/web/handle-errors
-          notification.alert('Fotos', 'Error al cargar');
+          notice('Error al cargar la foto', {
+            type: 'alert', 
+            position: 'topcenter', 
+            appendType: 'append',
+            closeBtn: false,
+            autoClose: 1000,
+            className: '',
+          })
           switch (error.code) {
             case 'storage/unauthorized':
               // User doesn't have permission to access the object
@@ -4341,7 +4356,6 @@ function SubirFotosAnexas(idEstacion, isEdit) {
           // Upload completed successfully, now we can get the download URL
           uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
             console.log('File available at', downloadURL);
-            notification.info('Fotos', 'Se cargó con exito');
             if (auxVaciaGenerales) {
               estaciones["estacion_"+idEstacion]['FotosGenerales']['FotosURL']['Foto_'+auxcountFoto] = downloadURL;
               estaciones["estacion_"+idEstacion]['FotosGenerales']['FotosURL']['FotoActivo_'+auxcountFoto] = true;
@@ -4401,6 +4415,14 @@ function SubirFotosAnexas(idEstacion, isEdit) {
           // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
           var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           console.log('Upload is ' + progress + '% done');
+          notice('foto '+auxcountFotoCorregido+' cargando: '+ progress + '% done', {
+            type: 'info', 
+            position: 'topcenter', 
+            appendType: 'append',
+            closeBtn: false,
+            autoClose: 1000,
+            className: '',
+          })
           switch (snapshot.state) {
             case firebase.storage.TaskState.PAUSED: // or 'paused'
               console.log('Upload is paused');
@@ -4411,6 +4433,14 @@ function SubirFotosAnexas(idEstacion, isEdit) {
           }
         },
         (error) => {
+          notice('Error al cargar la foto', {
+            type: 'alert', 
+            position: 'topcenter', 
+            appendType: 'append',
+            closeBtn: false,
+            autoClose: 1000,
+            className: '',
+          })
           // A full list of error codes is available at
           // https://firebase.google.com/docs/storage/web/handle-errors
           notification.alert('Fotos', 'Error al cargar');
@@ -4431,7 +4461,6 @@ function SubirFotosAnexas(idEstacion, isEdit) {
           // Upload completed successfully, now we can get the download URL
           uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
             console.log('File available at', downloadURL);
-            notification.info('Fotos', 'Se cargó con exito');
             if (auxVaciaLibreta) {
               estaciones["estacion_"+idEstacion]['FotosLibreta']['FotosURL']['Foto_'+auxcountFoto] = downloadURL;
               estaciones["estacion_"+idEstacion]['FotosLibreta']['FotosURL']['FotoActivo_'+auxcountFoto] = true;
@@ -4441,14 +4470,14 @@ function SubirFotosAnexas(idEstacion, isEdit) {
               database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/FotosLibreta/FotosURL/FotoActivo_'+auxcountFoto).set(true);
               database.ref().child('EstacionesCampo/estacion_'+idEstacion+'/FotosLibreta/FotosURL/count').set(auxCountLibreta);
 
-              // notice(`Cargada la foto ${auxcountFoto} de la Libreta de la estación ${idEstacion}`, {
-              //   type: 'success', 
-              //   position: 'topright', 
-              //   appendType: 'append',
-              //   closeBtn: false,
-              //   autoClose: 5000,
-              //   className: '',
-              // })
+              notice(`Cargada la foto ${auxcountFoto} de la Libreta de la estación ${idEstacion}`, {
+                type: 'success', 
+                position: 'topright', 
+                appendType: 'append',
+                closeBtn: false,
+                autoClose: 5000,
+                className: '',
+              })
 
             }
             else{
