@@ -1082,6 +1082,9 @@ function EnfocarCapa(id) {
 function GuardarCapa(id) {
   var num = id.split("_")[1];
   console.log(featureFiles[num].toGeoJSON());
+  
+  $("#saveBody-content").show();
+
 }
 // Función que muestra/oculta las capas en el mapa
 function toggleDatosFiles(id) {
