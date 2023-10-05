@@ -80,6 +80,8 @@ var datos = {
     'lineamientos': 'Lineamientos',
     'fallas': 'Fallas',
     'estaciones': 'Estaciones',
+    'hill': 'HillShade',
+    'generales': 'Generales',
   },
   "lista_capas": {
     "peru": {
@@ -92,12 +94,39 @@ var datos = {
     "colombia": {
         "cod": 1,
         "name": "Insumos",
-        "tipos": ['modelos'],
+        "tipos": ['generales','hill'],
         "capas": [
+          {
+            "name": "Área de Estudio",
+            "cod": "areaestudio",
+            "tipo": "generales",
+            "clase": "feature",
+            "layers": [0],
+            "attribution": "",
+            "url": "https://services7.arcgis.com/gTVMpnerZFjZtXQb/arcgis/rest/services/area_estudio/FeatureServer/0",
+          },
+          {
+            "name": "Veredas",
+            "cod": "veredas",
+            "tipo": "generales",
+            "clase": "feature",
+            "layers": [0],
+            "attribution": "",
+            "url": "https://services7.arcgis.com/gTVMpnerZFjZtXQb/arcgis/rest/services/Limite_Vereda/FeatureServer/0",
+          },
+          {
+            "name": "Casco Urbano",
+            "cod": "cascourbano",
+            "tipo": "generales",
+            "clase": "feature",
+            "layers": [0],
+            "attribution": "",
+            "url": "https://services7.arcgis.com/gTVMpnerZFjZtXQb/arcgis/rest/services/Limite_Urbano/FeatureServer/0",
+          },
           {
             "name": "Sombreado",
             "cod": "sombrasTerreno",
-            "tipo": "modelos",
+            "tipo": "hill",
             "clase": "mapserver",
             "layers": [0],
             "attribution": "",

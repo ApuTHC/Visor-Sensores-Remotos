@@ -75,7 +75,8 @@ var markerInv = L.AwesomeMarkers.icon({
 (function () {
   // Esperamos a que el documento esté listo
   $(document).ready(function () {
-    map = L.map("map").setView([6.24, -75.57], 11);
+    map = L.map("map").setView([6.379, -75.4469], 12
+      );
 
     // Creando niveles en el mapa para el orden en la visualización
     map.createPane("baseMapPane");
@@ -2816,3 +2817,16 @@ $("#ejecutar-query").click(function(e){
   $("#est_4").prop("checked", true);
 })
 
+
+// vere()
+function vere() {
+  var veredas1 = [];
+  for (let i = 0; i < veredas.features.length; i++) {
+    const element = veredas.features[i];
+    veredas1.push(element.properties.S_NOMVERED);
+  }
+  console.log(veredas1);
+}
+
+
+  

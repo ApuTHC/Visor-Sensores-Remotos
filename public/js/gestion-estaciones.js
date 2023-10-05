@@ -7,10 +7,12 @@ function ElementoFormato(nombre, clase, tag, stringArray) {
 var ElementoSueloResidualUGSR = new ElementoFormato( "Horizonte",  "secuenciaestratisuelosres",  "secuenciaestratisuelor", ['VI','V','IV']);
 var ElementoSueloResidualUGSS = new ElementoFormato( "Horizonte",  "secuenciaestrati",  "secuenciaestratisuelor", ['VI (Suelo Residual Menor a 10% F.R.*)','V (Saprolito Fino 10%-35% F.R.*)','IV (Saprolito Grueso 35%-70% F.R.*)']);
 
+
+
 var listaElementosUGSR = [
   new ElementoFormato( "Número Formato",  "edittext",  "noformato", 0),
   new ElementoFormato( "Municipio",  "spinner",  "municipios", ['GIRARDOTA']),
-  new ElementoFormato( "Vereda",  "edittext",  "vereda", 0),
+  new ElementoFormato( "Vereda",  "spinner",  "vereda", ["San Esteban","La Calera","La Matica","Loma de los Ochoa","San Diego","Jamundi","El Barro","Las Cuchillas","Manga Arriba","El Palmar","El Cano","El Yarumo","Encenillos","Juan Cojo","Portachuelo","La Holanda","La Mata","La Meseta","Potrerito","El Totumo","El Paraiso","El Socorro","Mercedes Abrego","San Andres"]),
   new ElementoFormato( "Número de la Estación",  "edittext",  "noestacion", 0),
   new ElementoFormato( "Clase Afloramiento",  "spinner",  "claseaflor", ['Natural','Corte superficial','Excavación subterránea','Trinchera, Apique']),
   new ElementoFormato( "Secuencia Estrati",  "secuenciaestrati",  "secuenciaestratiopt", ['Depósito de Gravedad','Suelo Transportado','Suelo Residual','Roca']),
@@ -60,7 +62,7 @@ var listaElementosUGSRDiscont = [
 var listaElementosUGSS = [
   new ElementoFormato( "Número Formato",  "edittext",  "noformato", 0),
   new ElementoFormato( "Municipio",  "spinner",  "municipios", ['GIRARDOTA']),
-  new ElementoFormato( "Vereda",  "edittext",  "vereda", 0),
+  new ElementoFormato( "Vereda",  "spinner",  "vereda", ["San Esteban","La Calera","La Matica","Loma de los Ochoa","San Diego","Jamundi","El Barro","Las Cuchillas","Manga Arriba","El Palmar","El Cano","El Yarumo","Encenillos","Juan Cojo","Portachuelo","La Holanda","La Mata","La Meseta","Potrerito","El Totumo","El Paraiso","El Socorro","Mercedes Abrego","San Andres"]),
   new ElementoFormato( "Número de la Estación",  "edittext",  "noestacion", 0),
   new ElementoFormato( "Clase Afloramiento",  "spinner",  "claseaflor", ['Natural','Corte superficial','Excavación subterránea','Trinchera, Apique']),
   new ElementoFormato( "Secuencia Estratigráfica",  "secuenciaestrati",  "secuenciaestratiopt", ['Suelo Antrópico','Suelo Residual','Suelo Transportado']),
@@ -106,7 +108,7 @@ var listaElementosUGSS = [
 var listaElementosSGMF =[
   new ElementoFormato( "Número Formato",  "edittext",  "noformato", 0),
   new ElementoFormato( "Municipio",  "spinner",  "municipios", ['GIRARDOTA']),
-  new ElementoFormato( "Vereda",  "edittext",  "vereda", 0),
+  new ElementoFormato( "Vereda",  "spinner",  "vereda", ["San Esteban","La Calera","La Matica","Loma de los Ochoa","San Diego","Jamundi","El Barro","Las Cuchillas","Manga Arriba","El Palmar","El Cano","El Yarumo","Encenillos","Juan Cojo","Portachuelo","La Holanda","La Mata","La Meseta","Potrerito","El Totumo","El Paraiso","El Socorro","Mercedes Abrego","San Andres"]),
   new ElementoFormato( "Número de la Estación",  "edittext",  "noestacion", 0),
   new ElementoFormato( "Tipo de Ambiente (Marque varios si es necesario)","radiocheck","ambiente",["Morfoestructural","Volcánico","Denudacional","Fluvial-Lagunar","Marino-Costero","Glacial-Periglacial","Eólico","Kárstico","Antropogénico"]),
   new ElementoFormato( "UBICACIÓN GEOMORFOLÓGICA","multitext","ubicacion",["Geomorfoestructura","Provincia","Region","Unidad","Subunidad","Elemento"]),
@@ -203,7 +205,7 @@ var listaElementosINV = [
   new ElementoFormato("CONFIABILIDAD FECHA MM","spinnerMM","ConfiFecha",["Exacta","Certeza mes y año","Certeza Año","Confiabilidad baja","Incierta"]),
   new ElementoFormato("FUENTE INFO. SECUNDARIA","edittextMM","FTE_INFSEC",0),
   new ElementoFormato("DEPARTAMENTO",  "spinnerMM",  "NOM_DEP", ["ANTIOQUIA"]),
-  new ElementoFormato("VEREDA",  "spinnerMM",  "VEREDA", []),
+  new ElementoFormato("VEREDA",  "spinnerMM",  "VEREDA", ["San Esteban","La Calera","La Matica","Loma de los Ochoa","San Diego","Jamundi","El Barro","Las Cuchillas","Manga Arriba","El Palmar","El Cano","El Yarumo","Encenillos","Juan Cojo","Portachuelo","La Holanda","La Mata","La Meseta","Potrerito","El Totumo","El Paraiso","El Socorro","Mercedes Abrego","San Andres"]),
   new ElementoFormato("TIPO MOVIMIENTO",  "radiobtnMM",  "TIPO_MOV", ["No Aplica","Deslizamiento","Reptación","Caída","Flujo","Volcamiento","Propagación Lateral","Deform. Gravit. Profundas"]),
   new ElementoFormato("SUBTIPO PRIMER MOVIMIENTO",  "spinnerMM",  "SUBTIPO_1", ["Caída de Roca","Caída de Suelo","Caída de detritos","Volcamiento flexural de roca","Volcamiento de roca","Volcamiento macizo rocoso","Deslizamiento rotacional","Deslizamiento traslacional","Deslizamiento en cuña","Deslizamiento traslacional en cuña","Deslizamiento traslacional planar","Deslizamiento licuación de arena","Deslizamiento licuación de limo","Deslizamiento licuación detritos","Deslizamiento licuación roca fracturada","Deslizamiento por flujo","Flujo de Detritos","Flujo de Lodo","Flujo de Tierra","Flujo de turba","Avalancha de rocas","Avalancha de detritos","Crecida de detritos","Propagación lateral lenta","Propagación lateral licuación","Reptación de Suelos","Solifluxión","Gelifluxión (en permafrost)"]),
   new ElementoFormato("SUBTIPO SEGUNDO MOVIMIENTO",  "spinnerMM",  "SUBTIPO_2", ["No Aplica","Caída de Roca","Caída de Suelo","Caída de detritos","Volcamiento flexural de roca","Volcamiento de roca","Volcamiento macizo rocoso","Deslizamiento rotacional","Deslizamiento traslacional","Deslizamiento en cuña","Deslizamiento traslacional en cuña","Deslizamiento traslacional planar","Deslizamiento licuación de arena","Deslizamiento licuación de limo","Deslizamiento licuación detritos","Deslizamiento licuación roca fracturada","Deslizamiento por flujo","Flujo de Detritos","Flujo de Lodo","Flujo de Tierra","Flujo de turba","Avalancha de rocas","Avalancha de detritos","Crecida de detritos","Propagación lateral lenta","Propagación lateral licuación","Reptación de Suelos","Solifluxión","Gelifluxión (en permafrost)"]),

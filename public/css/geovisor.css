@@ -501,3 +501,27 @@ body{
   font-size: 1.5em;
   width: 320px;
 }
+
+#myTabs .nav-item .nav-link{
+  background: #ffffffbb;
+  color: #333;
+  border: none;
+}
+#myTabs .nav-item .nav-link.active{
+  background: #247461;
+  color: #fff;
+  border: none;
+}
+
+#myTabsContent{
+  border: 3px solid #247461;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.accordion .card-header a{
+  color: #247461;
+}
+.accordion .card-header a:hover{
+  color: #2e967e;
+}
